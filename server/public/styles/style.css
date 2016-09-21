@@ -1,0 +1,16 @@
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+main * {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  font-size: 300%;
+}
+
+form {
+
+}
