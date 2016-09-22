@@ -5,9 +5,11 @@ myApp.factory('UserFactory', ['$http', function($http) {
   function signIn(){firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
     var token = result.credential.accessToken;
+    console.log('This is the users token to identify them on Firebase:', token);
     // The signed-in user info.
     var user = result.user;
-    console.log('this is the user:', user);
+    // console.log('this is the user:', user);
+    console.log('this is the userID:', user.uid);
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;

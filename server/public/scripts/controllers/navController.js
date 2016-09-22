@@ -6,7 +6,7 @@ $scope.auth = AuthFactory;
 $scope.auth.$onAuthStateChanged(function(user) {
   $scope.user = user;
 
-  console.log(user); //change the path here
+  console.log('This is the current user:', user); //change the path here
 });
 
 var userFactory = UserFactory;
