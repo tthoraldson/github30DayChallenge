@@ -9,11 +9,6 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
         .when('/login', {
             templateUrl: '/views/partials/login.html',
             controller: 'LoginController'
-            // resolve: {
-            //   'currentAuth': ['AuthFactory', function(AuthFactory){
-            //     return AuthFactory.$requireSignIn();
-            //   }]
-            // }
         })
         .when('/admin', {
             templateUrl: '/views/partials/admin.html',

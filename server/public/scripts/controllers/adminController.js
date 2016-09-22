@@ -3,8 +3,4 @@ myApp.controller("AdminController", ["$scope", "$http", "$location", "AuthFactor
 
 
 
-
-
-
-
   }]);
