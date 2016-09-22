@@ -1,0 +1,31 @@
+{
+  "name": "github30daychallenge",
+  "version": "1.0.0",
+  "description": "Github 30 Day Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tthoraldson/github30DayChallenge.git"
+  },
+  "keywords": [
+    "github"
+  ],
+  "author": "Future_$cope",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tthoraldson/github30DayChallenge/issues"
+  },
+  "homepage": "https://github.com/tthoraldson/github30DayChallenge#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angularfire": "^2.0.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "routes": "^2.1.0"
+  }
+}

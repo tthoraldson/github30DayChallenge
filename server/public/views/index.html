@@ -3,24 +3,29 @@
 
 <head>
     <link rel="stylesheet" href="../styles/style.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script type="text/javascript" src="/scripts/firebaseConfig.js"></script>
+
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="/vendors/angularfire.min.js"></script>
     <script src="../scripts/client.js"></script>
+
+    <script type="text/javascript" src="/scripts/factories/authFactory.js"></script>
+    <script type="text/javascript" src="/scripts/factories/userFactory.js"></script>
+
+    <script type="text/javascript" src="/scripts/controllers/navController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/homeController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/loginController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/adminController.js"></script>
 
     <title>GitHub Challenge</title>
 </head>
 
-<body>
-    <main>
-        <header>30 Day GitHub Challenge</header>
-
-        <p class="description">Here we will say something about the challenge.</p>
-        <form action="demo_form.asp">
-            Name: <input type="text" name="name"> <br> Password: <input type="text" name="password">
-            <br>
-            <button>Login</button>
-            <button>Register</button>
-        </form>
-
-    </main>
+<body ng-app="myApp">
+  <div ng-include="'/views/nav.html'"></div>
+      <main ng-view></main>
 </body>
 
 </html>
