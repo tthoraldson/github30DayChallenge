@@ -19,6 +19,10 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/registration.html',
             controller: 'RegistrationController'
         })
+        .when('/invite', {
+            templateUrl: '/views/partials/invite.html',
+            controller: 'InviteController'
+        })
         .otherwise({
             redirectTo: 'home'
         });

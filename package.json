@@ -26,6 +26,7 @@
     "angularfire": "^2.0.2",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "nodemailer": "^2.6.4",
     "routes": "^2.1.0"
   }
 }

@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-
+var nodemailer = require('nodemailer');
 
 // MODULES & ROUTES
 var index = require('./routes/index');
