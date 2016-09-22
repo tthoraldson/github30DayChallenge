@@ -10,6 +10,9 @@ myApp.factory('UserFactory', ['$http', function($http) {
     var user = result.user;
     // console.log('this is the user:', user);
     console.log('this is the userID:', user.uid);
+
+    // BUILD AN IF STATEMENT THAT IS SOMETHING ALONG THE LINES OF IF THE USER ID DOES NOT EXIST IN THE DB THEN REDIRECT TO THE REGISTRATION PAGE AFTER LOGIN?
+
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
