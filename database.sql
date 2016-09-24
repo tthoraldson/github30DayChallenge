@@ -1,3 +1,5 @@
+--IMPORTANT: create database :: github_challenge
+
 CREATE TABLE users (
  id SERIAL PRIMARY KEY,
  github_url varchar(50),
