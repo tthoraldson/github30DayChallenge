@@ -7,30 +7,30 @@ myApp.factory('UserFactory', ['$http', function($http) {
 
 
   function checkNewUser(user) {
-      // $http.get('/userData')
-      //     .then(function(userData) {
-      //         var unique = true;
-      //         userData.data.forEach(function(member) {
-      //             if (member.email == user.email) {
-      //                 unique = false;
-      //             }
-      //         });
-      //
-      //         if (unique == true) {
-      //             // postUser(user);
-      //             // console.log('THIS IS THE USER', user.github.cachedUserProfile);
-      //
-      //         }
-      //
-      //
-      //     });
+      $http.get('/userData')
+          .then(function(userData) {
+              var unique = true;
+              userData.data.forEach(function(member) {
+                  if (member.email == user.email) {
+                      unique = false;
+                  }
+              });
+
+              if (unique == true) {
+                  postUser(user);
+                  // console.log('THIS IS THE USER', user.github.cachedUserProfile);
+
+              }
+
+
+          });
 
 
   }
   function postUser(user) {
-      // $http.post('/userData', user).then(function(){
-      //   console.log('post successful');
-      // }
+      $http.post('/userData', user).then(function(){
+        console.log('post successful');
+      });
       // console.log(user.cachedUserProfile);
   }
 
@@ -44,6 +44,8 @@ myApp.factory('UserFactory', ['$http', function($http) {
     var user = result.user;
     // console.log('this is the user:', user);
     console.log('this is the userID:', user.uid);
+
+    checkNewUser(user);
 
 
 

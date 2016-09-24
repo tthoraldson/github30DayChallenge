@@ -26,10 +26,10 @@ app.listen(app.get('port'), function() {
 });
 
 
-var swagArray = [];
-var sitepage = null;
-var phInstance = null;
-var usernumber = 19336103;
+// var swagArray = [];
+// var sitepage = null;
+// var phInstance = null;
+// var usernumber = 19336103;
 
 
 

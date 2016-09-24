@@ -3,6 +3,7 @@ var router = express.Router();
 var path = require('path');
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/github_challenge';
+var phantom = require('phantom');
 
 router.get('/', function(req, res) {
 
@@ -37,8 +38,16 @@ router.get('/', function(req, res) {
 });
 
 
-// POST USER URL AND OTHER FIREBAUSE AUTH INFORMATION ON FIRST TIME LOGGIN 
+// POST USER URL AND OTHER FIREBAUSE AUTH INFORMATION ON FIRST TIME LOGGIN
 router.post('/', function(req, res) {
+  // console.log();
+
+  var swagArray = [];
+  var sitepage = null;
+  var phInstance = null;
+  var usernumber = req.body.providerData[0].uid;
+
+
     phantom.create()
         .then(instance => {
             phInstance = instance;
@@ -58,6 +67,35 @@ router.post('/', function(req, res) {
 
             var tempArray = [];
             console.log(swagArray[6].substring(15, swagArray[6].length - 2));
+
+             pg.connect(connectionString, function(err, client, done) {
+                 console.log('Start!');
+                 if (err) {
+                     res.sendStatus(500);
+                     console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+                 }
+
+                 var user = req.body;
+                 var thequery =
+                     "INSERT INTO users (github_url, email, display_name, user_id, profile_photo, auth_level) VALUES ($1, $2, $3, $4, $5, $6)";
+
+
+                 client.query(thequery, [swagArray[6].substring(15, swagArray[6].length - 2), user.email, user.displayName, usernumber, user.photoURL, 33],
+                     function(err, result) {
+                         done(); //closes connection, I only can have ten :
+                         if (err) {
+                             res.sendStatus(500);
+                             console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
+                             return;
+                         }
+                         // console.log('result: ', result.rows);
+
+                         console.log('GET REQ: grabbing task list from db')
+                         res.send(result.rows)
+                     })
+
+
+             });
 
         })
         .then(content => {
