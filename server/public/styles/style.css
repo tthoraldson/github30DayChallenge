@@ -25,3 +25,72 @@ textarea {
     transition: all 0.3s ease-in-out;
     width: 65%;
 }
+
+.graphContainer{
+  background-color: slategrey;
+  /*display: inline-block;*/
+  width: 800px;
+  height: 220px;
+  margin: auto;
+}
+
+.membersList{
+  background-color: skyblue;
+  /*display: inline-block;*/
+  width: 800px;
+  height: 650px;
+  margin: auto;
+}
+
+.formContainer{
+  background-color: slategrey;
+  /*display: inline-block;*/
+  width: 800px;
+  height: 650px;
+  margin: auto;
+}
+.listContainer{
+  background-color: skyblue;
+  /*display: inline-block;*/
+  width: 800px;
+  height: 450px;
+  margin: auto;
+}
+.TabBar{
+  background-color: black;
+  /*display: inline-block;*/
+  width: 800px;
+  height: 30px;
+  margin: auto;
+  color: white;
+}
+
+.homeButton{
+  display: inline-block;
+}
+.loginButton{
+  float: right;
+  display: inline-block;
+}
+
+.topNavContainer{
+    /*display: inline-block;*/
+  width: 758px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.topNavCenter{
+  width:250px;
+  display:inline-block;
+  background-color: yellow;
+}
+
+.topNavButton{
+
+  background-color: tomato;
+  margin: 0;
+  text-align: center;
+  position: inherit;
+  width: 100%;
+}

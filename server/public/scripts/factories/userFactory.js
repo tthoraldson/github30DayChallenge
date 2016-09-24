@@ -1,6 +1,40 @@
 myApp.factory('UserFactory', ['$http', function($http) {
 
   var provider = new firebase.auth.GithubAuthProvider();
+  provider.addScope('user');
+  //TODO: Make post to db
+  //TODO: write get function here.
+
+
+  function checkNewUser(user) {
+      // $http.get('/userData')
+      //     .then(function(userData) {
+      //         var unique = true;
+      //         userData.data.forEach(function(member) {
+      //             if (member.email == user.email) {
+      //                 unique = false;
+      //             }
+      //         });
+      //
+      //         if (unique == true) {
+      //             // postUser(user);
+      //             // console.log('THIS IS THE USER', user.github.cachedUserProfile);
+      //
+      //         }
+      //
+      //
+      //     });
+
+
+  }
+  function postUser(user) {
+      // $http.post('/userData', user).then(function(){
+      //   console.log('post successful');
+      // }
+      // console.log(user.cachedUserProfile);
+  }
+
+
 
   function signIn(){firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
@@ -11,7 +45,7 @@ myApp.factory('UserFactory', ['$http', function($http) {
     // console.log('this is the user:', user);
     console.log('this is the userID:', user.uid);
 
-    
+
 
     // BUILD AN IF STATEMENT THAT IS SOMETHING ALONG THE LINES OF IF THE USER ID DOES NOT EXIST IN THE DB THEN REDIRECT TO THE REGISTRATION PAGE AFTER LOGIN?
 

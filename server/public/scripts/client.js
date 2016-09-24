@@ -23,6 +23,19 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/invite.html',
             controller: 'InviteController'
         })
+        .when('/data', {
+            templateUrl: '/views/partials/dataPage.html',
+            controller: 'DataPageController'
+        })
+        .when('/members', {
+            templateUrl: '/views/partials/membersPage.html',
+            controller: 'MembersPageController'
+        })
+        .when('/forms', {
+            templateUrl: '/views/partials/formPage.html',
+            controller: 'FormPageController'
+        })
+
         .otherwise({
             redirectTo: 'home'
         });
