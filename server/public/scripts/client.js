@@ -17,23 +17,48 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
         })
         .when('/registration', {
             templateUrl: '/views/partials/registration.html',
-            controller: 'RegistrationController'
+            controller: 'RegistrationController',
+            resolve: {
+              'currentAuth': ['AuthFactory', function(AuthFactory){
+                return AuthFactory.$requireSignIn();
+              }]
+            }
         })
         .when('/invite', {
             templateUrl: '/views/partials/invite.html',
-            controller: 'InviteController'
+            controller: 'InviteController',
+            resolve: {
+              'currentAuth': ['AuthFactory', function(AuthFactory){
+                return AuthFactory.$requireSignIn();
+              }]
+            }
         })
         .when('/data', {
             templateUrl: '/views/partials/dataPage.html',
-            controller: 'DataPageController'
+            controller: 'DataPageController',
+            resolve: {
+              'currentAuth': ['AuthFactory', function(AuthFactory){
+                return AuthFactory.$requireSignIn();
+              }]
+            }
         })
         .when('/members', {
             templateUrl: '/views/partials/membersPage.html',
-            controller: 'MembersPageController'
+            controller: 'MembersPageController',
+            resolve: {
+              'currentAuth': ['AuthFactory', function(AuthFactory){
+                return AuthFactory.$requireSignIn();
+              }]
+            }
         })
         .when('/forms', {
             templateUrl: '/views/partials/formPage.html',
-            controller: 'FormPageController'
+            controller: 'FormPageController',
+            resolve: {
+              'currentAuth': ['AuthFactory', function(AuthFactory){
+                return AuthFactory.$requireSignIn();
+              }]
+            }
         })
 
         .otherwise({
