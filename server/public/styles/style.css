@@ -11,6 +11,17 @@ header {
   font-size: 300%;
 }
 
-form {
+.emailForm {
+text-align: center;
+}
 
+
+textarea {
+    font-size: 0.8em;
+    font-family: 'proxima-nova-soft', sans-serif;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 0.9em;
+    transition: all 0.3s ease-in-out;
+    width: 65%;
 }
