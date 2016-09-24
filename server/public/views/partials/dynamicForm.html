@@ -1,0 +1,89 @@
+<div class="dynamicForm_container" ng-controller="DynamicFormController">
+    <form>
+        <input class="surveyTitle" type="text" ng-model="surveyTitle.title" />
+        <input class="surveyDescription" type="text" placeholder="no form description" ng-model="surveyTitle.description" />
+        <div ng-repeat="question in surveyQuestions">
+            <div class="questionTitleContainer">
+                <input class="questionTitle" type="text" ng-model="question.title" />
+                <button ng-click="selectedDataType('checkBox')">CheckBox</button>
+                <button ng-click="selectedDataType('multipleChoice')">MultipleChoice</button>
+                <button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
+            </div>
+            <div ng-if="shortAnswer_selected">
+                <input class="AQ" placeholder="short answer input" />
+            </div>
+            <div ng-if="multipleChoice_selected">
+                <input class="choiceDescription" type="text" value="choose best answer" />
+                <button type="checkbox"></button>
+                <input class="formInput_option" placeholder="new option" />
+                <button>Add New Option</button>
+            </div>
+            <div ng-if="checkBox_selected">
+                <input class="choiceDescription" type="text" value="choose all that apply" />
+                <button type="radio"></button>
+                <input class="formInput_option" placeholder="new option" />
+                <button>Add New Option</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <label>Question:</label><input placeholder="required" ng-model="buildForm.inputQuestion" id="dF_inputQuestion" type="text"/></br>
+<label ng-if="shortAnswer_selected">Placeholder:</label><input ng-if="shortAnswer_selected" ng-model="buildForm.inputQuestion_placeholder" placeholder = "no placeholder text"  type="text"/>
+<label ng-if="number_selected">Value Label:</label><input ng-if="number_selected" ng-model="buildForm.inputQuestion_numValue" placeholder = "no value label"  type="text"/>
+<section class="dF_chooseDataButtons">
+
+
+<button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
+<button ng-click="selectedDataType('number')">Number</button>
+<button ng-click="selectedDataType('date')">Date</button>
+<button ng-click="selectedDataType('chooseMany')">Choose Many</button>
+<button ng-click="selectedDataType('chooseOne')">Choose One</button>
+    </section>
+  </br>
+
+<div class="dF_choosenDataForm">
+
+  ------------------ short answer form ------------------------
+  <section ng-if="shortAnswer_selected" class="shortAnswer_form">
+    <label editable-text="buildForm.inputQuestion">{{ buildForm.inputQuestion || "error: no question written" }}:</label><input placeholder="{{buildForm.inputQuestion_placeholder}}"class="dF_shortAnswerInput" type="text"/>
+    <br /><button class="btn"> ADD QUESTION TO FORM </button>
+  </section>
+
+
+  ------------------ numeric data form ----------------------
+  <section ng-if="number_selected" class="number_form">
+      <label editable-text="buildForm.inputQuestion">{{ buildForm.inputQuestion || "empty" }}</label></br><label>{{buildForm.inputQuestion_numValue}}:</label><input class="dF_numberInput" type="number"/>
+      <br /><button class="btn"> ADD QUESTION TO FORM </button>
+  </section>
+
+
+  ------------------ date select form -----------------------
+  <section ng-if="date_selected" class="date_form">
+    <label editable-text="buildForm.inputQuestion">{{ buildForm.inputQuestion || "empty" }}</label><input class="dF_numberInput" type="date"/>
+    <br /><button class="btn"> ADD QUESTION TO FORM </button>
+  </section>
+
+
+  ------------------ choose multiple form -------------------
+  <section ng-if="chooseMany_selected" class="chooseMany_form">
+    <label editable-text="buildForm.inputQuestion">{{ buildForm.inputQuestion || "empty" }}</label><br />
+    <input type="text" /><input class="dF_numberInput" type="checkbox"/><br />
+    <input type="text" /><input class="dF_numberInput" type="checkbox"/><br />
+    <input type="text" /><input class="dF_numberInput" type="checkbox"/><br />
+    <input type="text" /><input class="dF_numberInput" type="checkbox"/><br />
+    <button> add another option</button>
+    <br /><button class="btn"> ADD QUESTION TO FORM </button>
+  </section>
+
+
+  ------------------ choose one form ------------------------
+  <section ng-if="chooseOne_selected" class="chooseOne_form">
+    <label editable-text="buildForm.inputQuestion">{{ buildForm.inputQuestion || "empty" }}</label><br />
+    <input type="text" /><input class="dF_numberInput" type="radio"/><br />
+    <input type="text" /><input class="dF_numberInput" type="radio"/><br />
+    <input type="text" /><input class="dF_numberInput" type="radio"/><br />
+    <input type="text" /><input class="dF_numberInput" type="radio"/><br />
+    <button> add another option</button>
+    <br /><button class="btn"> ADD QUESTION TO FORM </button>
+  </section> -->
