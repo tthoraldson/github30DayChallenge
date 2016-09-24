@@ -25,6 +25,7 @@
     "angular-route": "^1.5.8",
     "angularfire": "^2.0.2",
     "body-parser": "^1.15.2",
+    "d3": "^4.2.6",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
     "routes": "^2.1.0"

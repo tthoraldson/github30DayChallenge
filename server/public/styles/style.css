@@ -30,7 +30,7 @@ textarea {
   background-color: slategrey;
   /*display: inline-block;*/
   width: 800px;
-  height: 220px;
+  height: 280px;
   margin: auto;
 }
 
@@ -93,4 +93,42 @@ textarea {
   text-align: center;
   position: inherit;
   width: 100%;
+}
+
+
+/*==========CHARTMANDER========*/
+#chart {
+  position: absolute;
+  z-index: 999;
+  border: 1px solid black;
+  height: 280px;
+  width: 800px;
+}
+
+path {
+	stroke: steelblue;
+	stroke-width: 2;
+	fill: none;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+
+
 }
