@@ -110,3 +110,62 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
+
+
+//=======================phantom scrape of lawns====================
+
+// var swagArray = [];
+// var sitepage = null;
+// var phInstance = null;
+//
+// phantom.create()
+//     .then(instance => {
+//         phInstance = instance;
+//         return instance.createPage();
+//     })
+//     .then(page => {
+//         sitepage = page;
+//         return page.open('https://github.com/users/tthoraldson/contributions');
+//     })
+//     .then(status => {
+//         console.log(status);
+//
+//         return sitepage.property('content');
+//     })
+//     .then(content => {
+//         swagArray = content.split('\n');
+//
+//         var tempArray = [];
+//         swagArray.forEach(function(line) {
+//           if (line.substring(11,14) == "rec"){
+//             var templine = line.substring(84);
+//             var templine2 = ""
+//             if (templine[0] == 'c'){
+//               templine = templine.substring(1);
+//             } else if (templine[0] == '-') {
+//               templine = templine.substring(2);
+//             } else if (templine[0] == 'a') {
+//               templine = templine.substring(3);
+//             }
+//
+//             templine = templine.substring(6);
+//             templine2 = templine.substring(14, 24);
+//             templine = templine[0];
+//             tempArray.push({data: templine, date: templine2});
+//             // tempArray.push(line);
+//
+//           }
+//         });
+//         tempArray.forEach(function(data){
+//           console.log(data);
+//         })
+//     })
+//     .then(content => {
+//         console.log(swagArray[1]);
+//         sitepage.close();
+//         phInstance.exit();
+//     })
+//     .catch(error => {
+//         console.log(error);
+//         phInstance.exit()
+//     })
