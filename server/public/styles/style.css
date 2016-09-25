@@ -138,7 +138,7 @@ div.tooltip {
 /*data tabs trial*/
 
 
-.cb {
+.tab {
     list-style: none;
     padding: 5px;
     display:inline-block;
@@ -147,7 +147,8 @@ div.tooltip {
     border: 1px solid black;
 	  border-radius: 5px;
 }
-.cb:hover{
+.tab:hover{
 	background-color: #4a4a4a;
 	color: #FFF;
+  cursor: pointer;
 }
