@@ -1,18 +1,27 @@
 <div class="tabBar">
-  <div class="tab" ng-click="tab = 1">tab 1</div>
-  <div class="tab" ng-click="tab = 2">tab 2</div>
-  <div class="tab" ng-click="tab = 3">tab 3</div>
+  <div class="tab selected" ng-click="tab = 1">Pending</div>
+  <div class="tab" ng-click="tab = 2">Invite</div>
+  <div class="tab" ng-click="tab = 3">Update</div>
 
   <div ng-show="tab == 1">
-      <p>first</p>
+      <p>Pending Stuff</p>
+      <ul>
+        <li>Branch Icon: Links to new tab of users github</li>
+        <li>View Lawn: Opens graphic display of users github commit lawn</li>
+        <li>Accept/Deny registration: Accepts/Denies users registration for sprints</li>
+      </ul>
    </div>
 
   <div ng-show="tab == 2">
-      <p>second</p>
+      <div ng-include="'/views/partials/invite.html'"></div>
   </div>
 
   <div ng-show="tab == 3">
-      <p>third</p>
+      <p>Update Stuff</p>
+      <ul>
+        <li>edit player information and delete players</li>
+        <li>Deleting a player will augment the members authentication level from a ‘player’ to one of a visitor (non-member) - this will not remove the member information from the database.</li>
+      </ul>
   </div>
 </div>
 <div class="membersList">membersList</div>
