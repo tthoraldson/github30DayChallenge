@@ -1,13 +1,13 @@
 <div class="tabBar">
-  <div class="tab" ng-click="tab = 1">tab 1</div>
-  <div class="tab" ng-click="tab = 2">tab 2</div>
-  <div class="tab" ng-click="tab = 3">tab 3</div>
+  <div class="tab" ng-click="tab = 1">new form</div>
+  <div class="tab" ng-click="tab = 2">form history</div>
+  <div class="tab" ng-click="tab = 3">create sprint</div>
 
 </div>
 
 
 <div class="main_container" ng-if="tab == 1">
-    <p>first</p>
+    <div ng-include="'/views/partials/invite.html'"></div>
     <i class="fa fa-github" aria-hidden="true"></i>
  </div>
 
