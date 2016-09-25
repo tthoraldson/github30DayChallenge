@@ -1,7 +1,13 @@
 myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
   console.log("Loaded: Data Page Controller");
 
+  function BUILDSPRINT2DATABASE(){
+    $http.put('/userData').then(function(){
+      console.log('worked :)');
+    });
+  }
 
+  BUILDSPRINT2DATABASE();
 
     $scope.tab = 1;
 
