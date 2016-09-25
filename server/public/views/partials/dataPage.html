@@ -1,3 +1,19 @@
 <div class="graphContainer"><div id="chart"></div></div>
-<div class="TabBar">dataTabBar</div>
+<div class="tabBar">
+        <div class="cb" ng-click="tab = 1">tab 1</div>
+        <div class="cb" ng-click="tab = 2">tab 2</div>
+        <div class="cb" ng-click="tab = 3">tab 3</div>
+
+        <div ng-show="tab == 1">
+            <p>first</p>
+         </div>
+
+        <div ng-show="tab == 2">
+            <p>second</p>
+        </div>
+
+        <div ng-show="tab == 3">
+            <p>third</p>
+        </div>
+      </div>
 <div class="listContainer">listContainer</div>

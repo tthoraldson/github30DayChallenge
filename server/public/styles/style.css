@@ -56,7 +56,7 @@ textarea {
   height: 450px;
   margin: auto;
 }
-.TabBar{
+.tabBar{
   background-color: black;
   /*display: inline-block;*/
   width: 800px;
@@ -131,4 +131,23 @@ div.tooltip {
   border-radius: 8px;
 
 
+}
+
+
+
+/*data tabs trial*/
+
+
+.cb {
+    list-style: none;
+    padding: 5px;
+    display:inline-block;
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid black;
+	  border-radius: 5px;
+}
+.cb:hover{
+	background-color: #4a4a4a;
+	color: #FFF;
 }
