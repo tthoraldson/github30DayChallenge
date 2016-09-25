@@ -1,6 +1,7 @@
 main {
   width: 80%;
   margin: 0 auto;
+  padding: 0;
 }
 main * {
   text-align: center;
@@ -15,6 +16,9 @@ header {
 text-align: center;
 }
 
+p{
+  margin: 0;
+}
 
 textarea {
     font-size: 0.8em;
@@ -34,7 +38,7 @@ textarea {
   margin: auto;
 }
 
-.membersList{
+.main_container{
   background-color: skyblue;
   /*display: inline-block;*/
   width: 800px;

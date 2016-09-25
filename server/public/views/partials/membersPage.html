@@ -3,7 +3,9 @@
   <div class="tab" ng-click="tab = 2">Invite</div>
   <div class="tab" ng-click="tab = 3">Update</div>
 
-  <div ng-show="tab == 1">
+</div>
+
+  <div class="main_container" ng-show="tab == 1">
       <p>Pending Stuff</p>
       <ul>
         <li>Branch Icon: Links to new tab of users github</li>
@@ -13,14 +15,12 @@
       <i class="fa fa-github" aria-hidden="true"></i>
    </div>
 
-
-
-  <div ng-show="tab == 2">
+  <div class="main_container" ng-show="tab == 2">
       <div ng-include="'/views/partials/invite.html'"></div>
       <i class="fa fa-github" aria-hidden="true"></i>
   </div>
 
-  <div ng-show="tab == 3">
+  <div class="main_container" ng-show="tab == 3">
       <p>Update Stuff</p>
       <ul>
         <li>edit player information and delete players</li>
@@ -28,5 +28,3 @@
         <i class="fa fa-github" aria-hidden="true"></i>
       </ul>
   </div>
-</div>
-<div class="membersList">membersList</div>

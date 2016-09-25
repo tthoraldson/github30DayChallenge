@@ -1,22 +1,28 @@
-<div class="graphContainer"><div id="chart"></div></div>
+<div class="graphContainer">
+    <div id="chart"></div>
+</div>
+
 <div class="tabBar">
-        <div class="tab" ng-click="tab = 1">Sprints</div>
-        <div class="tab" ng-click="tab = 2">Current Teams</div>
-        <div class="tab" ng-click="tab = 3">tab 3</div>
+    <div class="tab" ng-click="tab = 1">Sprints</div>
+    <div class="tab" ng-click="tab = 2">Current Teams</div>
+    <div class="tab" ng-click="tab = 3">Current Sprinters</div>
+</div>
 
-        <div ng-show="tab == 1">
-            <p>Sprint Stuff</p>
-            <i class="fa fa-github" aria-hidden="true"></i>
-         </div>
 
-        <div ng-show="tab == 2">
-            <p>Current Team Stuff</p>
-            <i class="fa fa-github" aria-hidden="true"></i>
-        </div>
 
-        <div ng-show="tab == 3">
-            <p>third</p>
-            <i class="fa fa-github" aria-hidden="true"></i>
-        </div>
-      </div>
-<div class="listContainer">listContainer</div>
+  <div class="main_container" ng-show="tab == 1">
+        <p>Sprint Stuff</p>
+        <i class="fa fa-github" aria-hidden="true"></i>
+    </div>
+
+    <div class="main_container" ng-show="tab == 2">
+        <p>Current Team Stuff</p>
+        <i class="fa fa-github" aria-hidden="true"></i>
+    </div>
+
+    <div class="main_container" ng-show="tab == 3">
+        <p>third</p>
+        <i class="fa fa-github" aria-hidden="true"></i>
+    </div>
+
+  </div>
