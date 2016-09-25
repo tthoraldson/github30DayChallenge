@@ -2,6 +2,10 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
   console.log("Loaded: Data Page Controller");
 
 
+
+    $scope.tab = 1;
+
+  //============================== d3 ===========================//
   var	margin = {top: 30, right: 20, bottom: 30, left: 50},
           	width = 600 - margin.left - margin.right,
           	height = 270 - margin.top - margin.bottom;

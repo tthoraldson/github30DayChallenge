@@ -2,6 +2,7 @@ myApp.controller("InviteController", ["$scope", "$http", "$location", "AuthFacto
   console.log("InviteController works");
 
 
+
   $scope.email = function(emailInfo){
     $http.post('/email', emailInfo).then(function(response) {
     console.log("email success response: ", response);
