@@ -1,18 +1,15 @@
 myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
     console.log("Loaded: Data Page Controller");
 
-    // function BUILDSPRINT2DATABASE(){
-    //   $http.put('/databaseBuild').then(function(){
-    //   });
-    // }
-    // BUILDSPRINT2DATABASE();
+
 
 
     //counter for tabbed html views in main pages
     $scope.tab = 1;
     var sprint = {
       title: "test (start/finish)",
-      data: []
+      data: [],
+      dateStart: Date('4/23/2016')
     }
     $scope.currentSprintOpen = "";
 
@@ -53,6 +50,20 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
 
     //============================== d3 ===========================//
+    //TODO: make script to access spinter["data_" + date];
+    // have table 'sprinthistory', contains basic data on each sprint
+    // sprint_name, sprint_startData, sprint_endDate
+    // use start/end date to populate list of date strings
+    // take list of dates and run a for loop and making date string into 09_21
+    // iterate through sprinter["date_" + tempDateString] for commit data
+    // reformat date string and combine data and date to make object for d3->
+    // {
+    //     date: "27-Apr-12",
+    //     close: 67.00
+    // }
+
+    sprint["date_"]
+
     var margin = {
             top: 30,
             right: 20,
