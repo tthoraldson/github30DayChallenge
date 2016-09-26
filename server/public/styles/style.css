@@ -1,33 +1,24 @@
 main {
-  width: 80%;
-  margin: 0 auto;
-  padding: 0;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
 }
+
 main * {
-  text-align: center;
+    text-align: center;
 }
 
 h3 {
-  margin: 0;
+    margin: 0;
 }
+
 header {
-  text-align: center;
-  font-size: 300%;
+    text-align: center;
+    font-size: 300%;
 }
 
-.sprint_option {
-  /*height: 50px;*/
-  border-color: rgb(80,80,150);
-  border-width: 2px;
-  border-style: solid;
-
-}
-.emailForm {
-text-align: center;
-}
-
-p{
-  margin: 0;
+p {
+    margin: 0;
 }
 
 textarea {
@@ -40,129 +31,145 @@ textarea {
     width: 65%;
 }
 
-.graphContainer{
-  background-color: slategrey;
-  /*display: inline-block;*/
-  width: 800px;
-  height: 280px;
-  margin: auto;
+.dashboard {
+  width: 95%;
+
 }
 
-.main_container{
-  background-color: skyblue;
-  /*display: inline-block;*/
-  width: 800px;
-  height: 650px;
-  margin: auto;
-}
-
-.formContainer{
-  background-color: slategrey;
-  /*display: inline-block;*/
-  width: 800px;
-  height: 650px;
-  margin: auto;
-}
-.listContainer{
-  background-color: skyblue;
-  /*display: inline-block;*/
-  width: 800px;
-  height: 450px;
-  margin: auto;
-}
-.tabBar{
-  background-color: black;
-  /*display: inline-block;*/
-  width: 800px;
-  height: 30px;
-  margin: auto;
-  color: white;
-}
-
-.homeButton{
-  display: inline-block;
-}
-.loginButton{
+.sprintContainer {
   float: right;
-  display: inline-block;
+  width: 40%;
+  position: absolute;
+  right: 0;
+
 }
 
-.topNavContainer{
+.sprint_option {
+    /*height: 50px;*/
+    border-color: rgb(80, 80, 150);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.emailForm {
+    text-align: center;
+}
+
+.main_container {
+    background-color: skyblue;
     /*display: inline-block;*/
-  width: 758px;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-.topNavCenter{
-  width:250px;
-  display:inline-block;
-  background-color: yellow;
+    width: 800px;
+    height: 650px;
+    margin: auto;
 }
 
-.topNavButton{
+.formContainer {
+    background-color: slategrey;
+    /*display: inline-block;*/
+    width: 800px;
+    height: 650px;
+    margin: auto;
+}
 
-  background-color: tomato;
-  margin: 0;
-  text-align: center;
-  position: inherit;
-  width: 100%;
+.listContainer {
+    background-color: skyblue;
+    /*display: inline-block;*/
+    width: 800px;
+    height: 450px;
+    margin: auto;
+}
+
+.tabBar {
+    background-color: black;
+    /*display: inline-block;*/
+    width: 800px;
+    height: 30px;
+    margin: auto;
+    color: white;
+}
+
+.homeButton {
+    display: inline-block;
+}
+
+.loginButton {
+    float: right;
+    display: inline-block;
+}
+
+.topNavContainer {
+    /*display: inline-block;*/
+    width: 758px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.topNavCenter {
+    width: 250px;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.topNavButton {
+    background-color: tomato;
+    margin: 0;
+    text-align: center;
+    position: inherit;
+    width: 100%;
 }
 
 
 /*==========CHARTMANDER========*/
+
 #chart {
-  position: absolute;
-  z-index: 999;
-  border: 1px solid black;
-  height: 280px;
-  width: 800px;
+    position: absolute;
+    z-index: 999;
+    border: 1px solid black;
+    left: 0;
+    width: 60%;
+    overflow-x: scroll;
 }
 
 path {
-	stroke: steelblue;
-	stroke-width: 2;
-	fill: none;
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
 }
 
-.axis path,
-.axis line {
-	fill: none;
-	stroke: grey;
-	stroke-width: 1;
-	shape-rendering: crispEdges;
+.axis path, .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
 }
 
 div.tooltip {
-  position: absolute;
-  text-align: center;
-  width: 60px;
-  height: 28px;
-  padding: 2px;
-  font: 12px sans-serif;
-  background: lightsteelblue;
-  border: 0px;
-  border-radius: 8px;
-
-
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
 }
-
 
 
 /*data tabs trial*/
 
-
 .tab {
     list-style: none;
     padding: 5px;
-    display:inline-block;
+    display: inline-block;
     background-color: #000;
     color: #FFF;
     border: 1px solid black;
-	  border-radius: 5px;
+    border-radius: 5px;
 }
-.tab:hover{
-	background-color: #4a4a4a;
-	color: #FFF;
-  cursor: pointer;
+
+.tab:hover {
+    background-color: #4a4a4a;
+    color: #FFF;
+    cursor: pointer;
 }
