@@ -32,16 +32,14 @@ textarea {
 }
 
 .dashboard {
-  width: 95%;
-
+    width: 95%;
 }
 
 .sprintContainer {
-  float: right;
-  width: 40%;
-  position: absolute;
-  right: 0;
-
+    float: right;
+    width: 40%;
+    position: absolute;
+    right: 0;
 }
 
 .sprint_option {
@@ -98,16 +96,13 @@ textarea {
 }
 
 .topNavContainer {
-    /*display: inline-block;*/
-    width: 758px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin: auto;
 }
 
 .topNavCenter {
-    width: 250px;
+    width: 49.5%;
     display: inline-block;
-    background-color: yellow;
 }
 
 .topNavButton {
@@ -117,6 +112,8 @@ textarea {
     position: inherit;
     width: 100%;
 }
+
+
 
 
 /*==========CHARTMANDER========*/

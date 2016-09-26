@@ -1,18 +1,18 @@
- <div ng-controller="NavController">
+<div ng-controller="NavController">
 
-<div class="content">
-  <div id="home"  class="homeButton"><a href="#home">Home</a></div>
+    <div class="content">
+        <div id="home" class="homeButton"><a href="#home">Home</a></div>
 
-  <div id="login" class="loginButton" ng-if="!user" ng-click="logIn()"><a href="#login">Login</a></div>
-  <div id="login" class="loginButton" ng-if="user" ng-click="logOff()"><a href="#login">Logoff</a></div>
+        <div id="login" class="loginButton" ng-if="!user" ng-click="logIn()"><a href="#login">Login</a></div>
+        <div id="login" class="loginButton" ng-if="user" ng-click="logOff()"><a href="#login">Logoff</a></div>
 
-<!-- ng-if="currentUser.authLevel == 33" -->
-<div class="topNavContainer">
-  <div id="registration" class="topNavCenter" ng-if="user"><a href="#data"><button class="topNavButton">Data</button></a></div>
-  <div id="invite"       class="topNavCenter" ng-if="user"><a href="#members"><button class="topNavButton">Members</button></a></div>
-  <div id="admin"        class="topNavCenter" ng-if="user"><a href="#forms"><button class="topNavButton">Forms</button></a></div>
-</div>
+        <!-- ng-if="currentUser.authLevel == 33" -->
+        <div class="topNavContainer">
+            <div id="registration" class="topNavCenter" ng-if="user"><a href="#data"><button class="topNavButton">Data</button></a></div>
 
-</div>
+            <div id="admin" class="topNavCenter" ng-if="user"><a href="#forms"><button class="topNavButton">Forms</button></a></div>
+        </div>
+
+    </div>
 
 </div>
