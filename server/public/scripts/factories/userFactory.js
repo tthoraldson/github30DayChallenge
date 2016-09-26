@@ -7,7 +7,7 @@ myApp.factory('UserFactory', ['$http', function($http) {
 
 
   function checkNewUser(user) {
-      $http.get('/userData')
+      $http.get('/userData',{params: {db: 'users'}})
           .then(function(userData) {
               var unique = true;
               userData.data.forEach(function(member) {

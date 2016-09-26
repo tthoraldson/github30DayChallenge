@@ -7,11 +7,21 @@ main * {
   text-align: center;
 }
 
+h3 {
+  margin: 0;
+}
 header {
   text-align: center;
   font-size: 300%;
 }
 
+.sprint_option {
+  /*height: 50px;*/
+  border-color: rgb(80,80,150);
+  border-width: 2px;
+  border-style: solid;
+
+}
 .emailForm {
 text-align: center;
 }

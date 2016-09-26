@@ -9,6 +9,7 @@ var phantom = require('phantom');
 var index = require('./routes/index');
 var email = require('./routes/email');
 var userData = require('./routes/userData');
+var databaseBuild = require('./routes/databaseBuild');
 // Serve back static files
 
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use('/', index);
 app.use('/email', email);
 app.use('/userData', userData)
+app.use('/databaseBuild', databaseBuild);
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {

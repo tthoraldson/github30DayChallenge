@@ -11,7 +11,19 @@
 
 
   <div class="main_container" ng-show="tab == 1">
-        <p>Sprint Stuff</p>
+        <div ng-repeat="sprint in sprintHistory track by $index"
+             ng-click="clickedSprint(sprint.title)"
+             class="sprint_option"
+             >
+
+             <div ng-if="currentSprintOpen == sprint.title">
+               <p ng-repeat="sprinter in sprint.data">{{sprinter.member_name}}//{{sprinter.member_score}}</p>
+             </div>
+
+          <h3> {{sprint.title}}</h3>
+
+
+        </div>
         <i class="fa fa-github" aria-hidden="true"></i>
     </div>
 
