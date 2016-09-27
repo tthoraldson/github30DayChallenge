@@ -55,7 +55,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     //============================== d3 ===========================//
     // Set the dimensions of the canvas / graph
   var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-    width = 800 - margin.left - margin.right,
+    width = 750 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
 
   // Parse the date / time
@@ -109,7 +109,27 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     {'day': 7, 'commit': 90},
     {'day': 8, 'commit': 100},
     {'day': 9, 'commit': 20},
-    {'day': 10, 'commit': 10}
+    {'day': 10, 'commit': 10},
+    {"day": 11, 'commit': 30},
+    {'day': 12, 'commit': 50},
+    {'day': 13, 'commit': 80},
+    {'day': 14, 'commit': 60},
+    {'day': 15, 'commit': 70},
+    {'day': 16, 'commit': 30},
+    {'day': 17, 'commit': 90},
+    {'day': 18, 'commit': 100},
+    {'day': 19, 'commit': 20},
+    {'day': 20, 'commit': 10},
+    {"day": 21, 'commit': 30},
+    {'day': 22, 'commit': 50},
+    {'day': 23, 'commit': 80},
+    {'day': 24, 'commit': 60},
+    {'day': 25, 'commit': 70},
+    {'day': 26, 'commit': 30},
+    {'day': 27, 'commit': 90},
+    {'day': 28, 'commit': 100},
+    {'day': 29, 'commit': 20},
+    {'day': 30, 'commit': 10}
 ];
 
     // data.forEach(function(d) {
