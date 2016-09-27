@@ -8,7 +8,7 @@ router.post('/', function(req, res){
 
 var emailObj = req.body;
 
-console.log(emailObj);
+// console.log(emailObj);
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport('smtps://githubchallenge%40gmail.com:GotEm!!!@smtp.gmail.com');
 
