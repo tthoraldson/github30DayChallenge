@@ -7,7 +7,8 @@
 
 
 <div class="main_container" ng-if="tab == 1">
-    <div class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div>
+    <p>view pending members, generate team names, assign captains, sort by language tags, sprint start and end times</p>
+    <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
 <div class="main_container" ng-if="tab == 2">
@@ -16,8 +17,9 @@
 </div>
 
 <div class="main_container" ng-if="tab == 3">
-  <div ng-include="'/views/partials/dynamicForm.html'"></div>
-  <p>survey form (creates pending members), email invite, add form history button</p>
+    <div class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div>
+    <p>survey form (creates pending members), email invite, add form history button</p>
     <div ng-include="'/views/partials/invite.html'"></div>
-    <i class="fa fa-github" aria-hidden="true"></i>
+
+
 </div>

@@ -1,12 +1,18 @@
+body {
+    background-color: #222222;
+}
+
 main {
     width: 80%;
     margin: 0 auto;
     padding: 0;
 }
 
-main * {
-
+a {
+  color: white;
 }
+
+main * {}
 
 h3 {
     margin: 0;
@@ -21,12 +27,13 @@ p {
     margin: 0;
 }
 
-.dynamicForm_container{
-  padding-left: 20px;
-  padding-top: 20px;
-  text-align: left !important;
-  /*float: left;*/
+.dynamicForm_container {
+    padding-left: 20px;
+    padding-top: 20px;
+    text-align: left !important;
+    /*float: left;*/
 }
+
 textarea {
     font-size: 0.8em;
     font-family: 'proxima-nova-soft', sans-serif;
@@ -37,13 +44,14 @@ textarea {
     width: 65%;
 }
 
-.currentForm_title{
-padding: 10px;
-background-color: rgba(255,255,255,0.15);
+.currentForm_title {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
 }
-.currentForm_title2{
-padding: 10px;
-  background-color: rgba(255,255,255,0.30);
+
+.currentForm_title2 {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.30);
 }
 
 .dashboard {
@@ -62,6 +70,8 @@ padding: 10px;
     border-color: rgb(80, 80, 150);
     border-width: 2px;
     border-style: solid;
+    background-color: #DAE5E3;
+    text-align: center;
 }
 
 .emailForm {
@@ -69,9 +79,9 @@ padding: 10px;
 }
 
 .main_container {
-    background-color: skyblue;
+    background-color: #DAE5E3;
     /*display: inline-block;*/
-    width: 800px;
+    /*width: 90%;*/
     height: 650px;
     margin: auto;
 }
@@ -84,20 +94,13 @@ padding: 10px;
     margin: auto;
 }
 
-.listContainer {
-    background-color: skyblue;
-    /*display: inline-block;*/
-    width: 800px;
-    height: 450px;
-    margin: auto;
-}
-
 .tabBar {
     background-color: black;
     /*display: inline-block;*/
-    width: 800px;
+    width: 100%;
     height: 30px;
-    margin: auto;
+    margin: 0 auto;
+    text-align: center;
     color: white;
 }
 
@@ -111,12 +114,13 @@ padding: 10px;
 }
 
 .topNavContainer {
-    width: 100%;
-    margin: auto;
+    width: 98%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .topNavButton {
-    width: 49.5%;
+    width: 49%;
     height: 40px;
     background-color: #07AA9E;
     margin: 0;
@@ -142,6 +146,8 @@ padding: 10px;
     left: 0;
     width: 60%;
     overflow-x: scroll;
+    background-color: #DAE5E3;
+    text-align: center;
 }
 
 path {

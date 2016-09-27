@@ -158,7 +158,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
             svg.selectAll("dot")
                 .data(data)
                 .enter().append("circle")
-                .attr("r", 5)
+                .attr("r", 3)
                 .attr("cx", function(d) {
                     return x(d.day);
                 })
