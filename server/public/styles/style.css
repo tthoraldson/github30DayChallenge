@@ -100,20 +100,22 @@ textarea {
     margin: auto;
 }
 
-.topNavCenter {
-    width: 49.5%;
-    display: inline-block;
-}
-
 .topNavButton {
-    background-color: tomato;
+    width: 49.5%;
+    height: 40px;
+    background-color: #07AA9E;
     margin: 0;
     text-align: center;
     position: inherit;
-    width: 100%;
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
-
+.topNavButton a {
+    text-decoration: none;
+    color: black;
+}
 
 
 /*==========CHARTMANDER========*/

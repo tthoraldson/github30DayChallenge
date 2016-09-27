@@ -8,9 +8,9 @@
 
         <!-- ng-if="currentUser.authLevel == 33" -->
         <div class="topNavContainer">
-            <div id="registration" class="topNavCenter" ng-if="user"><a href="#data"><button class="topNavButton">Data</button></a></div>
+            <a href="#data"><button class="topNavButton" ng-if="user">Dash</button></a>
 
-            <div id="admin" class="topNavCenter" ng-if="user"><a href="#forms"><button class="topNavButton">Forms</button></a></div>
+            <a href="#forms"><button class="topNavButton" ng-if="user">Sprint</button></a>
         </div>
 
     </div>
