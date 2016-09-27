@@ -1,40 +1,14 @@
-<div class="graphContainer">
-    <div id="chart"></div>
-</div>
-
-<div class="tabBar">
-    <div class="tab" ng-click="tab = 1">Sprints</div>
-    <div class="tab" ng-click="tab = 2">Current Teams</div>
-    <div class="tab" ng-click="tab = 3">Current Sprinters</div>
-</div>
+<div id="chart">
+    Commits Per Day</div>
 
 
+<div class="sprintContainer">
+    <div ng-repeat="sprint in sprintHistory track by $index" ng-click="clickedSprint(sprint.title)" class="sprint_option">
 
-  <div class="main_container" ng-show="tab == 1">
-        <div ng-repeat="sprint in sprintHistory track by $index"
-             ng-click="clickedSprint(sprint.title)"
-             class="sprint_option"
-             >
-
-             <div ng-if="currentSprintOpen == sprint.title">
-               <p ng-repeat="sprinter in sprint.data">{{sprinter.member_name}}//{{sprinter.member_score}}</p>
-             </div>
-
-          <h3> {{sprint.title}}</h3>
-          <i class="fa fa-line-chart" aria-hidden="true"></i>
-
+        <div ng-if="currentSprintOpen == sprint.title">
+            <p ng-repeat="sprinter in sprint.data">{{sprinter.member_name}}//{{sprinter.member_score}}</p>
         </div>
-        <i class="fa fa-github" aria-hidden="true"></i>
-    </div>
 
-    <div class="main_container" ng-show="tab == 2">
-        <p>Current Team Stuff</p>
-        <i class="fa fa-github" aria-hidden="true"></i>
+        <h3> {{sprint.title}}</h3>
     </div>
-
-    <div class="main_container" ng-show="tab == 3">
-        <p>third</p>
-        <i class="fa fa-github" aria-hidden="true"></i>
-    </div>
-
-  </div>
+</div>
