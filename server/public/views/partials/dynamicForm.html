@@ -16,13 +16,13 @@
                 <input class="choiceDescription" type="text" value="choose best answer" />
                 <button type="checkbox"></button>
                 <input class="formInput_option" placeholder="new option" />
-                <button>Add New Option</button>
+                <button ng-click="addOption()">Add New Option</button>
             </div>
             <div ng-if="checkBox_selected">
                 <input class="choiceDescription" type="text" value="choose all that apply" />
                 <button type="radio"></button>
                 <input class="formInput_option" placeholder="new option" />
-                <button>Add New Option</button>
+                <button ng-click="addOption()">Add New Option</button>
             </div>
         </div>
     </form>
