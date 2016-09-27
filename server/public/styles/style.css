@@ -5,7 +5,7 @@ main {
 }
 
 main * {
-    text-align: center;
+
 }
 
 h3 {
@@ -21,6 +21,12 @@ p {
     margin: 0;
 }
 
+.dynamicForm_container{
+  padding-left: 20px;
+  padding-top: 20px;
+  text-align: left !important;
+  /*float: left;*/
+}
 textarea {
     font-size: 0.8em;
     font-family: 'proxima-nova-soft', sans-serif;
@@ -29,6 +35,15 @@ textarea {
     padding: 0.9em;
     transition: all 0.3s ease-in-out;
     width: 65%;
+}
+
+.currentForm_title{
+padding: 10px;
+background-color: rgba(255,255,255,0.15);
+}
+.currentForm_title2{
+padding: 10px;
+  background-color: rgba(255,255,255,0.30);
 }
 
 .dashboard {

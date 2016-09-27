@@ -1,31 +1,87 @@
 <div class="dynamicForm_container" ng-controller="DynamicFormController">
-    <form>
+    <h3>Create Form</h3>
+    <form ng-model="newSurveyQuestion">
         <input class="surveyTitle" type="text" ng-model="surveyTitle.title" />
         <input class="surveyDescription" type="text" placeholder="no form description" ng-model="surveyTitle.description" />
-        <div ng-repeat="question in surveyQuestions">
-            <div class="questionTitleContainer">
-                <input class="questionTitle" type="text" ng-model="question.title" />
-                <button ng-click="selectedDataType('checkBox')">CheckBox</button>
-                <button ng-click="selectedDataType('multipleChoice')">MultipleChoice</button>
-                <button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
+        <h5>TODO: add form options ie: 'start sprint/general survey && email '</h5>
+        <br />
+        <div class="questionTitleContainer">
+            <input class="questionTitle" type="text" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
+            <label>Question Type: </label>
+            <button ng-click="selectedDataType('checkBox')">CheckBox</button>
+            <button ng-click="selectedDataType('multipleChoice')">MultipleChoice</button>
+            <button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
+            <br />
+        </div>
+
+        <!-- shortanswer -->
+        <div ng-if="shortAnswer_selected">
+            <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.shortAnswer" value="newSurveyQuestion.shortAnswer" />
+        </div>
+
+        <!-- multiplechoice -->
+        <div ng-if="multipleChoice_selected">
+            <label>desc: </label>
+            <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_MultiChoice" value="newSurveyQuestion.description_MultiChoice" />
+
+            <div ng-repeat="option in newSurveyQuestion.multipleChoice track by $index">
+                {{$index + 1}}.
+                <input type="radio"></input>
+                <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.multipleChoice[$index].option" value="newSurveyQuestion.multipleChoice[$index].option" />
+
             </div>
-            <div ng-if="shortAnswer_selected">
-                <input class="AQ" placeholder="short answer input" />
+            <button ng-click="addOption()">Add New Option</button>
+        </div>
+
+        <!-- checkbox -->
+        <div ng-if="checkBox_selected">
+            <label>desc: </label>
+            <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_Checkbox" value="newSurveyQuestion.description_Checkbox" />
+
+            <div ng-repeat="option in newSurveyQuestion.checkbox track by $index">
+                {{$index + 1}}.
+                <input type="checkbox"></input>
+                <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.checkbox[$index].option" value="newSurveyQuestion.checkbox[$index].option" />
+
             </div>
-            <div ng-if="multipleChoice_selected">
-                <input class="choiceDescription" type="text" value="choose best answer" />
-                <button type="checkbox"></button>
-                <input class="formInput_option" placeholder="new option" />
-                <button ng-click="addOption()">Add New Option</button>
+            <button ng-click="addOption()">Add New Option</button>
+        </div>
+
+        <button ng-if="checkBox_selected || multipleChoice_selected || shortAnswer_selected" ng-click="addQuestion(newSurveyQuestion)">ADD QUESTION TO FORM</button>
+
+    </form>
+
+    <div class="currentForm">
+        <h1>{{newForm.title}}</h1>
+        <h4>{{newForm.description}}</h4>
+        <div class="{{($index % 2) === 0 ? 'currentForm_title' : 'currentForm_title2'}}" ng-repeat="question in newForm.questions track by $index">
+            {{question.title}}
+            <div ng-if="question.type == 'checkbox'">
+                <div class="question_desc">{{question.desc}} </div>
+
+                <div ng-repeat="option in question.options">
+                    <input type="checkbox" />{{option.option}}
+                </div>
             </div>
-            <div ng-if="checkBox_selected">
-                <input class="choiceDescription" type="text" value="choose all that apply" />
-                <button type="radio"></button>
-                <input class="formInput_option" placeholder="new option" />
-                <button ng-click="addOption()">Add New Option</button>
+
+
+            <div ng-if="question.type == 'multipleChoice'">
+                <div class="question_desc">{{question.desc}} </div>
+
+                <div ng-repeat="option in question.options">
+                    <input type="radio" />{{option.option}}
+                </div>
+            </div>
+
+
+            <div ng-if="question.type == 'shortAnswer'">
+                <input type = "text" class="shortAnswer_inputForm" />
             </div>
         </div>
-    </form>
+
+    </div>
+
+
 </div>
 
 <!-- <label>Question:</label><input placeholder="required" ng-model="buildForm.inputQuestion" id="dF_inputQuestion" type="text"/></br>
