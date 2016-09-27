@@ -6,9 +6,6 @@ var connectionString = 'postgres://localhost:5432/github_challenge';
 var phantom = require('phantom');
 
 router.put('/', function(req, res) {
-
-
-
     var sprinters = [
         ["Liz Kerber", null, 78, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
         ["Hillary Manning", null, 52, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -128,10 +125,31 @@ router.put('/', function(req, res) {
                     console.log('GET REQ: grabbing task list from db')
                         // res.send(result.rows)
                 })
-
         });
+    });
+});
 
+router.get('/', function(req, res) {
+    // get data from database and append to graph
+    pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            res.sendStatus(500);
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+        }
 
+        //To manage strings and refrences cleaner
+        var queryStringGET = 'SELECT * FROM sprint2';
+
+        client.query(queryStringGET,
+            function(err, result) {
+                done(); //closes connection, I only can have ten :(
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                res.send(result.rows);
+            });
     });
 });
 

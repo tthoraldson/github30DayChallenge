@@ -1,7 +1,7 @@
 <div class="tabBar">
-    <div class="tab" ng-click="tab = 1">New Form</div>
-    <div class="tab" ng-click="tab = 3">Config</div>
-    <div class="tab" ng-click="tab = 2">Invite</div>
+    <div class="tab" ng-click="tab = 1">Sprint</div>
+    <div class="tab" ng-click="tab = 2">Config</div>
+    <div class="tab" ng-click="tab = 3">Invite</div>
 
 </div>
 
@@ -10,12 +10,14 @@
     <div class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div>
 </div>
 
-<div class="main_container" ng-if="tab == 3">
-    <p>member list, editable</p>
+<div class="main_container" ng-if="tab == 2">
+    <p>current member list w/ stats, editable</p>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
-<div class="main_container" ng-if="tab == 2">
+<div class="main_container" ng-if="tab == 3">
+  <div ng-include="'/views/partials/dynamicForm.html'"></div>
+  <p>survey form (creates pending members), email invite, add form history button</p>
     <div ng-include="'/views/partials/invite.html'"></div>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
