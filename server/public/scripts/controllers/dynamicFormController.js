@@ -69,11 +69,11 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     $scope.addOption = function(){
       if($scope.checkBox_selected){
         console.log('add a checkbox option')
-        $scope.newSurveyQuestion.checkbox.push({check: false, option: "df"});
+        $scope.newSurveyQuestion.checkbox.push({check: false, option: ""});
       }
       if($scope.multipleChoice_selected){
         console.log('add a multiC option')
-        $scope.newSurveyQuestion.multipleChoice.push({check: false, option: "df"});
+        $scope.newSurveyQuestion.multipleChoice.push({check: false, option: ""});
       }
 
 
