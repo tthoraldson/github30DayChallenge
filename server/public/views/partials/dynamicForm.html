@@ -1,8 +1,8 @@
 <div class="dynamicForm_container" ng-controller="DynamicFormController">
     <h3>Create Form</h3>
     <form ng-model="newSurveyQuestion">
-        <input class="surveyTitle" type="text" ng-model="surveyTitle.title" />
-        <input class="surveyDescription" type="text" placeholder="no form description" ng-model="surveyTitle.description" />
+        <input class="surveyTitle" type="text" ng-model="newForm.title" />
+        <input class="surveyDescription" type="text" placeholder="no form description" ng-model="newForm.description" />
         <h5>TODO: add form options ie: 'start sprint/general survey && email '</h5>
         <br />
         <div class="questionTitleContainer">
@@ -11,9 +11,9 @@
             <button ng-click="selectedDataType('checkBox')">CheckBox</button>
             <button ng-click="selectedDataType('multipleChoice')">MultipleChoice</button>
             <button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
-            <br />
-        </div>
 
+        </div>
+        <br />
         <!-- shortanswer -->
         <div ng-if="shortAnswer_selected">
             <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.shortAnswer" value="newSurveyQuestion.shortAnswer" />
@@ -46,7 +46,7 @@
             </div>
             <button ng-click="addOption()">Add New Option</button>
         </div>
-
+        <br />
         <button ng-if="checkBox_selected || multipleChoice_selected || shortAnswer_selected" ng-click="addQuestion(newSurveyQuestion)">ADD QUESTION TO FORM</button>
 
     </form>
