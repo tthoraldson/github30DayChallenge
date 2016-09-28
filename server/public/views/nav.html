@@ -1,16 +1,18 @@
 <div ng-controller="NavController">
 
     <div class="content">
-        <div id="home" class="homeButton"><a href="#home">Home</a></div>
+        <!-- <div id="home" class="homeButton"><a href="#home">Home</a></div> -->
 
         <div id="login" class="loginButton" ng-if="!user" ng-click="logIn()"><a href="#login">Login</a></div>
         <div id="login" class="loginButton" ng-if="user" ng-click="logOff()"><a href="#login">Logoff</a></div>
 
+        <h1>30 Day GitHub Challenge</h1>
+        
         <!-- ng-if="currentUser.authLevel == 33" -->
         <div class="topNavContainer">
-            <a href="#data"><button class="topNavButton" ng-if="user">Dash</button></a>
+            <a href="#data"><button class="topNavButton dashButton" ng-if="user">Dash</button></a>
 
-            <a href="#forms"><button class="topNavButton" ng-if="user">Admin</button></a>
+            <a href="#forms"><button class="topNavButton adminButton" ng-if="user">Admin</button></a>
         </div>
 
     </div>
