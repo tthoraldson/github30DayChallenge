@@ -92,13 +92,7 @@ textarea {
     margin: auto;
 }
 
-.formContainer {
-    background-color: slategrey;
-    /*display: inline-block;*/
-    width: 800px;
-    height: 650px;
-    margin: auto;
-}
+
 
 .tabBar {
     background-color: black;
