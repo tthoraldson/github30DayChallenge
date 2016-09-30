@@ -108,22 +108,45 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         }
 
         $scope.submitForm = function(form) {
-            console.log(form);
-            $http.get('/formData')
-                .then(function(data) {
-                    console.log('DB REF: ', data.data.length);
-                    form.formDBref = data.data.length;
                     $http.post('/formData', form)
                     .then(function() {
-                            // console.log(response);
+
+
+                      $scope.newForm = {
+                          formDBref: 0,
+                          title: "Untitled Survey",
+                          description: "",
+                          questions: []
+                      }
+
+                      //
+                      $scope.surveyTitle = {
+                          formDBref: 0,
+                          title: "Untitled Survey",
+                          description: ""
+                      };
+
+                      $scope.newSurveyQuestion = {
+                          title: "untitled question",
+                          description_MultiChoice: "Choose Best Answer:",
+                          description_Checkbox: "Choose All That Apply:",
+                          multipleChoice: [{
+                              check: false,
+                              option: "untitled option"
+                          }],
+                          checkbox: [{
+                              check: false,
+                              option: "untitled option"
+                          }],
+                          shortAnswer: ""
+                      };
+
+
                             console.log('post complete')
-                            // $http.put('/formData', form)
-                            //     .then(function() {
-                            //         console.log('SUCCCCCUESSSSS');
-                            //     })
+
                         })
-                });
-        }
+                };
+
 
         if ($scope.multipleChoice_selected) {
             var newQuestion = new Question(question.title, question.description_MultiChoice, question.multipleChoice, "multipleChoice");
@@ -162,4 +185,10 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
         return this;
     }
+
+
+
+
+
+
 }]);
