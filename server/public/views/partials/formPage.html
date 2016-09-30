@@ -13,7 +13,7 @@
 
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
-<h3 ng-repeat="user in userData track by $index"> {{user.display_name}} < woo a name!</h3>
+<h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson()"> {{user.display_name || 'empty'}}< woo a name!</h3>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
