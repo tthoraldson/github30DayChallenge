@@ -13,16 +13,14 @@
 
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
+<h3 ng-repeat="user in userData track by $index"> {{user.display_name}} < woo a name!</h3>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
 <div class="main_container" ng-if="tab == 3">
     EMAIL FORM:
-      <div ng-include="'/views/partials/invite.html'"></div>
+    <div ng-include="'/views/partials/invite.html'"></div>
     SURVEY FORM:
     <div class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div>
-
-
-
 
 </div>
