@@ -4,7 +4,7 @@ var path = require('path');
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/github_challenge';
 var commits = require('../modules/getCommits');
-// var phantom = require('phantom');
+var phantom = require('phantom');
 
 router.get('/', function(req, res) {
 
@@ -112,7 +112,3 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
-
-
-//=======================phantom scrape of lawns====================
-commits.getYearly('tthoraldson');

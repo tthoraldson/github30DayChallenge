@@ -10,8 +10,9 @@ var index = require('./routes/index');
 var email = require('./routes/email');
 var userData = require('./routes/userData');
 var databaseBuild = require('./routes/databaseBuild');
-// Serve back static files
+var createSprintTable = require('./routes/createSprintTable');
 
+// Serve back static files
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './public')));

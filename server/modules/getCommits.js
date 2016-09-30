@@ -1,7 +1,7 @@
 var phantom = require('phantom');
 
-//getCommits('tthoraldson'); // enter github username
-exports.getYearly = function(githubUname){
+getDaily('tthoraldson'); // enter github username
+function getDaily(githubUname){
   var swagArray = [];
   var sitepage = null;
   var phInstance = null;
@@ -41,12 +41,10 @@ exports.getYearly = function(githubUname){
               templine = templine[0];
               tempArray.push({data: templine, date: templine2});
               // tempArray.push(line);
-
             }
           });
-          tempArray.forEach(function(data){
-            console.log(data);
-          })
+          var foundObject = tempArray.find(findObject);
+          console.log(foundObject);
       })
       .then(content => {
           sitepage.close();
@@ -58,6 +56,7 @@ exports.getYearly = function(githubUname){
       });
 }
 
+// get today's date
 function getDate(){
   var d = new Date();
   var day = d.getDate();
@@ -73,4 +72,9 @@ function getDate(){
 
   var date = d.getFullYear() + '-' + month + '-' + day;
   return date;
+}
+
+// find object in tempArray with today's date (gets commits for that day)
+function findObject(entry) {
+    return entry.date === getDate();
 }
