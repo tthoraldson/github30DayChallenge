@@ -7,9 +7,10 @@ myApp.controller("FormPageController", ["$scope", "$http", "$location", "AuthFac
     }
     $scope.userData = [];
 
-    $scope.updatePerson = function(){
+    $scope.updatePerson = function(user){
       console.log('UPDATING NAME TO: ', this.$data);
-      // this.$data send to put request, make sure it updates the correct person
+      console.log(user);
+      $http.put('/userData', {oldData: user, newData: this.$data}) // this.$data send to put request, make sure it updates the correct person
 
     }
 

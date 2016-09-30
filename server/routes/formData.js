@@ -112,11 +112,11 @@ router.put('/', function(req,res){
             console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
         }
 
-         'UPDATE testbase SET item_name = $1, item_amount = $2 WHERE id = $3';
-        var thequery =
-            "UPDATE users SET display_name = $1 WHERE id = $2";
 
-        client.query(thequery, [req.body.display_name],
+        var thequery =
+            "INSERT INTO users (id, github_url, email, display_name, authToken, user_id, profile_photo, auth_level) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
+
+        client.query(thequery, [req.body.title, req.body.description],
             function(err, result) {
                 done(); //closes connection, I only can have ten :
                 if (err) {
