@@ -19,7 +19,6 @@
 
 <div class="main_container" ng-if="tab == 3">
 
-<<<<<<< HEAD
   <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
     <button ng-click="email=!email">SEND NEW EMAIL</button>
       <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />
@@ -27,12 +26,5 @@
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
     <button ng-click="dynamicForm_history=!dynamicForm_history">SHOW CREATED SURVEYS</button>
     <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
-=======
-    <i class="fa fa-github" aria-hidden="true"></i>
-    EMAIL FORM:
-    <div ng-include="'/views/partials/invite.html'"></div>
-    SURVEY FORM:
-    <div class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div>
 
->>>>>>> f925f4fc8852b06407133a7b783c6a16882f4ed1
 </div>
