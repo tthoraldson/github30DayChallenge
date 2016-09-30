@@ -6,7 +6,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     // }
     // BUILDSPRINT2DATABASE();
 
-    //counter for tabbed html views in main pages
+    // counter for tabbed html views in main pages
     $scope.tab = 1;
     var sprint = {
         title: "test (start/finish)",
@@ -165,6 +165,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
         x.domain(d3.extent(data, function(d) {
             return d.day;
         }));
+        // be sure these are set to create the x/y axises based on the largest data set
         y.domain([0, d3.max(data2, function(d) {
             return d.commit;
         })]);
@@ -190,6 +191,19 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                       return y(d.commit);
                   })
         })
+
+        var color = d3.scale.category10();
+
+        // Loop through each symbol / key
+        // dataArray.forEach(function(d) {
+        //
+        //     svg.append("path")
+        //         .attr("class", "line")
+        //         .style("stroke", function() {
+        //             return d.color = color(d.key); })
+        //         .attr("d", valueline(d.values));
+        //
+        // });
 
         // Tooltip stuff after this
         // .on("mouseover", function(d) {
