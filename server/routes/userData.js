@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
                 }
                 // console.log('result: ', result.rows);
 
-                console.log('GET REQ: grabbing task list from db')
+                console.log('GET REQ: grabbing ' + req.query.db + ' table from db')
                 res.send(result.rows)
             })
 
@@ -91,7 +91,7 @@ router.post('/', function(req, res) {
                          }
                          // console.log('result: ', result.rows);
 
-                         console.log('GET REQ: grabbing task list from db')
+                         console.log('GET REQ: insert to users complete]')
                          res.send(result.rows)
                      })
 
