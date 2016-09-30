@@ -7,7 +7,7 @@ var phantom = require('phantom');
 
 router.get('/', function(req, res) {
 
-    // console.log("The database name: ", req.query);
+    console.log("The database name: ", req.query);
 
     pg.connect(connectionString, function(err, client, done) {
         console.log('Start!');
