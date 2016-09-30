@@ -48,3 +48,15 @@ date_9_19          integer,
 date_9_20          integer,
 date_9_21          integer
 );
+
+CREATE TABLE form_history (
+id SERIAL PRIMARY KEY,
+form_title       varchar(50),
+form_description       varchar(250),
+form_questions json
+);
+
+Create table admin (
+currentSurvey integer,
+currentSprint integer
+);

@@ -1,6 +1,12 @@
 <div class="main_container">
   <form ng-model="surveyForm">
-    {{currentForm.title}} <br />
-    {{currentForm.description}}
+    {{currentSurvey.form_title}} <br />
+    {{currentSurvey.form_description}} <br />
+    <div ng-repeat="question in currentSurvey.form_questions">
+      {{question.title}}
+      <div ng-repeat="option in question.options">
+        <input type="checkbox" /> {{option.title}}
+      </div>
+    </div>
   </form>
 </div>

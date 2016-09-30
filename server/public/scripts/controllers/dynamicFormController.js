@@ -1,9 +1,25 @@
 myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
     console.log("DynamicFormController works");
+    $scope.formHistory = [];
+    function getData(database) {
+        var promise = $http.get('/userData', { //SELECT * FROM database
+            params: {
+                db: database
+            }
+        }).then(function(data) {
+            console.log('GET COMPLETE: Updated $scope.' + database);
+            return data.data;
+        });
 
+        return promise;
+    }
+
+    getData('form_history').then(function(data){
+      $scope.formHistory = data;
+    })
     $scope.newForm = {
         formDBref: 0,
-        title: "Untitled Survey",
+        title: "",
         description: "",
         questions: []
     }
@@ -11,21 +27,21 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     //
     $scope.surveyTitle = {
         formDBref: 0,
-        title: "Untitled Survey",
+        title: "",
         description: ""
     };
 
     $scope.newSurveyQuestion = {
-        title: "untitled question",
+        title: "",
         description_MultiChoice: "Choose Best Answer:",
         description_Checkbox: "Choose All That Apply:",
         multipleChoice: [{
             check: false,
-            option: "untitled option"
+            option: ""
         }],
         checkbox: [{
             check: false,
-            option: "untitled option"
+            option: ""
         }],
         shortAnswer: ""
     };
