@@ -13,13 +13,16 @@
 
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
-<h3 ng-repeat="user in userData track by $index"> {{user.display_name}} < woo a name!</h3>
+<h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson()"> {{user.display_name || 'empty'}}< woo a name!</h3>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
 <div class="main_container" ng-if="tab == 3">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8ebbf20ccfe93815f02b189b7d2a934ecfa8803
   <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
     <button ng-click="email=!email">SEND NEW EMAIL</button>
       <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />

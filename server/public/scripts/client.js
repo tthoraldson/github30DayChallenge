@@ -1,4 +1,5 @@
-var myApp = angular.module("myApp", ["ngRoute", "firebase"]);
+var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable"]);
+
 myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider, $mdThemingProvider) {
 
     $routeProvider
@@ -77,6 +78,14 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
 }]);
 
 myApp.run(['$rootScope', '$location', 'AuthFactory', redirectHome]);
+
+// xeditable
+myApp.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  console.log('edited');
+});
+
+
  //  In combination with the route configuration, this redirects to
  //  the home view if user is not authenticated
  function redirectHome($rootScope, $location, AuthFactory) {
