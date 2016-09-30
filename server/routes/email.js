@@ -1,14 +1,32 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var Hogan = require('hogan.js');
+var fs = require('fs');
 var nodemailer = require('nodemailer');
+
+
+var template = fs.readFileSync('server/public/emails/template.hjs', 'utf-8');
+var compiledTemplate = Hogan.compile(template);
+
+
+
+function getDate() {
+    var todaysDate = new Date();
+    var month = todaysDate .getMonth() + 1;
+    var day = todaysDate .getDate();
+    var year = todaysDate .getFullYear();
+    return month + "/" + day + "/" + year;
+}
+
 
 
 router.post('/', function(req, res){
 
 var emailObj = req.body;
+var currentDate = getDate();
 
-console.log(emailObj);
+console.log('display name?', emailObj.displayName);
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport('smtps://githubchallenge%40gmail.com:GotEm!!!@smtp.gmail.com');
 
@@ -18,7 +36,11 @@ var mailOptions = {
     to: emailObj.sendAddress, // list of receivers
     subject: emailObj.subject, // Subject line
     text: '', // plaintext body
-    html: '<b>'+ emailObj.body + '</b>' // html body
+    html: compiledTemplate.render({
+      // displayName: emailObj.displayName
+      body: emailObj.body,
+      currentDate: currentDate
+    }) // html body
 };
 
 // send mail with defined transport object

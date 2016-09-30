@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>Github Challenge Email</title>
     <style>
       .wrapper {
   width: 100%; }
@@ -1354,17 +1354,36 @@ body.outlook p {
     table.button.small-expand center,
     table.button.small-expanded center {
       min-width: 0; } }
-    
-    </style>  
+
+    </style>
 
     <style>
-      body,
-      html,
-      .body {
-        background: #f3f3f3 !important;
+      .header {
+        background: #8a8a8a;
       }
-    </style>  
 
+      .header .columns {
+        padding-bottom: 0;
+      }
+
+      .header p {
+        color: #fff;
+        margin-bottom: 0;
+      }
+
+      .header .wrapper-inner {
+        padding: 20px;
+        /*controls the height of the header*/
+      }
+
+      .header .container {
+        background: #8a8a8a;
+      }
+
+      .wrapper.secondary {
+        background: #f3f3f3;
+      }
+    </style>
   </head>
 
   <body>
@@ -1373,52 +1392,11 @@ body.outlook p {
       <tr>
         <td class="float-center" align="center" valign="top">
           <center data-parsed="">
-            <table class="spacer float-center">
-              <tbody>
-                <tr>
-                  <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- move the above styles into your custom stylesheet -->
             <table align="center" class="container float-center">
               <tbody>
                 <tr>
                   <td>
-                    <table class="row">
-                      <tbody>
-                        <tr>
-                          <th class="small-12 large-4 columns first">
-                            <table>
-                              <tr>
-                                <th>
-                                  <center data-parsed=""> <img src="http://placehold.it/125x200" align="center" class="float-center"> </center>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                          <th class="small-12 large-8 columns last">
-                            <table>
-                              <tr>
-                                <th>
-                                  <h1>Do Something Radical With This App.</h1>
-                                  <table class="button large">
-                                    <tr>
-                                      <td>
-                                        <table>
-                                          <tr>
-                                            <td><a href="#">Sign Up</a></td>
-                                          </tr>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
                     <table class="spacer">
                       <tbody>
                         <tr>
@@ -1433,8 +1411,10 @@ body.outlook p {
                             <table>
                               <tr>
                                 <th>
-                                  <h3 class="text-center">It's Never Been Easier to Do Things.</h3>
-                                  <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur pariatur unde magni repudiandae totam, accusamus facere eligendi. Ad nobis eius porro saepe et ab, aliquid, sed mollitia cumque suscipit aperiam.</p>
+                                  <h1>Hey {{displayName}}</h1>
+
+                                  <p>{{body}}</p>
+
                                 </th>
                                 <th class="expander"></th>
                               </tr>
@@ -1443,145 +1423,57 @@ body.outlook p {
                         </tr>
                       </tbody>
                     </table>
-                    <table class="row">
-                      <tbody>
-                        <tr>
-                          <th class="small-12 large-4 columns first">
-                            <table>
+                    <table class="wrapper secondary" align="center">
+                      <tr>
+                        <td class="wrapper-inner">
+                          <table class="spacer">
+                            <tbody>
                               <tr>
-                                <th>
-                                  <center data-parsed=""> <img src="http://placehold.it/50x50" align="center" class="float-center"> </center>
-                                  <h5 class="text-center">Feature One</h5>
-                                  <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quod quam unde earum.</p>
-                                </th>
+                                <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
                               </tr>
-                            </table>
-                          </th>
-                          <th class="small-12 large-4 columns">
-                            <table>
+                            </tbody>
+                          </table>
+                          <table class="row">
+                            <tbody>
                               <tr>
-                                <th>
-                                  <center data-parsed=""> <img src="http://placehold.it/50x50" align="center" class="float-center"> </center>
-                                  <h5 class="text-center">Feature Two</h5>
-                                  <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quod quam unde earum.</p>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                          <th class="small-12 large-4 columns last">
-                            <table>
-                              <tr>
-                                <th>
-                                  <center data-parsed=""> <img src="http://placehold.it/50x50" align="center" class="float-center"> </center>
-                                  <h5 class="text-center">Feature Three</h5>
-                                  <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quod quam unde earum.</p>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table class="spacer">
-                      <tbody>
-                        <tr>
-                          <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table class="row">
-                      <tbody>
-                        <tr>
-                          <th class="small-12 large-12 columns first last">
-                            <table>
-                              <tr>
-                                <th>
-                                  <h3 class="text-center">What Are You Waiting For? Get Started Today.</h3>
-                                  <table class="spacer">
-                                    <tbody>
-                                      <tr>
-                                        <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <table class="button large expand">
+                                <th class="small-12 large-6 columns first">
+                                  <table>
                                     <tr>
-                                      <td>
-                                        <table>
+                                      <th>
+                                        <h5>Join the next sprint:</h5>
+                                        <table class="menu vertical">
                                           <tr>
                                             <td>
-                                              <center data-parsed=""><a href="#" align="center" class="float-center">Sign Up</a></center>
+                                              <table>
+                                                <tr>
+                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Twitter</a></th>
+                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Facebook</a></th>
+                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Google +</a></th>
+                                                </tr>
+                                              </table>
                                             </td>
                                           </tr>
                                         </table>
-                                      </td>
-                                      <td class="expander"></td>
+                                      </th>
                                     </tr>
                                   </table>
                                 </th>
-                                <th class="expander"></th>
-                              </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table class="row collapsed footer">
-                      <tbody>
-                        <tr>
-                          <th class="small-12 large-12 columns first last">
-                            <table>
-                              <tr>
-                                <th>
-                                  <table class="spacer">
-                                    <tbody>
-                                      <tr>
-                                        <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
-                                      </tr>
-                                    </tbody>
+                                <th class="small-12 large-6 columns last">
+                                  <table>
+                                    <tr>
+                                      <th>
+                                        <h5>Contact Info:</h5>
+                                        <p>Phone: 408-341-0600</p>
+                                        <p>Email: <a href="mailto:foundation@zurb.com">foundation@zurb.com</a></p>
+                                      </th>
+                                    </tr>
                                   </table>
-                                  <p class="text-center">@copywrite nobody<br> <a href="#">hello@nocopywrite.com</a> | <a href="#">Manage Email Notifications</a> | <a href="#">Unsubscribe</a></p>
-                                  <center data-parsed="">
-                                    <table align="center" class="menu float-center">
-                                      <tr>
-                                        <td>
-                                          <table>
-                                            <tr>
-                                              <th class="menu-item float-center">
-                                                <a href="undefined"><img src="http://placehold.it/25" alt=""></a>
-                                              </th>
-                                              <th class="menu-item float-center">
-                                                <a href="undefined"><img src="http://placehold.it/25" alt=""></a>
-                                              </th>
-                                              <th class="menu-item float-center">
-                                                <a href="undefined"><img src="http://placehold.it/25" alt=""></a>
-                                              </th>
-                                              <th class="menu-item float-center">
-                                                <a href="undefined"><img src="http://placehold.it/25" alt=""></a>
-                                              </th>
-                                              <th class="menu-item float-center">
-                                                <a href="undefined"><img src="http://placehold.it/25" alt=""></a>
-                                              </th>
-                                            </tr>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </center>
                                 </th>
-                                <th class="expander"></th>
                               </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table class="spacer">
-                      <tbody>
-                        <tr>
-                          <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
-                        </tr>
-                      </tbody>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
                     </table>
                   </td>
                 </tr>
