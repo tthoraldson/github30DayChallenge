@@ -20,6 +20,19 @@ main * {
 
 }
 
+.formInput_shortAnswer{
+  width: 600px;
+  height: 30px;
+}
+
+.dynamicForm_history{
+  background-color: #DAE5E3;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+}
 h3 {
     margin: 0;
 }
@@ -46,14 +59,28 @@ h1 {
     /*float: left;*/
 }
 
-textarea {
+.bodyText {
+    font-size: 0.8em;
+    font-family: 'proxima-nova-soft', sans-serif;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 1em;
+    transition: all 0.3s ease-in-out;
+    width: 65%;
+    display: block;
+    margin-left: 190px;
+}
+
+.headerText {
     font-size: 0.8em;
     font-family: 'proxima-nova-soft', sans-serif;
     border: 1px solid #ddd;
     background: #fff;
     padding: 0.9em;
     transition: all 0.3s ease-in-out;
-    width: 65%;
+    width: 45%;
+    display: block;
+    margin-left: 300px;
 }
 
 .currentForm_title {

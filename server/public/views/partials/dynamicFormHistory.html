@@ -1,0 +1,23 @@
+<div ng-controller="DynamicFormController">
+<h3>Current Active Survey: N/A</h3> <br /><br />
+
+<div ng-repeat = "survey in formHistory">
+
+<h3>{{survey.form_title}}</h3>
+<p>{{survey.form_description}}</p>
+<button ng-click="questions = !questions">SHOW QUESTIONS</button>
+<button>SET AS ACTIVE SURVEY</button>
+</br><br />
+<div ng-show="questions" ng-repeat = "question in survey.form_questions">
+<h4>{{question.title}}</h4>
+<h5><em>{{question.desc}}</em></h5>
+
+<div ng-show="question.options.length == 0"><input type=text class="formInput_shortAnswer" /></div>
+<div ng-repeat="option in question.options">
+<input type="checkbox" /> {{option.title}}
+</div>
+</br></br>
+
+</div>
+</div>
+</div>

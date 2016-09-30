@@ -15,9 +15,17 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
         return promise;
     }
 
-    getData('form_history').then(function(response){
+    getData('admin').then(function(response){
       console.log(response);
-      
+      getData('form_history').then(function(data){
+        data.forEach(function(survey){
+          if (survey.id == response[0].currentsurvey){
+            console.log(survey);
+            $scope.currentSurvey = survey;
+          }
+        })
+
+      })
     });
 
 }]);
