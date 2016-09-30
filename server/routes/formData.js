@@ -100,39 +100,40 @@ router.post('/', function(req, res) {
 
 })
 
-// router.put('/', function(req,res){
-//   // INSERT INTO QUESTIONS TABLE
-//   console.log(req.body);
-//   req.body.questions.forEach(function(question){
-//
-//     pg.connect(connectionString, function(err, client, done) {
-//         console.log('Start!');
-//         if (err) {
-//             res.sendStatus(500);
-//             console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
-//         }
-//
-//         var thequery =
-//             "INSERT INTO form_questions (form_refrence, question_options, question_type) VALUES ($1, $2, $3)"
-//
-//         client.query(thequery, [req.body.title, req.body.description],
-//             function(err, result) {
-//                 done(); //closes connection, I only can have ten :
-//                 if (err) {
-//                     res.sendStatus(500);
-//                     console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
-//                     return;
-//                 }
-//                 // console.log('result: ', result.rows);
-//
-//                 console.log('POST COMPLETE: INSERTED QUESTIONS TO DB')
-//             })
-//
-//
-//
-//   });
-//
-//   });
-// });
+router.put('/', function(req,res){
+  // INSERT INTO QUESTIONS TABLE
+  console.log("put request: ", req.body);
+  req.body.questions.forEach(function(question){
+
+    pg.connect(connectionString, function(err, client, done) {
+        console.log('Start!');
+        if (err) {
+            res.sendStatus(500);
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
+        }
+
+
+        var thequery =
+            "INSERT INTO users (id, github_url, email, display_name, authToken, user_id, profile_photo, auth_level) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
+
+        client.query(thequery, [req.body.title, req.body.description],
+            function(err, result) {
+                done(); //closes connection, I only can have ten :
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                // console.log('result: ', result.rows);
+
+                console.log('POST COMPLETE: INSERTED NEW USERS DATA TO DB')
+            })
+
+
+
+  });
+
+  });
+});
 
 module.exports = router;
