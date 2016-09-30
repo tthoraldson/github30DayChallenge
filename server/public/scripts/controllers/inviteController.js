@@ -12,6 +12,9 @@ myApp.controller("InviteController", ["$scope", "$http", "$location", "AuthFacto
     // $scope.emailInfo.displayName = $scope.user.displayName;
 
     $scope.email = function(emailInfo) {
+
+      
+      // console.log(emailInfo.body);
       emailInfo.displayName = $scope.user.displayName;
         $http.post('/email', emailInfo).then(function(response) {
             console.log("email success response: ", response);

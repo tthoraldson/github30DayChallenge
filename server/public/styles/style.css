@@ -46,14 +46,26 @@ h1 {
     /*float: left;*/
 }
 
-textarea {
+.bodyText {
+    font-size: 0.8em;
+    font-family: 'proxima-nova-soft', sans-serif;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 1em;
+    transition: all 0.3s ease-in-out;
+    width: 65%;
+}
+
+.headerText {
     font-size: 0.8em;
     font-family: 'proxima-nova-soft', sans-serif;
     border: 1px solid #ddd;
     background: #fff;
     padding: 0.9em;
     transition: all 0.3s ease-in-out;
-    width: 65%;
+    width: 45%;
+    display: block;
+    margin-left: 300px;
 }
 
 .currentForm_title {

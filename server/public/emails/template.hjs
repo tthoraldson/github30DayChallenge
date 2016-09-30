@@ -1412,11 +1412,13 @@ body.outlook p {
                               <tr>
                                 <th>
                                   <h1>Hey {{displayName}}</h1>
-
-                                  <p>{{body}}</p>
-
                                 </th>
-                                <th class="expander"></th>
+                                <!-- <th class="expander"></th> -->
+                              </tr>
+                              <tr>
+                                <td>
+                                  {{body}}
+                                </td>
                               </tr>
                             </table>
                           </th>
