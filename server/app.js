@@ -13,6 +13,10 @@ var databaseBuild = require('./routes/databaseBuild');
 var formData = require('./routes/formData');
 // Serve back static files
 
+var createSprintTable = require('./routes/createSprintTable');
+
+
+// Serve back static files
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './public')));
