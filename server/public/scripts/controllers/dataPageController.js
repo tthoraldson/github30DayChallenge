@@ -6,7 +6,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     // }
     // BUILDSPRINT2DATABASE();
 
-    //counter for tabbed html views in main pages
+    // counter for tabbed html views in main pages
     $scope.tab = 1;
     var sprint = {
       title: "test (start/finish)",
