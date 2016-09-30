@@ -2,10 +2,10 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     console.log("DynamicFormController works");
 
     $scope.newForm = {
-      formDBref: 0,
-      title: "Untitled Survey",
-      description: "",
-      questions: []
+        formDBref: 0,
+        title: "Untitled Survey",
+        description: "",
+        questions: []
     }
 
     //
@@ -66,76 +66,100 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         }
     }
 
-    $scope.addOption = function(){
-      if($scope.checkBox_selected){
-        console.log('add a checkbox option')
-        $scope.newSurveyQuestion.checkbox.push({check: false, option: "df"});
-      }
-      if($scope.multipleChoice_selected){
-        console.log('add a multiC option')
-        $scope.newSurveyQuestion.multipleChoice.push({check: false, option: "df"});
-      }
+    $scope.addOption = function() {
+        if ($scope.checkBox_selected) {
+            console.log('add a checkbox option')
+            $scope.newSurveyQuestion.checkbox.push({
+                check: false,
+                option: ""
+            });
+        }
+        if ($scope.multipleChoice_selected) {
+            console.log('add a multiC option')
+            $scope.newSurveyQuestion.multipleChoice.push({
+                check: false,
+                option: ""
+            });
+        }
 
 
     }
 
-    $scope.addQuestion = function(question){
-      if($scope.checkBox_selected){
-        var newQuestion = new Question(question.title, question.description_Checkbox, question.checkbox, "checkbox");
-        console.log('sending question', newQuestion);
-        $scope.newForm.questions.push(newQuestion);
-        $scope.newSurveyQuestion = {
-            title: "untitled question",
-            description_MultiChoice: "Choose Best Answer:",
-            description_Checkbox: "Choose All That Apply:",
-            multipleChoice: [{
-                check: false,
-                option: "untitled option"
-            }],
-            checkbox: [{
-                check: false,
-                option: "untitled option"
-            }],
-            shortAnswer: ""
-        };
-        console.log('current form', $scope.newForm);
-      }
+    $scope.addQuestion = function(question) {
+        if ($scope.checkBox_selected) {
+            var newQuestion = new Question(question.title, question.description_Checkbox, question.checkbox, "checkbox");
+            console.log('sending question', newQuestion);
+            $scope.newForm.questions.push(newQuestion);
+            $scope.newSurveyQuestion = {
+                title: "untitled question",
+                description_MultiChoice: "Choose Best Answer:",
+                description_Checkbox: "Choose All That Apply:",
+                multipleChoice: [{
+                    check: false,
+                    option: "untitled option"
+                }],
+                checkbox: [{
+                    check: false,
+                    option: "untitled option"
+                }],
+                shortAnswer: ""
+            };
+            console.log('current form', $scope.newForm);
+        }
 
-      if($scope.multipleChoice_selected){
-        var newQuestion = new Question(question.title, question.description_MultiChoice, question.multipleChoice, "multipleChoice");
-        console.log('sending question', newQuestion);
-        $scope.newForm.questions.push(newQuestion);
-        $scope.newSurveyQuestion = {
-            title: "untitled question",
-            description_MultiChoice: "Choose Best Answer:",
-            description_Checkbox: "Choose All That Apply:",
-            multipleChoice: [{
-                check: false,
-                option: "untitled option"
-            }],
-            checkbox: [{
-                check: false,
-                option: "untitled option"
-            }],
-            shortAnswer: ""
-        };
-        console.log('current form', $scope.newForm);
-      }
-      if($scope.shortAnswer_selected){
-          console.log(question.shortAnswer);
-                  var newQuestion = new Question(question.title, "", "", "shortAnswer");
-                  console.log('sending question', newQuestion);
-                  $scope.newForm.questions.push(newQuestion);
-                  console.log('current form', $scope.newForm);
-      }
+        $scope.submitForm = function(form) {
+            console.log(form);
+            $http.get('/formData')
+                .then(function(data) {
+                    console.log('DB REF: ', data.data.length);
+                    form.formDBref = data.data.length;
+                    $http.post('/formData', form)
+                    .then(function() {
+                            // console.log(response);
+                            console.log('post complete')
+                            // $http.put('/formData', form)
+                            //     .then(function() {
+                            //         console.log('SUCCCCCUESSSSS');
+                            //     })
+                        })
+                });
+        }
+
+        if ($scope.multipleChoice_selected) {
+            var newQuestion = new Question(question.title, question.description_MultiChoice, question.multipleChoice, "multipleChoice");
+            console.log('sending question', newQuestion);
+            $scope.newForm.questions.push(newQuestion);
+            $scope.newSurveyQuestion = {
+                title: "untitled question",
+                description_MultiChoice: "Choose Best Answer:",
+                description_Checkbox: "Choose All That Apply:",
+                multipleChoice: [{
+                    check: false,
+                    option: "untitled option"
+                }],
+                checkbox: [{
+                    check: false,
+                    option: "untitled option"
+                }],
+                shortAnswer: ""
+            };
+            console.log('current form', $scope.newForm);
+        }
+        if ($scope.shortAnswer_selected) {
+            console.log(question.shortAnswer);
+            var newQuestion = new Question(question.title, "", "", "shortAnswer");
+            console.log('sending question', newQuestion);
+            $scope.newForm.questions.push(newQuestion);
+            console.log('current form', $scope.newForm);
+        }
     }
 
-    function Question(title, desc, options, type){
-      this.title = title;
-      this.desc = desc;
-      this.options = options;
-      this.type = type;
+    function Question(title, desc, options, type) {
+        this.title = title;
+        this.desc = desc;
+        this.options = options;
+        this.type = type;
 
-      return this;
+        return this;
     }
 }]);
