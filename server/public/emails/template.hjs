@@ -1411,7 +1411,7 @@ body.outlook p {
                             <table>
                               <tr>
                                 <th>
-                                  <h1>Hey {{displayName}}</h1>
+                                  <h1>{{header}}</h1>
                                 </th>
                                 <!-- <th class="expander"></th> -->
                               </tr>
@@ -1443,30 +1443,21 @@ body.outlook p {
                                     <tr>
                                       <th>
                                         <h5>Join the next sprint:</h5>
-                                        <table class="menu vertical">
+                                        <!-- <table class="menu vertical" style="color: #000000;"> -->
                                           <tr>
-                                            <td>
-                                              <table>
-                                                <tr>
-                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Twitter</a></th>
-                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Facebook</a></th>
-                                                  <th style="text-align: left;" class="menu-item float-center"><a href="#">Google +</a></th>
-                                                </tr>
-                                              </table>
-                                            </td>
+                                                  <th style="text-align: center; color: #000000;" class="menu-item float-center"><button style="color: #000000;"><a href="{{form_link}}" style="color: #000000; text-decoration: none;">Click here to join the next Sprint!</a></button></th>
                                           </tr>
-                                        </table>
+                                        <!-- </table> -->
                                       </th>
                                     </tr>
-                                  </table>
+                                  <!-- </table>
                                 </th>
                                 <th class="small-12 large-6 columns last">
-                                  <table>
+                                  <table> -->
                                     <tr>
                                       <th>
-                                        <h5>Contact Info:</h5>
-                                        <p>Phone: 408-341-0600</p>
-                                        <p>Email: <a href="mailto:foundation@zurb.com">foundation@zurb.com</a></p>
+                                        <h5>Contact Us:</h5>
+                                        <p>Email: <a href="mailto:githubchallenge@gmail.com">githubchallenge@gmail.com</a></p>
                                       </th>
                                     </tr>
                                   </table>

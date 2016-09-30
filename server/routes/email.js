@@ -41,6 +41,7 @@ var mailOptions = {
     text: '', // plaintext body
     html: compiledTemplate.render({
       // displayName: emailObj.displayName
+      header: emailObj.header,
       body: emailObj.body,
       currentDate: currentDate
     }) // html body

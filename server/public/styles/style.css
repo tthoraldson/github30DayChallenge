@@ -54,6 +54,8 @@ h1 {
     padding: 1em;
     transition: all 0.3s ease-in-out;
     width: 65%;
+    display: block;
+    margin-left: 190px;
 }
 
 .headerText {
