@@ -1,14 +1,14 @@
-myApp.controller("FormPageController", ["$scope", "$http", "$location", "AuthFactory",  function($scope, $http, $location, AuthFactory) {
+myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", function($scope, $http, $route, $location, AuthFactory) {
     console.log("Loaded: Form Page Controller");
 
     $scope.tab = 1;
+    $scope.userData = [];
     var user = {
       data: []
     }
-    $scope.userData = [];
 
     $scope.genName = function(input){
-      console.log(input);
+      // console.log(input);
       $scope.showNames = [];
 
         for (i = 0; i < input; i++){
@@ -16,10 +16,8 @@ myApp.controller("FormPageController", ["$scope", "$http", "$location", "AuthFac
           var randomNumber = Math.floor(Math.random()*celestialArray.length);
           $scope.showNames.push(celestialArray[randomNumber]);
 
-          // as is, we have a problem with duplicates
-          console.log($scope.showNames);
-          console.log(randomNumber);
-
+          // console.log($scope.showNames);
+          // console.log(randomNumber);
         }
     }
 
@@ -43,13 +41,11 @@ myApp.controller("FormPageController", ["$scope", "$http", "$location", "AuthFac
       // };
 
       if (confirm("Are you Sure you want to Change this Info?\n\n\nPlease refresh page if you hit cancel\n\n")) {
-      $http.put('/userData', {oldData: user, newData: this.$data})
-      // this.$data send to put request, make sure it updates the correct person
-
-  } else {
-    //do nothing
-  }
-
+        $http.put('/userData', {oldData: user, newData: this.$data})
+        // this.$data send to put request, make sure it updates the correct person
+        } else {
+          $route.reload();
+      }
     }
 
     //TODO: PUT INTO FACTORY!!!
@@ -67,7 +63,7 @@ myApp.controller("FormPageController", ["$scope", "$http", "$location", "AuthFac
     }
 
     getData('users').then(function(data) {
-        console.log(data);
+        // console.log(data);
         $scope.userData = data;
         // console.log($scope.userData);
     });
