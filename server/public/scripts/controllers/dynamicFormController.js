@@ -21,13 +21,13 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
     $scope.setActive = function(survey){
       console.log(survey);
-      $http.put('/formData', survey).then(function(){
-
-        //update active survey scoped
-        //show survey current results
-
-        //can archive survey results?
-      });
+      // $http.put('/formData', survey).then(function(){
+      //
+      //   //update active survey scoped
+      //   //show survey current results
+      //
+      //   //can archive survey results?
+      // });
     }
 
     $scope.newForm = {
