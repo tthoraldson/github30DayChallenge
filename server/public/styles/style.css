@@ -21,10 +21,25 @@ main * {
 }
 
 .teamNameForm {
-  margin: 3%;
+  margin: 2%;
   padding: .5%;
   border: medium solid teal;
 
+}
+
+.teamNamesBox {
+  margin: 0 5% 5% 5%;
+  border: medium dotted teal;
+  text-align: center;
+
+}
+.teamNamesBox h2 {
+  text-align: center;
+  border-bottom: thin dotted teal;
+}
+
+.teamNames {
+  display: inline;
 }
 
 .pendMemTitle {
