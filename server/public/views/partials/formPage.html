@@ -17,8 +17,8 @@
         <button class="genTeamNameButton" ng-click="genName(number.teams)">Generate Names</button>
     </form>
     <div class="teamNamesBox">
-      <h2>:D :D :D TEAM THE NAMES: :D :D :D</h2>
-      <p class="teamNames" ng-repeat= "names in showNames">
+      <h2>:D :D :D TEAM NAMES: :D :D :D</h2>
+      <p class="teamNames" ng-repeat= "names in showNames track by $index">
       {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
     </p>
 
