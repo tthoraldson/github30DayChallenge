@@ -20,6 +20,18 @@ main * {
 
 }
 
+.teamNameForm {
+  margin: 3%;
+  padding: .5%;
+  border: medium solid teal;
+
+}
+
+.pendMemTitle {
+  margin: .5%;
+  text-decoration: underline;
+}
+
 .formInput_shortAnswer{
   width: 600px;
   height: 30px;

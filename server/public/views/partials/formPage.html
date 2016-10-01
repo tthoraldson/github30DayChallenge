@@ -8,24 +8,33 @@
 
 <div class="main_container" ng-if="tab == 1">
     <p>view pending members, generate team names, assign captains, sort by language tags, sprint start and end times</p>
+
+    <form class="teamNameForm">
+        <label for="columns">How Many Teams?</label>
+        <input type="number" min="1" max="2000" class="teamNumInput" name="teamNumInput" ng-model="number.teams" />
+        <br />
+
+        <button class="genTeamNameButton" ng-click="genName(number.teams)">Generate Names</button>
+    </form>
+
+
+    <h2 class="pendMemTitle"> Example Pending Members List</h2>
+    <h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson(user)"> {{user.display_name || 'empty'}}< woo a name!</h3>
+
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
-<h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson(user)"> {{user.display_name || 'empty'}}< woo a name!</h3>
+    <h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson(user)"> {{user.display_name || 'empty'}}< woo a name!</h3>
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
 <div class="main_container" ng-if="tab == 3">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f8ebbf20ccfe93815f02b189b7d2a934ecfa8803
-  <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
+    <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
     <button ng-click="email=!email">SEND NEW EMAIL</button>
-      <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />
+    <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />
     <button ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
     <button ng-click="dynamicForm_history=!dynamicForm_history">SHOW CREATED SURVEYS</button>
