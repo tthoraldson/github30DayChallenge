@@ -95,6 +95,12 @@ router.post('/', function(req, res) {
                          res.send(result.rows)
                      })
 
+                //look here
+                //write pg connection to insert new value into user_lawn(?) db
+                var userURL = swagArray[6].substring(15, swagArray[6].length - 2)
+                //substring the url to find the username for the pg post query
+
+
 
              });
 
