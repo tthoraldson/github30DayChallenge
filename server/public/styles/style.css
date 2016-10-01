@@ -62,14 +62,38 @@ main * {
   text-align: center;
 }
 
+.memTitle {
+  margin: .5%;
+  text-decoration: underline;
+}
+
+.memTable {
+  border: thin solid black;
+  border-collapse: collapse;
+}
+
+.memTable th, td {
+  border-bottom: thin solid black;
+  border: 1px solid black;
+}
+
+.memTable td {
+  padding: .5%;
+  text-align: center;
+}
+
 .imgBox {
 }
 
 .imgAutoResize {
-  max-width: 25%;
+  max-width: 1.17em;
   height: auto;
   width: auto;
   /*background-color: pink;*/
+}
+
+.oddMemList {
+  background-color: hsla(176, 26%, 70%, .5);
 }
 
 .formInput_shortAnswer{
