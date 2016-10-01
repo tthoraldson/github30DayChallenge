@@ -40,7 +40,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
       //     });
       // };
 
-      if (confirm("Are you Sure you want to Change this Info?\n\n\nPlease refresh page if you hit cancel\n\n")) {
+      if (confirm("Are you Sure you want to Change this Info?\n\n\n")) {
         $http.put('/userData', {oldData: user, newData: this.$data})
         // this.$data send to put request, make sure it updates the correct person
         } else {

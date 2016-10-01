@@ -1,36 +1,88 @@
+<!-- *********************************************************** -->
+<!--                         DAT TAB BAR                         -->
+<!-- *********************************************************** -->
 <div class="tabBar">
     <div class="tab" ng-click="tab = 1">Sprint</div>
     <div class="tab" ng-click="tab = 2">Config</div>
     <div class="tab" ng-click="tab = 3">Invite</div>
-
 </div>
 
 
+
+
+
+<!-- *********************************************************** -->
+<!--                         SPRINT TAB                          -->
+<!-- *********************************************************** -->
 <div class="main_container" ng-if="tab == 1">
     <p>view pending members, generate team names, assign captains, sort by language tags, sprint start and end times</p>
 
+    <!-- Generate Names -->
     <form class="teamNameForm">
         <label for="columns">How Many Teams?</label>
         <input type="number" min="1" max="2000" class="teamNumInput" name="teamNumInput" ng-model="number.teams" />
         <br />
-
         <button class="genTeamNameButton" ng-click="genName(number.teams)">Generate Names</button>
     </form>
     <div class="teamNamesBox">
-      <h2>:D :D :D TEAM NAMES: :D :D :D</h2>
-      <p class="teamNames" ng-repeat= "names in showNames track by $index">
-      {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
-    </p>
-
+        <h2>:D :D :D TEAM NAMES: :D :D :D</h2>
+        <p class="teamNames" ng-repeat="names in showNames track by $index">
+            {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
+        </p>
     </div>
 
+    <!-- View Pending Members -->
+    <h2 class="pendMemTitle">Example Pending Members List</h2>
 
-    <h2 class="pendMemTitle"> Example Pending Members List</h2>
-    <h3 ng-repeat="user in userData track by $index" editable-text="user.display_name" onaftersave="updatePerson(user)"> {{user.display_name || 'empty'}}< woo a name!</h3>
+    <table class="pendMemsTable">
+      <tr>
+        <!-- <th>Photo</th> -->
+        <th>Name</td>
+        <th>GitHub</td>
+        <th>Email</td>
+      </tr>
 
-    <i class="fa fa-github" aria-hidden="true"></i>
+      <tr ng-repeat="user in userData track by $index">
+        <!-- <td id="memPhoto">
+        <div class="imgBox">
+          <img class="imgAutoResize" src="{{user.profile_photo}}">
+          </img>
+        </div>
+        </td> -->
+
+        <td id="memName">
+          <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
+            {{user.display_name || 'empty'}}
+          </h3>
+        </td>
+
+        <td id="memGitHubLink">
+          <a ng-href="{{user.github_url}}" target="_blank">
+            <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+          </a>
+        </td>
+
+        <td id="memEmail">
+          <a ng-href="mailto:{{user.email}}">
+            <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+
+    </table>
+
+
+    <!-- <i class="fa fa-github" aria-hidden="true"></i> -->
 </div>
 
+
+
+
+
+
+<!-- *********************************************************** -->
+<!--                         CONFIG TAB                          -->
+<!-- *********************************************************** -->
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
 
@@ -39,6 +91,15 @@
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>
 
+
+
+
+
+
+
+<!-- *********************************************************** -->
+<!--                         INVITE TAB                          -->
+<!-- *********************************************************** -->
 <div class="main_container" ng-if="tab == 3">
 
 

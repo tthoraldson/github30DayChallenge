@@ -56,7 +56,7 @@ form_description       varchar(250),
 form_questions json
 );
 
-Create table admin (
+CREATE TABLE admin (
 currentSurvey integer,
 currentSprint integer
 );
