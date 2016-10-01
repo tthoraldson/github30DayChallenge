@@ -111,8 +111,9 @@ router.post('/', function(req, res) {
         })
 });
 
-getDaily('tthoraldson'); // enter github username
-function getDaily(githubUname){
+// UPDATE TODAY'S DATE FOR A SINGLE USER
+router.put('/', function(req, res) {
+  var githubUname = 'tthoraldson';
   var swagArray = [];
   var sitepage = null;
   var phInstance = null;
@@ -154,6 +155,7 @@ function getDaily(githubUname){
               // tempArray.push(line);
             }
           });
+
           var foundObject = tempArray.find(findObject);
           console.log(foundObject);
       })
