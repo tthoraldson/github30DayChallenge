@@ -59,7 +59,7 @@ router.post('/', function(req, res) {
             return page.open('https://api.github.com/user/' + usernumber);
         })
         .then(status => {
-            console.log(status);
+            // console.log(status);
 
             return sitepage.property('content');
         })
@@ -67,7 +67,7 @@ router.post('/', function(req, res) {
             swagArray = content.split('\n');
 
             var tempArray = [];
-            console.log(swagArray[6].substring(15, swagArray[6].length - 2));
+            // console.log(swagArray[6].substring(15, swagArray[6].length - 2));
 
              pg.connect(connectionString, function(err, client, done) {
                  console.log('Start!');

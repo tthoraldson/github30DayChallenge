@@ -16,7 +16,7 @@ function getDaily(githubUname){
           return page.open('https://github.com/users/' + githubUname + '/contributions');
       })
       .then(status => {
-          console.log(status);
+          // console.log(status);
 
           return sitepage.property('content');
       })
@@ -35,16 +35,17 @@ function getDaily(githubUname){
               } else if (templine[0] == 'a') {
                 templine = templine.substring(3);
               }
-
+              console.log('TEMPLINE:', templine);
               templine = templine.substring(6); // commits
               templine2 = templine.substring(14, 24); // date
               templine = templine[0];
+              console.log('AFTER:', templine);
               tempArray.push({data: templine, date: templine2});
               // tempArray.push(line);
             }
           });
           var foundObject = tempArray.find(findObject);
-          console.log(foundObject);
+          // console.log(foundObject);
       })
       .then(content => {
           sitepage.close();
