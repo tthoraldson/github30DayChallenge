@@ -6,7 +6,7 @@
         <h3>{{survey.form_title}}</h3>
         <p>{{survey.form_description}}</p>
         <button ng-click="questions = !questions">SHOW QUESTIONS</button>
-        <button>SET AS ACTIVE SURVEY</button>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
         </br><br />
         <div ng-show="questions" ng-repeat="question in survey.form_questions">
             <h4>{{question.title}}</h4>
