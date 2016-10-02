@@ -7,6 +7,15 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     // BUILDSPRINT2DATABASE();
 
     // counter for tabbed html views in main pages
+    function test(){
+    $http.post('/userData/lawn', {uname: 'andrewwiskus'}).then(function(){
+
+    });
+  }
+//this is calling the lawn: uncomment once to fill lawn db
+  // test();
+
+
     $scope.tab = 1;
     var sprint = {
         title: "test (start/finish)",

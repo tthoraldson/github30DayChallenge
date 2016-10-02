@@ -65,7 +65,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     getData('users').then(function(data) {
         // console.log(data);
         $scope.userData = data;
-        // console.log($scope.userData);
+        // console.log($scope.userData[0].profile_photo);
     });
 
 }]);
