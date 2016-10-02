@@ -101,9 +101,10 @@ router.post('/', function(req, res) {
 })
 
 router.put('/', function(req,res){
-  // INSERT INTO QUESTIONS TABLE
-  console.log("put request: ", req.body);
-  req.body.questions.forEach(function(question){
+
+  console.log("UPDATING activeSurvey to survey.id: ", req.body);
+
+
 
     pg.connect(connectionString, function(err, client, done) {
         console.log('Start!');
@@ -114,9 +115,9 @@ router.put('/', function(req,res){
 
 
         var thequery =
-            "INSERT INTO users (id, github_url, email, display_name, authToken, user_id, profile_photo, auth_level) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
+            "UPDATE admin SET currentSurvey = $1 WHERE id = $2"
 
-        client.query(thequery, [req.body.title, req.body.description],
+        client.query(thequery, [req.body.id, 0],
             function(err, result) {
                 done(); //closes connection, I only can have ten :
                 if (err) {
@@ -133,7 +134,7 @@ router.put('/', function(req,res){
 
   });
 
-  });
+
 });
 
 module.exports = router;

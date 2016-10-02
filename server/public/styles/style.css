@@ -20,12 +20,88 @@ main * {
 
 }
 
+.teamNameForm {
+  margin: 2%;
+  padding: .5%;
+  border: medium solid teal;
+
+}
+
+.teamNamesBox {
+  margin: 0 5% 5% 5%;
+  padding: 1%;
+  border: medium dotted teal;
+  text-align: center;
+
+}
+.teamNamesBox h2 {
+  text-align: center;
+  border-bottom: thin dotted teal;
+}
+
+.teamNames {
+  display: inline;
+}
+
+.pendMemTitle {
+  margin: .5%;
+  text-decoration: underline;
+}
+
+.pendMemsTable {
+  border: thin solid black;
+  border-collapse: collapse;
+}
+.pendMemsTable th, td {
+  border-bottom: thin solid black;
+  border: 1px solid black;
+}
+
+.pendMemsTable td {
+  padding: .5%;
+  text-align: center;
+}
+
+.memTitle {
+  margin: .5%;
+  text-decoration: underline;
+}
+
+.memTable {
+  border: thin solid black;
+  border-collapse: collapse;
+}
+
+.memTable th, td {
+  border-bottom: thin solid black;
+  border: 1px solid black;
+}
+
+.memTable td {
+  padding: .5%;
+  text-align: center;
+}
+
+.imgBox {
+}
+
+.imgAutoResize {
+  max-width: 1.17em;
+  height: auto;
+  width: auto;
+  /*background-color: pink;*/
+}
+
+.oddMemList {
+  background-color: hsla(176, 26%, 70%, .5);
+}
+
 .formInput_shortAnswer{
   width: 600px;
   height: 30px;
 }
 
-.dynamicForm_history{
+.dynamicForm_history {
   background-color: #DAE5E3;
   padding-left: 20px;
   padding-right: 20px;
@@ -175,6 +251,7 @@ h1 {
     text-decoration: none;
     color: black;
 }
+
 
 
 /*==========CHARTMANDER========*/

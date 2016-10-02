@@ -17,6 +17,19 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     getData('form_history').then(function(data){
       $scope.formHistory = data;
     })
+
+
+    $scope.setActive = function(survey){
+      console.log(survey);
+      // $http.put('/formData', survey).then(function(){
+      //
+      //   //update active survey scoped
+      //   //show survey current results
+      //
+      //   //can archive survey results?
+      // });
+    }
+
     $scope.newForm = {
         formDBref: 0,
         title: "",
