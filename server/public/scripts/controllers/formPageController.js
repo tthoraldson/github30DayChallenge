@@ -68,4 +68,31 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         // console.log($scope.userData);
     });
 
+$scope.consoleLog = function(){
+  console.log(document.getElementById('rows'));
+}
+
+// // sorting in angular without sortablejs library:
+// $scope.sort = {
+//     column: '',
+//     descending: false
+// };
+// $scope.changeSorting = function(column) {
+//
+//     var sort = $scope.sort;
+//
+//     if (sort.column == column) {
+//         sort.descending = !sort.descending;
+//     } else {
+//         sort.column = column;
+//         sort.descending = false;
+//     }
+// };
+//  <th ng-click="changeSorting('display_name')">Name</th>
+//  <tr ng-repeat="user in userData track by $index | orderBy: sort.column : sort.descending" ng-class-odd="'oddMemList'">
+
+// //sortablejs
+var el = document.getElementById('rows');
+// var sortable = new Sortable.create(el);
+
 }]);
