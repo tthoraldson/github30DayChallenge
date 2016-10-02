@@ -49,6 +49,7 @@ date_9_20          integer,
 date_9_21          integer
 );
 
+
 CREATE TABLE form_history (
 id SERIAL PRIMARY KEY,
 form_title       varchar(50),
@@ -59,4 +60,11 @@ form_questions json
 CREATE TABLE admin (
 currentSurvey integer,
 currentSprint integer
+);
+
+CREATE TABLE sprint3 (
+id SERIAL PRIMARY KEY,
+github varchar(50),
+date varchar(12),
+commits boolean
 );
