@@ -30,7 +30,7 @@ function newSprint(sprintName, startDate){
         res.sendStatus(500);
       }
 
-      client.query('CREATE TABLE ' + sprintId + ' ' + '_data'
+      client.query('CREATE TABLE ' + sprintId + ' ' + '_data' +
                   '(' +
                   'githubUsername varchar(50)' +
                   ')',
