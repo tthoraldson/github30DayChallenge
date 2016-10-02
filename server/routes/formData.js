@@ -126,8 +126,8 @@ router.put('/', function(req,res){
                     return;
                 }
                 // console.log('result: ', result.rows);
-
-                console.log('POST COMPLETE: INSERTED NEW USERS DATA TO DB')
+                res.sendStatus(201);
+                console.log('POST COMPLETE: UPDATING CURRENT SURVEY')
             })
 
 
