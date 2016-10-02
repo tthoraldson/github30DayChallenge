@@ -68,3 +68,11 @@ github varchar(50),
 date varchar(12),
 commits boolean
 );
+
+CREATE TABLE user_lawns (
+id SERIAL PRIMARY KEY,
+github varchar(50),
+date varchar(12),
+did_commit boolean,
+commits integer
+);
