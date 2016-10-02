@@ -49,7 +49,7 @@ date_9_20          integer,
 date_9_21          integer
 );
 
-
+-- holds all the forms that have been created
 CREATE TABLE form_history (
 id SERIAL PRIMARY KEY,
 form_title       varchar(50),
@@ -57,22 +57,23 @@ form_description       varchar(250),
 form_questions json
 );
 
+-- what is the active survey? what is the active sprint?
 CREATE TABLE admin (
 currentSurvey integer,
 currentSprint integer
 );
 
-CREATE TABLE sprint3 (
+-- generic sprint data table template
+CREATE TABLE sprint3_data (
 id SERIAL PRIMARY KEY,
-github varchar(50),
+github varchar(50), -- relational mark
 date varchar(12),
 commits boolean
 );
 
-CREATE TABLE user_lawns (
+-- generic sprint team table
+CREATE TABLE sprint3_teams (
 id SERIAL PRIMARY KEY,
-github varchar(50),
-date varchar(12),
-did_commit boolean,
-commits integer
+github varchar(50), -- realational mark
+team varchar(50)
 );

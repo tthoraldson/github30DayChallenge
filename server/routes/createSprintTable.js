@@ -1,16 +1,3 @@
-// CREATE TABLE sprint3 (
-// id SERIAL PRIMARY KEY,
-// member_name        varchar(50),
-// member_team        varchar(50),
-// team_score         integer,
-// member_score       integer,
-// date_8_23          integer,
-// date_8_24          integer,
-// date_8_25          integer,
-// date_8_26          integer,
-// date_8_27          integer,
-// );
-
 var express = require('express');
 var router = express.Router();
 var path = require('path');
@@ -33,7 +20,9 @@ function newSprint(sprintName, startDate){
   console.log(dates);
   // CREATE TABLE
 
-  router.post('/', function (req, res) {
+  router.post('/create', function (req, res) {
+    var sprintId = req.body.sprintId;
+    console.log(sprintName);
 
     pg.connect(connectionString, function (err, client, done) {
       if (err) {
@@ -41,7 +30,7 @@ function newSprint(sprintName, startDate){
         res.sendStatus(500);
       }
 
-      client.query('CREATE TABLE ' + sprintName + ' ' +
+      client.query('CREATE TABLE ' + sprintId + ' ' + '_data'
                   '(' +
                   'githubUsername varchar(50)' +
                   ')',
@@ -58,10 +47,11 @@ function newSprint(sprintName, startDate){
     });
   });
 
-  // ADD ROWS
-
 }
 
+module.exports = router;
+
+// FUNCTIONS!
 // styles the date to yyyy-mm-dd
 function styleDate(date){
   var d = date;
