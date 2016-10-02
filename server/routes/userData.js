@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/github_challenge';
-var commits = require('../modules/getCommits');
+//var commits = require('../modules/getCommits');
 var phantom = require('phantom');
 
 router.get('/', function(req, res) {
@@ -112,7 +112,7 @@ router.post('/', function(req, res) {
 });
 
 // UPDATE TODAY'S DATE FOR A SINGLE USER
-router.put('/', function(req, res) {
+router.post('/', function(req, res) {
   var githubUname = 'tthoraldson';
   var swagArray = [];
   var sitepage = null;
@@ -157,7 +157,30 @@ router.put('/', function(req, res) {
           });
 
           var foundObject = tempArray.find(findObject);
-          console.log(foundObject);
+          console.log(githubUname + ', ' + foundObject);
+
+          pg.connect(connectionString, function(err, client, done) {
+              console.log('Connecting to: ', connectionString);
+              if (err) {
+                  res.sendStatus(500);
+                  console.log("error");
+              }
+
+              var user = req.body;
+
+              client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)",
+              [githubUname, foundObject.date, foundObject.data],
+                  function(err, result) {
+                      done();
+                      if (err) {
+                          res.sendStatus(500);
+                          console.log('error: ', err);
+                      }
+
+                      console.log('');
+                      res.send(result.rows)
+                  })
+          })
       })
       .then(content => {
           sitepage.close();
@@ -166,8 +189,8 @@ router.put('/', function(req, res) {
       .catch(error => {
           console.log(error);
           phInstance.exit()
-      });
-}
+      })
+});
 
 module.exports = router;
 
