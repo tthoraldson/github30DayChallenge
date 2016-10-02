@@ -17,6 +17,43 @@ a {
     color: white;
 }
 
+.currentSurvey_title{
+  margin: 0;
+  color: black;
+  margin-left: 20px;
+  font-size: 42px;
+  font-weight: 200;
+}
+.currentSurvey_questionTitle{
+  margin-left: 40px;
+  padding-bottom: 10px;
+}
+
+.currentSurvey_option{
+  margin-left: 20px;
+}
+.currentSurvey_descTitle{
+  margin: 0;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 20px;
+  font-style: italic;
+}
+
+.currentSurvey_textInput{
+  margin-left: 40px;
+  width: 400px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.currentSurvey_submit{
+  margin-top: 20px;
+  display: block;
+  margin: auto;
+  height: 30px;
+  width: 200px;
+  margin-top: 20px;
+}
 main * {
   font-family: 'Helvetica';
   font-weight: 300;
