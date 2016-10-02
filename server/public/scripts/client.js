@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable"]);
+var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable", 'angular-toArrayFilter']);
 
 myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider, $mdThemingProvider) {
 

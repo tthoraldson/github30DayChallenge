@@ -20,6 +20,17 @@ main * {
 
 }
 
+.main_container {
+    background-color: #DAE5E3;
+    /*display: inline-block;*/
+    /*width: 90%;*/
+    height: 650px;
+    margin: auto;
+}
+
+
+
+/*==========NAME GENERATOR========*/
 .teamNameForm {
   margin: 2%;
   padding: .5%;
@@ -43,6 +54,8 @@ main * {
   display: inline;
 }
 
+
+/*==========MEMBER & PENDING TABLES========*/
 .pendMemTitle {
   margin: .5%;
   text-decoration: underline;
@@ -96,6 +109,8 @@ main * {
   background-color: hsla(176, 26%, 70%, .5);
 }
 
+
+/*=========FORMS STYLES========*/
 .formInput_shortAnswer{
   width: 600px;
   height: 30px;
@@ -193,16 +208,9 @@ h1 {
     text-align: center;
 }
 
-.main_container {
-    background-color: #DAE5E3;
-    /*display: inline-block;*/
-    /*width: 90%;*/
-    height: 650px;
-    margin: auto;
-}
 
 
-
+/*==========NAV BUTTONS========*/
 .tabBar {
     background-color: black;
     /*display: inline-block;*/
@@ -253,6 +261,18 @@ h1 {
 }
 
 
+/*==========ICONS========*/
+.fa-check {
+  color:green;
+}
+
+.fa-times {
+  color:red;
+}
+
+.fa-th {
+  color: green;
+}
 
 /*==========CHARTMANDER========*/
 
