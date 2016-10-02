@@ -1,7 +1,11 @@
 myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
     console.log("DynamicFormController works");
     $scope.formHistory = [];
+    $scope.activeSurvey;
+
+
     function getData(database) {
+        console.log('getting all data from :', database);
         var promise = $http.get('/userData', { //SELECT * FROM database
             params: {
                 db: database
@@ -14,21 +18,43 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         return promise;
     }
 
-    getData('form_history').then(function(data){
-      $scope.formHistory = data;
+    getData('form_history').then(function(allForms){
+      $scope.formHistory = allForms;
+      console.log('formhistory: ', allForms)
+      getData('admin').then(function(adminSettings){
+        console.log('adminSettings: ', adminSettings);
+        $scope.formHistory.forEach(function(form){
+                          console.log('form: ', form);
+          if (form.id == adminSettings[0].currentSurvey){
+
+                    $scope.activeSurvey = form;
+          }
+        })
+      });
     })
 
 
     $scope.setActive = function(survey){
       console.log(survey);
       $http.put('/formData', survey).then(function(){
+        getData('form_history').then(function(data){
+          var tempArray = [];
+          data.forEach(function(form){
+            if (survey.id == form.id){
+              tempArray = form;
+            }
+          })
+          console.log('active survey updated: ', tempArray);
+          $scope.activeSurvey = tempArray;
+        });
 
-        //update active survey scoped
         //show survey current results
 
         //can archive survey results?
       });
     }
+
+
 
     $scope.newForm = {
         formDBref: 0,
@@ -77,7 +103,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     // handles form views for different question types
     $scope.selectedDataType = function(dataType) {
         resetForm();
-        console.log('DATA:', dataType)
+        // console.log('DATA:', dataType)
         switch (dataType) {
             case 'shortAnswer':
                 $scope.shortAnswer_selected = true;
@@ -117,7 +143,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     $scope.addQuestion = function(question) {
         if ($scope.checkBox_selected) {
             var newQuestion = new Question(question.title, question.description_Checkbox, question.checkbox, "checkbox");
-            console.log('sending question', newQuestion);
+            // console.log('sending question', newQuestion);
             $scope.newForm.questions.push(newQuestion);
             $scope.newSurveyQuestion = {
                 title: "untitled question",
@@ -133,7 +159,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                 }],
                 shortAnswer: ""
             };
-            console.log('current form', $scope.newForm);
+            // console.log('current form', $scope.newForm);
         }
 
         $scope.submitForm = function(form) {
@@ -171,7 +197,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                       };
 
 
-                            console.log('post complete')
+                            // console.log('post complete')
 
                         })
                 };
@@ -179,7 +205,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
         if ($scope.multipleChoice_selected) {
             var newQuestion = new Question(question.title, question.description_MultiChoice, question.multipleChoice, "multipleChoice");
-            console.log('sending question', newQuestion);
+            // console.log('sending question', newQuestion);
             $scope.newForm.questions.push(newQuestion);
             $scope.newSurveyQuestion = {
                 title: "untitled question",
@@ -195,14 +221,14 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                 }],
                 shortAnswer: ""
             };
-            console.log('current form', $scope.newForm);
+            // console.log('current form', $scope.newForm);
         }
         if ($scope.shortAnswer_selected) {
-            console.log(question.shortAnswer);
+            // console.log(question.shortAnswer);
             var newQuestion = new Question(question.title, "", "", "shortAnswer");
-            console.log('sending question', newQuestion);
+            // console.log('sending question', newQuestion);
             $scope.newForm.questions.push(newQuestion);
-            console.log('current form', $scope.newForm);
+            // console.log('current form', $scope.newForm);
         }
     }
 
