@@ -56,23 +56,28 @@ main * {
 
 
 /*==========MEMBER & PENDING TABLES========*/
-.pendMemTitle {
-  margin: .5%;
-  text-decoration: underline;
-}
-
-.pendMemsTable {
-  border: thin solid black;
+.header{
   border-collapse: collapse;
 }
-.pendMemsTable th, td {
-  border-bottom: thin solid black;
-  border: 1px solid black;
+
+.divcolumn {
+    display: inline-block;
+    /*border: thin solid black;*/
+    color: red;
+    margin: .3%;
+    text-align: center;
+    width: 11%;
+    /*border-collapse: collapse;*/
 }
 
-.pendMemsTable td {
-  padding: .5%;
-  text-align: center;
+.display_name {
+  white-space: nowrap;
+  font-size: .9em;
+  width: 20%;
+}
+
+.iconCol {
+  width: 3.5%;
 }
 
 .memTitle {
