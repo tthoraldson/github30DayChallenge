@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable", 'angular-toArrayFilter']);
+var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable"]);
 
 myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider, $mdThemingProvider) {
 
@@ -11,7 +11,29 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/admin.html',
             controller: 'AdminController',
             resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
+              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
+
+                var auth = AuthFactory;
+                auth.$onAuthStateChanged(function(user) {
+                    var theUser = user;
+
+                    // console.log('This is the current user12341234:', theUser); //change the path here
+
+                        $http.get('/userData', {params:{db:'users'}}).then(function(data){
+                          // console.log('this is the data:', data);
+                          data.data.forEach(function(member){
+                          if(theUser == null || user.email == member.email){
+                            // console.log('this is the member:', member);
+                            if(member.auth_level == 33){
+                                $location.path('/admin');//allow them access to this route
+                            }else{
+                                $location.path('/survey');    //redirect user to home.
+                            }
+                          }
+
+                        });
+                    });
+                });
                 return AuthFactory.$requireSignIn();
               }]
             }
@@ -20,7 +42,27 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/registration.html',
             controller: 'RegistrationController',
             resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
+              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
+
+                var auth = AuthFactory;
+                auth.$onAuthStateChanged(function(user) {
+                    var theUser = user;
+
+                        $http.get('/userData', {params:{db:'users'}}).then(function(data){
+                          // console.log('this is the data:', data);
+                          data.data.forEach(function(member){
+                          if(theUser == null || user.email == member.email){
+                            // console.log('this is the member:', member);
+                            if(member.auth_level == 33){
+                                $location.path('/registration');//allow them access to this route
+                            }else{
+                                $location.path('/survey');    //redirect user to home.
+                            }
+                          }
+
+                        });
+                    });
+                });
                 return AuthFactory.$requireSignIn();
               }]
             }
@@ -29,7 +71,29 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/invite.html',
             controller: 'InviteController',
             resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
+              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
+
+                var auth = AuthFactory;
+                auth.$onAuthStateChanged(function(user) {
+                    var theUser = user;
+
+                    // console.log('This is the current user12341234:', theUser); //change the path here
+
+                        $http.get('/userData', {params:{db:'users'}}).then(function(data){
+                          // console.log('this is the data:', data);
+                          data.data.forEach(function(member){
+                          if(theUser == null || user.email == member.email){
+                            // console.log('this is the member:', member);
+                            if(member.auth_level == 33){
+                                $location.path('/invite');//allow them access to this route
+                            }else{
+                                $location.path('/survey');    //redirect user to home.
+                            }
+                          }
+
+                        });
+                    });
+                });
                 return AuthFactory.$requireSignIn();
               }]
             }
@@ -38,16 +102,28 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/dataPage.html',
             controller: 'DataPageController',
             resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
-                return AuthFactory.$requireSignIn();
-              }]
-            }
-        })
-        .when('/members', {
-            templateUrl: '/views/partials/membersPage.html',
-            controller: 'MembersPageController',
-            resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
+              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
+
+                var auth = AuthFactory;
+                auth.$onAuthStateChanged(function(user) {
+                    var theUser = user;
+
+                    // console.log('This is the current user12341234:', theUser); //change the path here
+
+                        $http.get('/userData', {params:{db:'users'}}).then(function(data){
+                          // console.log('this is the data:', data);
+                          data.data.forEach(function(member){
+                          if(theUser == null || user.email == member.email){
+                            // console.log('this is the member:', member);
+                            if(member.auth_level == 33){
+                                $location.path('/data');//allow them access to this route
+                            }else{
+                                $location.path('/survey');    //redirect user to home.
+                            }
+                          }
+                        });
+                    });
+                });
                 return AuthFactory.$requireSignIn();
               }]
             }
@@ -56,7 +132,29 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
             templateUrl: '/views/partials/formPage.html',
             controller: 'FormPageController',
             resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
+              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
+
+                var auth = AuthFactory;
+                auth.$onAuthStateChanged(function(user) {
+                    var theUser = user;
+
+                    // console.log('This is the current user12341234:', theUser); //change the path here
+
+                        $http.get('/userData', {params:{db:'users'}}).then(function(data){
+                          // console.log('this is the data:', data);
+                          data.data.forEach(function(member){
+                          if(theUser == null || user.email == member.email){
+                            // console.log('this is the member:', member);
+                            if(member.auth_level == 33){
+                                $location.path('/forms');//allow them access to this route
+                            }else{
+                                $location.path('/survey');    //redirect user to home.
+                            }
+                          }
+
+                        });
+                    });
+                });
                 return AuthFactory.$requireSignIn();
               }]
             }
