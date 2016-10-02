@@ -63,12 +63,12 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
         })
         .when('/survey', {
             templateUrl: '/views/partials/survey.html',
-            controller: 'SurveyController',
-            resolve: {
-              'currentAuth': ['AuthFactory', function(AuthFactory){
-                return AuthFactory.$requireSignIn();
-              }]
-            }
+            controller: 'SurveyController'
+            // resolve: {
+            //   'currentAuth': ['AuthFactory', function(AuthFactory){
+            //     return AuthFactory.$requireSignIn();
+            //   }]
+            // }
         })
 
         .otherwise({

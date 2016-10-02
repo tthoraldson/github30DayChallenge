@@ -81,7 +81,7 @@ router.post('/', function(req, res) {
                      "INSERT INTO users (github_url, email, display_name, user_id, profile_photo, auth_level) VALUES ($1, $2, $3, $4, $5, $6)";
 
 
-                 client.query(thequery, [swagArray[6].substring(15, swagArray[6].length - 2), user.email, user.displayName, usernumber, user.photoURL, 33],
+                 client.query(thequery, [swagArray[6].substring(15, swagArray[6].length - 2), user.email, user.displayName, usernumber, user.photoURL, 11],
                      function(err, result) {
                          done(); //closes connection, I only can have ten :
                          if (err) {

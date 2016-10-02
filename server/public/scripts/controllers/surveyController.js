@@ -28,4 +28,8 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       })
     });
 
+    $scope.submitForm = function(survey){
+      console.log(survey);
+    }
+
 }]);

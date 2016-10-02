@@ -65,11 +65,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     getData('users').then(function(data) {
         // console.log(data);
         $scope.userData = data;
-        // console.log($scope.userData[0].profile_photo);
+        // $scope.userData.push(data);
+
+        console.log("$scope.userData in getUsers(): ", $scope.userData);
     });
 
 $scope.consoleLog = function(){
-  console.log(document.getElementById('rows'));
+  console.log("document.getElementById('rows'): ", document.getElementById('rows'));
 }
 
 // // sorting in angular without sortablejs library:
@@ -93,6 +95,6 @@ $scope.consoleLog = function(){
 
 // //sortablejs
 var el = document.getElementById('rows');
-// var sortable = new Sortable.create(el);
+// var sortable = Sortable.create(el);
 
 }]);

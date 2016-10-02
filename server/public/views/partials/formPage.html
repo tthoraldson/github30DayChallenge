@@ -37,73 +37,71 @@
     <!-- View Pending Members -->
     <!-- <h2 class="pendMemTitle">Example Pending Members List</h2> -->
     <button ng-click="consoleLog()">Test</button>
-    <table class="pendMemsTable" width="100%">
-      <tbody id="rows">
-      <tr>
-        <th colspan="3">Pending Members</th>
-      </tr>
 
-      <tr>
-        <th >Photo</th>
-        <th ng-click="changeSorting('display_name')">Name</th>
-        <th>GitHub</th>
-        <th>Slack</th>
-        <th>Email</th>
-        <th>Studying</th>
-        <th>Team</th>
-        <th>Approve</th>
-      </tr>
 
-      <tr ng-repeat="user in userData track by $index | orderBy:sortType:sortReverse | filter:searchFish" ng-class-odd="'oddMemList'">
-        <td id="memPhoto">
-        <div class="imgBox">
-          <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+    <!-- DaT TABLE -->
+
+    <div class="tableTitle" width="100%">Pending Members</div>
+    <div class="header" width="100%" >
+        <div class="divcolumn iconCol">
+            <p></p>
         </div>
-        </td>
+        <div class="divcolumn display_name">
+            <p>Name</p>
+        </div>
+        <div class="divcolumn iconCol">
+            <p></p>
+        </div>
 
-        <td id="memName">
-          <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
-            {{user.display_name || 'empty'}}
-          </h3>
-        </td>
+        <div class="divcolumn iconCol">
+            <p></p>
+        </div>
+        <div class="divcolumn">
+            <p>Studying</p>
+        </div>
+        <div class="divcolumn">
+            <p>Team</p>
+        </div>
+        <div class="divcolumn">
+            <p>Approve</p>
+        </div>
 
-        <td id="memGitHubLink">
-          <a ng-href="{{user.github_url}}" target="_blank">
-            <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
-          </a>
-        </td>
+    </div>
+    <div id="rows" lass="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+        <div class="divcolumn iconCol">
+            <div class="imgBox">
+                <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+            </div>
+        </div>
+        <div class="divcolumn display_name">
+            <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
+          {{user.display_name || 'empty'}}
+        </h3>
+        </div>
+        <div class="divcolumn iconCol">
+            <a ng-href="{{user.github_url}}" target="_blank">
+                <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+            </a>
+        </div>
 
-        <td id="memSlack">
-          <!-- add slack link to a -->
-          <a>
-            <i class="fa fa-slack" alt="Slack" aria-hidden="true"></i>
-          </a>
-        </td>
-
-        <td id="memEmail">
-          <a ng-href="mailto:{{user.email}}">
-            <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-          </a>
-        </td>
-
-        <td id="memStudy">
-
-        </td>
-
-        <td id="memTeam">
-
-        </td>
-
-        <td id="memApprove">
-          <!-- add slack link to a -->
-          <a>
-            <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
-            <i class="fa fa-times" alt="No" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-
-    </table>
+        <div class="divcolumn iconCol">
+            <a ng-href="mailto:{{user.email}}">
+                <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="divcolumn">
+            <p>Studying</p>
+        </div>
+        <div class="divcolumn">
+            <p>Team</p>
+        </div>
+        <div class="divcolumn">
+            <a>
+                <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
+                <i class="fa fa-times" alt="No" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
 
 
     <!-- <i class="fa fa-github" aria-hidden="true"></i> -->
@@ -123,81 +121,81 @@
     <!-- <h2 class="memTitle">Current Members List</h2> -->
 
     <table class="memTable" width="100%">
-      <tr>
-        <th colspan="3">Current Members</th>
-      </tr>
+        <tr>
+            <th colspan="3">Current Members</th>
+        </tr>
 
-      <tr>
-        <th>Photo</th>
-        <th>Name</th>
-        <th>GitHub</th>
-        <th>Slack</th>
-        <th>Email</th>
-        <th>Studying</th>
-        <th>Team</th>
-        <th>Streak</th>
-        <th>Commit Today</th>
-        <th>Commit %</th>
-        <th>Lawn</th>
-      </tr>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>GitHub</th>
+            <th>Slack</th>
+            <th>Email</th>
+            <th>Studying</th>
+            <th>Team</th>
+            <th>Streak</th>
+            <th>Commit Today</th>
+            <th>Commit %</th>
+            <th>Lawn</th>
+        </tr>
 
-      <tr ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'">
-        <td id="memPhoto">
-        <div class="imgBox">
-          <img class="imgAutoResize" ng-src="{{user.profile_photo}}">
-          </img>
-        </div>
-        </td>
+        <tr ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'">
+            <td id="memPhoto">
+                <div class="imgBox">
+                    <img class="imgAutoResize" ng-src="{{user.profile_photo}}">
+                    </img>
+                </div>
+            </td>
 
-        <td id="memName">
-          <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
+            <td id="memName">
+                <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
             {{user.display_name || 'empty'}}
           </h3>
-        </td>
+            </td>
 
-        <td id="memGitHubLink">
-          <a ng-href="{{user.github_url}}" target="_blank">
-            <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
-          </a>
-        </td>
+            <td id="memGitHubLink">
+                <a ng-href="{{user.github_url}}" target="_blank">
+                    <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                </a>
+            </td>
 
-        <td id="memSlack">
-          <!-- add slack link to a -->
-          <a>
-            <i class="fa fa-slack" alt="Slack" aria-hidden="true"></i>
-          </a>
-        </td>
+            <td id="memSlack">
+                <!-- add slack link to a -->
+                <a>
+                    <i class="fa fa-slack" alt="Slack" aria-hidden="true"></i>
+                </a>
+            </td>
 
-        <td id="memEmail">
-          <a ng-href="mailto:{{user.email}}">
-            <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-          </a>
-        </td>
+            <td id="memEmail">
+                <a ng-href="mailto:{{user.email}}">
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </a>
+            </td>
 
-        <td id="memStudy">
+            <td id="memStudy">
 
-        </td>
+            </td>
 
-        <td id="memTeam">
+            <td id="memTeam">
 
-        </td>
+            </td>
 
-        <td id="memStreak">
+            <td id="memStreak">
 
-        </td>
+            </td>
 
-        <td id="memCommitToday">
+            <td id="memCommitToday">
 
-        </td>
+            </td>
 
-        <td id="memCommitAvg">
+            <td id="memCommitAvg">
 
-        </td>
+            </td>
 
-        <td id="memLawn">
-          <i class="fa fa-th" aria-hidden="true"></i>
-        </td>
-      </tr>
+            <td id="memLawn">
+                <i class="fa fa-th" aria-hidden="true"></i>
+            </td>
+        </tr>
 
 
     </table>
@@ -219,7 +217,7 @@
 
 
 
-  <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
+    <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
     <button ng-click="email=!email">SEND NEW EMAIL</button>
     <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />
     <button ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
