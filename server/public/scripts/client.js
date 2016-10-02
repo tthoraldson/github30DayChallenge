@@ -80,8 +80,13 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
 myApp.run(['$rootScope', '$location', 'AuthFactory', redirectHome]);
 
 // xeditable
-myApp.run(function(editableOptions) {
-  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+// myApp.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+// });
+myApp.run(function(editableOptions, editableThemes) {
+  editableThemes.bs3.inputClass = 'input-sm';
+  editableThemes.bs3.buttonsClass = 'btn-sm';
+  editableOptions.theme = 'bs3';
 });
 
 

@@ -29,14 +29,14 @@
     </form>
     <div class="teamNamesBox">
         <h2>:D :D :D TEAM NAMES: :D :D :D</h2>
-        <p class="teamNames" ng-repeat="names in showNames track by $index">
-            {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
+        <p class="teamNames as-sortable-item-handle" ng-repeat="names in showNames track by $index" as-sortable-item-handle editable-text="names">
+        {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
         </p>
     </div>
 
     <!-- View Pending Members -->
     <!-- <h2 class="pendMemTitle">Example Pending Members List</h2> -->
-    <button ng-click="consoleLog()">Test</button>
+    <!-- <button ng-click="consoleLog()">Test</button> -->
 
 
     <!-- DaT TABLE -->
@@ -67,7 +67,7 @@
         </div>
 
     </div>
-    <div id="rows" lass="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+    <div ng-sortable class="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
         <div class="divcolumn iconCol">
             <div class="imgBox">
                 <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>

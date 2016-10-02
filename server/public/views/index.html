@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="/vendors/xeditable.min.css" />
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
 
     <script src="https://use.fontawesome.com/ce0e8bed13.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
@@ -19,6 +20,7 @@
     <script type="text/javascript" src="/vendors/toArrayFilter.js"></script>
     <script type="text/javascript" src="/vendors/Sortable.min.js"></script>
     <script type="text/javascript" src="/vendors/ng-sortable.js"></script>
+    <script type="text/javascript" src="/vendors/angular-legacy-sortable.js"></script>
 
     <script type="text/javascript" src="/vendors/angularfire.min.js"></script>
     <script src="../scripts/client.js"></script>
@@ -40,7 +42,7 @@
     <title>GitHub Challenge</title>
 </head>
 
-<body ng-app="myApp">
+<body id="body" ng-app="myApp">
     <div ng-include="'/views/nav.html'"></div>
     <main ng-view></main>
 </body>
