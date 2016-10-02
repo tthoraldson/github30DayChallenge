@@ -1,12 +1,18 @@
 <div class="main_container">
   <form ng-model="surveyForm">
-    {{currentSurvey.form_title}} <br />
-    {{currentSurvey.form_description}} <br />
+    <h1 class="currentSurvey_title">{{currentSurvey.form_title}}</h1> <br />
+    <h3 class="currentSurvey_descTitle">{{currentSurvey.form_description}}</h3> <br />
     <div ng-repeat="question in currentSurvey.form_questions">
-      {{question.title}}
-      <div ng-repeat="option in question.options">
-        <input type="checkbox" /> {{option.title}}
+      <h3 class="currentSurvey_questionTitle">{{question.title}}</h3>
+      <!-- {{question.type)}} -->
+      <div class="currentSurvey_option" ng-if="question.type != 'shortAnswer'" ng-repeat="option in question.options">
+        <input type="checkbox" ng-model="option.check"/> {{option.title}}
+      </div>
+      <div ng-if="question.type == 'shortAnswer'">
+        <input class="currentSurvey_textInput" type="text" ng-model="question.shortAnswer"/> {{option.title}}
       </div>
     </div>
+
+  <button class="currentSurvey_submit" type="submit" ng-click="submitForm(currentSurvey)">SUBMIT</button>
   </form>
 </div>
