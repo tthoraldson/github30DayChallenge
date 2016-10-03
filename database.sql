@@ -63,8 +63,23 @@ currentSurvey integer,
 currentSprint integer
 );
 
+-- Sprint History table
+CREATE TABLE sprint_history (
+  id SERIAL PRIMARY KEY,
+  sprint_name varchar(50),
+  currentSprint boolean
+);
+
+
+
+
+
+
+
+
+-- TEMPLATES FOR PG QUERIES
 -- generic sprint data table template
-CREATE TABLE sprint3_data (
+CREATE TABLE SPRINTNAME_data (
 id SERIAL PRIMARY KEY,
 github varchar(50), -- relational mark
 date varchar(12),
@@ -72,7 +87,7 @@ commits smallint
 );
 
 -- generic sprint team table
-CREATE TABLE sprint3_teams (
+CREATE TABLE SPRINTNAME_teams (
 id SERIAL PRIMARY KEY,
 github varchar(50), -- realational mark
 team varchar(50)
