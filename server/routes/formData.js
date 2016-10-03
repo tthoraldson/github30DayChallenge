@@ -137,4 +137,114 @@ router.put('/', function(req,res){
 
 });
 
+
+router.post('/entry', function(req,res){
+
+console.log(req.body);
+
+var columnString = ''
+var expectedType = ''
+
+req.body.form_questions.forEach(function(question, index){
+  // console.log('question!', question);
+  switch(question.type){
+    case 'multipleChoice':
+    expectedType = 'varchar(100)';
+    break;
+    case 'checkbox':
+    expectedType = 'varchar(100)'
+    break;
+    case 'shortAnswer':
+    expectedType = 'varchar(500)'
+    break;
+  }
+  if (index != req.body.form_questions.length - 1){
+      columnString += 'question_' + index + ' ' + expectedType + ', '
+  } else {
+      columnString += 'question_' + index + ' ' + expectedType;
+  }
+
+
+});
+
+// console.log('this is the column string', columnString);
+pg.connect(connectionString, function(err, client, done) {
+    console.log('Start!');
+    if (err) {
+        res.sendStatus(500);
+        console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
+    }
+
+    var thequery =
+        "CREATE TABLE IF NOT EXISTS form"+req.body.id +"( user_id integer, " + columnString + " )";
+
+          
+            client.query(thequery,
+                function(err, result) {
+                    done(); //closes connection, I only can have ten :
+                    if (err) {
+                        res.sendStatus(500);
+                        console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
+                        return;
+                    }
+
+
+                    req.body.form_questions.forEach(function(question, index){
+                      // console.log('question!', question);
+                      console.log('heyhey it chcked for table, created?, now trying to post questions -? uname?')
+                      switch(question.type){
+                        case 'multipleChoice':
+                        expectedType = 'varchar(100)';
+                        break;
+                        case 'checkbox':
+                        expectedType = 'varchar(100)'
+                        break;
+                        case 'shortAnswer':
+                        expectedType = 'varchar(500)'
+                        break;
+                      }
+
+
+                    //
+                    // pg.connect(connectionString, function(err, client, done) {
+                    //     console.log('Start!');
+                    //     if (err) {
+                    //         res.sendStatus(500);
+                    //         console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
+                    //     }
+                    //
+                    //     var thequery =
+                    //         "INSERT INTO form"+req.body.id +"( " + columnString + " )";
+                    //
+                    //
+                    //             client.query(thequery,
+                    //                 function(err, result) {
+                    //                     done(); //closes connection, I only can have ten :
+                    //                     if (err) {
+                    //                         res.sendStatus(500);
+                    //                         console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
+                    //                         return;
+                    //                     }
+                    //
+                    //
+                    //                     console.log('INPUTED USER SURVEY VALUES')
+                    //                     res.sendStatus(201);
+                    //
+                    //                 })
+                    //
+                    //
+                    //
+                    // });
+                  });
+
+
+
+
+
+                })
+
+
+
+});
+});
 module.exports = router;
