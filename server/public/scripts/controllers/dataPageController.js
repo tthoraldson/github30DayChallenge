@@ -8,8 +8,8 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
     // counter for tabbed html views in main pages
     function test(){
-    $http.post('/userData/lawn', {uname: 'andrewwiskus'}).then(function(){
-
+    $http.get('/userData/sprintData', {uname: 'andrewwiskus', startDate: '2016-08-27'}).then(function(){
+      console.log('this is the 30 days of commit data after 2016-08-27', data.data)
     });
   }
 //this is calling the lawn: uncomment once to fill lawn db
