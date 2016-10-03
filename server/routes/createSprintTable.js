@@ -78,6 +78,7 @@ function newSprint(sprintName, startDate){
     dates.push(styleDate(myDate));
   }
   console.log(dates);
+}
 
 // styles the date to yyyy-mm-dd
 function styleDate(date){
