@@ -3,7 +3,7 @@
 }
 
 #siteTitle {
-  color:white;
+    color: white;
 }
 
 main {
@@ -17,46 +17,9 @@ a {
     color: white;
 }
 
-.currentSurvey_title{
-  margin: 0;
-  color: black;
-  margin-left: 20px;
-  font-size: 42px;
-  font-weight: 200;
-}
-.currentSurvey_questionTitle{
-  margin-left: 40px;
-  padding-bottom: 10px;
-}
-
-.currentSurvey_option{
-  margin-left: 20px;
-}
-.currentSurvey_descTitle{
-  margin: 0;
-  margin-left: 20px;
-  font-size: 20px;
-  font-weight: 20px;
-  font-style: italic;
-}
-
-.currentSurvey_textInput{
-  margin-left: 40px;
-  width: 400px;
-  height: 30px;
-  margin-bottom: 20px;
-}
-.currentSurvey_submit{
-  margin-top: 20px;
-  display: block;
-  margin: auto;
-  height: 30px;
-  width: 200px;
-  margin-top: 20px;
-}
 main * {
-  font-family: 'Helvetica';
-  font-weight: 300;
+    font-family: 'Helvetica';
+    font-weight: 300;
 }
 
 .main_container {
@@ -67,30 +30,33 @@ main * {
     margin: auto;
 }
 
+.editable-buttons button {
+  display: none;
+}
 
 
 /*==========NAME GENERATOR========*/
-.teamNameForm {
-  margin: 2%;
-  padding: .5%;
-  border: medium solid teal;
 
+.teamNameForm {
+    margin: 2%;
+    padding: .5%;
+    border: medium solid teal;
 }
 
 .teamNamesBox {
-  margin: 0 5% 5% 5%;
-  padding: 1%;
-  border: medium dotted teal;
-  text-align: center;
-
+    margin: 0 5% 5% 5%;
+    padding: 1%;
+    border: medium dotted teal;
+    text-align: center;
 }
+
 .teamNamesBox h2 {
-  text-align: center;
-  border-bottom: thin dotted teal;
+    text-align: center;
+    border-bottom: thin dotted teal;
 }
 
 .teamNames {
-  display: inline;
+    display: inline;
 }
 
 .editable {
@@ -101,23 +67,24 @@ main * {
 }
 
 .editable-click {
-   font-size: 1.2em;
-   /*color: black;*/
-   margin: .5%;
-   line-height: 1.2em;
+    font-size: 1.2em;
+    /*color: black;*/
+    margin: .5%;
+    line-height: 1.2em;
 }
 
 #bleh {
-  font-size: 1.2em;
-  /*color: black;*/
-  margin: .5%;
-  line-height: 1.2em;
+    font-size: 1.2em;
+    /*color: black;*/
+    margin: .5%;
+    line-height: 1.2em;
 }
 
 
 /*==========MEMBER & PENDING TABLES========*/
-.header{
-  border-collapse: collapse;
+
+.header {
+    border-collapse: collapse;
 }
 
 .divcolumn {
@@ -131,64 +98,64 @@ main * {
 }
 
 .display_name {
-  white-space: nowrap;
-  font-size: .9em;
-  width: 20%;
+    /*white-space: nowrap;*/
+    font-size: .9em;
+    width: 20%;
 }
 
 .iconCol {
-  width: 3.5%;
+    width: 3.5%;
 }
 
 .memTitle {
-  margin: .5%;
-  text-decoration: underline;
+    margin: .5%;
+    text-decoration: underline;
 }
 
 .memTable {
-  border: thin solid black;
-  border-collapse: collapse;
+    border: thin solid black;
+    border-collapse: collapse;
 }
 
 .memTable th, td {
-  border-bottom: thin solid black;
-  border: 1px solid black;
+    border-bottom: thin solid black;
+    border: 1px solid black;
 }
 
 .memTable td {
-  padding: .5%;
-  text-align: center;
+    padding: .5%;
+    text-align: center;
 }
 
-.imgBox {
-}
+.imgBox {}
 
 .imgAutoResize {
-  max-width: 1.17em;
-  height: auto;
-  width: auto;
-  /*background-color: pink;*/
+    max-width: 1.17em;
+    height: auto;
+    width: auto;
+    /*background-color: pink;*/
 }
 
 .oddMemList {
-  background-color: hsla(176, 26%, 70%, .5);
+    background-color: hsla(176, 26%, 70%, .5);
 }
 
 
 /*=========FORMS STYLES========*/
-.formInput_shortAnswer{
-  width: 600px;
-  height: 30px;
+
+.formInput_shortAnswer {
+    width: 600px;
+    height: 30px;
 }
 
 .dynamicForm_history {
-  background-color: #DAE5E3;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-
+    background-color: #DAE5E3;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
+
 h3 {
     margin: 0;
 }
@@ -203,8 +170,8 @@ p {
 }
 
 h1 {
-  color: white;
-  font-weight: normal;
+    color: white;
+    font-weight: normal;
 }
 
 .dynamicForm_container {
@@ -274,10 +241,10 @@ h1 {
 }
 
 
-
 /*==========NAV BUTTONS========*/
+
 #login {
-  color: white;
+    color: white;
 }
 
 .loginButton {
@@ -309,10 +276,12 @@ h1 {
     /*do not style*/
     margin: 2% auto;
 }
-.topNavContainer a{
+
+.topNavContainer a {
     color: black;
 }
-.topNavContainer a:hover{
+
+.topNavContainer a:hover {
     color: white;
 }
 
@@ -341,17 +310,19 @@ h1 {
 
 
 /*==========ICONS========*/
+
 .fa-check {
-  color:green;
+    color: green;
 }
 
 .fa-times {
-  color:red;
+    color: red;
 }
 
 .fa-th {
-  color: green;
+    color: green;
 }
+
 
 /*==========CHARTMANDER========*/
 
