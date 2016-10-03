@@ -117,7 +117,7 @@
 <!-- *********************************************************** -->
 <div class="main_container" ng-if="tab == 2">
     <p>current member list w/ stats, editable</p>
-
+    <div ng-show="emails.length > 0" ng-include="'/views/partials/emailConfig.html'"></div>
     <!-- <h2 class="memTitle">Current Members List</h2> -->
 
     <table class="memTable" width="100%">

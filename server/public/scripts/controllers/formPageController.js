@@ -1,4 +1,4 @@
-myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", function($scope, $http, $route, $location, AuthFactory) {
+myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
     $scope.tab = 1;
@@ -52,8 +52,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     }
 
 
+//EMAIL STUFF BELOW
+
+    $scope.emailInfo= {};
+
+
     $scope.emails = '';
-    var emailArray = []
+    var emailArray = [];
 
     $scope.addEmail = function(email){
       var checker;
@@ -75,7 +80,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
             }
           })
         } else {
-        console.log('after splice:', emailArray);
+        // console.log('after splice:', emailArray);
 
           emailArray.push(email);
 
@@ -94,21 +99,25 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
         }
 
+        $scope.allEmails = function(){
+          var emailFunction = EmailFactory.allEmails()
+          $scope.emailInfo.emails = emailFunction($scope.userData, $scope.emailInfo);
+        };
 
 
-    //TODO: PUT INTO FACTORY!!!
-    function getData(database) {
-        var promise = $http.get('/userData', { //SELECT * FROM database
-            params: {
-                db: database
-            }
-        }).then(function(data) {
-            console.log('GET COMPLETE: Updated $scope.' + database);
-            return data.data;
+        var getData = UserFactory.getData();
+
+        getData('users').then(function(data) {
+            // console.log(data);
+            $scope.userData = data;
         });
 
-        return promise;
-    }
+        $scope.email = EmailFactory.sendEmail();
+
+
+
+
+
 
     getData('users').then(function(data) {
         // console.log(data);

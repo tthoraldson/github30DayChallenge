@@ -73,12 +73,30 @@ myApp.factory('UserFactory', ['$http', function($http) {
         });
     };
 
+
+    function getData(database) {
+        var promise = $http.get('/userData', { //SELECT * FROM database
+            params: {
+                db: database
+            }
+        }).then(function(data) {
+            // console.log('GET COMPLETE: Updated $scope.' + database);
+            return data.data;
+        });
+
+        return promise;
+    };
+
+
     return {
         signIn: function() {
             return signIn;
         },
         signOut: function() {
             return signOut;
+        },
+        getData: function() {
+            return getData;
         }
 
     };
