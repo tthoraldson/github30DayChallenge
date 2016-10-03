@@ -174,8 +174,35 @@ router.get('/usernames', function(req,res){
   });
 });
 
-// UPDATE TODAY'S DATE FOR A SINGLE USER
+// UPDATE TODAY'S COMMIT STATUS
 router.post('/daily/:uname', function(req, res) {
+  pg.connect(connectionString, function(err, client, done) {
+      console.log('Connecting to: ', connectionString);
+      if (err) {
+          res.sendStatus(500);
+          console.log("error");
+      }
+
+      var user = req.body;
+      var didCommit = false;
+      if (commitObject.data > 0){
+        didCommit = true;
+      }
+      client.query("SELECT github FROM s2_teams",
+          function(err, result) {
+              done();
+              if (err) {
+                  res.sendStatus(500);
+                  console.log('error grabbing usernames from teams table...')
+                  console.log('error: ', err);
+              }
+
+              console.log(result.rows);
+              // res.send(result.rows)
+      }).then(function(){
+
+      })
+  })
   var githubUname = uname;
   var swagArray = [];
   var sitepage = null;
