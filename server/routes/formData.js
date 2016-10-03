@@ -142,10 +142,11 @@ router.post('/entry', function(req,res){
 
 console.log(req.body);
 
+var user = req.body.uname;
 var columnString = ''
 var expectedType = ''
 
-req.body.form_questions.forEach(function(question, index){
+req.body.survey.form_questions.forEach(function(question, index){
   // console.log('question!', question);
   switch(question.type){
     case 'multipleChoice':
@@ -158,7 +159,7 @@ req.body.form_questions.forEach(function(question, index){
     expectedType = 'varchar(500)'
     break;
   }
-  if (index != req.body.form_questions.length - 1){
+  if (index != req.body.survey.form_questions.length - 1){
       columnString += 'question_' + index + ' ' + expectedType + ', '
   } else {
       columnString += 'question_' + index + ' ' + expectedType;
@@ -176,9 +177,9 @@ pg.connect(connectionString, function(err, client, done) {
     }
 
     var thequery =
-        "CREATE TABLE IF NOT EXISTS form"+req.body.id +"( user_id integer, " + columnString + " )";
+        "CREATE TABLE IF NOT EXISTS form"+req.body.survey.id +"( user_email varchar(50), " + columnString + " )";
 
-          
+
             client.query(thequery,
                 function(err, result) {
                     done(); //closes connection, I only can have ten :
@@ -188,54 +189,88 @@ pg.connect(connectionString, function(err, client, done) {
                         return;
                     }
 
+                    var answerArray = [req.body.uname.email]
+                    var inputIntoColumn = ''
+                    var valueString = ''
 
-                    req.body.form_questions.forEach(function(question, index){
+                    req.body.survey.form_questions.forEach(function(question, index){
                       // console.log('question!', question);
                       console.log('heyhey it chcked for table, created?, now trying to post questions -? uname?')
+                      inputIntoColumn += 'question_' + index;
+                      if (index < req.body.survey.form_questions.length - 1){
+                        inputIntoColumn += ','
+                      }
+
                       switch(question.type){
                         case 'multipleChoice':
-                        expectedType = 'varchar(100)';
+                        question.options.forEach(function(option, i){
+                          if(option.check == true){
+                            answerArray.push(i)
+                          }
+                        });
+
                         break;
                         case 'checkbox':
-                        expectedType = 'varchar(100)'
+                        var tempString = ''
+                        question.options.forEach(function(option, i){
+                          if(option.check == true){
+                            tempString += '1'
+                          } else {
+                            tempString += '0'
+                          }
+                        });
+                        answerArray.push(tempString)
+
+
                         break;
                         case 'shortAnswer':
-                        expectedType = 'varchar(500)'
+                        answerArray.push(question.shortAnswer);
                         break;
+                      }
+                      valueString += '$'+(index+2);
+                      if(index < req.body.survey.form_questions.length - 1){
+                        valueString += ','
                       }
 
 
-                    //
-                    // pg.connect(connectionString, function(err, client, done) {
-                    //     console.log('Start!');
-                    //     if (err) {
-                    //         res.sendStatus(500);
-                    //         console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
-                    //     }
-                    //
-                    //     var thequery =
-                    //         "INSERT INTO form"+req.body.id +"( " + columnString + " )";
-                    //
-                    //
-                    //             client.query(thequery,
-                    //                 function(err, result) {
-                    //                     done(); //closes connection, I only can have ten :
-                    //                     if (err) {
-                    //                         res.sendStatus(500);
-                    //                         console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
-                    //                         return;
-                    //                     }
-                    //
-                    //
-                    //                     console.log('INPUTED USER SURVEY VALUES')
-                    //                     res.sendStatus(201);
-                    //
-                    //                 })
-                    //
-                    //
-                    //
-                    // });
-                  });
+                    });
+
+                    console.log('ANSWER ARRAY!!!!', answerArray);
+                    console.log('VALUEEE STRINGGG!', valueString);
+                    console.log('inputIntoColumn?', inputIntoColumn);
+
+                    pg.connect(connectionString, function(err, client, done) {
+                        console.log('Start!22');
+                        if (err) {
+                            res.sendStatus(500);
+                            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
+                        }
+
+                        var thequery2 =
+                            "INSERT INTO form"+req.body.survey.id +" (user_email, " + inputIntoColumn + ") VALUES ( $1, "+ valueString + ")";
+
+                        console.log(thequery2);
+
+
+                                client.query(thequery2, answerArray,
+                                    function(err, result) {
+                                        done(); //closes connection, I only can have ten :
+                                        if (err) {
+                                            res.sendStatus(500);
+                                            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
+                                            return;
+                                        }
+
+
+                                        console.log('INPUTED USER SURVEY VALUES')
+                                        res.sendStatus(201);
+
+                                    })
+
+
+
+                    });
+
 
 
 
@@ -245,6 +280,6 @@ pg.connect(connectionString, function(err, client, done) {
 
 
 
-});
+              });
 });
 module.exports = router;

@@ -1,20 +1,16 @@
-myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
+myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
     console.log("Loaded: Data Page Controller");
 
-    // function BUILDSPRINT2DATABASE() {
-    //     $http.put('/databaseBuild').then(function() {});
-    // }
-    // BUILDSPRINT2DATABASE();
 
+    var getData = UserFactory.getData();
     // counter for tabbed html views in main pages
     function test(){
     $http.get('/userData/sprintData', {uname: 'andrewwiskus', startDate: '2016-08-27'}).then(function(){
       console.log('this is the 30 days of commit data after 2016-08-27', data.data)
-    });
-  }
-//this is calling the lawn: uncomment once to fill lawn db
-  // test();
-
+      });
+    }
+    //this is calling the lawn: uncomment once to fill lawn db
+    test();
 
     $scope.tab = 1;
     var sprint = {
@@ -24,22 +20,9 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
         dateEnd: Date('3/21/2016')
     }
     $scope.currentSprintOpen = "";
-
     $scope.sprintHistory = [sprint, sprint, sprint];
 
-    //TODO: PUT INTO FACTORY!!!
-    function getData(database) {
-        var promise = $http.get('/userData', { //SELECT * FROM database
-            params: {
-                db: database
-            }
-        }).then(function(data) {
-            console.log('GET COMPLETE: Updated $scope.' + database);
-            return data.data;
-        });
 
-        return promise;
-    }
 
     getData('sprint2').then(function(data) {
         $scope.sprintHistory[1] = {
