@@ -34,15 +34,20 @@
         </p>
     </div>
 
+    <div id="dropBox" droppable="true">
+      <h1> DROP YO SHIT </h1>
+
+    </div>
+
     <!-- View Pending Members -->
     <!-- <h2 class="pendMemTitle">Example Pending Members List</h2> -->
-    <!-- <button ng-click="consoleLog()">Test</button> -->
+    <button ng-click="consoleLog()">Test</button>
 
 
     <!-- DaT TABLE -->
 
     <div class="tableTitle" width="100%">Pending Members</div>
-    <div id="rows" class="header" width="100%" >
+    <div class="header" width="100%" >
         <div class="divcolumn iconCol">
             <p></p>
         </div>
@@ -67,7 +72,8 @@
         </div>
 
     </div>
-    <div ng-sortable class="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%" >
+    <div id="{{user.email}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%" >
+      <div id="rows">
         <div class="divcolumn iconCol">
             <div class="imgBox">
                 <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
@@ -101,6 +107,7 @@
                 <i class="fa fa-times" alt="No" aria-hidden="true"></i>
             </a>
         </div>
+      </div>
     </div>
 
 

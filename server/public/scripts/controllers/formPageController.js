@@ -1,3 +1,24 @@
+myApp.directive('draggable', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element[0].addEventListener('dragstart', scope.handleDragStart, false);
+            element[0].addEventListener('dragend', scope.handleDragEnd, false);
+        }
+    }
+});
+
+myApp.directive('droppable', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element[0].addEventListener('drop', scope.handleDrop, false);
+            element[0].addEventListener('dragover', scope.handleDragOver, false);
+            element[0].addEventListener('dragleave', scope.handleDragLeave, false);
+        }
+    }
+});
+
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
@@ -147,9 +168,63 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     // SORTING HELL vvvvv
 
-    // $scope.consoleLog = function() {
-    //     console.log("document.getElementById('rows'): ", document.getElementById('rows'));
-    // }
+    $scope.consoleLog = function() {
+        console.log("document.getElementById('rows'): ", document.getElementById('rows'));
+        var dropBox = document.getElementById('dropBox');
+        Sortable.create(dropBox, {
+        		group: "words",
+        		animation: 150,
+        		store: {
+        			get: function (sortable) {
+        				var order = localStorage.getItem(sortable.options.group);
+        				return order ? order.split('|') : [];
+        			},
+        			set: function (sortable) {
+        				var order = sortable.toArray();
+        				localStorage.setItem(sortable.options.group, order.join('|'));
+        			}
+        		},
+        		onAdd: function (evt){ console.log('onAdd.foo:', [evt.item, evt.from]); },
+        		onUpdate: function (evt){ console.log('onUpdate.foo:', [evt.item, evt.from]); },
+        		onRemove: function (evt){ console.log('onRemove.foo:', [evt.item, evt.from]); },
+        		onStart:function(evt){ console.log('onStart.foo:', [evt.item, evt.from]);},
+        		onSort:function(evt){ console.log('onStart.foo:', [evt.item, evt.from]);},
+        		onEnd: function(evt){ console.log('onEnd.foo:', [evt.item, evt.from]);}
+        	});
+
+
+
+
+
+
+        // //sortablejs
+        // var el = document.getElementById('rows');
+        var tempArray = document.getElementsByClassName('memRow');
+        for (i = 0 ; i < tempArray.length ; i++ ) {
+          // var sortable = Sortable.create( tempArray[i] );
+          Sortable.create(tempArray[i], {
+              group: "words",
+              animation: 150,
+              store: {
+                get: function (sortable) {
+                  var order = localStorage.getItem(sortable.options.group);
+                  return order ? order.split('|') : [];
+                },
+                set: function (sortable) {
+                  var order = sortable.toArray();
+                  localStorage.setItem(sortable.options.group, order.join('|'));
+                }
+              },
+              onAdd: function (evt){ console.log('onAdd.foo:', [evt.item, evt.from]); },
+              onUpdate: function (evt){ console.log('onUpdate.foo:', [evt.item, evt.from]); },
+              onRemove: function (evt){ console.log('onRemove.foo:', [evt.item, evt.from]); },
+              onStart:function(evt){ console.log('onStart.foo:', [evt.item, evt.from]);},
+              onSort:function(evt){ console.log('onStart.foo:', [evt.item, evt.from]);},
+              onEnd: function(evt){ console.log('onEnd.foo:', [evt.item, evt.from]);}
+            });
+        }
+        // console.log(sortable);
+    }
 
     // // sorting in angular without sortablejs library:
     // $scope.sort = {
@@ -170,8 +245,67 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     //  <th ng-click="changeSorting('display_name')">Name</th>
     //  <tr ng-repeat="user in userData track by $index | orderBy: sort.column : sort.descending" ng-class-odd="'oddMemList'">
 
-    // //sortablejs
-    var el = document.getElementById('rows');
-    // var sortable = Sortable.create(el);
+    // DREWS CODE
+    var tempObj= {};
+        $scope.handleDragStart = function(e) {
+            this.style.opacity = '0.4';
+
+            e.dataTransfer.setData('memRow', this.getAttribute('id'));
+            // console.log('DRAG START:', this.geztAttribute('id'));
+        };
+
+        $scope.handleDragLeave = function(e) {
+            console.log('LEFT DRAG AREA');
+            // console.log('THIS:', this);
+            console.log('EVENT:', e);
+            this.style.opacity = 1.0;
+
+            if (this.getAttribute('id') == 'dropBox') {
+                this.style.background = 'white';
+            }
+            this.style.opacity = '1.0';
+        }
+        $scope.handleDragEnd = function(e) {
+            this.style.opacity = '1.0';
+            $scope.$apply(function() {
+                // $scope.dragState = 'notDraggingOver test'
+            });
+            //consoleDiv.style.opacity = '1.0'
+        };
+
+        $scope.handleDrop = function(e) {
+            // console.log('WTF?!!?!?@#?!#?!@?#!@#', this);
+            var div = this;
+            // if ($scope.drop_id == 'dropBox') {
+                e.preventDefault();
+                e.stopPropagation();
+                var dataText = e.dataTransfer.getData('memRow');
+
+                this.style.background = 'none';
+                this.style.opacity = '1.0';
+                // console.log('DROPPED:', dataText[0],  dataText[1],  dataText[2],  dataText[3]);
+                console.log("DROPPED: ", dataText);
+                // }
+
+
+            // console.log(this.getAttribute('id'));
+        };
+
+        $scope.handleDragOver = function(e) {
+            console.log('DRAGGING OVER DROPPABLE!!!!');
+            if (this.getAttribute('id') == 'dropBox') {
+                this.style.background = 'rgba(0, 0, 0, 0.2)';
+            }
+
+            e.preventDefault(); // Necessary. Allows us to drop.
+            e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
+            $scope.$apply(function() {
+                // $scope.dragState = 'draggingOver test'
+            });
+
+            return false;
+
+        };
+
 
 }]);
