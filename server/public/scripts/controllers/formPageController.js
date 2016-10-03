@@ -25,7 +25,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         console.log('UPDATING NAME TO: ', this.$data);
         console.log(user);
 
-        // perhaps will will create a custom confirm box at some point
+        // perhaps we'll create a custom confirm box at some point
         // so it will read "yes" and "no" and be cute or something
         // bring in Bootstrap UI with $dialog dependency
         // http://stackoverflow.com/questions/17151940/angularjs-custom-confirm-box
