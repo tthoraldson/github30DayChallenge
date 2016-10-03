@@ -91,7 +91,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.emailInfo = {};
     $scope.emails = '';
 
-
     var emailArray = [];
 
     $scope.addEmail = function(email) {
@@ -151,13 +150,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.email = EmailFactory.sendEmail();
 
 
-
-
     getData('users').then(function(data) {
         // console.log(data);
         $scope.userData = data;
         // $scope.userData.push(data);
-
         console.log("$scope.userData in getUsers(): ", $scope.userData);
     });
 

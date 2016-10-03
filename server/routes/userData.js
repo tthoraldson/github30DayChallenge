@@ -198,6 +198,8 @@ router.post('/daily', function(req, res) {
     var sitepage = null;
     var phInstance = null;
 
+    var githubUname = req.body.uname;
+
     phantom.create()
         .then(instance => {
             phInstance = instance;

@@ -72,7 +72,11 @@ CREATE TABLE sprint_history (
 );
 
 
-
+-- EMAIL WHITELIST --
+CREATE TABLE whitelist (
+id SERIAL PRIMARY KEY,
+email varchar(100)
+);
 
 
 
@@ -94,11 +98,7 @@ github varchar(50), -- realational mark
 team varchar(50)
 );
 
--- EMAIL WHITELIST --
-CREATE TABLE whitelist (
-id SERIAL PRIMARY KEY,
-email varchar(100)
-);
+
 
 
 -- SPRINT 2 TEAM TABLE!!
