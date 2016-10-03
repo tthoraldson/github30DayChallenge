@@ -94,6 +94,13 @@ github varchar(50), -- realational mark
 team varchar(50)
 );
 
+-- EMAIL WHITELIST --
+CREATE TABLE whitelist (
+id SERIAL PRIMARY KEY,
+email varchar(100)
+);
+
+
 -- SPRINT 2 TEAM TABLE!!
 INSERT INTO s2_teams (github, team)
 VALUES ('scottbromander', null),
