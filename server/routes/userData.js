@@ -116,7 +116,7 @@ router.post('/', function(req, res) {
         })
 });
 
-router.put('/', function(req,res){
+router.post('/', function(req,res){
   // INSERT INTO QUESTIONS TABLE
   console.log('THIS IS THE DATA', req.body);
 
@@ -175,7 +175,7 @@ router.get('/usernames', function(req,res){
 });
 
 // UPDATE TODAY'S COMMIT STATUS
-router.post('/daily/:uname', function(req, res) {
+router.post('/daily', function(req, res) {
   pg.connect(connectionString, function(err, client, done) {
       console.log('Connecting to: ', connectionString);
       if (err) {
@@ -185,9 +185,9 @@ router.post('/daily/:uname', function(req, res) {
 
       var user = req.body;
       var didCommit = false;
-      if (commitObject.data > 0){
-        didCommit = true;
-      }
+      // if (commitObject.data > 0){
+      //   didCommit = true;
+      // }
       client.query("SELECT github FROM s2_teams",
           function(err, result) {
               done();
@@ -196,14 +196,14 @@ router.post('/daily/:uname', function(req, res) {
                   console.log('error grabbing usernames from teams table...')
                   console.log('error: ', err);
               }
-
-              console.log(result.rows);
+              //console.log(result.rows);
               // res.send(result.rows)
-      }).then(function(){
+              var results = result.rows;
+
 
       })
   })
-  var githubUname = uname;
+  // var githubUname = uname;
   var swagArray = [];
   var sitepage = null;
   var phInstance = null;
