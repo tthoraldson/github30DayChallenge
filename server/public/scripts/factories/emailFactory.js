@@ -26,10 +26,20 @@ myApp.factory('EmailFactory', ['$http', function($http) {
 
     function sendEmail(emailInfo) {
 
-      // emailInfo.displayName = $scope.user.displayName;
+      var emailArray = emailInfo.sendAddress.split(', ' || ' ');
+      console.log("split:", emailArray);
+      emailInfo.emailArray = emailArray;
+
+      $http.get('/userData', {params: {db: 'whitelist'}}).then(function(whitelist){
+        emailInfo.whitelist = whitelist.data;
         $http.post('/email', emailInfo).then(function(response) {
             console.log("email success response: ", response);
         });
+      });
+      // emailInfo.displayName = $scope.user.displayName;
+        // $http.post('/email', emailInfo).then(function(response) {
+        //     console.log("email success response: ", response);
+        // });
     };
 
 
