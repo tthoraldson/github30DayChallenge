@@ -51,6 +51,51 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         }
     }
 
+
+    $scope.emails = '';
+    var emailArray = []
+
+    $scope.addEmail = function(email){
+      var checker;
+      emailArray.forEach(function(addedEmail, index){
+
+        if (addedEmail == email){
+          checker = index;
+            }
+          })
+
+      if (checker != undefined){
+          emailArray.splice(checker, 1);
+          var tempString = '';
+          emailArray.forEach(function(email, index){
+            if(index != emailArray.length - 1){
+              tempString += email + ', ';
+            } else {
+              tempString += email;
+            }
+          })
+        } else {
+        console.log('after splice:', emailArray);
+
+          emailArray.push(email);
+
+          var tempString = '';
+          emailArray.forEach(function(email, index){
+            if(index != emailArray.length - 1){
+              tempString += email + ', ';
+            } else {
+              tempString += email;
+            }
+          })
+        }
+          console.log(tempString);
+          $scope.emails = tempString;
+           return tempString;
+
+        }
+
+
+
     //TODO: PUT INTO FACTORY!!!
     function getData(database) {
         var promise = $http.get('/userData', { //SELECT * FROM database
