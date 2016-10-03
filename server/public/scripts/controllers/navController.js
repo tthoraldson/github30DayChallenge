@@ -6,6 +6,8 @@ myApp.controller("NavController", ["$scope", "$http", "$location", "AuthFactory"
     $scope.auth.$onAuthStateChanged(function(user) {
         $scope.user = user;
 
+        
+
         console.log('This is the current user:', user); //change the path here
     });
 

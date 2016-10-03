@@ -1,7 +1,8 @@
-myApp.controller("InviteController", ["$scope", "$http", "$location", "AuthFactory", "UserFactory", function($scope, $http, $location, AuthFactory, UserFactory) {
+myApp.controller("InviteController", ["$scope", "$http", "$location", "AuthFactory", "UserFactory", "EmailFactory", function($scope, $http, $location, AuthFactory, UserFactory, EmailFactory) {
     console.log("InviteController works");
 
     $scope.auth = AuthFactory;
+    $scope.emailInfo= {};
 
     $scope.auth.$onAuthStateChanged(function(user) {
       $scope.user = user;
@@ -9,16 +10,20 @@ myApp.controller("InviteController", ["$scope", "$http", "$location", "AuthFacto
       console.log('This is the invite user:', user); //change the path here
     });
 
-    // $scope.emailInfo.displayName = $scope.user.displayName;
 
-    $scope.email = function(emailInfo) {
-
-      
-      // console.log(emailInfo.body);
-      emailInfo.displayName = $scope.user.displayName;
-        $http.post('/email', emailInfo).then(function(response) {
-            console.log("email success response: ", response);
-        });
+    $scope.allEmails = function(){
+      var emailFunction = EmailFactory.allEmails()
+      $scope.emailInfo.emails = emailFunction($scope.userData, $scope.emailInfo);
     };
+
+
+    var getData = UserFactory.getData();
+
+    getData('users').then(function(data) {
+        // console.log(data);
+        $scope.userData = data;
+    });
+
+    $scope.email = EmailFactory.sendEmail();
 
 }]);

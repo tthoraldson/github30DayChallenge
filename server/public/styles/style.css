@@ -1,5 +1,9 @@
-body {
+#body {
     background-color: #222222;
+}
+
+#siteTitle {
+  color:white;
 }
 
 main {
@@ -7,7 +11,6 @@ main {
     margin: 0 auto;
     padding: 0;
     clear: both;
-
 }
 
 a {
@@ -54,7 +57,6 @@ a {
 main * {
   font-family: 'Helvetica';
   font-weight: 300;
-
 }
 
 .main_container {
@@ -89,6 +91,27 @@ main * {
 
 .teamNames {
   display: inline;
+}
+
+.editable {
+    font-size: 1.2em;
+    /*color: black;*/
+    margin: .5%;
+    line-height: 1.2em;
+}
+
+.editable-click {
+   font-size: 1.2em;
+   /*color: black;*/
+   margin: .5%;
+   line-height: 1.2em;
+}
+
+#bleh {
+  font-size: 1.2em;
+  /*color: black;*/
+  margin: .5%;
+  line-height: 1.2em;
 }
 
 
@@ -253,6 +276,14 @@ h1 {
 
 
 /*==========NAV BUTTONS========*/
+#login {
+  color: white;
+}
+
+.loginButton {
+    margin-right: 2%;
+}
+
 .tabBar {
     background-color: black;
     /*display: inline-block;*/
@@ -277,6 +308,12 @@ h1 {
 .topNavContainer {
     /*do not style*/
     margin: 2% auto;
+}
+.topNavContainer a{
+    color: black;
+}
+.topNavContainer a:hover{
+    color: white;
 }
 
 .topNavButton {
