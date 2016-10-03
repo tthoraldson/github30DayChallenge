@@ -39,7 +39,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         console.log('UPDATING NAME TO: ', this.$data);
         console.log(user);
 
-        // perhaps will will create a custom confirm box at some point
+        // perhaps we'll create a custom confirm box at some point
         // so it will read "yes" and "no" and be cute or something
         // bring in Bootstrap UI with $dialog dependency
         // http://stackoverflow.com/questions/17151940/angularjs-custom-confirm-box
@@ -69,6 +69,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     //EMAIL STUFF BELOW
     $scope.emailInfo = {};
     $scope.emails = '';
+
+
     var emailArray = [];
 
     $scope.addEmail = function(email) {
@@ -104,16 +106,18 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                 }
             })
         }
+
         console.log(tempString);
         $scope.emails = tempString;
         return tempString;
 
+
     }
 
-    $scope.allEmails = function() {
-        var emailFunction = EmailFactory.allEmails()
-        $scope.emailInfo.emails = emailFunction($scope.userData, $scope.emailInfo);
-    };
+        $scope.allEmails = function(){
+          var emailFunction = EmailFactory.allEmails()
+          $scope.emailInfo.emails = emailFunction($scope.userData, $scope.emailInfo);
+        };
 
 
     var getData = UserFactory.getData();
@@ -124,8 +128,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     });
 
     $scope.email = EmailFactory.sendEmail();
-
-
 
 
 

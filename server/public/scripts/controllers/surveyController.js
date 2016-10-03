@@ -2,18 +2,13 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
     console.log("SurveyController works");
 
 
-    function getData(database) {
-        var promise = $http.get('/userData', { //SELECT * FROM database
-            params: {
-                db: database
-            }
-        }).then(function(data) {
-            console.log('GET COMPLETE: Updated $scope.' + database);
-            return data.data;
-        });
-
-        return promise;
-    }
+    var getData = UserFactory.getData();
+    var auth = AuthFactory;
+    var user;
+    auth.$onAuthStateChanged(function(theUser){
+      user = theUser;
+      console.log(user);
+    })
 
     getData('admin').then(function(response){
       console.log(response);
@@ -32,7 +27,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
     $scope.submitForm = function(survey){
       //TODO: get user information and send in object req.body = {survey: survey, user: user}
-      $http.post('/formData/entry', survey).then(function(){
+      $http.post('/formData/entry', {uname: user, survey: survey}).then(function(){
         console.log('new data posted to', survey.form_title);
       });
     }

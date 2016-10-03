@@ -1,6 +1,6 @@
 var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable"]);
 
-myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider, $mdThemingProvider) {
+myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider) {
 
     $routeProvider
         .when('/home', {
@@ -162,25 +162,16 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
         .when('/survey', {
             templateUrl: '/views/partials/survey.html',
             controller: 'SurveyController'
-            // resolve: {
-            //   'currentAuth': ['AuthFactory', function(AuthFactory){
-            //     return AuthFactory.$requireSignIn();
-            //   }]
-            // }
         })
 
         .otherwise({
-            redirectTo: 'home'
+            redirectTo: 'survey'
         });
 
 }]);
 
 myApp.run(['$rootScope', '$location', 'AuthFactory', redirectHome]);
 
-// xeditable
-// myApp.run(function(editableOptions) {
-//   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-// });
 myApp.run(function(editableOptions, editableThemes) {
   editableThemes.bs3.inputClass = 'input-sm';
   editableThemes.bs3.buttonsClass = 'btn-sm';
