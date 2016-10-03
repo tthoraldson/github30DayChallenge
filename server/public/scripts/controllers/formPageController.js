@@ -172,6 +172,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     // //sortablejs
     var el = document.getElementById('rows');
-    var sortable = Sortable.create(el);
+    // var sortable = Sortable.create(el);
 
 }]);
