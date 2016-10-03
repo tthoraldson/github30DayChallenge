@@ -56,8 +56,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     $scope.emailInfo= {};
 
-
-    $scope.emails = '';
+    var tempEmails = '';
+    // $scope.emails = tempEmails;
     var emailArray = [];
 
     $scope.addEmail = function(email){
@@ -94,10 +94,14 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
           })
         }
           console.log(tempString);
-          $scope.emails = tempString;
+          tempEmails = tempString;
+
+            $scope.emails = tempEmails;
+            console.log('this is emails:', $scope.emails);
            return tempString;
 
         }
+
 
         $scope.allEmails = function(){
           var emailFunction = EmailFactory.allEmails()
