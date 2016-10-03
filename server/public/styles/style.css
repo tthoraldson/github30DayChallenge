@@ -73,13 +73,10 @@ main * {
     line-height: 1.2em;
 }
 
-#bleh {
-    font-size: 1.2em;
-    /*color: black;*/
-    margin: .5%;
-    line-height: 1.2em;
+#dropBox{
+  height: 10%;
+  border: thin solid black;
 }
-
 
 /*==========MEMBER & PENDING TABLES========*/
 
