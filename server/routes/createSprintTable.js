@@ -8,46 +8,74 @@ newSprint(null, '2016-9-20');
 
 // sprintName = name of the table for the sprint
 // startDate = date the sprint will start on
-function newSprint(sprintName, startDate){
-  var myDate = new Date(startDate);
-  var dates = [];
-  for (var i = 0; i < 30; i++){
-    var dayOfMonth = myDate.getDate();
-    myDate.setDate(dayOfMonth + 1);
+// function newSprint(sprintName, startDate){
+//   var myDate = new Date(startDate);
+//   var dates = [];
+//   for (var i = 0; i < 30; i++){
+//     var dayOfMonth = myDate.getDate();
+//     myDate.setDate(dayOfMonth + 1);
+//
+//     dates.push(styleDate(myDate));
+//   }
+//   console.log(dates);
+//   // CREATE TABLE
 
-    dates.push(styleDate(myDate));
-  }
-  console.log(dates);
-  // CREATE TABLE
+router.post('/create', function (req, res) {
+  var sprintId = req.body.sprintId;
+  console.log(sprintId);
 
-  router.post('/create', function (req, res) {
-    var sprintId = req.body.sprintId;
-    console.log(sprintName);
+  // create sprint-data table
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
 
-    pg.connect(connectionString, function (err, client, done) {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      }
+    client.query('CREATE TABLE ' + sprintId + ' ' + '_data' +
+                '(' +
+                'id SERIAL PRIMARY KEY,' +
+                'github varchar(50),' +
+                'date varchar(12),' +
+                'commits smallint' +
+                ')',
+                function (err, result) {
+                  done();
 
-      client.query('CREATE TABLE ' + sprintId + ' ' + '_data'
-                  '(' +
-                  'githubUsername varchar(50)' +
-                  ')',
-                  function (err, result) {
-                    done();
+                  if (err) {
+                    console.log(err);
+                    res.sendStatus(500);
+                  }
 
-                    if (err) {
-                      console.log(err);
-                      res.sendStatus(500);
-                    }
-
-                    res.sendStatus(201);
-                  });
-    });
+                  res.sendStatus(201);
+                });
   });
 
-}
+  // create sprint-team table
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+
+    client.query('CREATE TABLE ' + sprintId + ' ' + '_teams' +
+                '(' +
+                'id SERIAL PRIMARY KEY,' +
+                'github varchar(50),' +
+                'team varchar(50)' +
+                ')',
+                function (err, result) {
+                  done();
+
+                  if (err) {
+                    console.log(err);
+                    res.sendStatus(500);
+                  }
+
+                  res.sendStatus(201);
+                });
+  });
+});
+
 
 module.exports = router;
 
