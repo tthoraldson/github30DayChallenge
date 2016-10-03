@@ -29,7 +29,7 @@
     </form>
     <div class="teamNamesBox">
         <h2>:D :D :D TEAM NAMES: :D :D :D</h2>
-        <p class="teamNames as-sortable-item-handle" ng-repeat="names in showNames track by $index" as-sortable-item-handle editable-text="names">
+        <p class="teamNames" ng-repeat="names in showNames track by $index" editable-text="names" onaftersave="updateTeamName(name)" style="color:black;border-bottom:none;">
         {{$first ? '' : $last ? ' and ' : ', '}}{{names}}
         </p>
     </div>
@@ -42,7 +42,7 @@
     <!-- DaT TABLE -->
 
     <div class="tableTitle" width="100%">Pending Members</div>
-    <div class="header" width="100%" >
+    <div id="rows" class="header" width="100%" >
         <div class="divcolumn iconCol">
             <p></p>
         </div>
@@ -50,11 +50,11 @@
             <p>Name</p>
         </div>
         <div class="divcolumn iconCol">
-            <p></p>
+            <p> </p>
         </div>
 
         <div class="divcolumn iconCol">
-            <p></p>
+            <p> </p>
         </div>
         <div class="divcolumn">
             <p>Studying</p>
@@ -67,14 +67,14 @@
         </div>
 
     </div>
-    <div ng-sortable class="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+    <div ng-sortable class="memRow" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%" >
         <div class="divcolumn iconCol">
             <div class="imgBox">
                 <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
             </div>
         </div>
         <div class="divcolumn display_name">
-            <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
+            <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
           {{user.display_name || 'empty'}}
         </h3>
         </div>
@@ -148,7 +148,7 @@
             </td>
 
             <td id="memName">
-                <h3 editable-text="user.display_name" onaftersave="updatePerson(user)">
+                <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
             {{user.display_name || 'empty'}}
           </h3>
             </td>

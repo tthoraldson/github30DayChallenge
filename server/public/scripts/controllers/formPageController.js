@@ -21,6 +21,20 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         }
     }
 
+    $scope.updateTeamName = function(name) {
+        //eventually we can cute up this confirm box, see details in updatePerson()
+        if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart the whole process.\n\n\n")) {
+            $http.put('/userData', {
+                    oldData: name,
+                    newData: this.$data
+                })
+                // this.$data send to put request, make sure it updates the correct person
+        } else {
+            // we don't want this to refresh bc it will reset the whole random name pull
+            // $route.reload();
+        }
+    }
+
     $scope.updatePerson = function(user) {
         console.log('UPDATING NAME TO: ', this.$data);
         console.log(user);
@@ -52,56 +66,53 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     }
 
 
-//EMAIL STUFF BELOW
+    //EMAIL STUFF BELOW
+    $scope.emailInfo = {};
+    $scope.emails = '';
 
-    $scope.emailInfo= {};
 
-    var tempEmails = '';
-    // $scope.emails = tempEmails;
     var emailArray = [];
 
-    $scope.addEmail = function(email){
-      var checker;
-      emailArray.forEach(function(addedEmail, index){
+    $scope.addEmail = function(email) {
+        var checker;
+        emailArray.forEach(function(addedEmail, index) {
 
-        if (addedEmail == email){
-          checker = index;
+            if (addedEmail == email) {
+                checker = index;
             }
-          })
+        })
 
-      if (checker != undefined){
-          emailArray.splice(checker, 1);
-          var tempString = '';
-          emailArray.forEach(function(email, index){
-            if(index != emailArray.length - 1){
-              tempString += email + ', ';
-            } else {
-              tempString += email;
-            }
-          })
+        if (checker != undefined) {
+            emailArray.splice(checker, 1);
+            var tempString = '';
+            emailArray.forEach(function(email, index) {
+                if (index != emailArray.length - 1) {
+                    tempString += email + ', ';
+                } else {
+                    tempString += email;
+                }
+            })
         } else {
-        // console.log('after splice:', emailArray);
+            // console.log('after splice:', emailArray);
 
-          emailArray.push(email);
+            emailArray.push(email);
 
-          var tempString = '';
-          emailArray.forEach(function(email, index){
-            if(index != emailArray.length - 1){
-              tempString += email + ', ';
-            } else {
-              tempString += email;
-            }
-          })
-        }
-          console.log(tempString);
-          tempEmails = tempString;
-
-            $scope.emails = tempEmails;
-            console.log('this is emails:', $scope.emails);
-           return tempString;
-
+            var tempString = '';
+            emailArray.forEach(function(email, index) {
+                if (index != emailArray.length - 1) {
+                    tempString += email + ', ';
+                } else {
+                    tempString += email;
+                }
+            })
         }
 
+        console.log(tempString);
+        $scope.emails = tempString;
+        return tempString;
+
+
+    }
 
         $scope.allEmails = function(){
           var emailFunction = EmailFactory.allEmails()
@@ -109,16 +120,14 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         };
 
 
-        var getData = UserFactory.getData();
+    var getData = UserFactory.getData();
 
-        getData('users').then(function(data) {
-            // console.log(data);
-            $scope.userData = data;
-        });
+    getData('users').then(function(data) {
+        // console.log(data);
+        $scope.userData = data;
+    });
 
-        $scope.email = EmailFactory.sendEmail();
-
-
+    $scope.email = EmailFactory.sendEmail();
 
 
 
@@ -130,6 +139,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
         console.log("$scope.userData in getUsers(): ", $scope.userData);
     });
+
+
+
+
+
+
+    // SORTING HELL vvvvv
 
     // $scope.consoleLog = function() {
     //     console.log("document.getElementById('rows'): ", document.getElementById('rows'));
@@ -155,9 +171,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     //  <tr ng-repeat="user in userData track by $index | orderBy: sort.column : sort.descending" ng-class-odd="'oddMemList'">
 
     // //sortablejs
-    // var el = document.getElementById('rows');
-    // var sortable = Sortable.create(el);
-    var el = document.getElementById('simpleList');
+    var el = document.getElementById('rows');
     // var sortable = Sortable.create(el);
 
 }]);
