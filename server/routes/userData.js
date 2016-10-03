@@ -174,11 +174,6 @@ router.post('/daily', function(req, res) {
                 console.log("error");
             }
 
-            var user = req.body;
-            var didCommit = false;
-            // if (commitObject.data > 0){
-            //   didCommit = true;
-            // }
             client.query("SELECT github FROM s2_teams",
                 function(err, result) {
                     done();
@@ -187,89 +182,90 @@ router.post('/daily', function(req, res) {
                         console.log('error grabbing usernames from teams table...')
                         console.log('error: ', err);
                     }
-                    //console.log(result.rows);
-                    // res.send(result.rows)
-                    // var results = result.rows;
+                    console.log(result.rows);
+                    var results = result.rows;
 
+                    results.forEach(function(githubUname){
+
+                    var swagArray = [];
+                    var sitepage = null;
+                    var phInstance = null;
+
+                    phantom.create()
+                        .then(instance => {
+                            phInstance = instance;
+                            return instance.createPage();
+                        })
+                        .then(page => {
+                            sitepage = page;
+                            return page.open('https://github.com/users/' + githubUname + '/contributions');
+                        })
+                        .then(status => {
+                            console.log(status);
+
+                            return sitepage.property('content');
+                        })
+                        .then(content => {
+                            swagArray = content.split('\n');
+
+                            var tempArray = [];
+                            swagArray.forEach(function(line) {
+                                if (line.substring(11, 14) == "rec") {
+                                    var templine = line.substring(84);
+                                    var templine2 = ""
+                                    if (templine[0] == 'c') {
+                                        templine = templine.substring(1);
+                                    } else if (templine[0] == '-') {
+                                        templine = templine.substring(2);
+                                    } else if (templine[0] == 'a') {
+                                        templine = templine.substring(3);
+                                    }
+
+                                    templine = templine.substring(6); // commits
+                                    templine2 = templine.substring(14, 24); // date
+                                    templine = templine[0];
+                                    tempArray.push({
+                                        data: templine,
+                                        date: templine2
+                                    });
+                                }
+                            });
+
+                            // finds the data matching today's date!
+                            var foundObject = tempArray.find(findObject);
+
+                            pg.connect(connectionString, function(err, client, done) {
+                                console.log('Connecting to: ', connectionString);
+                                if (err) {
+                                    res.sendStatus(500);
+                                    console.log("error");
+                                }
+
+                                var user = req.body;
+
+                                client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
+                                    function(err, result) {
+                                        done();
+                                        if (err) {
+                                            res.sendStatus(500);
+                                            console.log('error: ', err);
+                                        }
+
+                                        console.log('');
+                                        res.send(result.rows)
+                                    })
+                            })
+                        })
+                        .then(content => {
+                            sitepage.close();
+                            phInstance.exit();
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            phInstance.exit()
+                        })
+                      });
                 })
-        })
-        // var githubUname = uname;
-    var swagArray = [];
-    var sitepage = null;
-    var phInstance = null;
-
-    phantom.create()
-        .then(instance => {
-            phInstance = instance;
-            return instance.createPage();
-        })
-        .then(page => {
-            sitepage = page;
-            return page.open('https://github.com/users/' + githubUname + '/contributions');
-        })
-        .then(status => {
-            console.log(status);
-
-            return sitepage.property('content');
-        })
-        .then(content => {
-            swagArray = content.split('\n');
-
-            var tempArray = [];
-            swagArray.forEach(function(line) {
-                if (line.substring(11, 14) == "rec") {
-                    var templine = line.substring(84);
-                    var templine2 = ""
-                    if (templine[0] == 'c') {
-                        templine = templine.substring(1);
-                    } else if (templine[0] == '-') {
-                        templine = templine.substring(2);
-                    } else if (templine[0] == 'a') {
-                        templine = templine.substring(3);
-                    }
-
-                    templine = templine.substring(6); // commits
-                    templine2 = templine.substring(14, 24); // date
-                    templine = templine[0];
-                    tempArray.push({
-                        data: templine,
-                        date: templine2
-                    });
-                }
-            });
-
-            // finds the data matching today's date!
-            var foundObject = tempArray.find(findObject);
-
-            pg.connect(connectionString, function(err, client, done) {
-                console.log('Connecting to: ', connectionString);
-                if (err) {
-                    res.sendStatus(500);
-                    console.log("error");
-                }
-
-                var user = req.body;
-
-                client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
-                    function(err, result) {
-                        done();
-                        if (err) {
-                            res.sendStatus(500);
-                            console.log('error: ', err);
-                        }
-
-                        console.log('');
-                        res.send(result.rows)
-                    })
-            })
-        })
-        .then(content => {
-            sitepage.close();
-            phInstance.exit();
-        })
-        .catch(error => {
-            console.log(error);
-            phInstance.exit()
         })
 });
 
