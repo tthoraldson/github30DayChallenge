@@ -1,19 +1,8 @@
-myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', function($scope, $http, $location, AuthFactory) {
+myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
     // console.log("DynamicFormController works");
     $scope.formHistory = [];
     $scope.activeSurvey;
-    function getData(database) {
-        var promise = $http.get('/userData', { //SELECT * FROM database
-            params: {
-                db: database
-            }
-        }).then(function(data) {
-            console.log('GET COMPLETE: Updated $scope.' + database);
-            return data.data;
-        });
-
-        return promise;
-    }
+    var getData = UserFactory.getData();
 
     getData('form_history').then(function(data){
       $scope.formHistory = data;
@@ -70,6 +59,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         description: ""
     };
 
+    //
     $scope.newSurveyQuestion = {
         title: "",
         description_MultiChoice: "Choose Best Answer:",
@@ -84,8 +74,6 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         }],
         shortAnswer: ""
     };
-
-
 
     //
     $scope.shortAnswer_selected = false;
@@ -240,10 +228,5 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
         return this;
     }
-
-
-
-
-
 
 }]);
