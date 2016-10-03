@@ -28,8 +28,13 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       })
     });
 
+
+
     $scope.submitForm = function(survey){
-      console.log(survey);
+      //TODO: get user information and send in object req.body = {survey: survey, user: user}
+      $http.post('/formData/entry', survey).then(function(){
+        console.log('new data posted to', survey.form_title);
+      });
     }
 
 }]);
