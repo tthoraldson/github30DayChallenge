@@ -32,4 +32,43 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       });
     }
 
+
+    $http.get('/userData', {params: {db: 'users'}})
+        .then(function(userData) {
+            var unique = true;
+            var tempUser;
+            auth.$onAuthStateChanged(function(theUser){
+              var tempUser = theUser;
+              // console.log(user);
+
+
+            userData.data.forEach(function(member) {
+              console.log('this is the user:', tempUser);
+                if (member.email == tempUser.email) {
+                    unique = false;
+                }
+            });
+
+            if (unique == true) {
+                unique = true;
+                $scope.firstLogIn = true;
+                
+
+            }
+          })
+        });
+
+
+    $scope.firstLogIn = false;
+
+    $scope.popQuestion = function(){
+      $scope.firstLogIn = true;
+    }
+
+    $scope.closeWindow = function(){
+      $scope.firstLogIn = false;
+    };
+
+
+
 }]);

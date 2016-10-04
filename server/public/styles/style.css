@@ -311,6 +311,65 @@ h1 {
     color: black;
 }
 
+/*===========FIRST LOG IN QUESTIONS============*/
+
+.popOut {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: -1px;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+}
+
+.exitFullscreen {
+  font: 200 20px/145px Helvetica;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  position: fixed;
+  margin: 0 auto;
+  padding: 0 auto;
+  top: 10%;
+  left: 10%;
+  z-index: 1000;
+  -webkit-transform: translate(-50%, -50%);
+  outline: none;
+  cursor: pointer;
+}
+
+.questionsBox {
+  border: 1px solid white;
+  background-color: #fff;
+  text-align: center;
+  width: 50%;
+  /*height: 50%;*/
+  z-index: 999;
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  /*margin-left: 325px;*/
+  /*top: -50px;*/
+}
+
+.firstLogTitle {
+  /*position: absolute;*/
+  display: block;
+  text-align: center;
+  /*margin: 0 auto;*/
+}
+
+.firstLogQuestion {
+  /*position: absolute;*/
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  /*top: 50%;
+  left: 35%;*/
+}
 
 /*==========ICONS========*/
 
