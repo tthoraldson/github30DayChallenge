@@ -165,6 +165,29 @@ router.get('/usernames', function(req, res) {
     });
 });
 
+// CREATE ROWS FOR TODAY FOR EACH USER!!!
+// router.get('/newDay', function(req, res) {
+//     pg.connect(connectionString, function(err, client, done) {
+//         if (err) {
+//             res.sendStatus(500);
+//             console.log('error: ', err);
+//         }
+//
+//         client.query('SELECT github FROM s2_teams',
+//             function(err, result) {
+//                 done();
+//                 if (err) {
+//                     res.sendStatus(500);
+//                     console.log('error: ', err);
+//                     return;
+//                 }
+//
+//
+//                 res.sendStatus(201);
+//             })
+//     });
+// });
+
 // UPDATE TODAY'S COMMIT STATUS
 router.post('/daily', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
