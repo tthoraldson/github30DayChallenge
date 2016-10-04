@@ -26,6 +26,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
       })
     }
 
+
     // updateLawn('adam.eastvold@gmail.com');
 
     var testUser = [
@@ -141,6 +142,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     //
     // }
 
+
     // dataForEachMember('user_lawns')
 
 
@@ -166,8 +168,6 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
         // the following code gets just Liz's 0/1 for 8/23
         // dayData = $scope.sprintHistory[1].data[0].date_8_23;
 
-
-
         var playerData = $scope.sprintHistory[1].data;
         var count = {};
 
@@ -176,7 +176,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
             _.keys(day).forEach(function(key) {
                 if (key == "member_score" || key == "id" || key == "member_name" || key == "member_team" || key == "team_score") {
-
+                  // do nothing
                 } else {
                     count[key] = 0;
                 }
@@ -297,7 +297,17 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
 
                 var dataArray = [data, data2];
+
+
+
+
+
+                ///////////////////////////////////////
+                //  CODE BELOW APPENDS THE LINE      //
+                ///////////////////////////////////////
                 // Add the valueline path.
+                $scope.showData = false;
+                // $scope.showData = function () {
                 dataArray.forEach (function(data){
 
                   svg.append("path")
@@ -316,6 +326,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                               return y(d.commit);
                           })
                 })
+              // }
 
                 var color = d3.scale.category10();
 

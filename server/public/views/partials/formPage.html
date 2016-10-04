@@ -18,7 +18,6 @@
     <p>view pending members, sort by language tags, sprint start and end times</p>
 
     <h2 style="margin-left: 30px; margin-top: 30px; display:inline-block; width: 90%;">Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
-
     <button style="margin:30px" ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
     Create Sprint
     </button>
@@ -27,12 +26,7 @@
 
 
 
-    <!-- View Pending Members -->
-    <!-- <button ng-click="consoleLog()">Test</button> -->
-
-
     <!-- Captains Table -->
-
     <h2 class="tableTitle" width="100%">Captains</h2>
     <div class="header" width="100%">
         <div class="divcolumn iconCol">
@@ -44,7 +38,6 @@
         <div class="divcolumn iconCol">
             <p> </p>
         </div>
-
         <div class="divcolumn iconCol">
             <p> </p>
         </div>
@@ -76,11 +69,10 @@
                     <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
                 </a>
             </div>
-
             <div class="divcolumn iconCol">
-                <!-- <a ng-href="mailto:{{user.email}}">
-                <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-            </a> -->
+                <a ng-href="mailto:{{user.email}}">
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="divcolumn">
                 <p>Studying</p>
@@ -104,117 +96,166 @@
 
     <!-- Generate Names -->
     <div ng-if="showSprintMaker == true">
-    <form class="teamNameForm">
-        <h2><label for="columns">How Many Teams?</label></h2>
-        <span class="teamInputButton">
+        <form class="teamNameForm">
+            <h2><label for="columns">How Many Teams?</label></h2>
+            <span class="teamInputButton">
           <input type="number" min="1" max="2000" class="teamNumInput" name="teamNumInput" ng-model="number.teams" />
           <button class="genTeamNameButton" ng-click="genName(number.teams)">Generate Names</button>
         </span>
-    </form>
+        </form>
 
-    <div id="teamNameBox">
-        <div class="teamHeader" width="100%">
-            <div class="teamName divcolumn" style="width: 32%">
-                <p>Team Name</p>
+        <div id="teamNameBox">
+            <div class="teamHeader" width="100%">
+                <div class="teamName divcolumn" style="width: 32%">
+                    <p>Team Name</p>
+                </div>
+                <div class="teamName divcolumn" style="width: 32%">
+                    <p>Captain</p>
+                </div>
+                <div class="teamName divcolumn" style="width: 32%">
+                    <p>Members</p>
+                </div>
             </div>
-            <div class="teamName divcolumn" style="width: 32%">
-                <p>Captain</p>
-            </div>
-            <div class="teamName divcolumn" style="width: 32%">
-                <p>Members</p>
-            </div>
-        </div>
-        <div class="divcolumn" style="width: 100%">
-            <div id="{{object.planet}}" droppable="true" class="teamNameRow" ng-repeat="object in showNames track by $index" ng-class-odd="'oddMemList'" style="width:99%;margin:0;">
-                <p editable-text="object.planet" onaftersave="updateTeamName(object.planet)" style="width:30%;display:inline-block;color:black;border-bottom:none;">{{object.planet}}</p>
-                <div class="team divcolumn" style="width: 30%;">
-                    <div>{{object.captain}}
-                        <button ng-click="deleteCaptain(object)" ng-if="object.captain != 'no captain'">X</button>
+            <div class="divcolumn" style="width: 100%">
+                <div id="{{object.planet}}" droppable="true" class="teamNameRow" ng-repeat="object in showNames track by $index" ng-class-odd="'oddMemList'" style="width:99%;margin:0;">
+                    <p editable-text="object.planet" onaftersave="updateTeamName(object.planet)" style="width:30%;display:inline-block;color:black;border-bottom:none;">{{object.planet}}</p>
+                    <div class="team divcolumn" style="width: 30%;">
+                        <div>{{object.captain}}
+                            <button ng-click="deleteCaptain(object)" ng-if="object.captain != 'no captain'">X</button>
+                        </div>
+                    </div>
+                    <div class="member divcolumn" style="width: 30%;">
+                        <div>1</div>
                     </div>
                 </div>
-                <div class="member divcolumn" style="width: 30%;">
-                    <div>1</div>
+            </div>
+        </div>
+        <br/>
+
+
+
+
+
+        <!-- Pending Members Table -->
+        <div class="sprintMemTabs">
+            <div class="tab" ng-click="tab = 1">
+                <h2 class="tableTitle" width="100%">Pending</h2>
+            </div>
+            <div class="tab" ng-click="tab = 2">
+                <h2 class="tableTitle" width="100%">Approved</h2>
+            </div>
+        </div>
+
+        <div class="pendingMembers" ng-if="tab == 1">
+            <div class="header" width="100%">
+                <div class="divcolumn iconCol">
+                    <p></p>
+                </div>
+                <div class="divcolumn display_name">
+                    <p>Name</p>
+                </div>
+                <div class="divcolumn iconCol">
+                    <p> </p>
+                </div>
+                <div class="divcolumn iconCol">
+                    <p> </p>
+                </div>
+                <div class="divcolumn">
+                    <p>Approve</p>
+                </div>
+            </div>
+
+            <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+                <div id="rows">
+                    <div class="divcolumn iconCol">
+                        <div class="imgBox">
+                            <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+                        </div>
+                    </div>
+                    <div class="divcolumn display_name">
+                        <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
+                      {{user.display_name || 'empty'}}
+                    </h3>
+                    </div>
+                    <div class="divcolumn iconCol">
+                        <a ng-href="{{user.github_url}}" target="_blank">
+                            <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="divcolumn iconCol">
+                        <a ng-href="mailto:{{user.email}}">
+                            <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="divcolumn">
+                        <a>
+                            <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
+                            <i class="fa fa-times" alt="No" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br/>
 
 
-
-
-    <!-- Pending Members Table -->
-
-    <h2 class="tableTitle" width="100%">Pending Members</h2>
-    <div class="header" width="100%">
-        <div class="divcolumn iconCol">
-            <p></p>
-        </div>
-        <div class="divcolumn display_name">
-            <p>Name</p>
-        </div>
-        <div class="divcolumn iconCol">
-            <p> </p>
-        </div>
-
-        <div class="divcolumn iconCol">
-            <p> </p>
-        </div>
-        <div class="divcolumn">
-            <p>Studying</p>
-        </div>
-        <div class="divcolumn">
-            <p>Team</p>
-        </div>
-        <div class="divcolumn">
-            <p>Approve</p>
-        </div>
-
-    </div>
-    <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
-        <div id="rows">
-            <div class="divcolumn iconCol">
-                <div class="imgBox">
-                    <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+        <div class="approvedMembers" ng-if="tab == 2">
+            <div class="header" width="100%">
+                <div class="divcolumn iconCol">
+                    <!-- photo -->
+                    <p></p>
+                </div>
+                <div class="divcolumn display_name">
+                    <p>Name</p>
+                </div>
+                <div class="divcolumn iconCol">
+                    <!-- github -->
+                    <p> </p>
+                </div>
+                <div class="divcolumn iconCol">
+                    <!-- email -->
+                    <p> </p>
+                </div>
+                <div class="divcolumn">
+                    <p>Studying</p>
+                </div>
+                <div class="divcolumn">
+                    <p>Last Sprint %</p>
                 </div>
             </div>
-            <div class="divcolumn display_name">
-                <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-          {{user.display_name || 'empty'}}
-        </h3>
-            </div>
-            <div class="divcolumn iconCol">
-                <a ng-href="{{user.github_url}}" target="_blank">
-                    <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
-                </a>
-            </div>
-
-            <div class="divcolumn iconCol">
-                <!-- <a ng-href="mailto:{{user.email}}">
-                <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-            </a> -->
-            </div>
-            <div class="divcolumn">
-                <p>Studying</p>
-            </div>
-            <div class="divcolumn">
-                <p>Team</p>
-            </div>
-            <div class="divcolumn">
-                <a>
-                    <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
-                    <i class="fa fa-times" alt="No" aria-hidden="true"></i>
-                </a>
+            <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+                <div id="rows">
+                    <div class="divcolumn iconCol">
+                        <div class="imgBox">
+                            <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+                        </div>
+                    </div>
+                    <div class="divcolumn display_name">
+                        <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
+                      {{user.display_name || 'empty'}}
+                    </h3>
+                    </div>
+                    <div class="divcolumn iconCol">
+                        <a ng-href="{{user.github_url}}" target="_blank">
+                            <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="divcolumn iconCol">
+                        <a ng-href="mailto:{{user.email}}">
+                            <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="divcolumn">
+                        <p>Studying</p>
+                    </div>
+                    <div class="divcolumn">
+                        <p>%</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <br/>
     </div>
-
-    <br/>
-
-  </div>
-
-
-
     <!-- <i class="fa fa-github" aria-hidden="true"></i> -->
 </div>
 
@@ -234,86 +275,85 @@
     <div ng-show="emails.length > 0" ng-include="'/views/partials/emailConfig.html'"></div>
     <!-- <h2 class="memTitle">Current Members List</h2> -->
 
-    <table class="memTable" width="100%">
-        <tr>
-            <th colspan="3">Current Members</th>
-        </tr>
-
-        <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>GitHub</th>
-            <th>Slack</th>
-            <th>Email</th>
-            <th>Studying</th>
-            <th>Team</th>
-            <th>Streak</th>
-            <th>Commit Today</th>
-            <th>Commit %</th>
-            <th>Lawn</th>
-        </tr>
-
-        <tr ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'">
-            <td id="memPhoto">
-                <div class="imgBox">
-                    <img class="imgAutoResize" ng-src="{{user.profile_photo}}">
-                    </img>
+    <div class="members">
+        <div class="header" width="100%">
+            <div class="divcolumn iconCol">
+                <!-- photo -->
+                <p></p>
+            </div>
+            <div class="divcolumn display_name">
+                <p>Name</p>
+            </div>
+            <div class="divcolumn iconCol">
+                <!-- github -->
+                <p> </p>
+            </div>
+            <div class="divcolumn iconCol">
+                <!-- email -->
+                <p> </p>
+            </div>
+            <div class="divcolumn">
+                <p>Studying</p>
+            </div>
+            <div class="divcolumn">
+                <p>Team</p>
+            </div>
+            <div class="divcolumn">
+                <p>Streak</p>
+            </div>
+            <div class="divcolumn">
+                <p>Commit Today</p>
+            </div>
+            <div class="divcolumn">
+                <p>Commit %</p>
+            </div>
+            <div class="divcolumn iconCol">
+                <p>Lawn</p>
+            </div>
+        </div>
+        <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+                    </div>
                 </div>
-            </td>
-
-            <td id="memName">
-                <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-            {{user.display_name || 'empty'}}
-          </h3>
-            </td>
-
-            <td id="memGitHubLink">
-                <a ng-href="{{user.github_url}}" target="_blank">
-                    <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
-                </a>
-            </td>
-
-            <td id="memSlack">
-                <!-- add slack link to a -->
-                <a>
-                    <i class="fa fa-slack" alt="Slack" aria-hidden="true"></i>
-                </a>
-            </td>
-
-            <td id="memEmail">
-                <a ng-click="addEmail(user.email)">
-                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-                </a>
-            </td>
-
-            <td id="memStudy">
-
-            </td>
-
-            <td id="memTeam">
-
-            </td>
-
-            <td id="memStreak">
-
-            </td>
-
-            <td id="memCommitToday">
-
-            </td>
-
-            <td id="memCommitAvg">
-
-            </td>
-
-            <td id="memLawn">
-                <i class="fa fa-th" aria-hidden="true"></i>
-            </td>
-        </tr>
-
-
-    </table>
-
+                <div class="divcolumn display_name">
+                    <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
+                  {{user.display_name || 'empty'}}
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="{{user.github_url}}" target="_blank">
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="mailto:{{user.email}}">
+                        <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn">
+                    <p>Studying</p>
+                </div>
+                <div class="divcolumn">
+                    <p>team</p>
+                </div>
+                <div class="divcolumn">
+                    <p>streak</p>
+                </div>
+                <div class="divcolumn">
+                    <p>y/n</p>
+                </div>
+                <div class="divcolumn">
+                    <p>%</p>
+                </div>
+                <div class="divcolumn iconCol">
+                    <i class="fa fa-th" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <i class="fa fa-github" aria-hidden="true"></i>
 </div>

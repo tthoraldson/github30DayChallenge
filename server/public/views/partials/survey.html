@@ -16,3 +16,21 @@
   <button class="currentSurvey_submit" type="submit" ng-click="submitForm(currentSurvey)">SUBMIT</button>
   </form>
 </div>
+
+
+<div class="popOut" ng-if="firstLogIn">
+  <div class="exitFullScreen" ng-click="closeWindow()"><h1>X</h1></div>
+
+  <div class="questionsBox">
+    <div class="firstLogTitle">
+      <h2>Oh hai I see you're logging in for the first time so let us know what your preferred information is</h2>
+    </div>
+    <div class="firstLogQuestion">
+      <input type="text" ng-model="firstLog.name" placeholder="Full Name"/>
+    </div>
+    <div class="firstLogQuestion">
+      <input type="email" ng-model="firstLog.email" placeholder="Preferred Email"/>
+    </div>
+  </div>
+
+</div>
