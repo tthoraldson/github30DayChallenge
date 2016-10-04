@@ -61,7 +61,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       });
 
 
-    $scope.firstLogIn = true;
+    $scope.firstLogIn = false;
 
     $scope.popQuestion = function(){
       $scope.firstLogIn = true;
@@ -71,7 +71,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       $scope.firstLogIn = false;
     };
 
-    // 
+    //
     // function EmailObject(name, email, oldEmail){
     //   this.name = name;
     //   this.email = email;
@@ -87,8 +87,8 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
         newInfo.oldEmail = tempUser.email;
         $http.put('/userData', newInfo).then(function(){
         console.log('did something');
-      });
-  })
+          });
+      })
 
     }
 
