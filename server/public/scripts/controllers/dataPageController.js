@@ -26,8 +26,124 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
       })
     }
 
-    // updateLawn('kmai.mn@gmail.com');
 
+    updateLawn('coreypeck@gmail.com');
+
+    // var testUser = [
+    //   {
+    //     display_name: "test member",
+    //     github: "testgithub",
+    //     email: "testemail@gmail.com",
+    //     github_url: "https://github.com/test",
+    //     language: {
+    //       //ex:
+    //       sprint1: "Java",
+    //       sprint2: "iOS"
+    //       },
+    //     team: {
+    //       //ex:
+    //       sprint1: "linus",
+    //       sprint2: "Meto"
+    //       },
+    //     sprintHistory: ['sprint1', 'sprint2'],
+    //     lawn: []
+    //   }]
+
+      function User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, lawn, sprintHistory ){
+        this.id = id;
+        this.auth_level = auth_level;
+        this.display_name = display_name;
+        this.email = email;
+        this.github_url = github_url;
+        this.profile_photo = profile_photo;
+        this.user_id = user_id;
+        this.github = github_url.substring(19);
+        this.language = language;
+        this.team = team;
+        this.lawn = lawn;
+        this.sprintHistory = sprintHistory;
+      }
+
+      $scope.userData = [ ];
+
+
+      function buildUserData(){
+
+        getData('users').then(function(uData){
+          var tempLawn = [];
+          var tempArray = [];
+
+          //TODO:
+          var language = ['JAVAROX']
+
+          getData('user_lawns').then(function(lData){
+            uData.forEach(function(user){
+
+                    var id = user.id
+                    var auth_level = user.auth_level
+                    var display_name = user.display_name
+                    var email = user.email
+                    var github_url = user.github_url
+                    var profile_photo = user.profile_photo
+                    var user_id = user.user_id
+
+                    var sprintHistory = [{sprint: 'sprint1', start_date: '2016-08-27'}, {sprint: 'sprint1', start_date: '2016-09-30'}];
+                    var team = {
+                      sprint1: 'linus',
+                      sprint2: 'meto'
+                    }
+
+
+
+              lData.forEach(function(commit){
+
+                if (user.github_url.substring(19) == commit.github){
+                  tempLawn.push({date: commit.date, commits: commit.commits})
+                }
+
+
+              })
+              tempLawn = [];
+              tempArray.push(new User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, tempLawn, sprintHistory))
+            });
+            $scope.userData = [];
+            $scope.userData = tempArray;
+            console.log('All info on current members in database', $scope.userData);
+
+          })
+
+
+        });
+
+
+
+      }
+
+      buildUserData();
+
+
+
+    // function dataForEachMember(db){
+    //   var dataObject = [];
+    //   var userNames = [];
+    //
+    //   getData(db).then(function(data){
+    //
+    //     if(db == 'user_lawns'){
+    //     data.forEach(function(obj){
+    //       userNames.push(obj.git  hub)
+    //     });
+    //     userNames = _.uniq(userNames)
+    //     console.log(userNames);
+    //     };
+    //
+    //   });
+    //
+    //
+    // }
+
+
+    // dataForEachMember('user_lawns')
 
 
 
@@ -190,18 +306,33 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                 //  CODE BELOW APPENDS THE LINE      //
                 ///////////////////////////////////////
                 // Add the valueline path.
-                $scope.showData = false;
-                // $scope.showData = function () {
-                dataArray.forEach (function(data){
+                // $scope.showData = false;
+                $scope.showLine = function(id){
+                  d3.select('path.line' + id).remove();
+                  d3.selectAll('circle.mam' + id).remove();
+                }
+                $scope.hideData = function(){
+                  $scope.dataIsShowing = false;
+                  for(i=0;i<dataArray.length;i++){
+                    d3.select('path.line' + i).remove();
+                    d3.selectAll('circle.mam' + i).remove();
+                  }
+                }
+                $scope.dataIsShowing = false;
+                $scope.showData = function () {
+                  $scope.dataIsShowing = true;
+                dataArray.forEach (function(data, index){
 
                   svg.append("path")
-                      .attr("class", "line")
+                      .attr("class", "line" + index)
                       .attr("d", valueline(data))
+                      // .attr("id", "one");
 
                       // draw the scatterplot
                       svg.selectAll("dot")
                           .data(data)
                           .enter().append("circle")
+                          .attr("class", "mam" + index)
                           .attr("r", 3)
                           .attr("cx", function(d) {
                               return x(d.day);
@@ -210,7 +341,8 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                               return y(d.commit);
                           })
                 })
-              // }
+              }
+
 
                 var color = d3.scale.category10();
 

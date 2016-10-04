@@ -361,7 +361,7 @@ router.post('/sprint/:uname', function(req, res) {
 
 // GET ENTIRE LAWN COMMITS!
 router.put('/lawn/update', function(req, res) {
-  console.log('THE REQ BOY', req.body);
+    console.log('THE REQ BOY', req.body);
     var uname = req.body.github_url;
     var githubUname = uname.substring(19);
     var swagArray = [];
@@ -411,66 +411,63 @@ router.put('/lawn/update', function(req, res) {
             // finds the data matching today's date!
             // var foundObject = tempArray.find(findObject);
 
-//
+            //
 
             pg.connect(connectionString, function(err, client, done) {
-              console.log('ITS HEREConnecting to: ', connectionString);
-              if (err) {
-                  res.sendStatus(500);
-                  console.log("error");
-              }
+                console.log('ITS HEREConnecting to: ', connectionString);
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("error");
+                }
 
-              // var user = req.body;
+                // var user = req.body;
 
 
                 console.log('LINE 428!!!!')
-              client.query("DELETE FROM user_lawns WHERE github = " + "'" + githubUname + "'",
-                  function(err, result) {
-                      done();
-                      if (err) {
-                          res.sendStatus(500);
-                          console.log('error: ', err);
-                      }
+                client.query("DELETE FROM user_lawns WHERE github = " + "'" + githubUname + "'",
+                    function(err, result) {
+                        done();
+                        if (err) {
+                            res.sendStatus(500);
+                            console.log('error: ', err);
+                        }
 
-                      console.log('DELETED USER LAWN DATA');
-                      tempArray.forEach(function(commitObject) {
-
-
-
-                          pg.connect(connectionString, function(err, client, done) {
-                              console.log('ADDING UPDATED USER LAWN DATA');
-                              if (err) {
-                                  res.sendStatus(500);
-                                  console.log("error");
-                              }
-
-                              var user = req.body;
-                              var didCommit = false;
-                              if (commitObject.data > 0) {
-                                  didCommit = true;
-                              }
-                              client.query("INSERT INTO user_lawns (github, date, did_commit, commits) VALUES ($1, $2, $3, $4)", [githubUname, commitObject.date, didCommit, commitObject.data],
-                                  function(err, result) {
-                                      done();
-                                      if (err) {
-                                          res.sendStatus(500);
-                                          console.log('error: ', err);
-                                      }
-
-                                      console.log('');
-                                      // res.send(result.rows)
-                                  })
-                          })
-
-                      });
-                      res.send({data: tempArray});
-                  })
-
-                })
+                        console.log('DELETED USER LAWN DATA');
+                        tempArray.forEach(function(commitObject) {
 
 
 
+                            pg.connect(connectionString, function(err, client, done) {
+                                console.log('ADDING UPDATED USER LAWN DATA');
+                                if (err) {
+                                    res.sendStatus(500);
+                                    console.log("error");
+                                }
 
+                                var user = req.body;
+                                var didCommit = false;
+                                if (commitObject.data > 0) {
+                                    didCommit = true;
+                                }
+                                client.query("INSERT INTO user_lawns (github, date, did_commit, commits) VALUES ($1, $2, $3, $4)", [githubUname, commitObject.date, didCommit, commitObject.data],
+                                    function(err, result) {
+                                        done();
+                                        if (err) {
+                                            res.sendStatus(500);
+                                            console.log('error: ', err);
+                                        }
+
+                                        console.log('');
+                                        // res.send(result.rows)
+                                    })
+                            })
+
+                        });
+                        res.send({
+                            data: tempArray
+                        });
+                    })
+            })
         })
         .then(content => {
             sitepage.close();
@@ -482,24 +479,91 @@ router.put('/lawn/update', function(req, res) {
         })
 });
 
-router.put('/username', function(req, res){
-  console.log("req sent for username update ", req.body);
+router.put('/teamname', function(req, res) {
+    console.log("req sent for username update ", req.body);
+    pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            res.sendStatus(500);
+        }
 
-  res.send(201);
+        var queryString = 'UPDATE users SET display_name = $1 WHERE display_name = $2';
+        var refrenceValues = [req.body.oldData.display_name, req.body.newData ];
+        console.log("VAULE", refrenceValues);
+        client.query(queryString, refrenceValues,
 
-})
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                res.sendStatus(200);
+
+            });
+
+    });
+});
 
 
+router.put('/username', function(req, res) {
+    console.log("req sent for teamname update ", req.body);
+    pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            res.sendStatus(500);
+        }
 
-router.put('/teamname', function(req, res){
-  console.log("req sent for teamname update ", req.body);
+        var queryString = 'UPDATE users SET display_name = $1, email = $2 WHERE email = $3';
+        var refrenceValues = [newName, newEmail, oldEmail];
+
+        client.query(queryString, refrenceValues,
+
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                res.sendStatus(200);
+
+            });
+    });
+});
 
 
-res.send(201);
-})
+router.put('/', function(req, res) {
+    console.log('this is the req:', req.body);
+    var newEmail = req.body.email;
+    var newName = req.body.name;
+    var oldEmail = req.body.oldEmail;
 
+    pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            res.sendStatus(500);
+        }
 
+        var queryString = 'UPDATE users SET display_name = $1, email = $2 WHERE email = $3';
+        var refrenceValues = [newName, newEmail, oldEmail];
 
+        client.query(queryString, refrenceValues,
+
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                res.sendStatus(200);
+
+            });
+
+    });
+});
 
 
 

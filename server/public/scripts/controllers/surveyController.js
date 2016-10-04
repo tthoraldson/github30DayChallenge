@@ -33,17 +33,19 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
     }
 
 
+
     $http.get('/userData', {params: {db: 'users'}})
         .then(function(userData) {
             var unique = true;
             var tempUser;
             auth.$onAuthStateChanged(function(theUser){
-              var tempUser = theUser;
+              tempUser = theUser;
               // console.log(user);
 
-
+              if(tempUser != null){
             userData.data.forEach(function(member) {
-              console.log('this is the user:', tempUser);
+
+
                 if (member.email == tempUser.email) {
                     unique = false;
                 }
@@ -52,11 +54,11 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
             if (unique == true) {
                 unique = true;
                 $scope.firstLogIn = true;
-                
+                $scope.newUser = tempUser
 
             }
-          })
-        });
+          }})
+      });
 
 
     $scope.firstLogIn = false;
@@ -68,6 +70,27 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
     $scope.closeWindow = function(){
       $scope.firstLogIn = false;
     };
+
+    //
+    // function EmailObject(name, email, oldEmail){
+    //   this.name = name;
+    //   this.email = email;
+    //   this.oldEmail = oldEmail;
+    // }
+
+    $scope.updateUser = function(newInfo){
+      var tempUser;
+      var tempObj;
+      auth.$onAuthStateChanged(function(theUser){
+        tempUser = theUser;
+
+        newInfo.oldEmail = tempUser.email;
+        $http.put('/userData', newInfo).then(function(){
+        console.log('did something');
+          });
+      })
+
+    }
 
 
 
