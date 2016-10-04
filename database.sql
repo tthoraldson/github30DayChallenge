@@ -78,6 +78,14 @@ id SERIAL PRIMARY KEY,
 email varchar(100)
 );
 
+--holds full user lawn--
+CREATE TABLE user_lawns (
+github varchar(50),
+date varchar(30),
+did_commit boolean,
+commits integer
+);
+
 
 
 

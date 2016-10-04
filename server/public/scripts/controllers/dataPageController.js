@@ -4,13 +4,32 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
     var getData = UserFactory.getData();
     // counter for tabbed html views in main pages
-    function test(){
-    $http.post('/userData/daily', {uname: 'andrewwiskus', date: '2016-08-27'}).then(function(data){
-      console.log('this is the 30 days of commit data after 2016-08-27', data.data)
-      });
+    // function test(){
+    //
+    // $http.post('/userData/get_lawn', {uname: 'andrewwiskus', date: '2016-08-27'}).then(function(data){
+    //   console.log('this is the 30 days of commit data after 2016-08-27', data.data)
+    //   });
+    // }
+
+    function updateLawn(email){
+      getData('users').then(function(users){
+
+        users.forEach(function(user){
+          if(user.email == email){
+            $http.put('/userData/lawn/update', user).then(function(){
+            console.log('delted user data and replaced with current scrapey')
+          })
+          } else {
+            console.log('HEY HEY HEY UM, the email you entered didnt match any in db')
+          }
+        })
+      })
     }
-    //this is calling the lawn: uncomment once to fill lawn db
-    test();
+
+    updateLawn('andrewwiskus@gmail.com');
+
+
+
 
     $scope.tab = 1;
     var sprint = {

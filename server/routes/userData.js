@@ -360,9 +360,10 @@ router.post('/sprint/:uname', function(req, res) {
 });
 
 // GET ENTIRE LAWN COMMITS!
-router.post('/lawn', function(req, res) {
-    var uname = req.body.uname;
-    var githubUname = uname;
+router.put('/lawn/update', function(req, res) {
+  console.log('THE REQ BOY', req.body);
+    var uname = req.body.github_url;
+    var githubUname = uname.substring(19);
     var swagArray = [];
     var sitepage = null;
     var phInstance = null;
@@ -409,36 +410,67 @@ router.post('/lawn', function(req, res) {
 
             // finds the data matching today's date!
             // var foundObject = tempArray.find(findObject);
-            tempArray.forEach(function(commitObject) {
+
+//
+
+            pg.connect(connectionString, function(err, client, done) {
+              console.log('ITS HEREConnecting to: ', connectionString);
+              if (err) {
+                  res.sendStatus(500);
+                  console.log("error");
+              }
+
+              // var user = req.body;
+
+
+                console.log('LINE 428!!!!')
+              client.query("DELETE FROM user_lawns WHERE github = " + "'" + githubUname + "'",
+                  function(err, result) {
+                      done();
+                      if (err) {
+                          res.sendStatus(500);
+                          console.log('error: ', err);
+                      }
+
+                      console.log('DELETED USER LAWN DATA');
+                      tempArray.forEach(function(commitObject) {
 
 
 
-                pg.connect(connectionString, function(err, client, done) {
-                    console.log('Connecting to: ', connectionString);
-                    if (err) {
-                        res.sendStatus(500);
-                        console.log("error");
-                    }
+                          pg.connect(connectionString, function(err, client, done) {
+                              console.log('ADDING UPDATED USER LAWN DATA');
+                              if (err) {
+                                  res.sendStatus(500);
+                                  console.log("error");
+                              }
 
-                    var user = req.body;
-                    var didCommit = false;
-                    if (commitObject.data > 0) {
-                        didCommit = true;
-                    }
-                    client.query("INSERT INTO user_lawns (github, date, did_commit, commits) VALUES ($1, $2, $3, $4)", [githubUname, commitObject.date, didCommit, commitObject.data],
-                        function(err, result) {
-                            done();
-                            if (err) {
-                                res.sendStatus(500);
-                                console.log('error: ', err);
-                            }
+                              var user = req.body;
+                              var didCommit = false;
+                              if (commitObject.data > 0) {
+                                  didCommit = true;
+                              }
+                              client.query("INSERT INTO user_lawns (github, date, did_commit, commits) VALUES ($1, $2, $3, $4)", [githubUname, commitObject.date, didCommit, commitObject.data],
+                                  function(err, result) {
+                                      done();
+                                      if (err) {
+                                          res.sendStatus(500);
+                                          console.log('error: ', err);
+                                      }
 
-                            console.log('');
-                            // res.send(result.rows)
-                        })
+                                      console.log('');
+                                      // res.send(result.rows)
+                                  })
+                          })
+
+                      });
+                      res.send({data: tempArray});
+                  })
+
                 })
 
-            });
+
+
+
         })
         .then(content => {
             sitepage.close();
@@ -449,6 +481,17 @@ router.post('/lawn', function(req, res) {
             phInstance.exit()
         })
 });
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
 
