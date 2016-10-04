@@ -1,4 +1,4 @@
-<div id="chart">Commits Per Day</div>
+<div id="chart" ng-show="showData">Commits Per Day</div>
 
 
 <div class="sprintContainer">
@@ -10,4 +10,5 @@
 
         <h3>{{sprint.title}}</h3>
     </div>
+    <button ng-click="showData = !showData">ShowData</button>
 </div>
