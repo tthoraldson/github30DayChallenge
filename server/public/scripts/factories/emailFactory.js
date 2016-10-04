@@ -1,7 +1,5 @@
 myApp.factory('EmailFactory', ['$http', function($http) {
 
-
-
 // sends email to all users in db
   var allEmails = function(userData, emailInfo){
     var emailInfo = emailInfo;
@@ -23,7 +21,6 @@ myApp.factory('EmailFactory', ['$http', function($http) {
        return emailInfo;
   }
 
-
     function sendEmail(emailInfo) {
 
       var emailArray = emailInfo.sendAddress.split(', ' || ' ');
@@ -36,10 +33,6 @@ myApp.factory('EmailFactory', ['$http', function($http) {
             console.log("email success response: ", response);
         });
       });
-      // emailInfo.displayName = $scope.user.displayName;
-        // $http.post('/email', emailInfo).then(function(response) {
-        //     console.log("email success response: ", response);
-        // });
     };
 
 

@@ -17,6 +17,12 @@
 <div class="main_container" ng-if="tab == 1">
     <p>view pending members, sort by language tags, sprint start and end times</p>
 
+    <h2 style="margin-left: 30px; margin-top: 30px; display:inline-block; width: 90%;">Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
+
+    <button style="margin:30px" ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
+    Create Sprint
+    </button>
+
     <!-- Calendar -->
 
 
@@ -97,6 +103,7 @@
 
 
     <!-- Generate Names -->
+    <div ng-if="showSprintMaker == true">
     <form class="teamNameForm">
         <h2><label for="columns">How Many Teams?</label></h2>
         <span class="teamInputButton">
@@ -201,7 +208,12 @@
             </div>
         </div>
     </div>
+
     <br/>
+
+  </div>
+
+
 
     <!-- <i class="fa fa-github" aria-hidden="true"></i> -->
 </div>

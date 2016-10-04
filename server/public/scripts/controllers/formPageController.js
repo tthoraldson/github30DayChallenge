@@ -27,7 +27,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     var user = {
         data: []
     }
-
+    $scope.showSprintMaker = false;
+    $scope.creatingSprintButton = function(){
+      $scope.showSprintMaker = true;
+    }
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
@@ -96,7 +99,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.emailInfo = {};
     $scope.emails = '';
 
-
     var emailArray = [];
 
     $scope.addEmail = function(email) {
@@ -157,7 +159,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         // console.log(data);
         $scope.userData = data;
         // $scope.userData.push(data);
-
         console.log("$scope.userData in getUsers(): ", $scope.userData);
     });
 
