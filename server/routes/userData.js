@@ -8,6 +8,7 @@ var phantom = require('phantom');
 // DECLARED VARS
 var i = 0;
 var results;
+var timer;
 
 router.get('/', function(req, res) {
 
@@ -72,7 +73,7 @@ router.post('/', function(req, res) {
             // console.log(swagArray[6].substring(15, swagArray[6].length - 2));
 
             pg.connect(connectionString, function(err, client, done) {
-                console.log('Start!');
+                console.log('DREW SAYS Start!');
                 if (err) {
                     res.sendStatus(500);
                     console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
@@ -120,7 +121,7 @@ router.post('/', function(req, res) {
     console.log('THIS IS THE DATA', req.body);
 
     pg.connect(connectionString, function(err, client, done) {
-        console.log('Start!');
+        console.log('DREW SAYS Start!');
         if (err) {
             res.sendStatus(500);
             console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
@@ -212,8 +213,9 @@ router.post('/daily', function(req, res) {
                     }
                     //console.log(result.rows);
                     results = result.rows;
-                    var timer = setInterval(scrapeUser, 5000);
-                      });
+                    timer = setInterval(scrapeUser, 5000);
+
+                    });
             });
 });
 
@@ -479,8 +481,10 @@ function scrapeUser(){
               console.log(error);
               phInstance.exit()
           })
-
   i++;
+  if (i == results.length){
+    clearInterval(timer);
+  }
 }
 
 
