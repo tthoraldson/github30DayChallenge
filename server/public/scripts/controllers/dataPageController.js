@@ -17,7 +17,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
         users.forEach(function(user){
           if(user.email == email){
             $http.put('/userData/lawn/update', user).then(function(){
-            console.log('delted user data and replaced with current scrapey')
+            console.log('deleted user data and replaced with current scrapey')
           })
           } else {
             console.log('HEY HEY HEY UM, the email you entered didnt match any in db')
@@ -103,9 +103,11 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
 
               })
-              tempLawn = [];
+
               tempArray.push(new User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, tempLawn, sprintHistory))
+              tempLawn = [];
             });
+
             $scope.userData = [];
             $scope.userData = tempArray;
             console.log('All info on current members in database', $scope.userData);
