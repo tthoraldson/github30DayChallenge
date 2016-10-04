@@ -482,10 +482,21 @@ router.put('/lawn/update', function(req, res) {
         })
 });
 
+router.put('/username', function(req, res){
+  console.log("req sent for username update ", req.body);
+
+  res.send(201);
+
+})
 
 
 
+router.put('/teamname', function(req, res){
+  console.log("req sent for teamname update ", req.body);
 
+
+res.send(201);
+})
 
 
 

@@ -53,7 +53,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.updateTeamName = function(name) {
         //eventually we can cute up this confirm box, see details in updatePerson()
         if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart the whole process.\n\n\n")) {
-            $http.put('/userData', {
+            $http.put('/userData/teamname', {
                     oldData: name,
                     newData: this.$data
                 })
@@ -84,7 +84,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         // };
 
         if (confirm("Are you Sure you want to Change this Info?\n\n\n")) {
-            $http.put('/userData', {
+            $http.put('/userData/username', {
                     oldData: user,
                     newData: this.$data
                 })
