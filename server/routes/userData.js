@@ -483,9 +483,38 @@ router.put('/lawn/update', function(req, res) {
 });
 
 
+router.put('/', function(req, res) {
+  console.log('this is the req:',req.body);
+  var newEmail = req.body.email;
+  var newName = req.body.name;
+  var oldEmail = req.body.oldEmail;
 
 
+      pg.connect(connectionString, function(err, client, done) {
+        if (err) {
+            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            res.sendStatus(500);
+        }
 
+        var queryString = 'UPDATE users SET display_name = $1, email = $2 WHERE email = $3';
+        var refrenceValues = [newName, newEmail, oldEmail];
+
+        client.query(queryString, refrenceValues,
+
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    return;
+                }
+                res.sendStatus(200);
+
+            });
+
+      });
+
+});
 
 
 

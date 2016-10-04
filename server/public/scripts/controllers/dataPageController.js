@@ -27,27 +27,27 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     }
 
 
-    // updateLawn('adam.eastvold@gmail.com');
+    updateLawn('adam.eastvold@gmail.com');
 
-    var testUser = [
-      {
-        display_name: "test member",
-        github: "testgithub",
-        email: "testemail@gmail.com",
-        github_url: "https://github.com/test",
-        language: {
-          //ex:
-          sprint1: "Java",
-          sprint2: "iOS"
-          },
-        team: {
-          //ex:
-          sprint1: "linus",
-          sprint2: "Meto"
-          },
-        sprintHistory: ['sprint1', 'sprint2'],
-        lawn: []
-      }]
+    // var testUser = [
+    //   {
+    //     display_name: "test member",
+    //     github: "testgithub",
+    //     email: "testemail@gmail.com",
+    //     github_url: "https://github.com/test",
+    //     language: {
+    //       //ex:
+    //       sprint1: "Java",
+    //       sprint2: "iOS"
+    //       },
+    //     team: {
+    //       //ex:
+    //       sprint1: "linus",
+    //       sprint2: "Meto"
+    //       },
+    //     sprintHistory: ['sprint1', 'sprint2'],
+    //     lawn: []
+    //   }]
 
       function User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, lawn, sprintHistory ){
         this.id = id;
