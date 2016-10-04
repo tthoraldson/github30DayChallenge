@@ -27,7 +27,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     var user = {
         data: []
     }
-
+    $scope.showSprintMaker = false;
+    $scope.creatingSprintButton = function(){
+      $scope.showSprintMaker = true;
+    }
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
