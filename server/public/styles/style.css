@@ -24,10 +24,9 @@ main * {
 
 .main_container {
     background-color: #DAE5E3;
-    /*display: inline-block;*/
-    /*width: 90%;*/
-    height: 650px;
     margin: auto;
+    height: 100%;
+    /*overflow-y: scroll;*/
 }
 
 .editable-buttons button {
