@@ -185,8 +185,9 @@ router.post('/daily', function(req, res) {
                     console.log(result.rows);
                     var results = result.rows;
 
-                    results.forEach(function(githubUname){
+                    results.forEach(function(tempObject){
 
+                    var githubUname = tempObject.github;
                     var swagArray = [];
                     var sitepage = null;
                     var phInstance = null;
@@ -201,8 +202,7 @@ router.post('/daily', function(req, res) {
                             return page.open('https://github.com/users/' + githubUname + '/contributions');
                         })
                         .then(status => {
-                            console.log(status);
-
+                            //console.log(status);
                             return sitepage.property('content');
                         })
                         .then(content => {
@@ -234,27 +234,29 @@ router.post('/daily', function(req, res) {
                             // finds the data matching today's date!
                             var foundObject = tempArray.find(findObject);
 
-                            pg.connect(connectionString, function(err, client, done) {
-                                console.log('Connecting to: ', connectionString);
-                                if (err) {
-                                    res.sendStatus(500);
-                                    console.log("error");
-                                }
+                            console.log(githubUname + ': ' + foundObject.data);
 
-                                var user = req.body;
-
-                                client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
-                                    function(err, result) {
-                                        done();
-                                        if (err) {
-                                            res.sendStatus(500);
-                                            console.log('error: ', err);
-                                        }
-
-                                        console.log('');
-                                        res.send(result.rows)
-                                    })
-                            })
+                            // pg.connect(connectionString, function(err, client, done) {
+                            //     console.log('Connecting to: ', connectionString);
+                            //     if (err) {
+                            //         res.sendStatus(500);
+                            //         console.log("error");
+                            //     }
+                            //
+                            //     var user = req.body;
+                            //
+                            //     client.query("INSERT INTO s2_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
+                            //         function(err, result) {
+                            //             done();
+                            //             if (err) {
+                            //                 res.sendStatus(500);
+                            //                 console.log('error: ', err);
+                            //             }
+                            //
+                            //             console.log('');
+                            //             res.send(result.rows)
+                            //         })
+                            // })
                         })
                         .then(content => {
                             sitepage.close();
@@ -467,7 +469,7 @@ function getDate() {
     return date;
 }
 
-// find object in tempArray with today's date (gets commits for that day)
+// find object in tempArray with YESTERDAY's date (gets commits for that YESTERday)
 function findObject(entry) {
     return entry.date === getDate();
 }

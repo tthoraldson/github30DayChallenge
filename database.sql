@@ -84,7 +84,7 @@ CREATE TABLE SPRINTNAME_data (
 id SERIAL PRIMARY KEY,
 github varchar(50), -- relational mark
 date varchar(12),
-commits smallint
+commits boolean
 );
 
 -- generic sprint team table
