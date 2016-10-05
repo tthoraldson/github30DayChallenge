@@ -1,13 +1,14 @@
 <div class="main_container" ng-if="tab == 1">
-    <p>view pending members, sort by language tags, sprint start and end times</p>
 
-    <h2 style="margin-left: 30px; margin-top: 30px; display:inline-block; width: 90%;">Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
-    <button style="margin:30px" ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
-    Create Sprint
-    </button>
+
+    <div id="noSprintActive" ng-hide="showSprintMaker">
+      <h2  >Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
+        <button   ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
+          Create Sprint
+        </button>
+    </div>
 
     <!-- Calendar -->
-
 
 
     <!-- Captains Table -->
@@ -80,8 +81,73 @@
 
 
 
-    <!-- Generate Names -->
+
     <div ng-if="showSprintMaker == true">
+      <div>Sprint Name:</div>
+      <input type = "text" ng-model = "newSprint.title">
+      <div>Start Date:</div>
+      <input type = "date" ng-model = "newSprint.date">
+      <!-- Captains Table -->
+      <h2 class="tableTitle" width="100%">Captains</h2>
+      <div class="header" width="100%">
+          <div class="divcolumn iconCol">
+              <p></p>
+          </div>
+          <div class="divcolumn display_name">
+              <p>Name</p>
+          </div>
+          <div class="divcolumn iconCol">
+              <p> </p>
+          </div>
+          <div class="divcolumn iconCol">
+              <p> </p>
+          </div>
+          <div class="divcolumn">
+              <p>Studying</p>
+          </div>
+          <div class="divcolumn">
+              <p>Team</p>
+          </div>
+          <div class="divcolumn">
+              <p>Approve</p>
+          </div>
+
+      </div>
+      <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+          <div id="rows">
+              <div class="divcolumn iconCol">
+                  <div class="imgBox">
+                      <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+                  </div>
+              </div>
+              <div class="divcolumn display_name">
+                  <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
+            {{user.display_name || 'empty'}}
+          </h3>
+              </div>
+              <div class="divcolumn iconCol">
+                  <!-- there also, was a thing here.. long gone. -->
+              </div>
+              <div class="divcolumn iconCol">
+                <!-- there once was a thing here, siyanara -->
+              </div>
+              <div class="divcolumn">
+                  <p>Studying</p>
+              </div>
+              <div class="divcolumn">
+                  <p>Team</p>
+              </div>
+              <div class="divcolumn">
+                  <a>
+                      <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
+                      <i class="fa fa-times" alt="No" aria-hidden="true"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <br/>
+
+
         <form class="teamNameForm">
             <h2><label for="columns">How Many Teams?</label></h2>
             <span class="teamInputButton">
@@ -124,11 +190,11 @@
 
         <!-- Pending Members Table -->
         <div class="sprintMemTabs">
-            <div class="tab" ng-click="tab = 1">
-                <h2 class="tableTitle" width="100%">Pending</h2>
+            <div class="{{tab == 2 ? 'membertabSprint' : 'activeMemberTab'}}" ng-click="tab = 1">
+                <h4 class="tableTitle">Pending</h4>
             </div>
-            <div class="tab" ng-click="tab = 2">
-                <h2 class="tableTitle" width="100%">Approved</h2>
+            <div class="{{tab == 2 ? 'activeMemberTab' : 'membertabSprint'}}" ng-click="tab = 2">
+                <h4 class="tableTitle" >Approved</h4>
             </div>
         </div>
 

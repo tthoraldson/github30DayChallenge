@@ -35,18 +35,33 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     }
               })
           })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 86c71e69193044f6577b9087adac86ab3ba34c30
       });
     }
     findActive();
+
     var formData = FormFactory.allFormData();
     formData.then(function(data){
       console.log('HEYEYEYEYYEYE', data);
     })
 
+<<<<<<< HEAD
     var formResults = FormFactory.formResults();
     formResults([2]).then(function(data){
       console.log('data?');
+=======
+    var formResults = FormFactory.updateFormResults();
+    formResults([2]).then(function(data){
+      var responses = FormFactory.formResponses();
+      console.log('this is the shit:', responses);
+>>>>>>> 86c71e69193044f6577b9087adac86ab3ba34c30
     })
+
+
+
     $scope.newForm = {
         formDBref: 0,
         title: "",
