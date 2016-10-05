@@ -3,6 +3,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
 
     var getData = UserFactory.getData();
+    $scope.signIn = UserFactory.signIn();
     var auth = AuthFactory;
     var user;
     auth.$onAuthStateChanged(function(theUser){
@@ -48,20 +49,37 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
                 if (member.email == tempUser.email) {
                     unique = false;
+                    $scope.firstLogIn = false;
                 }
             });
 
             if (unique == true) {
                 unique = true;
-                $scope.firstLogIn = true;
+              $scope.firstLogIn = true;
                 $scope.newUser = tempUser
 
             }
-          }})
+
+          } else {
+            $scope.askLogin = true;
+            // $scope.firstLogIn = true;
+            // signIn();
+          }
+
+        })
       });
 
-
     $scope.firstLogIn = false;
+    $scope.showThanks = false;
+    $scope.askLogin = false;
+
+
+    $scope.login = function(){
+      $scope.signIn();
+      $scope.askLogin = false;
+      $scope.firstLogIn = true;
+    }
+
 
     $scope.popQuestion = function(){
       $scope.firstLogIn = true;
@@ -69,25 +87,34 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
     $scope.closeWindow = function(){
       $scope.firstLogIn = false;
+      $scope.showThanks = false;
+      $scope.askLogin = false;
     };
 
-    //
-    // function EmailObject(name, email, oldEmail){
-    //   this.name = name;
-    //   this.email = email;
-    //   this.oldEmail = oldEmail;
-    // }
-
     $scope.updateUser = function(newInfo){
+      $scope.newName = newInfo.name;
       var tempUser;
       var tempObj;
       auth.$onAuthStateChanged(function(theUser){
         tempUser = theUser;
 
+        if(tempUser != null){
         newInfo.oldEmail = tempUser.email;
         $http.put('/userData', newInfo).then(function(){
         console.log('did something');
           });
+        $scope.firstLogIn = false;
+        $scope.showThanks = true;
+
+        var timer = setTimeout(showChanger, 3000);
+
+        function showChanger(){
+          $scope.$apply(function() {
+              $scope.showThanks = false;
+          });
+        }// $scope.showThanks = false;
+      }
+
       })
 
     }
