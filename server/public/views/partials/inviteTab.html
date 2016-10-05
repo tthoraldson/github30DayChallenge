@@ -1,0 +1,11 @@
+<div class="main_container" ng-if="tab == 3">
+
+    <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
+    <button ng-click="email=!email">SEND NEW EMAIL</button>
+    <div ng-show="email" ng-include="'/views/partials/invite.html'"></div> <br />
+    <button ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
+    <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
+    <button ng-click="dynamicForm_history=!dynamicForm_history">SHOW CREATED SURVEYS</button>
+    <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
+
+</div>

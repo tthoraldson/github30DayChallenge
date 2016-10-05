@@ -19,7 +19,6 @@
 
 
 <div class="popOut" ng-if="firstLogIn">
-  <div class="exitFullScreen" ng-click="closeWindow()"><h1>X</h1></div>
 
   <div class="questionsBox">
     <div class="firstLogTitle">
@@ -35,11 +34,9 @@
       <button type="submit" ng-click="updateUser(firstLog)">Submit</button>
     </div>
   </div>
-
 </div>
 
 <div class="popOut" ng-if="showThanks">
-  <div class="exitFullScreen" ng-click="closeWindow()"><h1>X</h1></div>
   <div class="questionsBox">
       <div class="firstLogTitle">
         <h2>Thanks {{newName}} for submitting!</h2>
@@ -50,11 +47,20 @@
 </div>
 
 <div class="popOut" ng-if="askLogin">
-  <div class="exitFullScreen" ng-click="closeWindow()"><h1>X</h1></div>
   <div class="questionsBox">
       <div class="firstLogTitle">
         <h2>Please login to take the survey!</h2>
         <button style="padding-bottom: 25px;" type="submit" ng-click="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popOut" ng-if="thankYou">
+  <div class="questionsBox">
+      <div class="firstLogTitle">
+        <h2>Thank you for submitting your form!</h2>
+        <h3 style="padding-bottom: 25px;">Good luck on your coding journey!</h3>
       </div>
     </div>
   </div>

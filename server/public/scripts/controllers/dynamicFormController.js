@@ -1,4 +1,4 @@
-myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
+myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', 'FormFactory', function($scope, $http, $location, AuthFactory, UserFactory, FormFactory) {
     // console.log("DynamicFormController works");
     $scope.formHistory = [];
     $scope.activeSurvey;
@@ -45,7 +45,15 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
       });
     }
     findActive();
+    var formData = FormFactory.allFormData();
+    formData.then(function(data){
+      console.log('HEYEYEYEYYEYE', data);
+    })
 
+    var formResults = FormFactory.formResults();
+    formResults([1,2,3,4]).then(function(data){
+      console.log('data?');
+    })
     $scope.newForm = {
         formDBref: 0,
         title: "",
@@ -81,7 +89,11 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     $scope.multipleChoice_selected = false;
     $scope.checkBox_selected = false;
 
-
+    $scope.activeSurveyResponses = [{
+        question: "titletest",
+        options: [],
+        answers: [],
+    }]
     // resets displayed form on button push
     function resetForm() {
         $scope.shortAnswer_selected = false;
