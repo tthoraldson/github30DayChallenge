@@ -6,6 +6,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
     getData('form_history').then(function(data){
       $scope.formHistory = data;
+      console.log('what is this:', $scope.formHistory)
     })
 
 
