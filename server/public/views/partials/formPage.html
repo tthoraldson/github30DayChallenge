@@ -17,7 +17,7 @@
 <div class="main_container" ng-if="tab == 1">
     <p>view pending members, sort by language tags, sprint start and end times</p>
 
-    <h2 style="margin-left: 30px; margin-top: 30px; display:inline-block; width: 90%;">Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
+    <h2 class="currentSprint">Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
     <button style="margin:30px" ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
     Create Sprint
     </button>
@@ -307,6 +307,9 @@
             <div class="divcolumn">
                 <p>Commit %</p>
             </div>
+            <div class="divcolumn">
+                <p>Auth Lvl</p>
+            </div>
             <div class="divcolumn iconCol">
                 <p>Lawn</p>
             </div>
@@ -347,6 +350,9 @@
                 </div>
                 <div class="divcolumn">
                     <p>%</p>
+                </div>
+                <div class="divcolumn">
+                    <p>newb</p>
                 </div>
                 <div class="divcolumn iconCol">
                     <i class="fa fa-th" aria-hidden="true"></i>

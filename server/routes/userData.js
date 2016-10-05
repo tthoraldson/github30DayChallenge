@@ -479,7 +479,7 @@ router.put('/lawn/update', function(req, res) {
         })
 });
 
-router.put('/teamname', function(req, res) {
+router.put('/username', function(req, res) {
     console.log("req sent for username update ", req.body);
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
@@ -487,8 +487,8 @@ router.put('/teamname', function(req, res) {
             res.sendStatus(500);
         }
 
-        var queryString = 'UPDATE users SET display_name = $1 WHERE display_name = $2';
-        var refrenceValues = [req.body.oldData.display_name, req.body.newData ];
+        var queryString = 'UPDATE users SET display_name = $1 WHERE id = $2';
+        var refrenceValues = [req.body.newData, req.body.oldData];
         console.log("VAULE", refrenceValues);
         client.query(queryString, refrenceValues,
 
@@ -503,33 +503,6 @@ router.put('/teamname', function(req, res) {
 
             });
 
-    });
-});
-
-
-router.put('/username', function(req, res) {
-    console.log("req sent for teamname update ", req.body);
-    pg.connect(connectionString, function(err, client, done) {
-        if (err) {
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
-            res.sendStatus(500);
-        }
-
-        var queryString = 'UPDATE users SET display_name = $1, email = $2 WHERE email = $3';
-        var refrenceValues = [newName, newEmail, oldEmail];
-
-        client.query(queryString, refrenceValues,
-
-            function(err, result) {
-                done();
-                if (err) {
-                    res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
-                    return;
-                }
-                res.sendStatus(200);
-
-            });
     });
 });
 

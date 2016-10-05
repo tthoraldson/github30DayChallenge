@@ -308,16 +308,15 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                 //  CODE BELOW APPENDS THE LINE      //
                 ///////////////////////////////////////
                 // Add the valueline path.
-                // $scope.showData = false;
                 $scope.showLine = function(id){
                   d3.select('path.line' + id).remove();
-                  d3.selectAll('circle.mam' + id).remove();
+                  d3.selectAll('circle.dataPoint' + id).remove();
                 }
                 $scope.hideData = function(){
                   $scope.dataIsShowing = false;
                   for(i=0;i<dataArray.length;i++){
                     d3.select('path.line' + i).remove();
-                    d3.selectAll('circle.mam' + i).remove();
+                    d3.selectAll('circle.dataPoint' + i).remove();
                   }
                 }
                 $scope.dataIsShowing = false;
@@ -328,13 +327,12 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                   svg.append("path")
                       .attr("class", "line" + index)
                       .attr("d", valueline(data))
-                      // .attr("id", "one");
 
                       // draw the scatterplot
                       svg.selectAll("dot")
                           .data(data)
                           .enter().append("circle")
-                          .attr("class", "mam" + index)
+                          .attr("class", "dataPoint" + index)
                           .attr("r", 3)
                           .attr("cx", function(d) {
                               return x(d.day);
