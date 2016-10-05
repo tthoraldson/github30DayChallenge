@@ -26,7 +26,7 @@
         <div ng-show="responses">
             <div ng-repeat="response in survey.form_questions">
               <h4 style="cursor: pointer;" ng-click="showAnswers = !showAnswers">{{response.title}}</h4>
-                <div ng-show="showAnswers">{{response}}</div>
+                <div ng-show="showAnswers">{{formAnswers.data[survey.id - 1]}}</div>
             </div>
 
 
