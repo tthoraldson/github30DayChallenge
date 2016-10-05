@@ -34,10 +34,6 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     $scope.activeSurvey = tempArray;
                     }
               })
-
-
-
-
           })
 
       });
@@ -52,6 +48,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     var formResults = FormFactory.updateFormResults();
     formResults([1,2,3,4,5,6]).then(function(data){
       var responses = FormFactory.formResponses();
+
       $scope.formAnswers = responses;
       console.log('this is the shit:',$scope.formAnswers);
 
