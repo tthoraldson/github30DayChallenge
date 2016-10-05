@@ -132,7 +132,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
 checkUserSubmission();
 //check if that user has submitted already
-  function = checkUserSubmission(){
+  function checkUserSubmission(){
     getData('admin').then(function(response){
       console.log(response[0].currentsurvey);
       getData('form' + response[0].currentsurvey).then(function(data){
@@ -143,8 +143,7 @@ checkUserSubmission();
             getData('users').then(function(user){
               console.log(user);
               user.forEach(function(userEmail){
-                if(userEmail.email == survey.user_email){
-                  console.log('this person has taken the quiz:', userEmail.email);
+
                   if(tempUser.providerData[0].uid == userEmail.user_id){
                       $scope.thankYou = true;
 
@@ -156,7 +155,7 @@ checkUserSubmission();
                         });
                       }
 
-                  }
+                  
                 } else {
                   // console.log('this is the first time for quizzy :)', userEmail.email);
                 }
