@@ -40,8 +40,6 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
           })
 
-
-
       });
     }
     findActive();
@@ -50,10 +48,14 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
       console.log('HEYEYEYEYYEYE', data);
     })
 
-    var formResults = FormFactory.formResults();
+    var formResults = FormFactory.updateFormResults();
     formResults([1,2,3,4]).then(function(data){
-      console.log('data?');
+      var responses = FormFactory.formResponses();
+      console.log('this is the shit:', responses); 
     })
+
+
+
     $scope.newForm = {
         formDBref: 0,
         title: "",

@@ -4,11 +4,14 @@ myApp.factory('FormFactory', ['$http', function($http) {
 
   });
 
+  var tempObj;
+
   function formResults(formIDs){
-    var formResults = $http.get('/formData/results', {params: {formIDs: formIDs}}).then(function(data){
+    var promise = $http.get('/formData/results', {params: {formIDs: formIDs}}).then(function(data){
       console.log('THIS IS ASDSDFASd', data);
+      tempObj = data;
     });
-    return formResults
+    return promise;
   }
 
 
@@ -19,12 +22,12 @@ myApp.factory('FormFactory', ['$http', function($http) {
     allFormData: function() {
         return formData;
   },
-    formResults: function(){
+    updateFormResults: function(){
       return formResults;
+    },
+    formResponses: function() {
+        return tempObj;
     }
-  //   sendEmail: function() {
-  //       return sendEmail;
-  //   }
 }
 
 
