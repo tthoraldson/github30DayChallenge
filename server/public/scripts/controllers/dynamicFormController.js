@@ -51,7 +51,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     })
 
     var formResults = FormFactory.formResults();
-    formResults([2,4]).then(function(data){
+    formResults([1,2,3,4]).then(function(data){
       console.log('data?');
     })
     $scope.newForm = {

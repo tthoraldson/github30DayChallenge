@@ -326,7 +326,6 @@ router.get('/results', function(req, res) {
                   }
               });
 
-
       });
 
     });
