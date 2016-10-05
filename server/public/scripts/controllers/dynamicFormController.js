@@ -34,14 +34,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     $scope.activeSurvey = tempArray;
                     }
               })
-
-
-
-
           })
-
-
-
       });
     }
     findActive();
@@ -51,7 +44,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     })
 
     var formResults = FormFactory.formResults();
-    formResults([1,2,3,4]).then(function(data){
+    formResults([2]).then(function(data){
       console.log('data?');
     })
     $scope.newForm = {

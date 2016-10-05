@@ -24,6 +24,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     $scope.tab = 1;
     $scope.userData = [];
+    $scope.sprint2Data = [];
     var user = {
         data: []
     }
@@ -147,11 +148,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     var getData = UserFactory.getData();
 
-    getData('users').then(function(data) {
-        // console.log(data);
-        $scope.userData = data;
-    });
-
     $scope.email = EmailFactory.sendEmail();
 
 
@@ -160,6 +156,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $scope.userData = data;
         // $scope.userData.push(data);
         console.log("$scope.userData in getUsers(): ", $scope.userData);
+    });
+
+    getData('sprint2').then(function(data) {
+        // console.log(data);
+        $scope.sprint2Data = data;
+        // $scope.userData.push(data);
+        console.log("$scope.userData in getUsers(): ", $scope.sprint2Data);
     });
 
 
@@ -221,15 +224,33 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         });
     };
 
+    // $scope.deleteCaptain = function(object) {
+    //     getData('users').then(function(userz) {
+    //         var tempUserz = userz;
+    //         // console.log(userz);
+    //         tempUserz.forEach(function(theUser) {
+    //             // console.log(theUser, object.captain);
+    //
+    //             if (theUser.display_name == object.captain) {
+    //                 $scope.userData.push(theUser);
+    //             }
+    //         })
+    //         $scope.showNames.forEach(function(planet, i) {
+    //             if (object.planet == planet.planet) {
+    //                 $scope.showNames[i].captain = 'no captain';
+    //             }
+    //         })
+    //     })
+    // }
     $scope.deleteCaptain = function(object) {
-        getData('users').then(function(userz) {
+        getData('sprint2').then(function(userz) {
             var tempUserz = userz;
             // console.log(userz);
             tempUserz.forEach(function(theUser) {
                 // console.log(theUser, object.captain);
 
-                if (theUser.display_name == object.captain) {
-                    $scope.userData.push(theUser);
+                if (theUser.memeber_name == object.captain) {
+                    $scope.sprint2Data.push(theUser);
                 }
             })
             $scope.showNames.forEach(function(planet, i) {
