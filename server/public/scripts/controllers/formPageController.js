@@ -85,7 +85,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
         if (confirm("Are you Sure you want to Change this Info?\n\n\n")) {
             $http.put('/userData/username', {
-                    oldData: user,
+                    oldData: user.id,
                     newData: this.$data
                 })
                 // this.$data send to put request, make sure it updates the correct person
