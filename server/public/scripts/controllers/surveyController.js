@@ -56,7 +56,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
             userData.data.forEach(function(member) {
 
 
-                if (member.user_id == tempUser.propertyData[0].uid) {
+                if (member.user_id == tempUser.providerData[0].uid) {
                     unique = false;
                     $scope.firstLogIn = false;
                 }
