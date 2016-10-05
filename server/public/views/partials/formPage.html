@@ -65,14 +65,10 @@
         </h3>
             </div>
             <div class="divcolumn iconCol">
-                <a ng-href="{{user.github_url}}" target="_blank">
-                    <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
-                </a>
+                <!-- there also, was a thing here.. long gone. -->
             </div>
             <div class="divcolumn iconCol">
-                <a ng-href="mailto:{{user.email}}">
-                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-                </a>
+              <!-- there once was a thing here, siyanara -->
             </div>
             <div class="divcolumn">
                 <p>Studying</p>
@@ -329,9 +325,9 @@
                     </a>
                 </div>
                 <div class="divcolumn iconCol">
-                    <a ng-href="mailto:{{user.email}}">
-                        <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-                    </a>
+                    <a ng-click="addEmail(user.email)">
+   -                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+   -                </a>
                 </div>
                 <div class="divcolumn">
                     <p>Studying</p>

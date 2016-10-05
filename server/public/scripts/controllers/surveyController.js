@@ -114,7 +114,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
           $scope.$apply(function() {
               $scope.showThanks = false;
           });
-        }// $scope.showThanks = false;
+        }
       }
 
       })
@@ -137,6 +137,15 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
                   console.log('this person has taken the quiz:', userEmail.email);
                   if(tempUser.providerData[0].uid == userEmail.user_id){
                       $scope.thankYou = true;
+
+                      var timer = setTimeout(showChanger, 3000);
+
+                      function showChanger(){
+                        $scope.$apply(function() {
+                            $scope.thankYou = false;
+                        });
+                      }
+
                   }
                 } else {
                   // console.log('this is the first time for quizzy :)', userEmail.email);
