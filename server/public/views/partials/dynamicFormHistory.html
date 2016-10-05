@@ -7,17 +7,29 @@
         <p>{{survey.form_description}}</p>
         <button ng-click="questions = !questions">SHOW QUESTIONS</button>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses = !responses">VIEW RESPONSES</button>
         </br><br />
         <div ng-show="questions" ng-repeat="question in survey.form_questions">
             <h4>{{question.title}}</h4>
             <h5><em>{{question.desc}}</em></h5>
 
             <div ng-show="question.options.length == 0"><input type=text class="formInput_shortAnswer" /></div>
-            <div ng-repeat="option in question.options">
-                <input type="checkbox" /> {{option.title}}
-            </div>
+              <div ng-repeat="option in question.options">
+                  <input type="checkbox" /> {{option.title}}
+              </div>
             </br>
             </br>
+
+
+        </div>
+
+        <div ng-show="responses">
+            <h4>cool responses here</h4>
+
+
+            </br>
+            </br>
+
 
         </div>
     </div>
