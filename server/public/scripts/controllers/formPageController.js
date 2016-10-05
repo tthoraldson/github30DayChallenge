@@ -22,6 +22,7 @@ myApp.directive('droppable', function() {
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
+    $scope.showEmail = false;
     $scope.tab = 1;
     $scope.userData = [];
     var user = {

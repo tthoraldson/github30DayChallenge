@@ -45,15 +45,15 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
       });
     }
     findActive();
-    var formData = FormFactory.allFormData();
-    formData.then(function(data){
-      console.log('HEYEYEYEYYEYE', data);
-    })
-
-    var formResults = FormFactory.formResults();
-    formResults([1,2,3,4]).then(function(data){
-      console.log('data?');
-    })
+    // var formData = FormFactory.allFormData();
+    // formData.then(function(data){
+    //   console.log('HEYEYEYEYYEYE', data);
+    // })
+    //
+    // var formResults = FormFactory.formResults();
+    // formResults([1,2,3,4]).then(function(data){
+    //   console.log('data?');
+    // })
     $scope.newForm = {
         formDBref: 0,
         title: "",
