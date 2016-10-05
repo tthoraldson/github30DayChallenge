@@ -30,6 +30,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       //TODO: get user information and send in object req.body = {survey: survey, user: user}
       $http.post('/formData/entry', {uname: user, survey: survey}).then(function(){
         console.log('new data posted to', survey.form_title);
+        $scope.thankYou = true;
       });
     }
 
@@ -72,6 +73,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
     $scope.firstLogIn = false;
     $scope.showThanks = false;
     $scope.askLogin = false;
+    $scope.thankYou = false;
 
 
     $scope.login = function(){
@@ -118,6 +120,38 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       })
 
     }
+
+
+//check if that user has submitted already
+    getData('admin').then(function(response){
+      console.log(response[0].currentsurvey);
+      getData('form' + response[0].currentsurvey).then(function(data){
+        data.forEach(function(survey){
+          auth.$onAuthStateChanged(function(theUser){
+            tempUser = theUser;
+            if(tempUser != null){
+            getData('users').then(function(user){
+              console.log(user);
+              user.forEach(function(userEmail){
+                if(userEmail.email == survey.user_email){
+                  console.log('this person has taken the quiz:', userEmail.email);
+                  if(tempUser.providerData[0].uid == userEmail.user_id){
+                      $scope.thankYou = true;
+                  }
+                } else {
+                  // console.log('this is the first time for quizzy :)', userEmail.email);
+                }
+              })
+            })
+          } else {
+            $scope.askLogin = true;
+          }
+      })
+        })
+
+      })
+    });
+
 
 
 
