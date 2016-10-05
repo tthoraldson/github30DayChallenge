@@ -81,7 +81,6 @@ CREATE TABLE sprint_history (
 -- TEMPLATES FOR PG QUERIES
 -- generic sprint data table template
 CREATE TABLE SPRINTNAME_data (
-id SERIAL PRIMARY KEY,
 github varchar(50), -- relational mark
 date varchar(12),
 commits boolean
