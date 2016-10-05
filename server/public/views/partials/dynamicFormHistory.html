@@ -24,9 +24,9 @@
         </div>
 
         <div ng-show="responses">
-            <div ng-repeat = "response in activeSurveyResponses">
-
-
+            <div ng-repeat="response in survey.form_questions">
+              <h4 style="cursor: pointer;" ng-click="showAnswers = !showAnswers">{{response.title}}</h4>
+                <div ng-show="showAnswers">{{response}}</div>
             </div>
 
 
