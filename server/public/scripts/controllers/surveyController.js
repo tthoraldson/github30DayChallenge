@@ -59,6 +59,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
                 if (member.user_id == tempUser.providerData[0].uid) {
                     unique = false;
                     $scope.firstLogIn = false;
+                    checkUserSubmission();
                 }
             });
 
@@ -129,8 +130,9 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
     }
 
-
+checkUserSubmission();
 //check if that user has submitted already
+  var checkUserSubmission = function(){
     getData('admin').then(function(response){
       console.log(response[0].currentsurvey);
       getData('form' + response[0].currentsurvey).then(function(data){
@@ -168,7 +170,7 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
 
       })
     });
-
+}
 
 
 
