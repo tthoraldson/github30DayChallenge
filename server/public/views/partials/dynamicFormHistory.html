@@ -1,8 +1,6 @@
 <div ng-controller="DynamicFormController">
-    <h3>Current Active Survey: {{activeSurvey.form_title}}</h3> <br /><br />
-
     <div ng-repeat="survey in formHistory">
-
+        
         <h3>{{survey.form_title}}</h3>
         <p>{{survey.form_description}}</p>
         <button ng-click="questions = !questions">SHOW QUESTIONS</button>

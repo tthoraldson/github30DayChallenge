@@ -2,15 +2,95 @@
 
 
 <div class="sprintContainer">
-    <div ng-repeat="sprint in sprintHistory track by $index" ng-click="clickedSprint(sprint.title)" class="sprint_option">
+  <div ng-click="sprint1 = !sprint1" class="sprint_option">
+    <h3>Sprint #1: Pilot</h3>
+    <h5>41 participants // 0 teams </h5>
+  </div>
+  <div ng-show="sprint1">
+    <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >No Team</p>
+  </div>
+  </div>
+  <div ng-click="sprint2 = !sprint2" class="sprint_option">
+    <h3>Sprint #2: Teamwork</h3>
+    <h5>82 participants // 9 teams </h5>
+  </div>
+  <div ng-show="sprint2">
+    <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >All Teams</p>
+  </div>
+  <div class="teamListItem oddMemList">
+    <button>Show Data</button> <p class="teamName" >Deimos</p>
+  </div>
+  <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >Linus</p>
+  </div>
+  <div class="teamListItem oddMemList">
+    <button>Show Data</button> <p class="teamName" >Io</p>
+  </div>
+  <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >Ida</p>
+  </div>
+  <div class="teamListItem oddMemList">
+    <button>Show Data</button> <p class="teamName" >Gaspra</p>
+  </div>
+  <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >Europa</p>
+  </div>
+  <div class="teamListItem oddMemList">
+    <button>Show Data</button> <p class="teamName" >Dactyl</p>
+  </div>
+  <div class="teamListItem">
+    <button>Show Data</button> <p class="teamName" >Eros</p>
+  </div>
+  <div class="teamListItem oddMemList">
+    <button>Show Data</button> <p class="teamName" >No Team</p>
+  </div>
+
+  </div>
+    <div ng-click="sprint3 = !sprint3" class="sprint_option">
+      <h3>Sprint #3: GitHyped</h3>
+      <h5>96 participants // 6 teams </h5>
+    </div>
+    <div ng-show="sprint3">
+      <div class="teamListItem">
+      <button>Show Data</button> <p class="teamName" >All Teams</p>
+    </div>
+    <div class="teamListItem oddMemList">
+      <button>Show Data</button> <p class="teamName" >Chai</p>
+    </div>
+    <div class="teamListItem">
+      <button>Show Data</button> <p class="teamName" >Eno</p>
+    </div>
+    <div class="teamListItem oddMemList">
+      <button>Show Data</button> <p class="teamName" >Fopa</p>
+    </div>
+    <div class="teamListItem">
+      <button>Show Data</button> <p class="teamName" >Gira</p>
+    </div>
+    <div class="teamListItem oddMemList">
+      <button>Show Data</button> <p class="teamName" >Meto</p>
+    </div>
+    <div class="teamListItem">
+      <button>Show Data</button> <p class="teamName" >Petri</p>
+    </div>
+    <div class="teamListItem oddMemList">
+      <button>Show Data</button> <p class="teamName" >No Team</p>
+    </div>
+
+
+    </div>
+    <!-- <div ng-repeat="sprint in sprintHistory track by $index" ng-click="clickedSprint(sprint.title)" class="sprint_option">
 
         <div ng-if="currentSprintOpen == sprint.title">
             <p ng-repeat="sprinter in sprint.data">{{sprinter.member_name}}//{{sprinter.member_score}}</p>
         </div>
 
         <h3>{{sprint.title}}</h3>
-    </div>
-    <button ng-click="dataIsShowing ? hideData() : showData()">{{dataIsShowing ? 'hideData' : 'ShowData'}}</button>
+    </div> -->
+
+
+    <!-- <button ng-click="dataIsShowing ? hideData() : showData()">{{dataIsShowing ? 'hideData' : 'ShowData'}}</button>
     <button ng-click="showLine('0')">RemoveLine1</button>
-    <button ng-click="showLine('1')">RemoveLine2</button>
+    <button ng-click="showLine('1')">RemoveLine2</button> -->
 </div>

@@ -1,6 +1,46 @@
 myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
     console.log("Loaded: Data Page Controller");
 
+    $scope.sprint1 = false;
+    $scope.sprint2 = false;
+    $scope.sprint3 = false;
+
+
+//5 players
+var testTeam = [
+         {'day': 1, 'commit': 10},
+         {'day': 2, 'commit': 10},
+         {'day': 3, 'commit': 10},
+         {'day': 4, 'commit': 10},
+         {'day': 5, 'commit': 10},
+         {'day': 6, 'commit': 10},
+         {'day': 7, 'commit': 10},
+         {'day': 8, 'commit': 10},
+         {'day': 9, 'commit': 10},
+         {'day': 10, 'commit': 10},
+         {'day': 11, 'commit': 10},
+         {'day': 12, 'commit': 10},
+         {'day': 13, 'commit': 10},
+         {'day': 14, 'commit': 10},
+         {'day': 15, 'commit': 10},
+         {'day': 16, 'commit': 10},
+         {'day': 17, 'commit': 10},
+         {'day': 18, 'commit': 10},
+         {'day': 19, 'commit': 10},
+         {'day': 20, 'commit': 10},
+         {'day': 21, 'commit': 10},
+         {'day': 22, 'commit': 10},
+         {'day': 23, 'commit': 10},
+         {'day': 24, 'commit': 10},
+         {'day': 25, 'commit': 10},
+         {'day': 26, 'commit': 10},
+         {'day': 27, 'commit': 10},
+         {'day': 28, 'commit': 10},
+         {'day': 29, 'commit': 10},
+         {'day': 30, 'commit': 10}
+       ]
+
+
 
     var getData = UserFactory.getData();
     // counter for tabbed html views in main pages
@@ -239,6 +279,11 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
                 'day': 10,
                 'commit': 10
             }];
+
+            var linus = [
+              {'day': 0, 'commit': 10},
+
+            ]
 
             var dataArray = [data, data2];
 

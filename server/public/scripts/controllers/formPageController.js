@@ -27,6 +27,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.userData = [];
     $scope.sprint2Data = [];
     $scope.captainArray = [];
+
+    $scope.surveyResults = false;
+
+
     var user = {
         data: []
     }

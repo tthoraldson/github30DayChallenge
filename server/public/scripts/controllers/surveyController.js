@@ -2,6 +2,8 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
     console.log("SurveyController works");
 
 
+
+
     var getData = UserFactory.getData();
     $scope.signIn = UserFactory.signIn();
     var auth = AuthFactory;
@@ -155,7 +157,7 @@ checkUserSubmission();
                         });
                       }
 
-                  
+
                 } else {
                   // console.log('this is the first time for quizzy :)', userEmail.email);
                 }

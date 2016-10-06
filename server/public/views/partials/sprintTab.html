@@ -1,11 +1,20 @@
 <div class="main_container" ng-if="tab == 1">
 
 
-    <div id="noSprintActive" ng-hide="showSprintMaker">
-      <h2  >Current Sprint: {{$scope.currentSprint.title || 'none'}} <h2>
-        <button   ng-if="!$scope.currentSprint.title" ng-click="creatingSprintButton()" >
-          Create Sprint
-        </button>
+    <div id="noSprintActive">
+      <h2>Current Sprint: Sprint #4 Registration <h2>
+      <h5> <em>82/118 members have filled out this form.</em></h5>
+      <button ng-click="surveyResults = !surveyResults"> Show Survey Results </button>
+      <button ng-click="showSprintMaker = !showSprintMaker"> Team Builder </button>
+      <button> Launch Sprint </button>
+
+      <div ng-show="surveyResults">
+        <h3>How much time a day on average did you spend on your previous git challenge?</h3>
+        <p> 2+ hours 12%  // 1-2 hours 21% // >1hr 45% // it varied a lot: 22%</p>
+        <h3>What path below interests you the most?</h3>
+        <p> Java: 32% // iOS: 12% // PHP: 14% // RubyOnRails: 5% // Python: 18% // REACT: 13% </p>
+        <h3 class="comments">Any comments you'd like to make on your previous sprint experience?</h3><button>show comments</button>
+      </div>
     </div>
 
     <!-- Calendar -->
@@ -18,11 +27,6 @@
 
 
     <div ng-if="showSprintMaker == true">
-      <div>Sprint Name:</div>
-      <input type = "text" ng-model = "newSprint.title">
-      <div>Start Date:</div>
-      <input type = "date" ng-model = "newSprint.date">
-      <!-- Captains Table -->
       <!-- Captains Table -->
       <h2 class="tableTitle" width="100%">Captains</h2>
 
