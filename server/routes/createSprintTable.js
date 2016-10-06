@@ -68,7 +68,7 @@ module.exports = router;
 
 
 
-function newSprint(sprintName, startDate){
+function sprintDates(startDate){
   var myDate = new Date(startDate);
   var dates = [];
   for (var i = 0; i < 30; i++){
