@@ -7,7 +7,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
 
 
 //5 players
-var deimos = [
+var deimos = {size: 5, array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 4},
@@ -38,10 +38,10 @@ var deimos = [
         {'day': 28, 'commit': 3},
         {'day': 29, 'commit': 2},
         {'day': 30, 'commit': 3}
-      ]
+      ]}
 
 //15 players
-var linus = [
+var linus = {size: 15, array: [
          {'day': 1, 'commit': 15},
          {'day': 2, 'commit': 15},
          {'day': 3, 'commit': 15},
@@ -72,11 +72,11 @@ var linus = [
          {'day': 28, 'commit': 14},
          {'day': 29, 'commit': 13},
          {'day': 30, 'commit': 14}
-       ]
+       ]}
 
 
 //5 players
-var io = [
+var io = {size: 5, array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 5},
@@ -107,10 +107,10 @@ var io = [
         {'day': 28, 'commit': 2},
         {'day': 29, 'commit': 3},
         {'day': 30, 'commit': 3}
-      ]
+      ]}
 
 //6 players
-var ida = [
+var ida = {size: 6, array: [
          {'day': 1, 'commit': 6},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 5},
@@ -141,10 +141,10 @@ var ida = [
          {'day': 28, 'commit': 3},
          {'day': 29, 'commit': 4},
          {'day': 30, 'commit': 4}
-       ]
+       ]}
 
  //5 players
- var gaspra = [
+ var gaspra = {size: 5, array: [
           {'day': 1, 'commit': 5},
           {'day': 2, 'commit': 5},
           {'day': 3, 'commit': 5},
@@ -175,11 +175,11 @@ var ida = [
           {'day': 28, 'commit': 5},
           {'day': 29, 'commit': 5},
           {'day': 30, 'commit': 5}
-        ]
+        ]}
 
 
 //5 players
-var europa = [
+var europa = {size: 5, array: [
          {'day': 1, 'commit': 5},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 4},
@@ -210,10 +210,10 @@ var europa = [
          {'day': 28, 'commit': 3},
          {'day': 29, 'commit': 3},
          {'day': 30, 'commit': 3}
-       ]
+       ]}
 
 //5 players
-var dactyl = [
+var dactyl = {size: 5, array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 5},
@@ -244,10 +244,10 @@ var dactyl = [
         {'day': 28, 'commit': 3},
         {'day': 29, 'commit': 4},
         {'day': 30, 'commit': 3}
-      ]
+      ]}
 
 //5 players
-var eros = [
+var eros = {size: 5, array: [
          {'day': 1, 'commit': 4},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 5},
@@ -278,11 +278,11 @@ var eros = [
          {'day': 28, 'commit': 3},
          {'day': 29, 'commit': 2},
          {'day': 30, 'commit': 2}
-       ]
+       ]}
 
 
  //25 players
- var noTeam = [
+ var noTeam = {size: 25, array: [
           {'day': 1, 'commit': 22},
           {'day': 2, 'commit': 21},
           {'day': 3, 'commit': 22},
@@ -313,14 +313,14 @@ var eros = [
           {'day': 28, 'commit': 10},
           {'day': 29, 'commit': 13},
           {'day': 30, 'commit': 12}
-        ]
+        ]}
 
 
 
 
 
         //25 players
-        var sprint1Team = [
+        var sprint1Team = {size: 25, array: [
                  {'day': 1, 'commit': 42},
                  {'day': 2, 'commit': 48},
                  {'day': 3, 'commit': 48},
@@ -351,7 +351,15 @@ var eros = [
                  {'day': 28, 'commit': 29},
                  {'day': 29, 'commit': 29},
                  {'day': 30, 'commit': 32}
-               ]
+               ]}
+               $scope.showData = function(team){
+                 switch(team){
+                   case '2Eros':
+                    buildLines();
+                   break;
+                 }
+               }
+
 
     var getData = UserFactory.getData();
     // counter for tabbed html views in main pages
@@ -363,23 +371,23 @@ var eros = [
     // }
     // test();
 
-    function updateLawn(email) {
-        getData('users').then(function(users) {
+    // function updateLawn(email) {
+    //     getData('users').then(function(users) {
+    //
+    //         users.forEach(function(user) {
+    //             if (user.email == email) {
+    //                 $http.put('/userData/lawn/update', user).then(function() {
+    //                     console.log('deleted user data and replaced with current scrapey')
+    //                 })
+    //             } else {
+    //                 console.log('HEY HEY HEY UM, the email you entered didnt match any in db')
+    //             }
+    //         })
+    //     })
+    // }
+    //
 
-            users.forEach(function(user) {
-                if (user.email == email) {
-                    $http.put('/userData/lawn/update', user).then(function() {
-                        console.log('deleted user data and replaced with current scrapey')
-                    })
-                } else {
-                    console.log('HEY HEY HEY UM, the email you entered didnt match any in db')
-                }
-            })
-        })
-    }
-
-
-    updateLawn('coreypeck@gmail.com');
+    // updateLawn('coreypeck@gmail.com');
 
     // var testUser = [
     //   {
@@ -401,78 +409,78 @@ var eros = [
     //     lawn: []
     //   }]
 
-    function User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, lawn, sprintHistory) {
-        this.id = id;
-        this.auth_level = auth_level;
-        this.display_name = display_name;
-        this.email = email;
-        this.github_url = github_url;
-        this.profile_photo = profile_photo;
-        this.user_id = user_id;
-        this.github = github_url.substring(19);
-        this.language = language;
-        this.team = team;
-        this.lawn = lawn;
-        this.sprintHistory = sprintHistory;
-    }
+    // function User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, lawn, sprintHistory) {
+    //     this.id = id;
+    //     this.auth_level = auth_level;
+    //     this.display_name = display_name;
+    //     this.email = email;
+    //     this.github_url = github_url;
+    //     this.profile_photo = profile_photo;
+    //     this.user_id = user_id;
+    //     this.github = github_url.substring(19);
+    //     this.language = language;
+    //     this.team = team;
+    //     this.lawn = lawn;
+    //     this.sprintHistory = sprintHistory;
+    // }
+    //
+    // $scope.userData = [];
 
-    $scope.userData = [];
 
-
-    function buildUserData() {
-
-        getData('users').then(function(uData) {
-            var tempLawn = [];
-            var tempArray = [];
-
-            //TODO:
-            var language = ['JAVAROX']
-
-            getData('user_lawns').then(function(lData) {
-                uData.forEach(function(user) {
-
-                    var id = user.id
-                    var auth_level = user.auth_level
-                    var display_name = user.display_name
-                    var email = user.email
-                    var github_url = user.github_url
-                    var profile_photo = user.profile_photo
-                    var user_id = user.user_id
-
-                    var sprintHistory = [{
-                        sprint: 'sprint1',
-                        start_date: '2016-08-27'
-                    }, {
-                        sprint: 'sprint1',
-                        start_date: '2016-09-30'
-                    }];
-                    var team = {
-                        sprint1: 'linus',
-                        sprint2: 'meto'
-                    }
-
-                    lData.forEach(function(commit) {
-
-                        if (user.github_url.substring(19) == commit.github) {
-                            tempLawn.push({
-                                date: commit.date,
-                                commits: commit.commits
-                            })
-                        }
-                    })
-                    tempArray.push(new User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, tempLawn, sprintHistory))
-                    tempLawn = [];
-                });
-
-                $scope.userData = [];
-                $scope.userData = tempArray;
-                console.log('All info on current members in database', $scope.userData);
-
-            })
-        });
-    }
-
-    buildUserData();
+    // function buildUserData() {
+    //
+    //     getData('users').then(function(uData) {
+    //         var tempLawn = [];
+    //         var tempArray = [];
+    //
+    //         //TODO:
+    //         var language = ['JAVAROX']
+    //
+    //         getData('user_lawns').then(function(lData) {
+    //             uData.forEach(function(user) {
+    //
+    //                 var id = user.id
+    //                 var auth_level = user.auth_level
+    //                 var display_name = user.display_name
+    //                 var email = user.email
+    //                 var github_url = user.github_url
+    //                 var profile_photo = user.profile_photo
+    //                 var user_id = user.user_id
+    //
+    //                 var sprintHistory = [{
+    //                     sprint: 'sprint1',
+    //                     start_date: '2016-08-27'
+    //                 }, {
+    //                     sprint: 'sprint1',
+    //                     start_date: '2016-09-30'
+    //                 }];
+    //                 var team = {
+    //                     sprint1: 'linus',
+    //                     sprint2: 'meto'
+    //                 }
+    //
+    //                 lData.forEach(function(commit) {
+    //
+    //                     if (user.github_url.substring(19) == commit.github) {
+    //                         tempLawn.push({
+    //                             date: commit.date,
+    //                             commits: commit.commits
+    //                         })
+    //                     }
+    //                 })
+    //                 tempArray.push(new User(id, auth_level, display_name, email, github_url, profile_photo, user_id, language, team, tempLawn, sprintHistory))
+    //                 tempLawn = [];
+    //             });
+    //
+    //             $scope.userData = [];
+    //             $scope.userData = tempArray;
+    //             console.log('All info on current members in database', $scope.userData);
+    //
+    //         })
+    //     });
+    // }
+    //
+    // buildUserData();
 
 
 
@@ -513,91 +521,22 @@ var eros = [
     ///////////////////////////////////////
     //           D3 DATA CODE            //
     ///////////////////////////////////////
-    getData('sprint2').then(function(data) {
-            $scope.sprintHistory[1] = {
-                title: "Sprint 2 (08/23-09/21)",
-                data: data
-            };
+function buildLines(){
 
-            // the following code gets just Liz's 0/1 for 8/23
-            // dayData = $scope.sprintHistory[1].data[0].date_8_23;
 
-            var playerData = $scope.sprintHistory[1].data;
-            var count = {};
+            var dataArray = [deimos, linus, io, ida, gaspra, europa, dactyl,eros];
+            var tempDataArray = [];
+            dataArray.forEach(function(team){
+              tempTeam = [];
+              team.array.forEach(function(data){
+                var newData = (data.commit / team.size) * 100;
+                tempTeam.push({day: data.day, commit: newData});
+              });
+              tempDataArray.push(tempTeam);
 
-            for (i = 1; i < playerData.length; i++) {
-                var day = playerData[i];
-
-                _.keys(day).forEach(function(key) {
-                    if (key == "member_score" || key == "id" || key == "member_name" || key == "member_team" || key == "team_score") {
-                        // do nothing
-                    } else {
-                        count[key] = 0;
-                    }
-                }); // end for each
-            }
-            for (i = 1; i < playerData.length; i++) {
-                var day = playerData[i];
-
-                _.keys(day).forEach(function(key) {
-
-                    if (key == "member_score" || key == "id" || key == "member_name" || key == "member_team" || key == "team_score") {
-                        // do nothing
-                    } else {
-                        if (day[key] == 1) {
-                            count[key]++;
-                        }
-                    }
-                }); // end for each
-
-                var data = [];
-                _.keys(count).forEach(function(key, i) {
-                    data.push({
-                        'day': i,
-                        'commit': count[key]
-                    })
-                });
-            }
-
-            var data2 = [{
-                "day": 1,
-                'commit': 30
-            }, {
-                'day': 2,
-                'commit': 50
-            }, {
-                'day': 3,
-                'commit': 80
-            }, {
-                'day': 4,
-                'commit': 60
-            }, {
-                'day': 5,
-                'commit': 70
-            }, {
-                'day': 6,
-                'commit': 30
-            }, {
-                'day': 7,
-                'commit': 90
-            }, {
-                'day': 8,
-                'commit': 100
-            }, {
-                'day': 9,
-                'commit': 20
-            }, {
-                'day': 10,
-                'commit': 10
-            }];
-
-            var linus = [
-              {'day': 0, 'commit': 10},
-
-            ]
-
-            var dataArray = [data, data2];
-
+            })
+            dataArray = tempDataArray;
+            console.log(dataArray);
 
             //============================== d3 ===========================//
             // Set the dimensions of the canvas / graph
@@ -643,11 +582,11 @@ var eros = [
                     "translate(" + margin.left + "," + margin.top + ")");
 
             // Scale the range of the data
-            x.domain(d3.extent(data, function(d) {
+            x.domain(d3.extent(dataArray[0], function(d) {
                 return d.day;
             }));
             // be sure these are set to create the x/y axises based on the largest data set
-            y.domain([0, d3.max(data2, function(d) {
+            y.domain([0, d3.max(dataArray[0], function(d) {
                 return d.commit;
             })]);
 
@@ -675,16 +614,12 @@ var eros = [
                     d3.selectAll('circle.dataPoint' + i).remove();
                 }
             }
-            $scope.dataIsShowing = false;
-            $scope.showData = function() {
-                $scope.dataIsShowing = true;
+            // $scope.dataIsShowing = false;
+            // // $scope.showData = function() {
+            //     $scope.dataIsShowing = true;
                 dataArray.forEach(function(data, index) {
 
-                    var lineColor = colorArray[colorI];
-                    colorI++;
-                    if (colorI == colorArray.length) {
-                        colorI = 0;
-                    }
+                    var lineColor = '#492058'
 
                     svg.append("path")
                         .attr("class", "line" + index)
@@ -704,8 +639,8 @@ var eros = [
                             return y(d.commit);
                         })
                 })
-            }
 
+            //
 
 
             // Add the X Axis
@@ -719,7 +654,7 @@ var eros = [
                 .attr("class", "y axis")
                 .call(yAxis);
 
-        }) // end getData promise
+        }
 
 
 
