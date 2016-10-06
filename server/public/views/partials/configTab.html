@@ -1,5 +1,5 @@
 <div class="main_container" ng-if="tab == 2">
-    <p>current member list w/ stats, editable</p>
+
     <div ng-show="emails.length > 0" ng-include="'/views/partials/emailConfig.html'"></div>
     <!-- <h2 class="memTitle">Current Members List</h2> -->
 
@@ -21,10 +21,10 @@
                 <p> </p>
             </div>
             <div class="divcolumn">
-                <p>Studying</p>
+                <!-- <p>Studying</p> -->
             </div>
             <div class="divcolumn">
-                <p>Team</p>
+                <!-- <p>Team</p> -->
             </div>
             <div class="divcolumn">
                 <p>Streak</p>
@@ -35,51 +35,3500 @@
             <div class="divcolumn">
                 <p>Commit %</p>
             </div>
-            <!-- <div class="divcolumn iconCol">
-                <p>Lawn</p>
-            </div> -->
+            <div class="divcolumn iconCol">
+                <!-- <p>Lawn</p> -->
+            </div>
         </div>
-        <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+
+
+        <div class="memRow oddMemList" width="100%">
             <div id="rows">
                 <div class="divcolumn iconCol">
                     <div class="imgBox">
-                        <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
                     </div>
                 </div>
                 <div class="divcolumn display_name">
-                    <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-                  {{user.display_name || 'empty'}}
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
                 </h3>
                 </div>
                 <div class="divcolumn iconCol">
-                    <a ng-href="{{user.github_url}}" target="_blank">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
                         <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="divcolumn iconCol">
-                    <a ng-click="addEmail(user.email)">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
                     <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="divcolumn">
-                    <p>Studying</p>
+
                 </div>
                 <div class="divcolumn">
-                    <p>team</p>
+
                 </div>
                 <div class="divcolumn">
-                    <p>streak</p>
+                    <p>5 Days</p><!--hardcode -->
                 </div>
                 <div class="divcolumn">
-                  <i class="fa fa-check" aria-hidden="true"></i>
-                  <i class="fa fa-times" aria-hidden="true"></i>
+
+                    <p>COMMITED</p><!--hardcode -->
+
                 </div>
                 <div class="divcolumn">
-                    <p>%</p>
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
+                </div>
+            </div>
+        </div>
+        <div class="memRow oddMemList" width="100%">
+            <div id="rows">
+                <div class="divcolumn iconCol">
+                    <div class="imgBox">
+                        <img class="imgAutoResize" ng-src="https://avatars.githubusercontent.com/u/19336103?v=3"></img> <!--hardcode -->
+                    </div>
+                </div>
+                <div class="divcolumn display_name">
+                    <h3 style="color:black;border-bottom:none;">
+                  Andrew Wiskus
+                </h3>
+                </div>
+                <div class="divcolumn iconCol">
+                    <a ng-href="https://www.github.com/andrewwiskus" target="_blank"><!--hardcode -->
+                        <i class="fa fa-github" alt="GitHub" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="divcolumn iconCol">
+
+                    <a ng-click="addEmail('wskcontact@gmail.com')"><!--hardcode -->
+
+                    <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+
+                </div>
+                <div class="divcolumn">
+                    <p>5 Days</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>COMMITED</p><!--hardcode -->
+                </div>
+                <div class="divcolumn">
+                    <p>82%</p><!--hardcode -->
+                </div>
+                <div class="divcolumn iconCol">
+
                 </div>
             </div>
         </div>
     </div>
 
-    <i class="fa fa-github" aria-hidden="true"></i>
+
 </div>
