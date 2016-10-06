@@ -7,76 +7,78 @@
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
 
     <div class="activeSurvey">
-      <p>Active Survey:</p><p>Sprint #4 Registeration </p>
-      <p>81/112 submited</p>
-      <button ng-click="results = !results">view results</button>
-      <div ng-show="results">
-        <div ng-click="question1 = !question1" class="questionText">What language are you focusing on this sprint?</div>
-        <div ng-show="question1" class="resultText">
-          <div class="col1">Java: 21%</div>
-          <div class="col2">iOS: 16%</div>
-          <div class="col3">PHP: 15%</div>
-          <div class="col1">RubyOnRails: 13%</div>
-          <div class="col2">REACT: 13%</div>
-          <div class="col3">Python: 12%</div>
-          <div class="col1">C#: 9%</div>
-          <div class="col2">Javascript: 6%</div>
-          <div class="col3">Lua: 4%</div>
+        <p>Active Survey:</p>
+        <p>Sprint #4 Registeration </p>
+        <p>81/112 submited</p>
+        <button ng-click="results = !results">view results</button>
+        <div ng-show="results">
+            <div ng-click="question1 = !question1" class="questionText">What language are you focusing on this sprint?</div>
+            <div ng-show="question1" class="resultText">
+                <div class="col1">Java: 21%</div>
+                <div class="col2">iOS: 16%</div>
+                <div class="col3">PHP: 15%</div>
+                <div class="col1">RubyOnRails: 13%</div>
+                <div class="col2">REACT: 13%</div>
+                <div class="col3">Python: 12%</div>
+                <div class="col1">C#: 9%</div>
+                <div class="col2">Javascript: 6%</div>
+                <div class="col3">Lua: 4%</div>
 
+            </div>
+
+            <div ng-click="question2 = !question2" class="questionText">Any comments on your previous sprint experience?</div>
+            <div ng-show="question2">
+
+                <p class=“shortAnswer”>Glad that I accepted the challenge!</p>
+
+                <p class=“shortAnswer”>I felt like it was definitely a challenge, but worth it in the end. At first it was hard to get into REACT as it was completely foreign to me. After giving it some attention each day I realize I know way more than I expected to learn in
+                    that short amount of time.</p>
+
+                <p class=“shortAnswer”>I thought it was a great opportunity to get to know Angular 2. Daunting at first, but well worth it in the end.</p>
+
+                <p class=“shortAnswer”>Can’t wait for the next round!</p>
+
+                <p class=“shortAnswer”>I should have picked a different language :/</p>
+
+                <p class=“shortAnswer”>After missing a day I found it really hard to get back into it, luckily my captain was on me about it though and I ended up a decent wall of green squares in the end.</p>
+
+                <p class=“shortAnswer”>Being right in the middle of regularly scheduled Prime challenges combined with this seemed overwhelming at first. My team really helped me through it though and I ended up learning some things I may not have in class.</p>
+
+                <p class=“shortAnswer”>Glad I accepted. REACT is crazy.</p>
+
+                <p class=“shortAnswer”>I’m hoping to do a better job of committing this next round, I just dropped the ball one day and couldn’t get it rolling again. Better luck next time I guess.</p>
+
+                <p class=“shortAnswer”>It was really fun interacting in the slack channel!</p>
+
+                <p class=“shortAnswer”>The only note I really have is that I’m surprised this hasn’t been started a while ago. All programmers should try to make a habit out of programming.</p>
+
+                <p class=“shortAnswer”>Alright, I guess I’ll do it again!</p>
+
+                <p class=“shortAnswer”>I DID IT!! Can’t believe I made 100%!</p>
+
+                <p class=“shortAnswer”><em>no comment</em></p>
+
+                <p class=“shortAnswer”>Why did I choose Python? Changing it this time.</p>
+
+                <p class=“shortAnswer”>To be honest I didn’t think I would make all thirty days. Somehow I was blessed by the github gods. Glad to have the break in between sprints though!</p>
+
+                <p class=“shortAnswer”>I remember watching TED talks about how to build habits and this is a pretty great way to implement that for me, kind of felt competitive with my teammates which was good.</p>
+
+                <p class=“shortAnswer”>I only got 18 days last time… gotta do better this time around.</p>
+
+                <p class=“shortAnswer”>ONE AWAY FROM CAPTAIN >:[</p>
+
+                <p class=“shortAnswer”>The teams were a nice idea to talk with other people doing the same language</p>
+
+                <p class=“shortAnswer”>It’s finally over! Just kidding, that was a great run in PHP, ready for the next round.</p>
+
+                <p class=“shortAnswer”>I’m not sure if I’ll be using REACT again anytime soon, but at least I tried it. Shout out to Team Linus for killin’ it!</p>
+
+                <p class=“shortAnswer”>my lawn is green af now. 10/10. would commit again.</p>
+
+                <p class=“shortAnswer”>This challenge brought back disbelief in my abilities at one point, just like we all go through sometimes. Luckily I remembered this was just for fun.</p>
+            </div>
         </div>
-
-        <div ng-click="question2 = !question2" class="questionText">Any comments on your previous sprint experience?</div>
-        <div ng-show="question2">
-
-<p class=“shortAnswer”>Glad that I accepted the challenge!</p>
-
-<p class=“shortAnswer”>I felt like it was definitely a challenge, but worth it in the end. At first it was hard to get into REACT as it was completely foreign to me. After giving it some attention each day I realize I know way more than I expected to learn in that short amount of time.</p>
-
-<p class=“shortAnswer”>I thought it was a great opportunity to get to know Angular 2. Daunting at first, but well worth it in the end.</p>
-
-<p class=“shortAnswer”>Can’t wait for the next round!</p>
-
-<p class=“shortAnswer”>I should have picked a different language :/</p>
-
-<p class=“shortAnswer”>After missing a day I found it really hard to get back into it, luckily my captain was on me about it though and I ended up a decent wall of green squares in the end.</p>
-
-<p class=“shortAnswer”>Being right in the middle of regularly scheduled Prime challenges combined with this seemed overwhelming at first. My team really helped me through it though and I ended up learning some things I may not have in class.</p>
-
-<p class=“shortAnswer”>Glad I accepted. REACT is crazy.</p>
-
-<p class=“shortAnswer”>I’m hoping to do a better job of committing this next round, I just dropped the ball one day and couldn’t get it rolling again. Better luck next time I guess.</p>
-
-<p class=“shortAnswer”>It was really fun interacting in the slack channel!</p>
-
-<p class=“shortAnswer”>The only note I really have is that I’m surprised this hasn’t been started a while ago. All programmers should try to make a habit out of programming.</p>
-
-<p class=“shortAnswer”>Alright, I guess I’ll do it again!</p>
-
-<p class=“shortAnswer”>I DID IT!! Can’t believe I made 100%!</p>
-
-<p class=“shortAnswer”><em>no comment</em></p>
-
-<p class=“shortAnswer”>Why did I choose Python? Changing it this time.</p>
-
-<p class=“shortAnswer”>To be honest I didn’t think I would make all thirty days. Somehow I was blessed by the github gods. Glad to have the break in between sprints though!</p>
-
-<p class=“shortAnswer”>I remember watching TED talks about how to build habits and this is a pretty great way to implement that for me, kind of felt competitive with my teammates which was good.</p>
-
-<p class=“shortAnswer”>I only got 18 days last time… gotta do better this time around.</p>
-
-<p class=“shortAnswer”>ONE AWAY FROM CAPTAIN >:[</p>
-
-<p class=“shortAnswer”>The teams were a nice idea to talk with other people doing the same language</p>
-
-<p class=“shortAnswer”>It’s finally over! Just kidding, that was a great run in PHP, ready for the next round.</p>
-
-<p class=“shortAnswer”>I’m not sure if I’ll be using REACT again anytime soon, but at least I tried it. Shout out to Team Linus for killin’ it!</p>
-
-<p class=“shortAnswer”>my lawn is green af now. 10/10. would commit again.</p>
-
-<p class=“shortAnswer”>This challenge brought back disbelief in my abilities at one point, just like we all go through sometimes. Luckily I remembered this was just for fun.</p>
-        </div>
-      </div>
     </div>
     <button class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</button>
     <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>

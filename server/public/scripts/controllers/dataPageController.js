@@ -534,7 +534,7 @@ var eros = {size: 5, array: [
 function buildLines(){
 
 
-            var dataArray = [deimos, linus, io, ida, gaspra, europa, dactyl,eros];
+            var dataArray = [deimos, linus, io, ida, gaspra, europa, dactyl, eros];
             var tempDataArray = [];
             dataArray.forEach(function(team){
               tempTeam = [];
@@ -608,10 +608,12 @@ function buildLines(){
             // $color = d3.scale.category20b();
 
             var colorI = 0;
-            // var colorArray = ['#34a99a', '#1f655c', '#0a211e',
-            // '#48b1a4','#70c2b8','#14433d','#99d4cc','#c2e5e0','#29877b','#eaf6f4'];
+            var colorArray =
+            ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
+            '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
+            '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#1f655c',
+            '#0bc1bc', '#bcbd22', '#dbdb8d','#17becf', '#9edae5'];
 
-            var colorArray = ['#492058','#f6b1ed','#94f6ef','#1f655c','#0bc1bc'];
 
             $scope.showLine = function(id) {
                 d3.select('path.line' + id).remove();
@@ -629,7 +631,12 @@ function buildLines(){
             //     $scope.dataIsShowing = true;
                 dataArray.forEach(function(data, index) {
 
-                    var lineColor = '#492058'
+                    // var lineColor = '#492058'
+                    var lineColor = colorArray[colorI];
+                    colorI++;
+                    if (colorI == colorArray.length) {
+                        colorI = 0;
+                    }
 
                     svg.append("path")
                         .attr("class", "line" + index)
