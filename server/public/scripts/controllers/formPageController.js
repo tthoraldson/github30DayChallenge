@@ -22,6 +22,16 @@ myApp.directive('droppable', function() {
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
+    $scope.approveMember = function(user){
+      $http.put('/newRoute/approveMember', user).then(function(){
+
+        $http.get('/newRoute/users').then(function(data){
+          $scope.userData = data.data
+        })
+
+        console.log('updated ', user.display_name, "'s auth_level")
+      });
+    }
     $scope.showEmail = false;
     $scope.tab = 1;
     $scope.userData = [];
@@ -54,7 +64,11 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $scope.showSprintMaker = true;
     }
 
-
+    $scope.newButton = function(){
+      $http.get('/newRoute/users').then(function(data){
+        console.log('these are our users', data.data);
+      });
+    }
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
