@@ -50,7 +50,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     })
 
     var formResults = FormFactory.updateFormResults();
-    formResults([2]).then(function(data){
+    formResults([2,4]).then(function(data){
       var responses = FormFactory.formResponses();
       console.log('this is the shit:', responses);
     })
