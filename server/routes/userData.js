@@ -429,9 +429,10 @@ router.put('/teamname', function(req, res) {
             res.sendStatus(500);
         }
 
-        var queryString = 'UPDATE users SET display_name = $1 WHERE display_name = $2';
-        var refrenceValues = [req.body.oldData.display_name, req.body.newData ];
-        //console.log("VAULE", refrenceValues);
+        var queryString = 'UPDATE users SET display_name = $1 WHERE id = $2';
+        var refrenceValues = [req.body.newData, req.body.oldData ];
+        console.log("VAULE", refrenceValues);
+        // res.send(201);
         client.query(queryString, refrenceValues,
 
             function(err, result) {
