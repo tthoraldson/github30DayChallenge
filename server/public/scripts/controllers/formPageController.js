@@ -26,7 +26,22 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.tab = 1;
     $scope.userData = [];
     $scope.sprint2Data = [];
-    $scope.captainArray = [];
+    $scope.captainArray = [{
+      member_name: 'Drew'
+
+    },
+    {
+      member_name: 'Joe'
+
+    },
+    {
+      member_name: 'Adam'
+
+    },
+
+
+  ];
+    $scope.sprintOverview = false;
 
     $scope.surveyResults = false;
 
@@ -38,6 +53,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.creatingSprintButton = function() {
         $scope.showSprintMaker = true;
     }
+
+
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
@@ -164,16 +181,17 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         console.log("$scope.userData in getUsers(): ", $scope.userData);
     });
 
-    getData('sprint2').then(function(data) {
-        // console.log(data);
-        $scope.sprint2Data = data;
-        for (i = 0; i < $scope.sprint2Data.length; i++) {
-            if ($scope.sprint2Data[i].member_score == 100) {
-                $scope.captainArray.push($scope.sprint2Data[i]);
-            }
-        }
-        // console.log("Captains: ", $scope.captainArray);
-    });
+    // getData('sprint2').then(function(data) {
+    //     // console.log(data);
+    //     $scope.sprint2Data = data;
+    //     for (i = 0; i < $scope.sprint2Data.length; i++) {
+    //         if ($scope.sprint2Data[i].member_score == 100) {
+    //             $scope.captainArray.push($scope.sprint2Data[i]);
+    //         }
+    //     }
+    //     // console.log("Captains: ", $scope.captainArray);
+    // });
+
 
 
     // SORTING HELL vvvvv
@@ -181,6 +199,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     // DREWS CODE :D
     $scope.handleDragStart = function(e) {
         this.style.opacity = '0.4';
+
         e.dataTransfer.setData('memRow', this.getAttribute('id'));
         // console.log('DRAG START:', this.geztAttribute('id'));
     };
@@ -204,6 +223,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         //consoleDiv.style.opacity = '1.0'
     };
 
+
     $scope.handleDrop = function(e) {
         // console.log('WTF?!!?!?@#?!#?!@?#!@#', this);
         var div = this;
@@ -218,7 +238,29 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
 
         $scope.$apply(function() {
+
+                  //TODO:
+                  //check captian list to see if they are captian
+                  //if captian -> change name
+                  //if player -> change number, planet.team
+
+
             $scope.showNames.forEach(function(object, i) {
+              if (dataText.substring(0,6) == "member"){
+                console.log('gottem')
+                if (object.planet == tempString) {
+                    $scope.showNames[i].team.push(dataText.substring(6));
+                    console.log('current Team:', $scope.showNames[i].team);
+                    $scope.captainArray.forEach(function(captian, i) {
+
+                        if (captian.member_name == dataText.substring(6)) {
+                            $scope.captainArray.splice(i, 1);
+                        }
+                    })
+                }
+              }else {
+
+
                 if (object.captain == "no captain") {
                     if (object.planet == tempString) {
                         $scope.showNames[i].captain = dataText;
@@ -230,6 +272,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                         })
                     }
                 }
+              }
             })
         });
     };

@@ -2,6 +2,27 @@
     background-color: #222222;
 }
 
+.popupBackground{
+  position:fixed;
+  width: 1000%;
+  height: 1000%;
+  background-color:white;
+  z-index: 999;
+  opacity: 0.7;
+  top: 0;
+  left:0;
+}
+
+.popupWindow{
+  position:fixed;
+  width: 80%;
+  height: 74%;
+  background-color:white;
+  z-index: 1000;
+  opacity: 1.0;
+  top: 13%;
+  left:10%;
+}
 #siteTitle {
     color: white;
 }

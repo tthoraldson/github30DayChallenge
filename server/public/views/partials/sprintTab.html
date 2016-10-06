@@ -1,12 +1,52 @@
+
 <div class="main_container" ng-if="tab == 1">
 
+  <div ng-click="sprintOverview = !sprintOverview" class="popupBackground" ng-show="sprintOverview">
+
+
+  </div>
+  <div class="popupWindow" ng-show="sprintOverview">
+    <h3>Overview<h3>
+    <h2>Sprint #4 GetHype</h2>
+    <p>82/118 members in sprint</p>
+    <p>14 Teams</p>
+
+    <div id="teamNameBox">
+        <div class="teamHeader" width="100%">
+            <div class="teamName divcolumn" style="width: 32%">
+                <p>Team Name</p>
+            </div>
+            <div class="teamName divcolumn" style="width: 32%">
+                <p>Captain</p>
+            </div>
+            <div class="teamName divcolumn" style="width: 32%">
+                <p>Members</p>
+            </div>
+        </div>
+        <div class="divcolumn" style="width: 100%">
+            <div id="{{object.planet}}" droppable="true" class="teamNameRow" ng-repeat="object in showNames track by $index" ng-class-odd="'oddMemList'" style="width:99%;margin:0;">
+                <p editable-text="object.planet" onaftersave="updateTeamName(object.planet)" style="width:30%;display:inline-block;color:black;border-bottom:none;">{{object.planet}}</p>
+                <div class="team divcolumn" style="width: 30%;">
+                    <div>{{object.captain}}
+                        <button ng-click="deleteCaptain(object)" ng-if="object.captain != 'no captain'">X</button>
+                    </div>
+                </div>
+                <div class="member divcolumn" style="width: 30%;">
+                    <div>1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
 
     <div id="noSprintActive">
       <h2>Current Sprint: Sprint #4 Registration <h2>
       <h5> <em>82/118 members have filled out this form.</em></h5>
       <button ng-click="surveyResults = !surveyResults"> Show Survey Results </button>
       <button ng-click="showSprintMaker = !showSprintMaker"> Team Builder </button>
-      <button> Launch Sprint </button>
+      <button ng-click="sprintOverview = !sprintOverview"> Launch Sprint </button>
 
       <div ng-show="surveyResults">
         <h3>How much time a day on average did you spend on your previous git challenge?</h3>
@@ -57,7 +97,7 @@
           </div>
 
       </div>
-          <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
+          <div id="{{'member'+user.member_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
           <div id="rows">
               <div class="divcolumn iconCol">
                   <div class="imgBox">
@@ -123,7 +163,7 @@
                         </div>
                     </div>
                     <div class="member divcolumn" style="width: 30%;">
-                        <div>1</div>
+                        <div>{{object.team.length}}</div>
                     </div>
                 </div>
             </div>
