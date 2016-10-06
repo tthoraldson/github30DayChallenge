@@ -1,30 +1,315 @@
 <div ng-controller="DynamicFormController">
-    <div ng-repeat="survey in formHistory">
-        
-        <h3>{{survey.form_title}}</h3>
-        <p>{{survey.form_description}}</p>
-        <button ng-click="questions = !questions">SHOW QUESTIONS</button>
+    <div>
+
+        <h3>Sprint 3 Registration</h3>
+        <p>Time to register for Sprint 3!</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
         <button ng-click="responses = !responses">VIEW RESPONSES</button>
         </br><br />
-        <div ng-show="questions" ng-repeat="question in survey.form_questions">
-            <h4>{{question.title}}</h4>
-            <h5><em>{{question.desc}}</em></h5>
 
-            <div ng-show="question.options.length == 0"><input type=text class="formInput_shortAnswer" /></div>
-              <div ng-repeat="option in question.options">
-                  <input type="checkbox" /> {{option.title}}
-              </div>
+        <div ng-show="responses">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>What kind of language are you interested in learning?</h5>
+                  <button ng-click="results = !results">view results</button>
+                    <div ng-show="results">
+                      <h6>1. Java // 35%</h6>
+                      <h6>2. iOS // 47%</h6>
+                      <h6>3. PHP // 1234%</h6>
+                      <h6>4. Python // 1234%</h6>
+                      <h6>5. .NET // 1234%</h6>
+                      <h6>6. REACT // 1234%</h6>
+                      <h6>7. JavaScript // 1234%</h6>
+                      <h6>8. C# // 1234%</h6>
+                      <h6>9. Lua // 1234%</h6>
+                      <h6>10. Ruby // 1234%</h6>
+                      <h6>11. Other // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>Any comments?</h5>
+                    <button ng-click="results2 = !results2">view results</button>
+                      <div ng-show="results2">woo</div>
+                </div>
+            </div>
+
+
             </br>
             </br>
 
 
         </div>
+    </div>
 
-        <div ng-show="responses">
-            <div ng-repeat="response in survey.form_questions">
-              <h4 style="cursor: pointer;" ng-click="showAnswers = !showAnswers">{{response.title}}</h4>
-                <div ng-show="showAnswers">{{formAnswers.data[survey.id - 1]}}</div>
+
+    <div>
+
+        <h3>Sprint 3 Check In</h3>
+        <p>How are things going for you?</p>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses1 = !responses1">VIEW RESPONSES</button>
+        </br><br />
+
+        <div ng-show="responses1">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Are you happy with your progress?</h5>
+                  <button ng-click="results3 = !results3">view results</button>
+                    <div ng-show="results3">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Have any blockers?</h5>
+                  <button ng-click="results4 = !results4">view results</button>
+                    <div ng-show="results4">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>If so, what are they?</h5>
+                    <button ng-click="results5 = !results5">view results</button>
+                      <div ng-show="results5">woo</div>
+                </div>
+            </div>
+
+
+            </br>
+            </br>
+
+
+        </div>
+    </div>
+
+
+    <div>
+
+        <h3>Sprint 3 Ending</h3>
+        <p>It's the end of the Sprint!</p>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses2 = !responses2">VIEW RESPONSES</button>
+        </br><br />
+
+        <div ng-show="responses2">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Do you feel like you gained something from this sprint?</h5>
+                  <button ng-click="results6 = !results6">view results</button>
+                    <div ng-show="results6">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Plan on joining the next sprint?</h5>
+                  <button ng-click="results7 = !results7">view results</button>
+                    <div ng-show="results7">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Thinking about it // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>Any comments?</h5>
+                    <button ng-click="results8 = !results8">view results</button>
+                      <div ng-show="results8">woo</div>
+                </div>
+            </div>
+
+
+            </br>
+            </br>
+
+
+        </div>
+    </div>
+
+
+    <div>
+
+        <h3>Sprint 4 Registration</h3>
+        <p>Time to register for Sprint 4!</p>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses3 = !responses3">VIEW RESPONSES</button>
+        </br><br />
+
+        <div ng-show="responses3">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>What kind of language are you interested in learning?</h5>
+                  <button ng-click="results9 = !results9">view results</button>
+                    <div ng-show="results9">
+                      <h6>1. Java // 35%</h6>
+                      <h6>2. iOS // 47%</h6>
+                      <h6>3. PHP // 1234%</h6>
+                      <h6>4. Python // 1234%</h6>
+                      <h6>5. .NET // 1234%</h6>
+                      <h6>6. REACT // 1234%</h6>
+                      <h6>7. JavaScript // 1234%</h6>
+                      <h6>8. C# // 1234%</h6>
+                      <h6>9. Lua // 1234%</h6>
+                      <h6>10. Ruby // 1234%</h6>
+                      <h6>11. Other // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>Any comments?</h5>
+                    <button ng-click="results10 = !results10">view results</button>
+                      <div ng-show="results10">woo</div>
+                </div>
+            </div>
+
+
+            </br>
+            </br>
+
+
+        </div>
+    </div>
+
+
+    <div>
+
+        <h3>Sprint 4 Check In</h3>
+        <p>How are things going for you?</p>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses4 = !responses4">VIEW RESPONSES</button>
+        </br><br />
+
+        <div ng-show="responses4">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Are you happy with your progress?</h5>
+                  <button ng-click="results11 = !results11">view results</button>
+                    <div ng-show="results11">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Have any blockers?</h5>
+                  <button ng-click="results12 = !results12">view results</button>
+                    <div ng-show="results12">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>If so, what are they?</h5>
+                    <button ng-click="results13 = !results13">view results</button>
+                      <div ng-show="results13">woo</div>
+                </div>
+            </div>
+
+
+            </br>
+            </br>
+
+
+        </div>
+    </div>
+
+
+    <div>
+
+        <h3>Sprint 4 End</h3>
+        <p>It's the end of the Sprint!</p>
+        <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
+        <button ng-click="responses5 = !responses5">VIEW RESPONSES</button>
+        </br><br />
+
+        <div ng-show="responses5">
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Do you feel like you gained something from this sprint?</h5>
+                  <button ng-click="results14 = !results14">view results</button>
+                    <div ng-show="results14">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Indifferent // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4</h4>
+                <div>
+
+                  <h5>Plan on joining the next sprint?</h5>
+                  <button ng-click="results15 = !results15">view results</button>
+                    <div ng-show="results15">
+                      <h6>1. Yes // 35%</h6>
+                      <h6>2. No // 47%</h6>
+                      <h6>3. Thinking about it // 1234%</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+              <h4 style="cursor: pointer;"></h4>
+                <div>
+                  <h5>Any comments?</h5>
+                    <button ng-click="results16 = !results16">view results</button>
+                      <div ng-show="results16">woo</div>
+                </div>
             </div>
 
 
