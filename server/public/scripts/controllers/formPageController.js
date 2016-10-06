@@ -52,20 +52,20 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
             // console.log(randomNumber);
         }
     }
-
-    $scope.updateTeamName = function(name) {
-        //eventually we can cute up this confirm box, see details in updatePerson()
-        if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart restore previous settings.\n\n\n")) {
-            $http.put('/userData/teamname', {
-                    oldData: name,
-                    newData: this.$data
-                })
-                // this.$data send to put request, make sure it updates the correct person
-        } else {
-            // we don't want this to refresh bc it will reset the whole random name pull
-            // $route.reload();
-        }
-    }
+    // we aren't updating team names... there is no database for this
+    // $scope.updateTeamName = function(name) {
+    //     //eventually we can cute up this confirm box, see details in updatePerson()
+    //     if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart restore previous settings.\n\n\n")) {
+    //         $http.put('/userData/teamname', {
+    //                 oldData: name,
+    //                 newData: this.$data
+    //             })
+    //             // this.$data send to put request, make sure it updates the correct person
+    //     } else {
+    //         // we don't want this to refresh bc it will reset the whole random name pull
+    //         // $route.reload();
+    //     }
+    // }
 
     $scope.updatePerson = function(user) {
         console.log('UPDATING NAME TO: ', this.$data);
@@ -224,6 +224,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                                 $scope.userData.splice(i, 1);
                             }
                         })
+                        $scope.sprint2Data.forEach(function(user, i) {
+
+                            if (user.member_name == dataText) {
+                                $scope.sprint2Data.splice(i, 1);
+                            }
+
+                    })
                     }
                 }
             })

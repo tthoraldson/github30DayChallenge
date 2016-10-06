@@ -22,7 +22,9 @@
       <input type = "text" ng-model = "newSprint.title">
       <div>Start Date:</div>
       <input type = "date" ng-model = "newSprint.date">
-      <!-- Captains Table -->
+
+
+
       <!-- Captains Table -->
       <h2 class="tableTitle" width="100%">Captains</h2>
 
@@ -53,7 +55,7 @@
           </div>
 
       </div>
-          <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
+          <div id="{{user.member_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
           <div id="rows">
               <div class="divcolumn iconCol">
                   <div class="imgBox">
@@ -61,9 +63,7 @@
                   </div>
               </div>
               <div class="divcolumn display_name">
-                  <h3 editable-text="user.member_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-            {{user.member_name || 'empty'}}
-          </h3>
+                  <h4 style="color:black">{{user.member_name || 'empty'}}</h4>
               </div>
               <div class="divcolumn iconCol">
                   <!-- gitHub icon -->
@@ -72,7 +72,7 @@
                 <!-- email icon -->
               </div>
               <div class="divcolumn">
-                  <p>Studying</p>
+                  <p></p>
               </div>
               <div class="divcolumn">
                   <p>{{user.member_team || 'No Team'}}</p>
@@ -90,6 +90,10 @@
       </div>
       <br/>
 
+
+
+
+      <!-- Generate Teams -->
         <form class="teamNameForm">
             <h2><label for="columns">How Many Teams?</label></h2>
             <span class="teamInputButton">
@@ -136,7 +140,7 @@
                 <h4 class="tableTitle">Pending</h4>
             </div>
             <div class="{{tab == 2 ? 'activeMemberTab' : 'membertabSprint'}}" ng-click="tab = 2">
-                <h4 class="tableTitle" >Approved</h4>
+                <h4 class="tableTitle">Approved</h4>
             </div>
         </div>
 
