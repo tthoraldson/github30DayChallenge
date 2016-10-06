@@ -15,8 +15,8 @@ CREATE TABLE users (
 -- holds all the forms that have been created
 CREATE TABLE form_history (
 id SERIAL PRIMARY KEY,
-form_title       varchar(50),
-form_description       varchar(250),
+form_title varchar(50),
+form_description varchar(250),
 form_questions json
 );
 
