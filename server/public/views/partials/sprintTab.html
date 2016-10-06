@@ -11,71 +11,6 @@
     <!-- Calendar -->
 
 
-    <!-- Captains Table -->
-    <h2 class="tableTitle" width="100%">Captains</h2>
-    <div class="header" width="100%">
-        <div class="divcolumn iconCol">
-            <p></p>
-        </div>
-        <div class="divcolumn display_name">
-            <p>Name</p>
-        </div>
-        <div class="divcolumn iconCol">
-            <p> </p>
-        </div>
-        <div class="divcolumn iconCol">
-            <p> </p>
-        </div>
-        <div class="divcolumn">
-            <p>Studying</p>
-        </div>
-        <div class="divcolumn">
-            <p>Team</p>
-        </div>
-        <div class="divcolumn">
-            <p>Sprint %</p>
-        </div>
-        <div class="divcolumn">
-            <p>Approve</p>
-        </div>
-
-    </div>
-    <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in sprint2Data track by $index" ng-class-odd="'oddMemList'" width="100%">
-        <div id="rows">
-            <div class="divcolumn iconCol">
-                <div class="imgBox">
-                    <img class="imgAutoResize" ng-src="{{user.profile_photo}}"></img>
-                </div>
-            </div>
-            <div class="divcolumn display_name">
-                <h3 editable-text="user.member_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-          {{user.member_name || 'empty'}}
-        </h3>
-            </div>
-            <div class="divcolumn iconCol">
-                <!-- gitHub icon -->
-            </div>
-            <div class="divcolumn iconCol">
-              <!-- email icon -->
-            </div>
-            <div class="divcolumn">
-                <p>Studying</p>
-            </div>
-            <div class="divcolumn">
-                <p>{{user.member_team || 'No Team'}}</p>
-            </div>
-            <div class="divcolumn">
-                <p>{{user.member_score}}</p>
-            </div>
-            <div class="divcolumn">
-                <a>
-                    <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
-                    <i class="fa fa-times" alt="No" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <br/>
 
 
 
@@ -88,7 +23,9 @@
       <div>Start Date:</div>
       <input type = "date" ng-model = "newSprint.date">
       <!-- Captains Table -->
+      <!-- Captains Table -->
       <h2 class="tableTitle" width="100%">Captains</h2>
+
       <div class="header" width="100%">
           <div class="divcolumn iconCol">
               <p></p>
@@ -105,15 +42,18 @@
           <div class="divcolumn">
               <p>Studying</p>
           </div>
-          <div class="divcolumn">
+          <div class="divcolumn" ng-click="filters.member_team = user.member_team">
               <p>Team</p>
+          </div>
+          <div class="divcolumn">
+              <p>Sprint %</p>
           </div>
           <div class="divcolumn">
               <p>Approve</p>
           </div>
 
       </div>
-      <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+          <div id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
           <div id="rows">
               <div class="divcolumn iconCol">
                   <div class="imgBox">
@@ -121,21 +61,24 @@
                   </div>
               </div>
               <div class="divcolumn display_name">
-                  <h3 editable-text="user.display_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-            {{user.display_name || 'empty'}}
+                  <h3 editable-text="user.member_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
+            {{user.member_name || 'empty'}}
           </h3>
               </div>
               <div class="divcolumn iconCol">
-                  <!-- there also, was a thing here.. long gone. -->
+                  <!-- gitHub icon -->
               </div>
               <div class="divcolumn iconCol">
-                <!-- there once was a thing here, siyanara -->
+                <!-- email icon -->
               </div>
               <div class="divcolumn">
                   <p>Studying</p>
               </div>
               <div class="divcolumn">
-                  <p>Team</p>
+                  <p>{{user.member_team || 'No Team'}}</p>
+              </div>
+              <div class="divcolumn">
+                  <p>{{user.member_score}}</p>
               </div>
               <div class="divcolumn">
                   <a>
@@ -146,7 +89,6 @@
           </div>
       </div>
       <br/>
-
 
         <form class="teamNameForm">
             <h2><label for="columns">How Many Teams?</label></h2>

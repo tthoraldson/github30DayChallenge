@@ -26,12 +26,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.tab = 1;
     $scope.userData = [];
     $scope.sprint2Data = [];
+    $scope.captainArray = [];
     var user = {
         data: []
     }
     $scope.showSprintMaker = false;
-    $scope.creatingSprintButton = function(){
-      $scope.showSprintMaker = true;
+    $scope.creatingSprintButton = function() {
+        $scope.showSprintMaker = true;
     }
     $scope.genName = function(input) {
         // console.log(input);
@@ -162,8 +163,12 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     getData('sprint2').then(function(data) {
         // console.log(data);
         $scope.sprint2Data = data;
-        // $scope.userData.push(data);
-        console.log("$scope.userData in getUsers(): ", $scope.sprint2Data);
+        for (i = 0; i < $scope.sprint2Data.length; i++) {
+            if ($scope.sprint2Data[i].member_score == 100) {
+                $scope.captainArray.push($scope.sprint2Data[i]);
+            }
+        }
+        console.log("Captains: ", $scope.captainArray);
     });
 
 
@@ -250,7 +255,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
             tempUserz.forEach(function(theUser) {
                 // console.log(theUser, object.captain);
 
-                if (theUser.memeber_name == object.captain) {
+                if (theUser.member_name == object.captain) {
                     $scope.sprint2Data.push(theUser);
                 }
             })

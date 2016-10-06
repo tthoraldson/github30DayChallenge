@@ -35,10 +35,6 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     }
               })
           })
-<<<<<<< HEAD
-=======
-
->>>>>>> 86c71e69193044f6577b9087adac86ab3ba34c30
       });
     }
     findActive();
@@ -48,16 +44,10 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
       console.log('HEYEYEYEYYEYE', data);
     })
 
-<<<<<<< HEAD
-    var formResults = FormFactory.formResults();
-    formResults([2]).then(function(data){
-      console.log('data?');
-=======
     var formResults = FormFactory.updateFormResults();
     formResults([2]).then(function(data){
       var responses = FormFactory.formResponses();
       console.log('this is the shit:', responses);
->>>>>>> 86c71e69193044f6577b9087adac86ab3ba34c30
     })
 
 
@@ -69,14 +59,14 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         questions: []
     }
 
-    //
+
     $scope.surveyTitle = {
         formDBref: 0,
         title: "",
         description: ""
     };
 
-    //
+
     $scope.newSurveyQuestion = {
         title: "",
         description_MultiChoice: "Choose Best Answer:",
@@ -92,7 +82,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         shortAnswer: ""
     };
 
-    //
+    
     $scope.shortAnswer_selected = false;
     $scope.multipleChoice_selected = false;
     $scope.checkBox_selected = false;
