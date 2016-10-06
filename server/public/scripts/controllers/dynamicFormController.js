@@ -40,7 +40,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     }
     findActive();
 
-<<<<<<< HEAD
+
     var formData = FormFactory.allFormData();
     formData.then(function(data){
       console.log('HEYEYEYEYYEYE', data);
