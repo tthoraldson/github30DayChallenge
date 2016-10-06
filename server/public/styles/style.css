@@ -2,6 +2,8 @@
     background-color: #222222;
 }
 
+
+
 .popupBackground{
   position:fixed;
   width: 1000%;
@@ -62,10 +64,17 @@ main * {
     font-weight: 300;
 }
 
-.comments{
-  display: inline-block;
-  margin-left: 5px;
+.comments {
+  /*display: inline;*/
+  /*float: left;*/
+  /*margin-left: 5px;*/
 }
+
+.sprintTabResults {
+  /*display: inline;*/
+  float: right;
+}
+
 .main_container {
     background-color: #DAE5E3;
     margin: auto;
@@ -175,9 +184,10 @@ main * {
     /*border-collapse: collapse;*/
 }
 
-h3{
+h3 {
   font-size: 20px;
 }
+
 .display_name {
     /*white-space: nowrap;*/
     font-size: .9em;
