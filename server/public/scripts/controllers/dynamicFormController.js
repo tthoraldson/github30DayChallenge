@@ -35,6 +35,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     }
               })
           })
+
       });
     }
     findActive();
@@ -45,9 +46,13 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     })
 
     var formResults = FormFactory.updateFormResults();
-    formResults([2]).then(function(data){
+    formResults([1,2,3,4,5,6]).then(function(data){
       var responses = FormFactory.formResponses();
-      console.log('this is the shit:', responses);
+
+
+      $scope.formAnswers = responses;
+      console.log('this is the shit:',$scope.formAnswers);
+
     })
 
 
@@ -82,7 +87,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         shortAnswer: ""
     };
 
-    
+
     $scope.shortAnswer_selected = false;
     $scope.multipleChoice_selected = false;
     $scope.checkBox_selected = false;
