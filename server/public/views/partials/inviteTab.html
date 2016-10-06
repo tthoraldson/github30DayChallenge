@@ -1,11 +1,38 @@
 <div class="main_container" ng-if="tab == 3">
 
     <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
-    <button ng-click="showEmail=!showEmail">SEND NEW EMAIL</button>
-    <div ng-show="showEmail" ng-include="'/views/partials/invite.html'"></div> <br />
-    <button ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
+    <!-- <button ng-click="showEmail=!showEmail">SEND NEW EMAIL</button>
+    <div ng-show="showEmail" ng-include="'/views/partials/invite.html'"></div> <br /> -->
+    <button class="createNewSurvey" ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
-    <button ng-click="dynamicForm_history=!dynamicForm_history">SHOW CREATED SURVEYS</button>
+
+    <div class="activeSurvey">
+      <p>Active Survey:</p><p>Sprint #4 Registeration </p>
+      <p>81/112 submited</p>
+      <button ng-click="results = !results">view results</button>
+      <div ng-show="results">
+        <div ng-click="question1 = !question1" class="questionText">What language are you focusing on this sprint?</div>
+        <div ng-show="question1" class="resultText">
+          <div class="col1">Java: 21%</div>
+          <div class="col2">iOS: 16%</div>
+          <div class="col3">PHP: 15%</div>
+          <div class="col1">RubyOnRails: 13%</div>
+          <div class="col2">REACT: 13%</div>
+          <div class="col3">Python: 12%</div>
+          <div class="col1">C#: 9%</div>
+          <div class="col2">Javascript: 6%</div>
+          <div class="col3">Lua: 4%</div>
+
+        </div>
+
+        <div ng-click="question2 = !question2" class="questionText">Any comments on your previous sprint experience?</div>
+        <div ng-show="question2">
+          <p>Yes it rocked</p>
+          <p>It was alright</p>
+        </div>
+      </div>
+    </div>
+    <button class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</button>
     <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
 
 </div>
