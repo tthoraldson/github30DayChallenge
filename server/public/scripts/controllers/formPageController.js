@@ -22,10 +22,22 @@ myApp.directive('droppable', function() {
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
+    $scope.approveMember = function(user){
+      $http.put('/newRoute/approveMember', user).then(function(){
+
+        $http.get('/newRoute/users').then(function(data){
+          $scope.userData = data.data
+        })
+
+        console.log('updated ', user.display_name, "'s auth_level")
+      });
+    }
     $scope.showEmail = false;
     $scope.tab = 1;
     $scope.userData = [];
     $scope.sprint2Data = [];
+
+
     $scope.captainArray = [{
       member_name: 'Drew'
 
@@ -41,6 +53,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
 
   ];
+
+
     $scope.sprintOverview = false;
 
     $scope.surveyResults = false;
@@ -54,7 +68,11 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $scope.showSprintMaker = true;
     }
 
-
+    $scope.newButton = function(){
+      $http.get('/newRoute/users').then(function(data){
+        console.log('these are our users', data.data);
+      });
+    }
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
@@ -251,10 +269,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                 if (object.planet == tempString) {
                     $scope.showNames[i].team.push(dataText.substring(6));
                     console.log('current Team:', $scope.showNames[i].team);
-                    $scope.captainArray.forEach(function(captian, i) {
+                    $scope.userData.forEach(function(captian, i) {
 
-                        if (captian.member_name == dataText.substring(6)) {
-                            $scope.captainArray.splice(i, 1);
+                        if (captian.display_name == dataText.substring(6)) {
+                            $scope.userData.splice(i, 1);
                         }
                     })
                 }
@@ -262,12 +280,13 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
 
                 if (object.captain == "no captain") {
+
                     if (object.planet == tempString) {
                         $scope.showNames[i].captain = dataText;
-                        $scope.userData.forEach(function(user, i) {
-
-                            if (user.display_name == dataText) {
-                                $scope.userData.splice(i, 1);
+                        $scope.captainArray.forEach(function(user, i) {
+                            console.log(user.member_name, "=?=", dataText);
+                            if (user.member_name == dataText) {
+                                $scope.captainArray.splice(i, 1);
                             }
                         })
                     }

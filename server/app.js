@@ -15,6 +15,7 @@ var formData = require('./routes/formData');
 
 var createSprintTable = require('./routes/createSprintTable');
 
+var newRoute = require('./routes/newRoute');
 
 
 
@@ -33,6 +34,7 @@ app.use('/email', email);
 app.use('/userData', userData)
 app.use('/databaseBuild', databaseBuild);
 app.use('/formData', formData);
+app.use('/newRoute', newRoute);
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {

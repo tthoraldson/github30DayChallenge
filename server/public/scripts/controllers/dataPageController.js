@@ -5,6 +5,16 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     $scope.sprint2 = false;
     $scope.sprint3 = false;
 
+    $scope.newButton2 = function(){
+      $http.get('/newRoute/sprint2_data').then(function(data){
+        console.log('data from sprint2', data);
+      });
+
+      $http.get('/newRoute/sprint2_teams').then(function(data){
+        console.log('these are the members and teams from sprint2', data)
+      });
+    }
+    
 
 //5 players
 var deimos = {size: 5, team: "deimos", id: 1, array: [
