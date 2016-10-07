@@ -355,6 +355,8 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
                function checkDupes(teamName){
+                 console.log('check dupes func ran just now');
+                 d3.selectAll('path.line').remove();
                  var tempBool = false,
                  counter;
                  if(dataArray.length != 0){
@@ -362,17 +364,11 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                    if(team.team == teamName){
                      counter = index;
                      tempBool = true;
-                     d3.select('path.line' + team.id).remove();
-                     d3.selectAll('circle.dataPoint' + team.id).remove();
                      dataArray.splice(index, 1);
-                    //  for (i = 0; i < dataArray.length; i++) {
-                        //  d3.select('path.line' + counter).remove();
-                        //  d3.selectAll('circle.dataPoint' + counter).remove();
-                    //  }
                    }
                  })
                }
-                 return  {unique:tempBool, index : counter};
+                 return  {unique:tempBool, index:counter};
 
                }
                               $scope.showData = function(team){
@@ -578,9 +574,11 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                  var tempDataArray = [];
                  tempArray.forEach(function(team){
                    tempTeam = [];
+                   console.log("team line 584:", team);
                    team.array.forEach(function(data){
                      var newData = (data.commit / team.size) * 100;
                      tempTeam.push({day: data.day, commit: newData});
+                     tempTeam.id = team.id;
                    });
                    tempDataArray.push(tempTeam);
 
@@ -629,7 +627,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
                                tempArray.forEach(function(data, index) {
-
+                                 console.log("data in d3 append function line 635:", data.id);
                                    // var lineColor = '#492058'
                                    var lineColor = colorArray[colorI];
                                    colorI++;
@@ -638,22 +636,23 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                    }
 
                                    svg.append("path")
-                                       .attr("class", "line" + data.id)
+                                       .attr("class", "line")
+                                       .style('stroke-width', 5)
                                        .attr("d", valueline(data))
                                        .style("stroke", lineColor)
 
                                    // draw the scatterplot
                                    svg.selectAll("dot")
                                        .data(data)
-                                       .enter().append("circle")
-                                       .attr("class", "dataPoint" + data.id)
-                                       .attr("r", 3)
-                                       .attr("cx", function(d) {
-                                           return x(d.day);
-                                       })
-                                       .attr("cy", function(d) {
-                                           return y(d.commit);
-                                       })
+                                      //  .enter().append("circle")
+                                      //  .attr("class", "dataPoint" + data.id)
+                                      //  .attr("r", 3)
+                                      //  .attr("cx", function(d) {
+                                      //      return x(d.day);
+                                      //  })
+                                      //  .attr("cy", function(d) {
+                                      //      return y(d.commit);
+                                      //  })
                                })
 
                            //
