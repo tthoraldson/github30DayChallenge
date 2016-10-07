@@ -43,19 +43,47 @@
 
     <div id="noSprintActive">
       <h2>Current Sprint: Sprint #4 Registration <h2>
-      <h5> <em>82/118 members have filled out this form.</em></h5>
-      <button ng-click="surveyResults = !surveyResults"> Show Survey Results </button>
-      <button ng-click="showSprintMaker = !showSprintMaker"> Team Builder </button>
-      <button ng-click="sprintOverview = !sprintOverview"> Launch Sprint </button>
+       <h5> <em>82/118 members have filled out this form.</em></h5>
+       <button ng-click="surveyResults = !surveyResults"> Show Survey Results </button>
+       <button ng-click="showSprintMaker = !showSprintMaker"> Team Builder </button>
+       <button ng-click="sprintOverview = !sprintOverview"> Launch Sprint </button>
 
-      <div ng-show="surveyResults">
-        <h3>How much time a day on average did you spend on your previous git challenge?</h3>
-        <p> 2+ hours 12%  // 1-2 hours 21% // >1hr 45% // it varied a lot: 22%</p>
-        <h3>What path below interests you the most?</h3>
-        <p> Java: 32% // iOS: 12% // PHP: 14% // RubyOnRails: 5% // Python: 18% // REACT: 13% </p>
-        <h3 class="comments">Any comments you'd like to make on your previous sprint experience?</h3><button>show comments</button>
-      </div>
-    </div>
+       <div ng-show="surveyResults">
+         <br/>
+
+         <h3>How much time a day on average did you spend on your previous git challenge?</h3>
+         <br/>
+         <p> 2+ hours 12%</p>
+         <p>1-2 hours 21% </p>
+         <p>>1hr 45% </p>
+         <p>it varied a lot: 22%</p>
+         <br/>
+         <h3>What path below interests you the most?</h3>
+         <br/>
+         <p> Java: 32%</p>
+         <p>iOS: 12%</p>
+         <p>PHP: 14%</p>
+         <p>RubyOnRails: 5%</p>
+         <p>Python: 18%</p>
+         <p>REACT: 13% </p>
+         <br/>
+         <h3 class="comments" style="display:inline;">Any comments you'd like to make on your previous sprint experience?</h3>
+         <button class="sprintTabResults" ng-click="results9 = !results9" style="display:inline;">Show Comments</button>
+         <div ng-show="results9">
+             <p>It's hard to be a saint in the city.</p>
+             <p>30 days closer to a year of at least 1 commit per day!</p>
+             <p>No</p>
+             <p>When the site is done, it'll be www.justwriteit.net</p>
+             <p>Hi Scott et al!</p>
+             <p>PUMPED.</p>
+             <p>This was an awesome experience, the only issue I had was a vacation I took at the end of it where I didn't have computer access and I felt bad about that.</p>
+             <p>I have a baby due Sept. 15, so I might have to go off the grid near the end of this.</p>
+             <p>I'm really open to suggestions if python isn't that great of a choice! Peers in my cohort are saying maybe try C instead, but since Python is a higher language and I'm still a beginner and doing classwork I figure I should stick with the easier
+                 one to understand.</p>
+         </div>
+     </div>
+ </div>
+
 
 
     <!-- Calendar -->
@@ -79,9 +107,11 @@
               <p>Name</p>
           </div>
           <div class="divcolumn iconCol">
+            <!-- github -->
               <p> </p>
           </div>
           <div class="divcolumn iconCol">
+            <!-- email -->
               <p> </p>
           </div>
           <div class="divcolumn">
@@ -224,9 +254,9 @@
                     </div>
 
                     <div class="divcolumn iconCol">
-                        <a ng-href="mailto:{{user.email}}">
+                        <!-- <a ng-href="mailto:{{user.email}}">
                             <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="divcolumn">
                         <a>
@@ -238,7 +268,7 @@
             </div>
         </div>
 
-
+        <!-- Approved Members-->
         <div  class="approvedMembers" ng-if="tab == 2 ">
             <div class="header" width="100%">
                 <div class="divcolumn iconCol">
@@ -262,7 +292,7 @@
                     <p>Last Sprint %</p>
                 </div>
             </div>
-            <div ng-hide="user.auth_level == 0;" id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+            <div ng-hide="user.auth_level == 0;" id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData | orderBy: display_name" ng-class-odd="'oddMemList'" width="100%">
                 <div id="rows">
                     <div class="divcolumn iconCol">
                         <div class="imgBox">
@@ -280,9 +310,9 @@
                         </a>
                     </div>
                     <div class="divcolumn iconCol">
-                        <a ng-href="mailto:{{user.email}}">
+                        <!-- <a ng-href="mailto:{{user.email}}">
                             <i class="fa fa-envelope" alt="Email" aria-hidden="true"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="divcolumn">
                         <p>Studying</p>
