@@ -15,6 +15,14 @@
   left:0;
 }
 
+.teamNameRow:hover{
+  opacity: 0.4;
+
+}
+.teamNameRow{
+  height: 40px;
+  padding-top: 5px;
+}
 .popupWindow{
   position:fixed;
   width: 80%;

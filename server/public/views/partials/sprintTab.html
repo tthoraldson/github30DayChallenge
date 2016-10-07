@@ -262,7 +262,7 @@
                     <p>Last Sprint %</p>
                 </div>
             </div>
-            <div ng-hide="user.auth_level == 0;" id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+            <div ng-hide="user.auth_level == 0;" id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData | orderBy: 'display_name'" ng-class-odd="'oddMemList'" width="100%">
                 <div id="rows">
                     <div class="divcolumn iconCol">
                         <div class="imgBox">

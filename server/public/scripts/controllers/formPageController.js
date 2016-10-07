@@ -192,12 +192,16 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.email = EmailFactory.sendEmail();
 
 
-    getData('users').then(function(data) {
-        // console.log(data);
-        $scope.userData = data;
-        // $scope.userData.push(data);
-        console.log("$scope.userData in getUsers(): ", $scope.userData);
-    });
+    // getData('users').then(function(data) {
+    //     // console.log(data);
+    //     $scope.userData = data;
+    //     // $scope.userData.push(data);
+    //     console.log("$scope.userData in getUsers(): ", $scope.userData);
+    // });
+
+    $http.get('/newRoute/users').then(function(data){
+      $scope.userData = data.data;
+    })
 
     // getData('sprint2').then(function(data) {
     //     // console.log(data);
@@ -231,7 +235,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         // if (this.getAttribute('id') == 'dropBox') {
         //     this.style.background = 'white';
         // }
-        this.style.opacity = '1.0';
+        // this.style.opacity = '1.0';
     }
     $scope.handleDragEnd = function(e) {
         this.style.opacity = '1.0';
@@ -249,7 +253,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         e.stopPropagation();
         var dataText = e.dataTransfer.getData('memRow');
 
-        this.style.background = 'none';
+        // this.style.background = 'none';
         this.style.opacity = '1.0';
         console.log("DROPPED: ", dataText, "into: ", this.getAttribute('id'));
         var tempString = this.getAttribute('id');
@@ -335,9 +339,9 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     $scope.handleDragOver = function(e) {
         console.log('DRAGGING OVER DROPPABLE!!!!');
-        if (this.getAttribute('id') == 'teamNameBox') {
-            this.style.background = 'rgba(0, 0, 0, 0.2)';
-        }
+        // if (this.getAttribute('class') == 'teamNameRow') {
+            this.style.opacity = '0.5';
+
 
         e.preventDefault(); // Necessary. Allows us to drop.
         e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
