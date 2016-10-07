@@ -177,7 +177,7 @@ main * {
 .divcolumn {
     display: inline-block;
     /*border: thin solid black;*/
-    color: red;
+    /*color: red;*/
     margin: .3%;
     text-align: center;
     width: 11%;
