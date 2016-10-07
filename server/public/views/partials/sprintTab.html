@@ -97,7 +97,7 @@
           </div>
 
       </div>
-          <div id="{{'member'+user.member_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray track by $index " ng-class-odd="'oddMemList'" width="100%">
+          <div id="{{user.member_name}}" class="memRow" draggable="true" ng-repeat="user in captainArray | orderBy: member_name " ng-class-odd="'oddMemList'" width="100%">
           <div id="rows">
               <div class="divcolumn iconCol">
                   <div class="imgBox">
@@ -126,7 +126,7 @@
               </div>
               <div class="divcolumn">
                   <a>
-                      <i class="fa fa-check" alt="Yes" aria-hidden="true"></i>
+                      <i ng-click="approveMember(user)" class="fa fa-check" alt="Yes" aria-hidden="true"></i>
                       <i class="fa fa-times" alt="No" aria-hidden="true"></i>
                   </a>
               </div>
@@ -203,7 +203,7 @@
                 </div>
             </div>
 
-            <div ng-hide="user.auth_level > 0;"  id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+            <div ng-hide="user.auth_level > 0;"  id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
                 <div id="rows">
                     <div class="divcolumn iconCol">
                         <div class="imgBox">
@@ -228,7 +228,7 @@
                     </div>
                     <div class="divcolumn">
                         <a>
-                            <i class="fa fa-check" alt="Yes" aria-hidden="true" ng-click="approveMember()"></i>
+                            <i class="fa fa-check" alt="Yes" aria-hidden="true" ng-click="approveMember(user)"></i>
                             <i class="fa fa-times" alt="No" aria-hidden="true" ng-click="denyMember()"></i>
                         </a>
                     </div>
@@ -261,7 +261,7 @@
                     <p>Last Sprint %</p>
                 </div>
             </div>
-            <div ng-hide="user.auth_level == 0;" id="{{user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
+            <div ng-hide="user.auth_level == 0;" id="{{'member' + user.display_name}}" class="memRow" draggable="true" ng-repeat="user in userData track by $index" ng-class-odd="'oddMemList'" width="100%">
                 <div id="rows">
                     <div class="divcolumn iconCol">
                         <div class="imgBox">
