@@ -13,7 +13,7 @@
       </div>
     </div>
 
-  <button class="currentSurvey_submit" type="submit" ng-click="submitForm(currentSurvey)">SUBMIT</button>
+  <button class="currentSurvey_submit tab" style="margin-top: 10px;" type="submit" ng-click="submitForm(currentSurvey)">SUBMIT</button>
   </form>
 </div>
 
@@ -32,7 +32,7 @@
       <input type="email" ng-model="firstLog.email" placeholder="Preferred Email"/>
     </div>
     <div class="firstLogQuestion">
-      <button type="submit" ng-click="updateUser(firstLog)">Submit</button>
+      <button class="tab" type="submit" ng-click="updateUser(firstLog)">Submit</button>
     </div>
   </div>
 </div>
@@ -51,7 +51,7 @@
   <div class="questionsBox">
       <div class="firstLogTitle">
         <h2>Please login to take the survey!</h2>
-        <button style="margin-bottom: 25px;" type="submit" ng-click="login()">Login</button>
+        <button class="tab" style="margin-bottom: 25px;" type="submit" ng-click="login()">Login</button>
       </div>
     </div>
   </div>
