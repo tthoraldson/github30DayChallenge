@@ -1,10 +1,31 @@
 #body {
     background-color: #222222;
 }
-@@font-face {
-  font-family: 'Source Sans Pro', sans-serif;
+
+@font-face {
+  font-family: crapaud_petit;
+  src: url('../styles/fonts/crapaud_petit.otf');
 }
 
+#logoWords{
+font-family: 'crapaud_petit', sans-serif;
+font-size: 300%;
+color: white;
+/*font-weight: bold;*/
+position: absolute;
+top: 40px;
+left: 70px;
+-webkit-transform: translate(0%, -50%);
+/*border: 1px solid black;*/
+}
+
+#logo{
+margin-left: 0;
+margin-bottom: 0;
+width: 75px;
+height: 75px;
+/*opacity: .5;*/
+}
 
 .popupBackground {
     position: fixed;
@@ -39,9 +60,11 @@
     left: 10%;
 }
 
-#siteTitle {
+/*#siteTitle {
     color: white;
-}
+}*/
+
+
 
 .createNewSurvey {
     width: 100%;
@@ -138,13 +161,13 @@ main * {
     background-color: #07AA9E;
 }
 
-.inviteTab {
-    width: 10%;
-    margin: .2%;
-    margin-top: .35%;
-    text-align: center;
-    display: inline-block;
-    background-color: #07AA9E;
+.sprintTab {
+  color: black;
+  cursor: pointer;
+}
+
+.sprintTab:hover {
+    color: white;
 }
 
 .activeTab {
@@ -391,14 +414,6 @@ h1 {
 
 /*==========NAV BUTTONS========*/
 
-#login {
-    color: white;
-}
-
-.loginButton {
-    margin-right: 2%;
-}
-
 .tabBar {
     background-color: black;
     /*display: inline-block;*/
@@ -414,15 +429,19 @@ h1 {
 }
 
 .loginButton {
-    /*width: 100%;*/
-    /*text-align: right;*/
+    color: white;
+    font-family: 'crapaud_petit', sans-serif;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-right: 1%;
     display: inline-block;
     float: right;
+    cursor: pointer;
 }
 
 .topNavContainer {
     /*do not style*/
-    margin: 2% auto;
+    margin: .25% auto;
 }
 
 .topNavContainer a {
@@ -441,6 +460,7 @@ h1 {
     text-align: center;
     font-size: 1.8em;
     font-weight: bold;
+
 }
 
 .dashButton {

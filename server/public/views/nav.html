@@ -3,11 +3,12 @@
     <div class="content">
         <!-- <div id="home" class="homeButton"><a href="#home">Home</a></div> -->
 
-        <div class="loginButton" ng-if="!user" ng-click="logIn()"><a id="login" href="#login">Login</a></div>
-        <div class="loginButton" ng-if="user" ng-click="logOff()"><a id="login" href="#login">Logoff</a></div>
+        <div class="loginButton" ng-if="!user" ng-click="logIn()">LOGIN</div>
+        <div class="loginButton" ng-if="user" ng-click="logOff()">LOGOFF</div>
 
-        <h1 id="siteTitle">Commitment</h1>
-
+        <!-- <h1 id="siteTitle">Commitment</h1> -->
+        <div id="logoWords">Commitment</div>
+        <img id="logo" ng-src="../styles/images/geocirc.png"/>
         <!-- ng-if="currentUser.authLevel == 33" -->
         <div class="topNavContainer">
             <a href="#data"><button class="topNavButton dashButton" ng-if="user">Dash</button></a>
