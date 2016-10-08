@@ -95,7 +95,8 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
                 });
                 return AuthFactory.$requireSignIn();
               }]
-            }
+            },
+            activetab: 'data'
         })
         .when('/forms', {
             templateUrl: '/views/partials/formPage.html',
@@ -126,7 +127,8 @@ myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider,
                 });
                 return AuthFactory.$requireSignIn();
               }]
-            }
+            },
+            activetab: 'forms'
         })
         .when('/survey', {
             templateUrl: '/views/partials/survey.html',

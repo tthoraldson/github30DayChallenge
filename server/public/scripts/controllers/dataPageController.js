@@ -1,4 +1,4 @@
-myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
+myApp.controller("DataPageController", ["$scope", "$http", "$route", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $route, $location, AuthFactory, UserFactory) {
     console.log("Loaded: Data Page Controller");
 
     $scope.sprint1 = false;
