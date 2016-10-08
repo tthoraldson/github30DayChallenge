@@ -60,6 +60,8 @@
 
 
     <div ng-if="showSprintMaker == true">
+
+
       <!-- Captains Table -->
       <h2 class="tableTitle" width="100%">Captians</h2>
 
@@ -101,9 +103,8 @@
               </div>
               <div class="divcolumn display_name">
                   <h3 editable-text="user.member_name" onaftersave="updatePerson(user)" style="color:black;border-bottom:none;">
-
-            {{user.member_name || 'empty'}}
-          </h3>
+                  {{user.member_name || 'empty'}}
+                  </h3>
               </div>
               <div class="divcolumn iconCol">
                   <!-- gitHub icon -->
@@ -118,7 +119,7 @@
                   <p>{{user.member_team || 'No Team'}}</p>
               </div>
               <div class="divcolumn">
-                  <p>{{user.member_score}}</p>
+                  <p>100%{{user.member_score}}</p>
               </div>
               <div class="divcolumn">
                   <a>
