@@ -147,6 +147,10 @@ main * {
     background-color: #07AA9E;
 }
 
+.activeSurveyResultButton {
+  display: inline;
+}
+
 .activeTab {
     width: 10%;
     margin: .2%;

@@ -495,7 +495,6 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                 }
                                   toggleButtonLinus();
                                   buildLines(dataArray);
-
                                   break;
 
                                   case '2Io':
@@ -509,7 +508,6 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                 }
                                   toggleButtonIo();
                                   buildLines(dataArray);
-
                                   break;
 
                                   case '2Ida':
@@ -632,7 +630,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                           //      tempTeam.push({day: data.day, commit: newData});
                           //    });
                           //    tempDataArray.push(tempTeam);
-                           //
+                          //
                           //  })
                           //  dataArray = tempDataArray;
                           //  console.log("YAYAY", dataArray);
