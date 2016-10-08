@@ -435,6 +435,13 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                    $scope.dataIsShowingDactyl = false;
                 }
               }
+              function toggleButtonEros(){
+              if ($scope.dataIsShowingEros == false){
+                $scope.dataIsShowingEros = true;
+              } else if ($scope.dataIsShowingEros == true) {
+                 $scope.dataIsShowingEros = false;
+              }
+            }
               function toggleButtonDeimos(){
                 if ($scope.dataIsShowingDeimos == false) {
                   $scope.dataIsShowingDeimos = true;
@@ -554,7 +561,6 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                 }
                                   toggleButtonDactyl();
                                   buildLines(dataArray);
-
                                   break;
 
                                   case '2Eros':
@@ -566,13 +572,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   console.log(dataArray);
                                 }
                                   buildLines(dataArray);
-                                  function toggleButtonTxt(){
-                                    if ($scope.dataIsShowingEros == false){
-                                      $scope.dataIsShowingEros = true;
-                                    } else if ($scope.dataIsShowingEros == true) {
-                                       $scope.dataIsShowingEros = false;
-                                    }
-                                  }
+                                  toggleButtonEros();
                                   break;
 
                                   case '2Deimos':
@@ -585,7 +585,6 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                 }
                                   toggleButtonDeimos();
                                   buildLines(dataArray);
-                                  console.log($scope.dataIsShowingDeimos);
                                   break;
 
                                   case '2No':
@@ -599,7 +598,6 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                 }
                                   toggleButtonNo();
                                   buildLines(dataArray);
-
                                   break;
                                 }
                               }
@@ -686,11 +684,11 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                    var dataArray = [];
 
 
-               function buildLines(tempArray){
+               function buildLines(tempArray, color){
                  var tempDataArray = [];
                  tempArray.forEach(function(team){
                    tempTeam = [];
-                   console.log("team line 584:", team);
+                   console.log("team line 693:", team);
                    team.array.forEach(function(data){
                      var newData = (data.commit / team.size) * 100;
                      tempTeam.push({day: data.day, commit: newData});
