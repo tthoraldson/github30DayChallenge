@@ -1,6 +1,10 @@
 #body {
     background-color: #222222;
 }
+@@font-face {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 
 .popupBackground {
     position: fixed;
@@ -129,6 +133,34 @@ main * {
 .activeMemberTab {
     width: 45%;
     margin: 2%;
+    text-align: center;
+    display: inline-block;
+    background-color: #07AA9E;
+}
+
+.inviteTab {
+    width: 10%;
+    margin: .2%;
+    margin-top: .35%;
+    text-align: center;
+    display: inline-block;
+    background-color: #07AA9E;
+}
+
+.activeTab {
+    width: 10%;
+    margin: .2%;
+    margin-top: .35%;
+    text-align: center;
+    display: inline-block;
+    background-color: #07AA9E;
+    opacity: 0.40;
+}
+
+.notActiveTab {
+    width: 10%;
+    margin: .2%;
+    margin-top: .35%;
     text-align: center;
     display: inline-block;
     background-color: #07AA9E;
