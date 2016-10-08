@@ -4,6 +4,18 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     $scope.sprint1 = false;
     $scope.sprint2 = false;
     $scope.sprint3 = false;
+    $scope.dataIsShowingAll = false;
+    $scope.dataIsShowingDeimos = false;
+    $scope.dataIsShowingLinus = false;
+    $scope.dataIsShowingIo = false;
+    $scope.dataIsShowingIda = false;
+    $scope.dataIsShowingGaspra = false;
+    $scope.dataIsShowingEuropa = false;
+    $scope.dataIsShowingDactyl = false;
+    $scope.dataIsShowingEros = false;
+    $scope.dataIsShowingNo = false;
+
+
 
     $scope.newButton2 = function(){
       $http.get('/newRoute/sprint2_data').then(function(data){
@@ -14,7 +26,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
         console.log('these are the members and teams from sprint2', data)
       });
     }
-    
+
 
 //5 players
 var deimos = {size: 5, team: "deimos", id: 1, array: [
@@ -363,6 +375,80 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                  {'day': 30, 'commit': 32}
                ]}
 
+              //  function toggleButtonTxt(){
+              //    if ($scope.dataIsShowing == false){
+              //      $scope.dataIsShowing = true;
+              //    } else if ($scope.dataIsShowing == true) {
+              //       $scope.dataIsShowing = false;
+              //    }
+              //  }
+
+
+
+// Awful Toggle Button Code - so not DRY
+              function toggleButtonAll(){
+                if ($scope.dataIsShowingAll == false){
+                  $scope.dataIsShowingAll = true;
+                } else if ($scope.dataIsShowingAll == true) {
+                   $scope.dataIsShowingAll = false;
+                }
+              }
+              function toggleButtonLinus(){
+                if ($scope.dataIsShowingLinus == false){
+                  $scope.dataIsShowingLinus = true;
+                } else if ($scope.dataIsShowingLinus == true) {
+                   $scope.dataIsShowingLinus = false;
+                }
+              }
+              function toggleButtonIo(){
+                if ($scope.dataIsShowingIo == false){
+                  $scope.dataIsShowingIo = true;
+                } else if ($scope.dataIsShowingIo == true) {
+                   $scope.dataIsShowingIo = false;
+                }
+              }
+              function toggleButtonIda(){
+                if ($scope.dataIsShowingIda == false){
+                  $scope.dataIsShowingIda = true;
+                } else if ($scope.dataIsShowingIda == true) {
+                   $scope.dataIsShowingIda = false;
+                }
+              }
+              function toggleButtonGaspra(){
+                if ($scope.dataIsShowingGaspra == false){
+                  $scope.dataIsShowingGaspra = true;
+                } else if ($scope.dataIsShowingGaspra == true) {
+                   $scope.dataIsShowingGaspra = false;
+                }
+              }
+              function toggleButtonEuropa(){
+                if ($scope.dataIsShowingEuropa == false){
+                  $scope.dataIsShowingEuropa = true;
+                } else if ($scope.dataIsShowingEuropa == true) {
+                   $scope.dataIsShowingEuropa = false;
+                }
+              }
+              function toggleButtonDactyl(){
+                if ($scope.dataIsShowingDactyl == false){
+                  $scope.dataIsShowingDactyl = true;
+                } else if ($scope.dataIsShowingDactyl == true) {
+                   $scope.dataIsShowingDactyl = false;
+                }
+              }
+              function toggleButtonDeimos(){
+                if ($scope.dataIsShowingDeimos == false) {
+                  $scope.dataIsShowingDeimos = true;
+                } else if ($scope.dataIsShowingDeimos == true) {
+                   $scope.dataIsShowingDeimos = false;
+                }
+              }
+              function toggleButtonNo(){
+                if ($scope.dataIsShowingNo == false){
+                  $scope.dataIsShowingNo = true;
+                } else if ($scope.dataIsShowingNo == true) {
+                   $scope.dataIsShowingNo = false;
+                }
+              }
 
                function checkDupes(teamName){
                  console.log('check dupes func ran just now');
@@ -386,6 +472,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   case '2All':
                                    dataArray = [];
                                    dataArray.push(deimos, linus, io, ida, gaspra, europa, dactyl, eros);
+                                   toggleButtonAll();
                                    buildLines(dataArray);
                                    console.log(dataArray);
                                   break;
@@ -399,7 +486,9 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(linus);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonLinus();
                                   buildLines(dataArray);
+
                                   break;
 
                                   case '2Io':
@@ -411,7 +500,9 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(io);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonIo();
                                   buildLines(dataArray);
+
                                   break;
 
                                   case '2Ida':
@@ -423,6 +514,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(ida);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonIda();
                                   buildLines(dataArray);
                                   break;
 
@@ -435,6 +527,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(gaspra);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonGaspra();
                                   buildLines(dataArray);
                                   break;
 
@@ -447,6 +540,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(europa);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonEuropa();
                                   buildLines(dataArray);
                                   break;
 
@@ -458,7 +552,9 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(dactyl);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonDactyl();
                                   buildLines(dataArray);
+
                                   break;
 
                                   case '2Eros':
@@ -470,6 +566,13 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   console.log(dataArray);
                                 }
                                   buildLines(dataArray);
+                                  function toggleButtonTxt(){
+                                    if ($scope.dataIsShowingEros == false){
+                                      $scope.dataIsShowingEros = true;
+                                    } else if ($scope.dataIsShowingEros == true) {
+                                       $scope.dataIsShowingEros = false;
+                                    }
+                                  }
                                   break;
 
                                   case '2Deimos':
@@ -480,7 +583,9 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(deimos);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonDeimos();
                                   buildLines(dataArray);
+                                  console.log($scope.dataIsShowingDeimos);
                                   break;
 
                                   case '2No':
@@ -492,6 +597,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                   dataArray.push(noTeam);
                                   console.log(dataArray);
                                 }
+                                  toggleButtonNo();
                                   buildLines(dataArray);
 
                                   break;
@@ -539,10 +645,10 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                                    top: 30,
                                    right: 20,
                                    bottom: 30,
-                                   left: 50
+                                   left: 30
                                },
-                               width = 750 - margin.left - margin.right,
-                               height = 250 - margin.top - margin.bottom;
+                               width = 950 - margin.left - margin.right,
+                               height = 300 - margin.top - margin.bottom;
 
                            // Set the ranges
                            var x = d3.scale.linear().range([0, width]);
@@ -552,11 +658,11 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                            // Define the axes
                            var xAxis = d3.svg.axis()
                                .scale(x)
-                               .orient("bottom").ticks(10);
+                               .orient("bottom").ticks(30);
 
                            var yAxis = d3.svg.axis()
                                .scale(y)
-                               .orient("left").ticks(2);
+                               .orient("left").ticks(10);
 
                            // Define the line
                            var valueline = d3.svg.line()

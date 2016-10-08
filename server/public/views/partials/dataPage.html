@@ -1,4 +1,4 @@
-<div id="chart">Commits Per Day</div>
+<div id="chart"></div>
 
 
 <div class="sprintContainer">
@@ -17,34 +17,35 @@
   </div>
   <div ng-show="sprint2">
     <div class="teamListItem">
-    <button ng-click="showData('2All')">Show Data</button> <p class="teamName" >All Teams</p>
+    <!-- ng-click="dataIsShowing ? hideData() : showData()">{{dataIsShowing ? 'hideData' : 'ShowData'}} -->
+    <button ng-click="dataIsShowingAll ? showData('2All') : showData('2All')">{{dataIsShowingAll ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >All Teams</p>
   </div>
   <div class="teamListItem oddMemList">
-    <button ng-click="showData('2Deimos')" >Show Data</button> <p class="teamName" >Deimos</p>
+    <button ng-click="dataIsShowingDeimos ? showData('2Deimos') : showData('2Deimos')">{{dataIsShowingDeimos ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Deimos</p>
   </div>
   <div class="teamListItem">
-    <button ng-click="showData('2Linus')">Show Data</button> <p class="teamName" >Linus</p>
+    <button ng-click="dataIsShowing ? showData('2Linus') : showData('2Linus')">{{dataIsShowingLinus ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Linus</p>
   </div>
   <div class="teamListItem oddMemList">
-    <button ng-click="showData('2Io')">Show Data</button> <p class="teamName" >Io</p>
+    <button ng-click="dataIsShowing ? showData('2Io') : showData('2Io')">{{dataIsShowingIo ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Io</p>
   </div>
   <div class="teamListItem">
-    <button ng-click="showData('2Ida')">Show Data</button> <p class="teamName" >Ida</p>
+    <button ng-click="dataIsShowing ? showData('2Ida') : showData('2Ida')">{{dataIsShowingIda ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Ida</p>
   </div>
   <div class="teamListItem oddMemList">
-    <button ng-click="showData('2Gaspra')">Show Data</button> <p class="teamName" >Gaspra</p>
+    <button ng-click="dataIsShowing ? showData('2Gaspra') : showData('2Gaspra')">{{dataIsShowingGaspra ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Gaspra</p>
   </div>
   <div class="teamListItem">
-    <button ng-click="showData('2Europa')">Show Data</button> <p class="teamName" >Europa</p>
+    <button ng-click="dataIsShowing ? showData('2Europa') : showData('2Europa')">{{dataIsShowingEuropa ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName">Europa</p>
   </div>
   <div class="teamListItem oddMemList">
-    <button ng-click="showData('2Dactyl')">Show Data</button> <p class="teamName" >Dactyl</p>
+    <button ng-click="dataIsShowing ? showData('2Dactyl') : showData('2Dactyl')">{{dataIsShowingDactyl ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Dactyl</p>
   </div>
   <div class="teamListItem">
-    <button ng-click="showData('2Eros')">Show Data</button> <p class="teamName" >Eros</p>
+    <button ng-click="dataIsShowing ? showData('2Eros') : showData('2Eros')">{{dataIsShowingEros ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >Eros</p>
   </div>
   <div class="teamListItem oddMemList">
-    <button ng-click="showData('2No')">Show Data</button> <p class="teamName" >No Team</p>
+    <button ng-click="dataIsShowing ? showData('2No') : showData('2No')">{{dataIsShowingNo ? 'Hide Data' : 'Show Data'}}</button> <p class="teamName" >No Team</p>
   </div>
 
   </div>
