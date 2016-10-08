@@ -164,6 +164,7 @@ main * {
 .sprintTab {
   color: black;
   cursor: pointer;
+  border-radius: 2.5px;
 }
 
 .sprintTab:hover {
@@ -458,12 +459,15 @@ h1 {
 
 .topNavButton {
     margin: 0 auto;
+    border: .5px solid black;
     width: 50%;
     height: 40px;
     background-color: #07AA9E;
+    padding-top: 2px;
+    font-family: helvetica;
     text-align: center;
     font-size: 1.8em;
-    font-weight: bold;
+    font-weight: normal;
 
 }
 
