@@ -14,6 +14,7 @@
         <div ng-show="results">
             <div ng-click="question1 = !question1" class="questionText">What language are you focusing on this sprint?</div>
             <div ng-show="question1" class="resultText">
+
                 <div class="col1">Java: 21%</div>
                 <div class="col2">iOS: 16%</div>
                 <div class="col3">PHP: 15%</div>
@@ -23,11 +24,23 @@
                 <div class="col1">C#: 9%</div>
                 <div class="col2">Javascript: 6%</div>
                 <div class="col3">Lua: 4%</div>
+                <br/>
+            </div>
+
+            <div ng-click="question3 = !question3" class="questionText">How much time a day on average did you spend on your previous git challenge?</div>
+            <div ng-show="question3">
+
+              <div class="col1"> 2+ hours 12%</div>
+              <div class="col2">1-2 hours 21% </div>
+              <div class="col3">>1hr 45% </div>
+              <div class="col4">it varied a lot: 22%</div>
+<br/>
 
             </div>
 
             <div ng-click="question2 = !question2" class="questionText">Any comments on your previous sprint experience?</div>
             <div ng-show="question2">
+
 
                 <p class=“shortAnswer”>Glad that I accepted the challenge!</p>
 
@@ -77,7 +90,8 @@
                 <p class=“shortAnswer”>my lawn is green af now. 10/10. would commit again.</p>
 
                 <p class=“shortAnswer”>This challenge brought back disbelief in my abilities at one point, just like we all go through sometimes. Luckily I remembered this was just for fun.</p>
-            </div>
+                <br/>
+              </div>
         </div>
     </div>
     <button class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</button>
