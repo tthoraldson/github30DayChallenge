@@ -9,6 +9,9 @@ var phantom = require('phantom');
 var i = 0;
 var results;
 var timer;
+var sprint;
+var tempStartDate;
+var usersInfo = [];
 
 router.get('/', function(req, res) {
 
@@ -170,182 +173,153 @@ router.get('/usernames', function(req, res) {
     });
 });
 
-// UPDATE TODAY'S COMMIT STATUS
-router.post('/today', function(req, res) {
-
-  // DELETES ALL ROWS
+router.post('/daily', function(req, res, next) {
   pg.connect(connectionString, function(err, client, done) {
-          //console.log('Connecting to: ', connectionString);
-          if (err) {
-              res.sendStatus(500);
-              console.log("error");
-          }
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
 
-          // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
-          client.query("DELETE FROM s2_data WHERE date=$1", [getDate()],
-              function(err, result) {
-                  done();
-                  if (err) {
-                      res.sendStatus(500);
-                      console.log('error deleting rows with today\'s date in the database')
-                      console.log('error: ', err);
-                  }
-                  // resets the loop going through each user in the database!
-                  i = 0;
-                  pg.connect(connectionString, function(err, client, done) {
-                          console.log('Connecting to: ', connectionString);
-                          if (err) {
-                              res.sendStatus(500);
-                              console.log("error");
-                          }
-
-                          client.query("SELECT github FROM s2_teams",
-                              function(err, result) {
-                                  done();
-                                  if (err) {
-                                      res.sendStatus(500);
-                                      console.log('error grabbing usernames from teams table...')
-                                      console.log('error: ', err);
-                                  }
-                                  //console.log(result.rows);
-                                  results = result.rows;
-                                  timer = setInterval(scrapeUserToday, 5000);
-
-                                  });
-                          });
-                  });
-          });
+        client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the current sprint...')
+                    console.log('error: ', err);
+                }
+                //console.log(result.rows);
+                sprint = result.rows[0].sprint_name
+                console.log('sprint: ', sprint);
+                tempStartDate = result.rows[0].start_date;
+                req.tableData = sprint + "_data";
+                req.tableTeams = sprint + "_teams";
+                next();
+              }
+            );
+      });
 });
-
 // UPDATE TODAY'S COMMIT STATUS
-router.post('/yesterday', function(req, res) {
-
-  // DELETES ALL ROWS
-  pg.connect(connectionString, function(err, client, done) {
-          //console.log('Connecting to: ', connectionString);
-          if (err) {
-              res.sendStatus(500);
-              console.log("error");
-          }
-
-          // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
-          client.query("DELETE FROM s2_data WHERE date=$1", [getYesterdaysDate()],
-              function(err, result) {
-                  done();
-                  if (err) {
-                      res.sendStatus(500);
-                      console.log('error deleting rows with today\'s date in the database')
-                      console.log('error: ', err);
-                  }
-                  // resets the loop going through each user in the database!
-                  i = 0;
+router.post('/daily', function(req, res) {
+  console.log('daily, sprint start:', req.sprintStartDate);
+  //
+  //                 // DELETES ALL ROWS WITH TODAY'S DATE
                   pg.connect(connectionString, function(err, client, done) {
-                          console.log('Connecting to: ', connectionString);
+                          //console.log('Connecting to: ', connectionString);
                           if (err) {
                               res.sendStatus(500);
                               console.log("error");
                           }
 
-                          client.query("SELECT github FROM s2_teams",
+                          // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
+                          client.query("DELETE FROM " + req.tableData + " WHERE date=$1", [getDate()],
                               function(err, result) {
                                   done();
                                   if (err) {
                                       res.sendStatus(500);
-                                      console.log('error grabbing usernames from teams table...')
+                                      console.log('error deleting rows with today\'s date in the database')
                                       console.log('error: ', err);
                                   }
-                                  //console.log(result.rows);
-                                  results = result.rows;
-                                  timer = setInterval(scrapeUserYesterday, 5000);
+                                  // resets the loop going through each user in the database!
+                                  i = 0;
+                                  pg.connect(connectionString, function(err, client, done) {
+                                          console.log('Connecting to: ', connectionString);
+                                          if (err) {
+                                              res.sendStatus(500);
+                                              console.log("error");
+                                          }
 
+                                          client.query("SELECT github FROM " + req.tableTeams,
+                                              function(err, result) {
+                                                  done();
+                                                  if (err) {
+                                                      res.sendStatus(500);
+                                                      console.log('error grabbing usernames from teams table...')
+                                                      console.log('error: ', err);
+                                                  }
+                                                  //console.log(result.rows);
+                                                  results = result.rows;
+                                                  timer = setInterval(scrapeUserToday, 5000);
+
+
+                                                  });
+                                          });
                                   });
                           });
-                  });
-          });
+          //         });
+          // });
 });
 
 
 
 // GET ENTIRE SPRINT COMMITS!
-router.post('/sprint/:uname', function(req, res) {
-    var githubUname = uname;
-    var swagArray = [];
-    var sitepage = null;
-    var phInstance = null;
-
-    phantom.create()
-        .then(instance => {
-            phInstance = instance;
-            return instance.createPage();
-        })
-        .then(page => {
-            sitepage = page;
-            return page.open('https://github.com/users/' + githubUname + '/contributions');
-        })
-        .then(status => {
-            console.log(status);
-
-            return sitepage.property('content');
-        })
-        .then(content => {
-            swagArray = content.split('\n');
-
-            var tempArray = [];
-            swagArray.forEach(function(line) {
-                if (line.substring(11, 14) == "rec") {
-                    var templine = line.substring(84);
-                    var templine2 = ""
-                    if (templine[0] == 'c') {
-                        templine = templine.substring(1);
-                    } else if (templine[0] == '-') {
-                        templine = templine.substring(2);
-                    } else if (templine[0] == 'a') {
-                        templine = templine.substring(3);
-                    }
-
-                    templine = templine.substring(6); // commits
-                    templine2 = templine.substring(14, 24); // date
-                    templine = templine[0];
-                    tempArray.push({
-                        data: templine,
-                        date: templine2
-                    });
-                }
-            });
-
-            // finds the data matching today's date!
-            var foundObject = tempArray.find(findTodayObject);
-
-            pg.connect(connectionString, function(err, client, done) {
-                console.log('Connecting to: ', connectionString);
-                if (err) {
-                    res.sendStatus(500);
-                    console.log("error");
-                }
-
-                var user = req.body;
-
-                client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
-                    function(err, result) {
-                        done();
+router.post('/sprint', function(req, res) {
+  var dates = sprintDates('2016-08-23');
+  console.log(dates[0]);
+// pg.connect(connectionString, function(err, client, done) {
+//         // console.log('Connecting to: ', connectionString);
+//         if (err) {
+//             res.sendStatus(500);
+//             console.log("error");
+//         }
+//
+//         client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+//             function(err, result) {
+//                 done();
+//                 if (err) {
+//                     res.sendStatus(500);
+//                     console.log('error grabbing the current sprint...')
+//                     console.log('error: ', err);
+//                 }
+//                 //console.log(result.rows);
+//                 sprint = result.rows[0].sprint_name
+//                 console.log('sprint: ', sprint);
+//
+//                 // DELETES ALL ROWS WITH TODAY'S DATE
+                pg.connect(connectionString, function(err, client, done) {
+                        //console.log('Connecting to: ', connectionString);
                         if (err) {
                             res.sendStatus(500);
-                            console.log('error: ', err);
+                            console.log("error");
                         }
 
-                        console.log('');
-                        res.send(result.rows)
-                    })
-            })
-        })
-        .then(content => {
-            sitepage.close();
-            phInstance.exit();
-        })
-        .catch(error => {
-            console.log(error);
-            phInstance.exit()
-        })
+                        // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
+                        client.query("DELETE FROM s2_data WHERE date=$1", [getDate()],
+                            function(err, result) {
+                                done();
+                                if (err) {
+                                    res.sendStatus(500);
+                                    console.log('error deleting rows with today\'s date in the database')
+                                    console.log('error: ', err);
+                                }
+                                // resets the loop going through each user in the database!
+                                i = 0;
+                                pg.connect(connectionString, function(err, client, done) {
+                                        console.log('Connecting to: ', connectionString);
+                                        if (err) {
+                                            res.sendStatus(500);
+                                            console.log("error");
+                                        }
+
+                                        client.query("SELECT github FROM s2_teams",
+                                            function(err, result) {
+                                                done();
+                                                if (err) {
+                                                    res.sendStatus(500);
+                                                    console.log('error grabbing usernames from teams table...')
+                                                    console.log('error: ', err);
+                                                }
+                                                //console.log(result.rows);
+                                                results = result.rows;
+                                                timer = setInterval(function() {scrapeUserToday('cats')}, 5000);
+
+                                                });
+                                        });
+                                });
+                        });
+        //         });
+        // });
 });
 
 // GET ENTIRE LAWN COMMITS!
@@ -398,7 +372,7 @@ router.put('/lawn/update', function(req, res) {
             });
 
             // finds the data matching today's date!
-            // var foundObject = tempArray.find(findTodayObject);
+            // var foundObject = tempArray.find(findObject);
 
             //
 
@@ -561,9 +535,83 @@ module.exports = router;
 
 // FUNCTIONS!
 
-// SCRAPE USER FUNCTION
-function scrapeUserToday(){
+// SCRAPE USER FUNCTION TODAY
+function scrapeUserToday(x){
   // function(tempObject){
+  console.log('DOES IT SAY CATS?: ', x);
+  var tempObject = results[i];
+
+    var githubUname = tempObject.github;
+    var swagArray = [];
+    var sitepage = null;
+    var phInstance = null;
+
+    phantom.create()
+        .then(instance => {
+            phInstance = instance;
+            return instance.createPage();
+        })
+        .then(page => {
+            sitepage = page;
+            return page.open('https://github.com/users/' + githubUname + '/contributions');
+        })
+        .then(status => {
+            //console.log(status);
+            return sitepage.property('content');
+        })
+        .then(content => {
+            swagArray = content.split('\n');
+
+            var tempArray = [];
+            swagArray.forEach(function(line) {
+                if (line.substring(11, 14) == "rec") {
+                    var templine = line.substring(84);
+                    var templine2 = ""
+                    if (templine[0] == 'c') {
+                        templine = templine.substring(1);
+                    } else if (templine[0] == '-') {
+                        templine = templine.substring(2);
+                    } else if (templine[0] == 'a') {
+                        templine = templine.substring(3);
+                    }
+
+                    templine = templine.substring(6); // commits
+                    templine2 = templine.substring(14, 24); // date
+                    templine = templine[0];
+                    tempArray.push({
+                        data: templine,
+                        date: templine2
+                    });
+              }
+          });
+
+           usersInfo.push({
+            username: githubUname,
+            data: tempArray
+          });
+
+        }) // closes phantom session
+          .then(content => {
+              sitepage.close();
+              phInstance.exit();
+          }) // console logs error if found and closes phantom session
+          .catch(error => {
+              console.log(error);
+              phInstance.exit()
+          })
+  // Increases i by one, continues to the next username
+  i++;
+
+  // Clears interval if gone through all the results (usernames)
+  if (i == 3 /*results.length*/){
+    clearInterval(timer);
+    console.log('GET TODAY complete.');
+    storeDaily();
+  }
+}
+
+// SCRAPE USER FUNCTION YESTERDAY
+function scrapeUserYesterday(){
   var tempObject = results[i];
 
     var githubUname = tempObject.github;
@@ -611,7 +659,7 @@ function scrapeUserToday(){
           });
 
           // finds the data matching today's date!
-          var foundObject = tempArray.find(findTodayObject);
+          var foundObject = tempArray.find(findObject);
 
           // if there is an error with phantom.js (error with the username)
           if (foundObject == undefined){
@@ -669,8 +717,9 @@ function scrapeUserToday(){
   }
 }
 
-// SCRAPE USER FUNCTION YESTERDAY
-function scrapeUserYesterday(){
+// SCRAPE USER FUNCTION ENTIRE SPRINT!
+function scrapeUserFullSprint(){
+  // function(tempObject){
   var tempObject = results[i];
 
     var githubUname = tempObject.github;
@@ -718,7 +767,7 @@ function scrapeUserYesterday(){
           });
 
           // finds the data matching today's date!
-          var foundObject = tempArray.find(findYesterdayObject);
+          var foundObject = tempArray.find(findObject);
 
           // if there is an error with phantom.js (error with the username)
           if (foundObject == undefined){
@@ -726,7 +775,7 @@ function scrapeUserYesterday(){
           }
           // posts information into server!!
           else {
-            console.log(githubUname + ': ' + foundObject.data + ' ' + foundObject.date);
+            console.log(githubUname + ': ' + foundObject.data);
 
             // finds out how many commits the user made, saves as a boolean (true / false)
             var tempBoolean;
@@ -775,7 +824,6 @@ function scrapeUserYesterday(){
     console.log('GET TODAY complete.')
   }
 }
-
 // get today's date
 // returns today's date in yyyy-mm-dd format.
 function getDate() {
@@ -798,9 +846,8 @@ function getDate() {
 // get yesterday's date
 // returns yesterday's date in yyyy-mm-dd format.
 function getYesterdaysDate() {
-    var d = new Date(getDate());
+    var d = new Date();
     var day = d.getDate();
-    d.setDate(day - 1);
     var month = d.getMonth() + 1;
 
     if (day.toString().length < 2) {
@@ -813,6 +860,73 @@ function getYesterdaysDate() {
 
     var date = d.getFullYear() + '-' + month + '-' + day;
     return date;
+}
+
+function storeDaily(){
+  console.log('store stuff');
+  // get sprint date
+  var sprintDates = getSprintDates(tempStartDate);
+
+  // for each date
+  sprintDates.forEach(function(currentDate){
+    usersInfo.forEach(function(currentUser){
+      // console.log(currentUser.data[0].date);
+      var foundObject = currentUser.data.find(function(currentDate, currentUser) {
+        console.log(this);
+      });
+      // if(foundObject) {
+      //     console.log('found commit: ', foundObject);
+      // }
+    })
+  })
+    // for each user
+      // get current day's commit
+      // insert commit
+  /*
+  // finds the data matching today's date!
+  var foundObject = tempArray.find(findObject);
+
+  // if there is an error with phantom.js (error with the username)
+  if (foundObject == undefined){
+    console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
+  }
+  // posts information into server!!
+  else {
+    console.log(githubUname + ': ' + foundObject.data);
+
+    // finds out how many commits the user made, saves as a boolean (true / false)
+    var tempBoolean;
+    if (foundObject.data > 0){
+    tempBoolean = true;
+    } else {
+      tempBoolean = false;
+    }
+
+    // post commit status for found user into sprint_data table
+    pg.connect(connectionString, function(err, client, done) {
+        //console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error" + err);
+        }
+
+        client.query("INSERT INTO s2_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error: ', err);
+                }
+
+                console.log('sucussful post into table.');
+            })
+    });
+  }*/
+}
+
+// find object in tempArray with today's date
+function findObject(entry) {
+    return entry.date === getDate();
 }
 
 // get all the dates given a start date for a sprint
@@ -829,11 +943,20 @@ function getSprintDates(startDate){
   return dates;
 }
 
-// find object in tempArray with today's date
-function findTodayObject(entry) {
-    return entry.date === getDate();
-}
+// styles date to yyyy-mm-dd
+function styleDate(date){
+  var d = date;
 
-function findYesterdayObject(entry) {
-  return entry.date === getYesterdaysDate();
+  var day = d.getDate();
+  var month = d.getMonth() + 1;
+
+  if (day.toString().length < 2) {
+    day = '0' + day;
+  }
+  if (month.toString().length < 2) {
+    month = '0' + month;
+  }
+
+  var newDate = d.getFullYear() + '-' + month + '-' + day;
+  return newDate;
 }
