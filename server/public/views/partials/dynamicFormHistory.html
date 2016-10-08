@@ -5,125 +5,93 @@
         <p>Time to register for Sprint 3!</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
         <button ng-click="responses = !responses">VIEW RESPONSES</button>
-        </br><br />
+        <br/><br />
 
         <div ng-show="responses">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>What kind of language are you interested in learning?</h5>
-                        <button ng-click="results17 = !results17">view results</button>
-                        <div ng-show="results17">
-                            <h6>1. Java // 35%</h6>
-                            <h6>2. iOS // 47%</h6>
-                            <h6>3. PHP // 1234%</h6>
-                            <h6>4. Python // 1234%</h6>
-                            <h6>5. .NET // 1234%</h6>
-                            <h6>6. REACT // 1234%</h6>
-                            <h6>7. JavaScript // 1234%</h6>
-                            <h6>8. C# // 1234%</h6>
-                            <h6>9. Lua // 1234%</h6>
-                            <h6>10. Ruby // 1234%</h6>
-                            <h6>11. Other // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>Any comments?</h5>
-                    <button ng-click="results2 = !results2">view results</button>
-                    <div ng-show="results2">
-                      <p>30 days closer to a year of at least 1 commit per day!</p>
-                      <p>No</p>
-                      <p>When the site is done, it'll be www.justwriteit.net</p>
-                      <p>Hi Scott et al!</p>
-                      <p>PUMPED.</p>
-                      <p>This was an awesome experience, the only issue I had was a vacation I took at the end of it where I didn't have computer access and I felt bad about that.</p>
-                      <p>I have a baby due Sept. 15, so I might have to go off the grid near the end of this.</p>
-                      <p>I'm really open to suggestions if python isn't that great of a choice! Peers in my cohort are saying maybe try C instead, but since Python is a higher language and I'm still a beginner and doing classwork I figure I should stick with the easier one to understand.</p>
-                      <p>I sometimes fall asleep at my computer.</p>
-                      <p>Team Ida!</p>
-                      <p>I'm super rusty!</p>
-                    </div>
+                <h5 style="display:inline;font-weight:bold;">What kind of language are you interested in learning?</h5>
+                <button ng-click="results17 = !results17" style="display:inline;">View Results</button>
+                <div ng-show="results17">
+                    <h6>1. Java // 35%</h6>
+                    <h6>2. iOS // 47%</h6>
+                    <h6>3. PHP // 1234%</h6>
+                    <h6>4. Python // 1234%</h6>
+                    <h6>5. .NET // 1234%</h6>
+                    <h6>6. REACT // 1234%</h6>
+                    <h6>7. JavaScript // 1234%</h6>
+                    <h6>8. C# // 1234%</h6>
+                    <h6>9. Lua // 1234%</h6>
+                    <h6>10. Ruby // 1234%</h6>
+                    <h6>11. Other // 1234%</h6>
                 </div>
             </div>
-
-
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Any comments?</h5>
+                <button ng-click="results2 = !results2" style="display:inline;">View Results</button>
+                <div ng-show="results2">
+                    <p>30 days closer to a year of at least 1 commit per day!</p>
+                    <p>No</p>
+                    <p>When the site is done, it'll be www.justwriteit.net</p>
+                    <p>Hi Scott et al!</p>
+                    <p>PUMPED.</p>
+                    <p>This was an awesome experience, the only issue I had was a vacation I took at the end of it where I didn't have computer access and I felt bad about that.</p>
+                    <p>I have a baby due Sept. 15, so I might have to go off the grid near the end of this.</p>
+                    <p>I'm really open to suggestions if python isn't that great of a choice! Peers in my cohort are saying maybe try C instead, but since Python is a higher language and I'm still a beginner and doing classwork I figure I should stick with
+                        the easier one to understand.</p>
+                    <p>I sometimes fall asleep at my computer.</p>
+                    <p>Team Ida!</p>
+                    <p>I'm super rusty!</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 
 
     <div>
-
         <h3>Sprint 3 Check In</h3>
         <p>How are things going for you?</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
         <button ng-click="responses1 = !responses1">VIEW RESPONSES</button>
-        </br><br />
+        <br/><br/>
 
         <div ng-show="responses1">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Are you happy with your progress?</h5>
-                        <button ng-click="results3 = !results3">view results</button>
-                        <div ng-show="results3">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Have any blockers?</h5>
-                        <button ng-click="results4 = !results4">view results</button>
-                        <div ng-show="results4">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>If so, what are they?</h5>
-                    <button ng-click="results5 = !results5">view results</button>
-                    <div ng-show="results5">
-                        <p>I'm stifled by the fear of failure</p>
-                        <p>I've been working for hours and I can't figure this specific thing out. I'll talk to someone</p>
-                        <p>My cat needed the cuddles!</p>
-                        <p>Lost my computer</p>
-                    </div>
+                <h5 style="display:inline;font-weight:bold;">Are you happy with your progress?</h5>
+                <button ng-click="results3 = !results3" style="display:inline;">View Results</button>
+                <div ng-show="results3">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 1234%</h6>
                 </div>
             </div>
-
-
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Have any blockers?</h5>
+                <button ng-click="results4 = !results4" style="display:inline;">View Results</button>
+                <div ng-show="results4">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 1234%</h6>
+                </div>
+            </div>
+            <div>
+                <h5 style="display:inline;font-weight:bold;">If so, what are they?</h5>
+                <button ng-click="results5 = !results5" style="display:inline;">View Results</button>
+                <div ng-show="results5">
+                    <p>I'm stifled by the fear of failure</p>
+                    <p>I've been working for hours and I can't figure this specific thing out. I'll talk to someone</p>
+                    <p>My cat needed the cuddles!</p>
+                    <p>Lost my computer</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 
 
     <div>
-
         <h3>Sprint 3 Ending</h3>
         <p>It's the end of the Sprint!</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
@@ -132,60 +100,44 @@
 
         <div ng-show="responses2">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Do you feel like you gained something from this sprint?</h5>
-                        <button ng-click="results6 = !results6">view results</button>
-                        <div ng-show="results6">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Plan on joining the next sprint?</h5>
-                        <button ng-click="results7 = !results7">view results</button>
-                        <div ng-show="results7">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Thinking about it // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>Any comments?</h5>
-                    <button ng-click="results8 = !results8">view results</button>
-                    <div ng-show="results8">
-                      <p>Bring... It... On...</p>
-                      <p>I am part of Theresa's linus team</p>
-                      <p>2nd time through should be better</p>
-                      <p>new to Git and GitHub!</p>
-                      <p>I recently graduated from Prime and am neck deep in the job search.</p>
-                      <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
-                    </div>
+                <h5 style="display:inline;font-weight:bold;">Do you feel like you gained something from this sprint?</h5>
+                <button ng-click="results6 = !results6" style="display:inline;">View Results</button>
+                <div ng-show="results6">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 1234%</h6>
                 </div>
             </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Plan on joining the next sprint?</h5>
+                <button ng-click="results7 = !results7" style="display:inline;">View Results</button>
+                <div ng-show="results7">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Thinking about it // 1234%</h6>
+                </div>
+            </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Any comments?</h5>
+                <button ng-click="results8 = !results8" style="display:inline;">View Results</button>
+                <div ng-show="results8">
+                    <p>Bring... It... On...</p>
+                    <p>I am part of Theresa's linus team</p>
+                    <p>2nd time through should be better</p>
+                    <p>new to Git and GitHub!</p>
+                    <p>I recently graduated from Prime and am neck deep in the job search.</p>
+                    <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 
 
     <div>
-
         <h3>Sprint 4 Registration</h3>
         <p>Time to register for Sprint 4!</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
@@ -194,141 +146,110 @@
 
         <div ng-show="responses3">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>What kind of language are you interested in learning?</h5>
-                        <button ng-click="results9 = !results9">view results</button>
-                        <div ng-show="results9">
-                            <h6>1. Java // 35%</h6>
-                            <h6>2. iOS // 47%</h6>
-                            <h6>3. PHP // 1234%</h6>
-                            <h6>4. Python // 1234%</h6>
-                            <h6>5. .NET // 1234%</h6>
-                            <h6>6. REACT // 1234%</h6>
-                            <h6>7. JavaScript // 1234%</h6>
-                            <h6>8. C# // 1234%</h6>
-                            <h6>9. Lua // 1234%</h6>
-                            <h6>10. Ruby // 1234%</h6>
-                            <h6>11. Other // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>Any comments?</h5>
-                    <button ng-click="results10 = !results10">view results</button>
-                    <div ng-show="results10">
-                        <p>Not at the moment. If I think of anything I'll DM you, Scott!</p>
-                        <p>It's hard to be a saint in the city.</p>
-                        <p>30 days closer to a year of at least 1 commit per day!</p>
-                        <p>No</p>
-                        <p>When the site is done, it'll be www.justwriteit.net</p>
-                        <p>Hi Scott et al!</p>
-                        <p>PUMPED.</p>
-                        <p>This was an awesome experience, the only issue I had was a vacation I took at the end of it where I didn't have computer access and I felt bad about that.</p>
-                        <p>I have a baby due Sept. 15, so I might have to go off the grid near the end of this.</p>
-                        <p>I'm really open to suggestions if python isn't that great of a choice! Peers in my cohort are saying maybe try C instead, but since Python is a higher language and I'm still a beginner and doing classwork I figure I should stick with the easier one to understand.</p>
-                        <p>I sometimes fall asleep at my computer.</p>
-                        <p>Team Ida!</p>
-                        <p>I'm super rusty!</p>
-                        <p>I'm 7 hours ahead in Paris. I'll try not to wake you.</p>
-                        <p>Not at the moment</p>
-                        <p>Team Linus</p>
-                        <p>Team linus!</p>
-                        <p>I appreciate you organizing this!</p>
-                        <p>I use my github account for work, so it will probably skew my results. not sure if this is an issue, or if you can separate commits to my own vs star tribune repos?</p>
-                        <p>Bring... It... On...</p>
-                        <p>I am part of Theresa's linus team</p>
-                        <p>2nd time through should be better</p>
-                        <p>new to Git and GitHub!</p>
-                        <p>I recently graduated from Prime and am neck deep in the job search.</p>
-                        <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
-                        <p>*clap clap clap clap clap*</p>
-                        <p>I'm just looking to stay motivated and to keep learning!</p>
-                        <p>I'm in Denver, and I'll be visiting MN during the first few days of the state fair, but I'll still try and get at least a small commit each day!</p>
-                        <p>Thanks for building the structure for this challenge!</p>
-                        <p>If there's still room. I know I'm late to the party. ;-)</p>
-                    </div>
+                <h5 style="display:inline;font-weight:bold;">What kind of language are you interested in learning?</h5>
+                <button ng-click="results9 = !results9" style="display:inline;">View Results</button>
+                <div ng-show="results9">
+                    <h6>1. Java // 35%</h6>
+                    <h6>2. iOS // 47%</h6>
+                    <h6>3. PHP // 1234%</h6>
+                    <h6>4. Python // 1234%</h6>
+                    <h6>5. .NET // 1234%</h6>
+                    <h6>6. REACT // 1234%</h6>
+                    <h6>7. JavaScript // 1234%</h6>
+                    <h6>8. C# // 1234%</h6>
+                    <h6>9. Lua // 1234%</h6>
+                    <h6>10. Ruby // 1234%</h6>
+                    <h6>11. Other // 1234%</h6>
                 </div>
             </div>
 
-
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Any comments?</h5>
+                <button ng-click="results10 = !results10" style="display:inline;">View Results</button>
+                <div ng-show="results10">
+                    <p>Not at the moment. If I think of anything I'll DM you, Scott!</p>
+                    <p>It's hard to be a saint in the city.</p>
+                    <p>30 days closer to a year of at least 1 commit per day!</p>
+                    <p>No</p>
+                    <p>When the site is done, it'll be www.justwriteit.net</p>
+                    <p>Hi Scott et al!</p>
+                    <p>PUMPED.</p>
+                    <p>This was an awesome experience, the only issue I had was a vacation I took at the end of it where I didn't have computer access and I felt bad about that.</p>
+                    <p>I have a baby due Sept. 15, so I might have to go off the grid near the end of this.</p>
+                    <p>I'm really open to suggestions if python isn't that great of a choice! Peers in my cohort are saying maybe try C instead, but since Python is a higher language and I'm still a beginner and doing classwork I figure I should stick with
+                        the easier one to understand.</p>
+                    <p>I sometimes fall asleep at my computer.</p>
+                    <p>Team Ida!</p>
+                    <p>I'm super rusty!</p>
+                    <p>I'm 7 hours ahead in Paris. I'll try not to wake you.</p>
+                    <p>Not at the moment</p>
+                    <p>Team Linus</p>
+                    <p>Team linus!</p>
+                    <p>I appreciate you organizing this!</p>
+                    <p>I use my github account for work, so it will probably skew my results. not sure if this is an issue, or if you can separate commits to my own vs star tribune repos?</p>
+                    <p>Bring... It... On...</p>
+                    <p>I am part of Theresa's linus team</p>
+                    <p>2nd time through should be better</p>
+                    <p>new to Git and GitHub!</p>
+                    <p>I recently graduated from Prime and am neck deep in the job search.</p>
+                    <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
+                    <p>*clap clap clap clap clap*</p>
+                    <p>I'm just looking to stay motivated and to keep learning!</p>
+                    <p>I'm in Denver, and I'll be visiting MN during the first few days of the state fair, but I'll still try and get at least a small commit each day!</p>
+                    <p>Thanks for building the structure for this challenge!</p>
+                    <p>If there's still room. I know I'm late to the party. ;-)</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 
 
     <div>
-
         <h3>Sprint 4 Check In</h3>
         <p>How are things going for you?</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
         <button ng-click="responses4 = !responses4">VIEW RESPONSES</button>
         </br><br />
-
         <div ng-show="responses4">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Are you happy with your progress?</h5>
-                        <button ng-click="results11 = !results11">view results</button>
-                        <div ng-show="results11">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 12%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Have any blockers?</h5>
-                        <button ng-click="results12 = !results12">view results</button>
-                        <div ng-show="results12">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 12%</h6>
-                        </div>
-                    </div>
-            </div>
-
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>If so, what are they?</h5>
-                    <button ng-click="results13 = !results13">view results</button>
-                    <div ng-show="results13">
-                        <p>I'm stifled by the fear of failure</p>
-                        <p>I've been working for hours and I can't figure this specific thing out. I'll talk to someone</p>
-                        <p>My cat needed the cuddles!</p>
-                        <p>Lost my computer</p>
-                    </div>
-
+                <h5 style="display:inline;font-weight:bold;">Are you happy with your progress?</h5>
+                <button ng-click="results11 = !results11" style="display:inline;">View Results</button>
+                <div ng-show="results11">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 12%</h6>
                 </div>
             </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Have any blockers?</h5>
+                <button ng-click="results12 = !results12" style="display:inline;">View Results</button>
+                <div ng-show="results12">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 12%</h6>
+                </div>
+            </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">If so, what are they?</h5>
+                <button ng-click="results13 = !results13" style="display:inline;">View Results</button>
+                <div ng-show="results13">
+                    <p>I'm stifled by the fear of failure</p>
+                    <p>I've been working for hours and I can't figure this specific thing out. I'll talk to someone</p>
+                    <p>My cat needed the cuddles!</p>
+                    <p>Lost my computer</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 
 
     <div>
-
         <h3>Sprint 4 End</h3>
         <p>It's the end of the Sprint!</p>
         <button ng-click="setActive(survey)">SET AS ACTIVE SURVEY</button>
@@ -337,55 +258,40 @@
 
         <div ng-show="responses5">
             <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Do you feel like you gained something from this sprint?</h5>
-                        <button ng-click="results14 = !results14">view results</button>
-                        <div ng-show="results14">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Indifferent // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4</h4>
-                    <div>
-
-                        <h5>Plan on joining the next sprint?</h5>
-                        <button ng-click="results15 = !results15">view results</button>
-                        <div ng-show="results15">
-                            <h6>1. Yes // 35%</h6>
-                            <h6>2. No // 47%</h6>
-                            <h6>3. Thinking about it // 1234%</h6>
-                        </div>
-                    </div>
-            </div>
-
-            <div>
-                <h4 style="cursor: pointer;"></h4>
-                <div>
-                    <h5>Any comments?</h5>
-                    <button ng-click="results16 = !results16">view results</button>
-                    <div ng-show="results16">
-                      <p>I recently graduated from Prime and am neck deep in the job search.</p>
-                      <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
-                      <p>*clap clap clap clap clap*</p>
-                      <p>I'm just looking to stay motivated and to keep learning!</p>
-                      <p>I'm in Denver, and I'll be visiting MN during the first few days of the state fair, but I'll still try and get at least a small commit each day!</p>
-                      <p>Thanks for building the structure for this challenge!</p>
-                      <p>If there's still room. I know I'm late to the party. ;-)</p>
-                    </div>
+                <h5 style="display:inline;font-weight:bold;">Do you feel like you gained something from this sprint?</h5>
+                <button ng-click="results14 = !results14" style="display:inline;">View Results</button>
+                <div ng-show="results14">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Indifferent // 1234%</h6>
                 </div>
             </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Plan on joining the next sprint?</h5>
+                <button ng-click="results15 = !results15" style="display:inline;">View Results</button>
+                <div ng-show="results15">
+                    <h6>1. Yes // 35%</h6>
+                    <h6>2. No // 47%</h6>
+                    <h6>3. Thinking about it // 1234%</h6>
+                </div>
+            </div>
 
+            <div>
+                <h5 style="display:inline;font-weight:bold;">Any comments?</h5>
+                <button ng-click="results16 = !results16" style="display:inline;">View Results</button>
+                <div ng-show="results16">
+                    <p>I recently graduated from Prime and am neck deep in the job search.</p>
+                    <p>I've had other obligations since finishing Prime and haven't done much coding, but I'm excited to get back into it and get back in the job search.</p>
+                    <p>*clap clap clap clap clap*</p>
+                    <p>I'm just looking to stay motivated and to keep learning!</p>
+                    <p>I'm in Denver, and I'll be visiting MN during the first few days of the state fair, but I'll still try and get at least a small commit each day!</p>
+                    <p>Thanks for building the structure for this challenge!</p>
+                    <p>If there's still room. I know I'm late to the party. ;-)</p>
+                </div>
+            </div>
             </br>
             </br>
-
-
         </div>
     </div>
 </div>
