@@ -3,39 +3,6 @@ var myApp = angular.module("myApp", ["ngRoute", "firebase", "xeditable"]);
 myApp.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider) {
 
     $routeProvider
-        .when('/home', {
-            templateUrl: '/views/partials/home.html',
-            controller: 'HomeController'
-        })
-        .when('/registration', {
-            templateUrl: '/views/partials/registration.html',
-            controller: 'RegistrationController',
-            resolve: {
-              'currentAuth': ['AuthFactory', '$http', '$location', function(AuthFactory, $http, $location){
-
-                var auth = AuthFactory;
-                auth.$onAuthStateChanged(function(user) {
-                    var theUser = user;
-
-                    //     $http.get('/userData', {params:{db:'users'}}).then(function(data){
-                    //       // console.log('this is the data:', data);
-                    //       data.data.forEach(function(member){
-                    //       if(theUser == null || user.email == member.email){
-                    //         // console.log('this is the member:', member);
-                    //         if(member.auth_level == 33){
-                    //             $location.path('/registration');//allow them access to this route
-                    //         }else{
-                    //             $location.path('/survey');    //redirect user to home.
-                    //         }
-                    //       }
-                    //
-                    //     });
-                    // });
-                });
-                return AuthFactory.$requireSignIn();
-              }]
-            }
-        })
         .when('/invite', {
             templateUrl: '/views/partials/invite.html',
             controller: 'InviteController',
