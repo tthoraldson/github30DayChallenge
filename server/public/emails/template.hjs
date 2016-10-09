@@ -1442,7 +1442,7 @@ body.outlook p {
                                   <table>
                                     <tr>
                                       <th>
-                                        <h5>Join the next sprint:</h5>
+                                        <h5>Take our survey:</h5>
                                         <!-- <table class="menu vertical" style="color: #000000;"> -->
                                           <tr>
                                                   <th style="text-align: center; color: #000000;" class="menu-item float-center"><button style="color: #000000;"><a href="http://localhost:5000/#/survey" target="_blank" style="color: #000000; text-decoration: none;">Click here to join the next Sprint!</a></button></th>
