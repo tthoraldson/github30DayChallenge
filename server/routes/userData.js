@@ -862,110 +862,137 @@ function scrapeUserSprint(){
     var sitepage = null;
     var phInstance = null;
 
-    phantom.create()
-        .then(instance => {
-            phInstance = instance;
-            return instance.createPage();
-        })
-        .then(page => {
-            sitepage = page;
-            return page.open('https://github.com/users/' + githubUname + '/contributions');
-        })
-        .then(status => {
-            //console.log(status);
-            return sitepage.property('content');
-        })
-        .then(content => {
-            swagArray = content.split('\n');
+    if (githubUname !== undefined){
+      phantom.create()
+          .then(instance => {
+              phInstance = instance;
+              return instance.createPage();
+          })
+          .then(page => {
+              sitepage = page;
+              return page.open('https://github.com/users/' + githubUname + '/contributions');
+          })
+          .then(status => {
+              //console.log(status);
+              return sitepage.property('content');
+          })
+          .then(content => {
+              swagArray = content.split('\n');
 
-            var tempArray = [];
-            swagArray.forEach(function(line) {
-                if (line.substring(11, 14) == "rec") {
-                    var templine = line.substring(84);
-                    var templine2 = ""
-                    if (templine[0] == 'c') {
-                        templine = templine.substring(1);
-                    } else if (templine[0] == '-') {
-                        templine = templine.substring(2);
-                    } else if (templine[0] == 'a') {
-                        templine = templine.substring(3);
-                    }
+              var tempArray = [];
+              swagArray.forEach(function(line) {
+                  if (line.substring(11, 14) == "rec") {
+                      var templine = line.substring(84);
+                      var templine2 = ""
+                      if (templine[0] == 'c') {
+                          templine = templine.substring(1);
+                      } else if (templine[0] == '-') {
+                          templine = templine.substring(2);
+                      } else if (templine[0] == 'a') {
+                          templine = templine.substring(3);
+                      }
 
-                    templine = templine.substring(6); // commits
-                    templine2 = templine.substring(14, 24); // date
-                    templine = templine[0];
-                    tempArray.push({
-                        data: templine,
-                        date: templine2
-                    });
-              }
-          });
+                      templine = templine.substring(6); // commits
+                      templine2 = templine.substring(14, 24); // date
+                      templine = templine[0];
+                      tempArray.push({
+                          data: templine,
+                          date: templine2
+                      });
+                }
+            });
 
-          // finds the data matching today's date!
+            // finds the data matching today's date!
 
-          var foundObjectsArray = []
-          tempSprintDates.forEach(function(datee){
-            var tempFoundObject = tempArray.find(function(entry){ return entry.date === datee});
-            //console.log(tempFoundObject)
-            foundObjectsArray.push(tempFoundObject);
-          });
-          foundObjectsArray.forEach(function(cat, index){
-            if (cat == undefined){
-              foundObjectsArray.splice(index, 1);
-              console.log('there was an error with this date')
-            } else {
-              // finds out how many commits the user made, saves as a boolean (true / false)
+            var foundObjectsArray = []
+            tempSprintDates.forEach(function(datee){
+              var tempFoundObject = tempArray.find(function(entry){ return entry.date === datee});
+              //console.log(tempFoundObject)
+              foundObjectsArray.push(tempFoundObject);
+            });
+            foundObjectsArray.forEach(function(cat, index){
+              if (cat == undefined){
+                foundObjectsArray.splice(index, 1);
+                console.log('there was an error with this date')
+              } // else {
+              //   // finds out how many commits the user made, saves as a boolean (true / false)
+              //   var tempBoolean;
+              //   if (cat.data > 0){
+              //     tempBoolean = true;
+              //   } else {
+              //     tempBoolean = false;
+              //   }
+              //   cat.data = tempBoolean;
+              // }
+            });
+
+            foundObjectsArray.forEach(function(entry){
               var tempBoolean;
-              if (cat.data > 0){
+              if (entry.data > 0){
                 tempBoolean = true;
               } else {
                 tempBoolean = false;
               }
-              cat.data = tempBoolean;
-            }
-          });
-          // console.log(githubUname + ': ');
-          // console.log(foundObjectsArray);
+              entry.data = tempBoolean;
+            })
 
-          
-          // if there is an error with phantom.js (error with the username)
-          // if (foundObject == undefined){
-          //   console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
-          // }
-          // posts information into server!!
-          // else {
-          //   console.log(githubUname + ': ' + foundObject.data);
+            foundObjectsArray.forEach(function(entry){
+              console.log(typeof(entry.data));
+            });
 
-            // post commit status for found user into sprint_data table
-            // pg.connect(connectionString, function(err, client, done) {
-            //     //console.log('Connecting to: ', connectionString);
-            //     if (err) {
-            //         res.sendStatus(500);
-            //         console.log("error" + err);
-            //     }
-            //
-            //     client.query("INSERT INTO s2_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
-            //         function(err, result) {
-            //             done();
-            //             if (err) {
-            //                 res.sendStatus(500);
-            //                 console.log('error: ', err);
-            //             }
-            //
-            //             console.log('sucussful post into table.');
-            //         })
-            // })
-          //}
+            var tempSQL = "INSERT INTO s2_data (github, date, commits) VALUES ";
 
-        }) // closes phantom session
-          .then(content => {
-              sitepage.close();
-              phInstance.exit();
-          }) // console logs error if found and closes phantom session
-          .catch(error => {
-              console.log(error);
-              phInstance.exit()
-          })
+            foundObjectsArray.forEach(function(entry, index){
+              if (index === 0){
+                var tempString = "('" + githubUname + "', '" + entry.date + "', '" + entry.data + "')";
+                tempSQL = tempSQL + tempString;
+              } else {
+                var tempString = ", ('" + githubUname + "', '" + entry.date + "', '" + entry.data + "')";
+                tempSQL = tempSQL + tempString;
+              }
+            });
+
+            //console.log('\n' + tempSQL);
+
+            // if there is an error with phantom.js (error with the username)
+            // if (foundObject == undefined){
+            //   console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
+            // }
+            // posts information into server!!
+            // else {
+            //   console.log(githubUname + ': ' + foundObject.data);
+
+              // post commit status for found user into sprint_data table
+              pg.connect(connectionString, function(err, client, done) {
+                  //console.log('Connecting to: ', connectionString);
+                  if (err) {
+                      res.sendStatus(500);
+                      console.log("error" + err);
+                  }
+
+                  client.query(tempSQL, [],
+                      function(err, result) {
+                          done();
+                          if (err) {
+                              res.sendStatus(500);
+                              console.log('error: ', err);
+                          }
+
+                          console.log('sucussful post into table.');
+                      })
+              })
+            //}
+
+          }) // closes phantom session
+            .then(content => {
+                sitepage.close();
+                phInstance.exit();
+            }) // console logs error if found and closes phantom session
+            .catch(error => {
+                console.log(error);
+                phInstance.exit()
+            })
+        }
   // Increases i by one, continues to the next username
   i++;
 
