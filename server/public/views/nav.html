@@ -9,8 +9,8 @@
         <!-- <h1 id="siteTitle">Commitment</h1> -->
         <div id="logoWords">Commitment</div>
         <img id="logo" ng-src="../styles/images/demdots2.png"/>
-        <!-- ng-if="currentUser.authLevel == 33" -->
-        <div class="topNavContainer">
+        <!-- ng-if="currentUser.authLevel == 33"    ng-if="user.auth_level == 33"-->
+        <div class="topNavContainer" ng-if="currentUser == 33">
             <a href="#data"><div class="topNavButton dashButton" ng-if="user">Dash</div></a>
             <a href="#forms"><div class="topNavButton adminButton" ng-if="user">Admin</div></a>
         </div>
