@@ -94,10 +94,12 @@
         </div>
     </div>
 
+    <div class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</div>
+    <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
+
     <div class="createNewSurvey" ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</div>
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
 
-    <div class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</div>
-    <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
+
 
 </div>
