@@ -120,7 +120,7 @@ var transporter = nodemailer.createTransport('smtps://githubchallenge%40gmail.co
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: '"GitHub Overlord 👥" <githubchallenge@gmail.com>', // sender address
+    from: '"Commitment | Github Challenge" <githubchallenge@gmail.com>', // sender address
     to: emailObj.sendAddress, // list of receivers
     subject: emailObj.subject, // Subject line
     text: '', // plaintext body
