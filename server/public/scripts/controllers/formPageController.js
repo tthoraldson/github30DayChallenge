@@ -28,7 +28,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $http.get('/newRoute/users').then(function(data){
           $scope.userData = data.data
         })
-
+        
         console.log('updated ', user.display_name, "'s auth_level")
       });
     }
@@ -253,17 +253,18 @@ $scope.isActive10 = !$scope.isActive10;
 
     }
 
-    $scope.emailPop = function(){
-      console.log('this is emailSent before change:', $scope.emailSent);
-      $scope.emailSent = true;
-      console.log('this is emailSent after change:', $scope.emailSent);
-      var timer = setTimeout(showChanger, 3000);
-      function showChanger(){
-        $scope.$apply(function() {
-            $scope.emailSent = false;
-        });
-      }
-    }
+    //EMAIL POP OUT TRIAL - NOT WORKING
+    // $scope.emailPop = function(){
+    //   console.log('this is emailSent before change:', $scope.emailSent);
+    //   $scope.emailSent = true;
+    //   console.log('this is emailSent after change:', $scope.emailSent);
+    //   var timer = setTimeout(showChanger, 3000);
+    //   function showChanger(){
+    //     $scope.$apply(function() {
+    //         $scope.emailSent = false;
+    //     });
+    //   }
+    // }
 
 
     // getData('users').then(function(data) {
