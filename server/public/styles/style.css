@@ -491,13 +491,100 @@ h1 {
     text-align: center;
 }
 
+/*=====TEMP ACTIVE EMAIL SELECTORS======*/
 
+.active {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
 
+.active1 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active2 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active3 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active4 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active5 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active6 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active7 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active8 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active9 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
+
+.active10 {
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 150px;
+  padding: 3.5px;
+  margin: 0;
+}
 
 /*==========NAV BUTTONS========*/
 
 .tabBar {
-    background-color: black;
+    background-color: #1A1A1A;
     /*display: inline-block;*/
     width: 100%;
     height: 30px;

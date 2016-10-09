@@ -37,8 +37,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.userData = [];
     $scope.sprint2Data = [];
 
-    $scope.activeEmail = false;
-
     $scope.captainArray = [{
       member_name: 'Drew'
 
@@ -142,12 +140,67 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.emailInfo = {};
     $scope.emails = '';
 
+
+    $scope.isActive = false;
+    $scope.activeButton = function() {
+    $scope.isActive = !$scope.isActive;
+  }
+
+  $scope.isActive1 = false;
+  $scope.activeButton1 = function() {
+  $scope.isActive1 = !$scope.isActive1;
+  }
+
+  $scope.isActive2 = false;
+  $scope.activeButton2 = function() {
+  $scope.isActive2 = !$scope.isActive2;
+}
+
+$scope.isActive3 = false;
+$scope.activeButton3 = function() {
+$scope.isActive3 = !$scope.isActive3;
+}
+
+$scope.isActive4 = false;
+$scope.activeButton4 = function() {
+$scope.isActive4 = !$scope.isActive4;
+}
+
+$scope.isActive5 = false;
+$scope.activeButton5 = function() {
+$scope.isActive5 = !$scope.isActive5;
+}
+
+$scope.isActive6 = false;
+$scope.activeButton6 = function() {
+$scope.isActive6 = !$scope.isActive6;
+}
+
+$scope.isActive7 = false;
+$scope.activeButton7 = function() {
+$scope.isActive7 = !$scope.isActive7;
+}
+
+$scope.isActive8 = false;
+$scope.activeButton8 = function() {
+$scope.isActive8 = !$scope.isActive8;
+}
+
+$scope.isActive9 = false;
+$scope.activeButton9 = function() {
+$scope.isActive9 = !$scope.isActive9;
+}
+
+$scope.isActive10 = false;
+$scope.activeButton10 = function() {
+$scope.isActive10 = !$scope.isActive10;
+}
+
     var emailArray = [];
 
     $scope.addEmail = function(email) {
         var checker;
         emailArray.forEach(function(addedEmail, index) {
-        $scope.activeEmail = true;
             if (addedEmail == email) {
                 checker = index;
             }
