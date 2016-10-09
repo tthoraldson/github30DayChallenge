@@ -629,6 +629,12 @@ h1 {
     background-color: #45AA9E;
 }
 
+/*.topNavContainer a:active {
+    color: white;
+    font-weight: bold;
+    background-color: #45AA9E;
+}*/
+
 .topNavButton {
     margin: 0 auto;
     border: .5px solid black;
