@@ -474,6 +474,10 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                  return  {unique:tempBool, index:counter};
 
                }
+
+               $scope.reload = function(location){
+                 $route.reload();
+               }
                               $scope.showData = function(team){
                                 switch(team){
                                   case '2All':
