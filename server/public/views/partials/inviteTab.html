@@ -94,11 +94,11 @@
         </div>
     </div>
 
-    <button class="createNewSurvey" ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</button>
+    <div class="createNewSurvey" ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</div>
     <div ng-show="dynamicForm_container" class="dynamicForm_container" ng-include="'/views/partials/dynamicForm.html'"></div><br />
 
 
-    <button class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</button>
+    <div class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</div>
     <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
 
 </div>
