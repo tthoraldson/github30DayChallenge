@@ -171,6 +171,34 @@ router.get('/usernames', function(req, res) {
     });
 });
 
+router.post('/today', function(req, res, next) {
+  pg.connect(connectionString, function(err, client, done) {
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
+
+        client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the current sprint...')
+                    console.log('error: ', err);
+                }
+                //console.log(result.rows);
+                sprint = result.rows[0].sprint_name
+                console.log('sprint: ', sprint);
+                tempStartDate = result.rows[0].start_date;
+                // req.tableData = sprint + "_data";
+                // req.tableTeams = sprint + "_teams";
+                next();
+              }
+            );
+      });
+});
+
 // UPDATE TODAY'S COMMIT STATUS
 router.post('/today', function(req, res) {
 
@@ -183,7 +211,7 @@ router.post('/today', function(req, res) {
           }
 
           // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
-          client.query("DELETE FROM s2_data WHERE date=$1", [getDate()],
+          client.query("DELETE FROM " + sprint + "_data WHERE date=$1", [getDate()],
               function(err, result) {
                   done();
                   if (err) {
@@ -200,7 +228,7 @@ router.post('/today', function(req, res) {
                               console.log("error");
                           }
 
-                          client.query("SELECT github FROM s2_teams",
+                          client.query("SELECT github FROM " + sprint + "_teams",
                               function(err, result) {
                                   done();
                                   if (err) {
@@ -219,6 +247,35 @@ router.post('/today', function(req, res) {
 });
 
 // UPDATE TODAY'S COMMIT STATUS
+router.post('/yesterday', function(req, res, next) {
+  pg.connect(connectionString, function(err, client, done) {
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
+
+        client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the current sprint...')
+                    console.log('error: ', err);
+                }
+                //console.log(result.rows);
+                sprint = result.rows[0].sprint_name
+                console.log('sprint: ', sprint);
+                tempStartDate = result.rows[0].start_date;
+                // req.tableData = sprint + "_data";
+                // req.tableTeams = sprint + "_teams";
+                next();
+              }
+            );
+      });
+});
+
+
 router.post('/yesterday', function(req, res) {
 
   // DELETES ALL ROWS
@@ -230,7 +287,7 @@ router.post('/yesterday', function(req, res) {
           }
 
           // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
-          client.query("DELETE FROM s2_data WHERE date=$1", [getYesterdaysDate()],
+          client.query("DELETE FROM " + sprint + "_data WHERE date=$1", [getYesterdaysDate()],
               function(err, result) {
                   done();
                   if (err) {
@@ -247,7 +304,7 @@ router.post('/yesterday', function(req, res) {
                               console.log("error");
                           }
 
-                          client.query("SELECT github FROM s2_teams",
+                          client.query("SELECT github FROM " + sprint + "_teams",
                               function(err, result) {
                                   done();
                                   if (err) {
@@ -266,6 +323,35 @@ router.post('/yesterday', function(req, res) {
 });
 
 // UPDATE TODAY'S COMMIT STATUS
+router.post('/sprint', function(req, res, next) {
+  pg.connect(connectionString, function(err, client, done) {
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
+
+        client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the current sprint...')
+                    console.log('error: ', err);
+                }
+                //console.log(result.rows);
+                sprint = result.rows[0].sprint_name
+                console.log('sprint: ', sprint);
+                tempStartDate = result.rows[0].start_date;
+                // req.tableData = sprint + "_data";
+                // req.tableTeams = sprint + "_teams";
+                next();
+              }
+            );
+      });
+});
+
+
 router.post('/sprint', function(req, res) {
   tempSprintDates = getSprintDates('2016-08-23');
 
@@ -278,7 +364,7 @@ router.post('/sprint', function(req, res) {
           }
 
           // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
-          client.query("DELETE FROM s2_data WHERE date IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30)",
+          client.query("DELETE FROM " + sprint + "_data WHERE date IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30)",
           [tempSprintDates[0],
           tempSprintDates[1],
           tempSprintDates[2],
@@ -325,7 +411,7 @@ router.post('/sprint', function(req, res) {
                               console.log("error");
                           }
 
-                          client.query("SELECT github FROM s2_teams",
+                          client.query("SELECT github FROM " + sprint + "_teams",
                               function(err, result) {
                                   done();
                                   if (err) {
@@ -713,7 +799,7 @@ function scrapeUserToday(){
                     console.log("error" + err);
                 }
 
-                client.query("INSERT INTO s2_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
+                client.query("INSERT INTO " + sprint + "_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
                     function(err, result) {
                         done();
                         if (err) {
@@ -820,7 +906,7 @@ function scrapeUserYesterday(){
                     console.log("error" + err);
                 }
 
-                client.query("INSERT INTO s2_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
+                client.query("INSERT INTO " + sprint + "_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
                     function(err, result) {
                         done();
                         if (err) {
@@ -940,7 +1026,7 @@ function scrapeUserSprint(){
               console.log(typeof(entry.data));
             });
 
-            var tempSQL = "INSERT INTO s2_data (github, date, commits) VALUES ";
+            var tempSQL = "INSERT INTO " + sprint + "_data (github, date, commits) VALUES ";
 
             foundObjectsArray.forEach(function(entry, index){
               if (index === 0){
