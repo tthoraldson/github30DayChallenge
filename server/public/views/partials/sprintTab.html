@@ -37,13 +37,15 @@
             </div>
         </div>
     </div>
+    <div class="confirmButton">Launch</div>
+    <div class="confirmButton">Cancel</div>
 
 
   </div>
 
     <div id="noSprintActive">
-       <button ng-click="showSprintMaker = !showSprintMaker"> Team Builder </button>
-       <button ng-click="sprintOverview = !sprintOverview"> Launch Sprint </button>
+       <div class="confirmButton" ng-click="showSprintMaker = !showSprintMaker"> Team Builder </div>
+       <div class="confirmButton" ng-click="sprintOverview = !sprintOverview"> Launch Sprint </div>
 
 
  </div>
@@ -135,7 +137,7 @@
             <h2><label for="columns">How Many Teams?</label></h2>
             <span class="teamInputButton">
           <input type="number" min="1" max="2000" class="teamNumInput" name="teamNumInput" ng-model="number.teams" />
-          <button class="genTeamNameButton" ng-click="genName(number.teams)">Generate Names</button>
+          <div class="confirmButton" ng-click="genName(number.teams)">  Generate Names  </div>
         </span>
         </form>
 

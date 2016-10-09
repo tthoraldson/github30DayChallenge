@@ -7,11 +7,11 @@
         <h2>Active Survey: {{activeSurvey.form_title}}</h2>
         <!-- <p>Sprint #4 Registeration </p> -->
         <p style="display:inline;">81/112 submited</p>
-        <button class="activeSurveyResultButton" ng-click="results = !results">View Results</button>
+        <div class="confirmButton" ng-click="results = !results">View Results</div>
         <br/>
         <br/>
         <div ng-show="results">
-            <div ng-click="question1 = !question1" class="questionText" style="font-weight:bold;">What language are you focusing on this sprint?</div>
+            <div ng-click="question1 = !question1" class="questionText" style="font-weight:bold; cursor: pointer;">What language are you focusing on this sprint?</div>
             <div ng-show="question1" class="resultText">
 
                 <div class="col1">Java: 21%</div>
@@ -26,7 +26,7 @@
             </div>
             <br/>
             <br/>
-            <div ng-click="question3 = !question3" class="questionText" style="font-weight:bold;">How much time a day on average did you spend on your previous git challenge?</div>
+            <div ng-click="question3 = !question3" class="questionText" style="font-weight:bold; cursor: pointer;">How much time a day on average did you spend on your previous git challenge?</div>
             <div ng-show="question3">
 
               <div class="col1"> 2+ hours 12%</div>
@@ -36,7 +36,7 @@
             </div>
             <br/>
             <br/>
-            <div ng-click="question2 = !question2" class="questionText" style="font-weight:bold;">Any comments on your previous sprint experience?</div>
+            <div ng-click="question2 = !question2" class="questionText" style="font-weight:bold; cursor: pointer;">Any comments on your previous sprint experience?</div>
             <div ng-show="question2">
 
 
