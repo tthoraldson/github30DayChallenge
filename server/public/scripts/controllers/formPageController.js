@@ -236,10 +236,30 @@ $scope.isActive10 = !$scope.isActive10;
         $scope.emailInfo.emails = emailFunction($scope.userData, $scope.emailInfo);
     };
 
-
+    $scope.emailSent = false;
     var getData = UserFactory.getData();
 
     $scope.email = EmailFactory.sendEmail();
+
+    $scope.sendEmail = function(emailObj){
+      $scope.email(emailObj);
+      $scope.emailInfo = {};
+      $scope.emailForm.$setPristine(); //TODO: fix weird error?
+      $scope.emailForm.$setUntouched();
+
+    }
+
+    $scope.emailPop = function(){
+      console.log('this is emailSent before change:', $scope.emailSent);
+      $scope.emailSent = true;
+      console.log('this is emailSent after change:', $scope.emailSent);
+      var timer = setTimeout(showChanger, 3000);
+      function showChanger(){
+        $scope.$apply(function() {
+            $scope.emailSent = false;
+        });
+      }
+    }
 
 
     // getData('users').then(function(data) {
