@@ -27,9 +27,7 @@
             <div id="{{object.planet}}" droppable="true" class="teamNameRow" ng-repeat="object in showNames track by $index" ng-class-odd="'oddMemList'" style="width:99%;margin:0;">
                 <p editable-text="object.planet" onaftersave="updateTeamName(object.planet)" style="width:30%;display:inline-block;color:black;border-bottom:none;">{{object.planet}}</p>
                 <div class="team divcolumn" style="width: 30%;">
-                    <div>{{object.captain}}
-                        <button ng-click="deleteCaptain(object)" ng-if="object.captain != 'no captain'">X</button>
-                    </div>
+                    <div>{{object.captain}}</div>
                 </div>
                 <div class="member divcolumn" style="width: 30%;">
                     <div>{{object.team.length}}</div>
