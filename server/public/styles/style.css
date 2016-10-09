@@ -153,6 +153,7 @@ main * {
     display: inline-block;
     background-color: #07AA9E;
     opacity: 0.40;
+    cursor: pointer;
 }
 
 .activeMemberTab {
@@ -161,6 +162,7 @@ main * {
     text-align: center;
     display: inline-block;
     background-color: #07AA9E;
+    cursor: pointer;
 }
 
 .sprintTab {
@@ -297,6 +299,7 @@ h3 {
 
 .iconCol {
     width: 3.5%;
+    cursor: pointer;
 }
 
 .memTitle {
@@ -426,19 +429,20 @@ h1 {
     top: 420px;
     width: 100%;
     display: block;
+    overflow: scroll;
     /*right: 0;*/
 }
 
 .sprint_option {
   /*position: absolute;*/
   /*left: 0;*/
+  padding-top: 5px;
   width: 100%;
     /*height: 50px;*/
-    border-color: #39787D;
-    border-width: 2px;
-    border-style: solid;
-    background-color: #DAE5E3;
-    text-align: center;
+  border-top: 1px solid black;
+  border-bottom: .5px solid black;
+  background-color: #DAE5E3;
+  text-align: center;
 }
 
 .emailForm {
@@ -594,10 +598,10 @@ h1 {
 /*==========CHARTMANDER========*/
 
 #chart {
-  position: absolute;
+    position: absolute;
     display: block;
     /*z-index: 999;*/
-    border: 1px solid black;
+    border: .5px solid black;
     left: 0;
     width: 100%;
     overflow-x: scroll;
