@@ -443,6 +443,7 @@ h1 {
   border-bottom: .5px solid black;
   background-color: #DAE5E3;
   text-align: center;
+  cursor: pointer;
 }
 
 .emailForm {
