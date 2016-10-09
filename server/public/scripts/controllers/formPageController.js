@@ -48,16 +48,12 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     {
       member_name: 'Adam'
 
-    },
-
+    }
 
   ];
 
-
     $scope.sprintOverview = false;
-
     $scope.surveyResults = false;
-
 
     var user = {
         data: []
