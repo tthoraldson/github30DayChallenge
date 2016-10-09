@@ -1,8 +1,10 @@
 <form class="emailForm">
-  <button ng-click="allEmails()">Send to all users</button>
-  <input ng-model="emailInfo.sendAddress" type="text" placeholder="email to send to" ng-value="emails"></input>
-  <input ng-model="emailInfo.subject" type="text" placeholder="subject"></input>
-  <textarea class="headerText" ng-model="emailInfo.header" type="text" placeholder="header"></textarea>
-  <textarea class="bodyText" ng-model="emailInfo.body" type="text" placeholder="body"></textarea>
-  <button type="submit" ng-click="email(emailInfo)">Send</button>
+    <label for="emails">To:</label>
+    <input ng-model="emailInfo.sendAddress" type="text" placeholder="email to send to" ng-value="emails"></input>
+    <input ng-model="emailInfo.subject" type="text" placeholder="Subject (Required)"></input>
+    <textarea class="headerText" ng-model="emailInfo.header" type="text" placeholder="Header Text (Required)"></textarea>
+    <textarea class="bodyText" ng-model="emailInfo.body" type="text" placeholder="body (required)"></textarea>
+    <button type="submit" ng-click="email(emailInfo)">Send</button>
+    <button ng-click="allEmails()">Send to all users</button>
+
 </form>
