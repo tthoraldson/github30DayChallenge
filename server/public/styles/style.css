@@ -492,6 +492,8 @@ h1 {
 }
 
 
+
+
 /*==========NAV BUTTONS========*/
 
 .tabBar {
@@ -544,6 +546,7 @@ h1 {
     text-align: center;
     font-size: 1.8em;
     font-weight: normal;
+    border-radius: 2.5px;
 
 }
 

@@ -37,6 +37,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.userData = [];
     $scope.sprint2Data = [];
 
+    $scope.activeEmail = false;
 
     $scope.captainArray = [{
       member_name: 'Drew'
@@ -146,7 +147,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.addEmail = function(email) {
         var checker;
         emailArray.forEach(function(addedEmail, index) {
-
+        $scope.activeEmail = true;
             if (addedEmail == email) {
                 checker = index;
             }
