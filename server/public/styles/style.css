@@ -72,12 +72,14 @@ height: 75px;
     width: 100%;
     margin: .2%;
     margin-top: .35%;
+    padding: 1%;
     text-align: center;
     display: inline-block;
     background-color: #07AA9E;
     cursor: pointer;
     border-radius: 2.5px;
     box-shadow: 2.5px 2.5px 2.5px grey;
+    font-weight: bold;
   }
 }
 
@@ -244,7 +246,7 @@ main * {
 
 #teamNameBox {
     border: thin solid #07AA9E;
-    background-color: #07AA9E;
+    /*background-color: #07AA9E;*/
     margin: 0;
 }
 
