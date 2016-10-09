@@ -254,7 +254,7 @@ main * {
   margin-top: .35%;
   text-align: center;
   display: inline-block;
-  background-color: #07AA9E;
+  background-color: lightgrey;
   cursor: pointer;
   border-radius: 2.5px;
   box-shadow: 2.5px 2.5px 2.5px grey;
@@ -277,7 +277,7 @@ main * {
   margin-top: .1%;
   text-align: center;
   display: inline-block;
-  background-color: #07AA9E;
+  background-color: lightgrey;
   cursor: pointer;
   border-radius: 2.5px;
 }
