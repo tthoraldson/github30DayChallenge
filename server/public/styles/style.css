@@ -27,6 +27,31 @@ height: 75px;
 /*opacity: .5;*/
 }
 
+.formCurrentTitle{
+  color: black;
+}
+
+.surveyTitle{
+  height: 40px;
+  width: 600px;
+  display: block;
+    padding-left: 10px;
+}
+
+.questionTitle{
+  height: 40px;
+  width: 600px;
+  display: block;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.surveyDescription{
+  height: 40px;
+  width: 600px;
+  display: block;
+  padding-left: 10px;
+}
 .popupBackground {
     position: fixed;
     width: 1000%;

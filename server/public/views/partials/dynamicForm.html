@@ -6,12 +6,12 @@
         <!-- <h5>TODO: add form options ie: 'start sprint/general survey && email '</h5> -->
         <br />
         <div class="questionTitleContainer">
-            <input class="questionTitle" type="text" placeholder="new question" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
+
             <label>Question Type: </label>
             <div class="confirmButton" ng-click="selectedDataType('checkBox')">Check-Box</div>
             <div class="confirmButton" ng-click="selectedDataType('multipleChoice')">Multiple Choice</div>
             <div class="confirmButton" ng-click="selectedDataType('shortAnswer')">Short Answer</div>
-
+              <input class="questionTitle" type="text" placeholder="new question" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
         </div>
         <br />
         <!-- shortanswer -->
@@ -54,8 +54,8 @@
 
     CURRENT FORM:
     <div class="currentForm">
-        <h1>{{newForm.title}}</h1>
-        <h4>{{newForm.description}}</h4>
+        <h1 class="formCurrentTitle">{{newForm.title}}</h1>
+        <h4 class="formDescTitle">{{newForm.description}}</h4>
         <div class="{{($index % 2) === 0 ? 'currentForm_title' : 'currentForm_title2'}}" ng-repeat="question in newForm.questions track by $index">
             {{question.title}}
             <div ng-if="question.type == 'checkbox'">
