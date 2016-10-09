@@ -8,9 +8,9 @@
         <div class="questionTitleContainer">
             <input class="questionTitle" type="text" placeholder="new question" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
             <label>Question Type: </label>
-            <button ng-click="selectedDataType('checkBox')">CheckBox</button>
-            <button ng-click="selectedDataType('multipleChoice')">MultipleChoice</button>
-            <button ng-click="selectedDataType('shortAnswer')">Short Answer</button>
+            <div class="confirmButton" ng-click="selectedDataType('checkBox')">CheckBox</div>
+            <div class="confirmButton" ng-click="selectedDataType('multipleChoice')">MultipleChoice</div>
+            <div class="confirmButton" ng-click="selectedDataType('shortAnswer')">Short Answer</div>
 
         </div>
         <br />
@@ -30,7 +30,7 @@
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.multipleChoice[$index].option" value="newSurveyQuestion.multipleChoice[$index].option" />
 
             </div>
-            <button ng-click="addOption()">Add New Option</button>
+            <div class="confirmButton" ng-click="addOption()">Add New Option</div>
         </div>
 
         <!-- checkbox -->
@@ -44,10 +44,10 @@
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.checkbox[$index].option" value="newSurveyQuestion.checkbox[$index].option" />
 
             </div>
-            <button ng-click="addOption()">Add New Option</button>
+            <div class="confirmButton" ng-click="addOption()">Add New Option</div>
         </div>
         <br />
-        <button ng-if="checkBox_selected || multipleChoice_selected || shortAnswer_selected" ng-click="addQuestion(newSurveyQuestion)">ADD QUESTION TO FORM</button>
+        <div class="confirmButton" ng-if="checkBox_selected || multipleChoice_selected || shortAnswer_selected" ng-click="addQuestion(newSurveyQuestion)">ADD QUESTION TO FORM</div>
 
     </form>
 
@@ -80,7 +80,7 @@
                 <input type = "text" class="formInput_shortAnswer" />
             </div>
         </div>
-        <button ng-click="submitForm(newForm)">Submit Form</button>
+        <div class="confirmButton" ng-click="submitForm(newForm)">Submit Form</div>
     </div>
 
 
