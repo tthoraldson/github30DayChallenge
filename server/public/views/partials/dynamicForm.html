@@ -21,30 +21,30 @@
 
         <!-- multiplechoice -->
         <div ng-if="multipleChoice_selected">
-            <label>desc: </label>
+            <p class="indexCounter">desc:</p>
             <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_MultiChoice" value="newSurveyQuestion.description_MultiChoice" />
 
             <div ng-repeat="option in newSurveyQuestion.multipleChoice track by $index">
-                {{$index + 1}}.
-                <input type="radio"></input>
+                <p class="indexCounter">{{$index + 1}}.<input class="inputButtonThing" type="radio"></input></p>
+
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.multipleChoice[$index].option" value="newSurveyQuestion.multipleChoice[$index].option" />
 
             </div>
-            <div class="confirmButton" ng-click="addOption()">New Option</div>
+            <div class="confirmButton newOption" ng-click="addOption()">New Option</div>
         </div>
 
         <!-- checkbox -->
         <div ng-if="checkBox_selected">
-            <label>desc: </label>
+            <p class="indexCounter">desc: </p>
             <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_Checkbox" value="newSurveyQuestion.description_Checkbox" />
 
             <div ng-repeat="option in newSurveyQuestion.checkbox track by $index">
-                {{$index + 1}}.
-                <input type="checkbox"></input>
+                <p class="indexCounter"> {{$index + 1}}.<input class="inputButtonThing"  type="checkbox"></input></p>
+
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.checkbox[$index].option" value="newSurveyQuestion.checkbox[$index].option" />
 
             </div>
-            <div class="confirmButton" ng-click="addOption()">New Choice</div>
+            <div class="confirmButton newOption" ng-click="addOption()">New Option</div>
         </div>
         <br />
         <div class="confirmButton" ng-if="checkBox_selected || multipleChoice_selected || shortAnswer_selected" ng-click="addQuestion(newSurveyQuestion)">ADD QUESTION TO FORM</div>

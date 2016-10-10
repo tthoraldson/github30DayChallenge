@@ -27,6 +27,25 @@ height: 75px;
 /*opacity: .5;*/
 }
 
+.formInput_option{
+  width: 150px;
+  height: 40px;
+}
+
+.indexCounter{
+  width: 50px;
+  padding-left: 10px;
+  display: inline-block;
+  padding-left: 10px;
+  font-size: 15px;
+}
+.inputButtonThing{
+  margin-left: 7px !important;
+}
+.choiceDescription{
+  width: 300px;
+  height: 40px;
+}
 .formCurrentTitle{
   color: black;
 }
@@ -417,6 +436,11 @@ h3 {
 .formInput_shortAnswer {
     width: 600px;
     height: 30px;
+    text-align: center;
+    height: 40px;
+    font-style: italic;
+    display: none;
+    /*background-color: slategrey;*/
 }
 
 .dynamicForm_history {
@@ -427,6 +451,9 @@ h3 {
     padding-bottom: 50px;
 }
 
+.newOption{
+  margin-left: 55px;
+}
 h3 {
     margin: 0;
 }
