@@ -325,6 +325,7 @@ main * {
   box-shadow: 2.5px 2.5px 2.5px grey;
   padding: .5%;
   white-space: nowrap;
+  font-size: 14px !important;
 }
 
 .confirmButton:hover {
