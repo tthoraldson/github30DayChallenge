@@ -47,7 +47,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     $scope.captainArray = [{
       member_name: 'Drew',
-      study: "C"
+      study: "C#"
 
     },
     {
