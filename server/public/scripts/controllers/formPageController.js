@@ -28,7 +28,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $http.get('/newRoute/users').then(function(data){
           $scope.userData = data.data
         })
-        
+
         console.log('updated ', user.display_name, "'s auth_level")
       });
     }
@@ -59,6 +59,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         data: []
     }
     $scope.showSprintMaker = false;
+    $scope.launchSprint = function(){
+      confirm("Ready for Launch?");
+    }
+
     $scope.creatingSprintButton = function() {
         $scope.showSprintMaker = true;
     }
