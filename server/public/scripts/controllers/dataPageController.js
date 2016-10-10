@@ -386,9 +386,17 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
 // Awful Toggle Button Code - so not DRY
+var colorArray =
+['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
+'#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
+'#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#1f655c',
+'#0bc1bc', '#bcbd22', '#dbdb8d','#17becf', '#9edae5'];
+
+
               function toggleButtonAll(){
                 if ($scope.dataIsShowingAll == false){
                   $scope.dataIsShowingAll = true;
+                  // console.log(this);
                 } else if ($scope.dataIsShowingAll == true) {
                    $scope.dataIsShowingAll = false;
                 }
@@ -475,6 +483,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
                }
 
+               $scope.currentAmountOfLines = 0;
                $scope.reload = function(location){
                  $route.reload();
                }

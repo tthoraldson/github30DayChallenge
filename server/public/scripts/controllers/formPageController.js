@@ -69,6 +69,10 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         data: []
     }
     $scope.showSprintMaker = false;
+    $scope.launchSprint = function(){
+      confirm("Ready for Launch?");
+    }
+
     $scope.creatingSprintButton = function() {
         $scope.showSprintMaker = true;
 
