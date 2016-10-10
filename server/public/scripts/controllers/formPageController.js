@@ -28,7 +28,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $http.get('/newRoute/users').then(function(data){
           $scope.userData = data.data
         })
-        
+
         console.log('updated ', user.display_name, "'s auth_level")
       });
     }
@@ -36,6 +36,14 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.tab = 1;
     $scope.userData = [];
     $scope.sprint2Data = [];
+
+
+    //temp date thing:
+    $scope.date;
+    $scope.sendDate = function(date){
+      $scope.date = date;
+      console.log('this is the date', date);
+    }
 
     $scope.captainArray = [{
       member_name: 'Drew'
@@ -52,6 +60,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
   ];
 
+
+
     $scope.sprintOverview = false;
     $scope.surveyResults = false;
 
@@ -61,6 +71,7 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.showSprintMaker = false;
     $scope.creatingSprintButton = function() {
         $scope.showSprintMaker = true;
+
     }
 
     $scope.newButton = function(){
