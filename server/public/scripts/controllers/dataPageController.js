@@ -6,7 +6,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$location", 'AuthFac
     // counter for tabbed html views in main pages
     function test(){
 
-    $http.post('/userData/sprint', {uname: 'andrewwiskus', date: '2016-08-27'}).then(function(data){
+    $http.post('/userData/', {uname: 'andrewwiskus', date: '2016-08-27'}).then(function(data){
       console.log('this is the 30 days of commit data after 2016-08-27', data.data)
       });
     }

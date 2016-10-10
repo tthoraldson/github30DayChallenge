@@ -6,7 +6,8 @@ var connectionString = 'postgres://localhost:5432/github_challenge';
 
 // CREATE NEW SPRINT TABLES!!!!
 router.post('/create', function (req, res) {
-  var sprintId = req.body.sprintId;
+  var sprintName = req.body.sprintName;
+  var startDate = styleDate(req.body.sprintDate);
   console.log(sprintName);
 
   pg.connect(connectionString, function (err, client, done) {
@@ -15,9 +16,30 @@ router.post('/create', function (req, res) {
       res.sendStatus(500);
     }
 
-    client.query('CREATE TABLE ' + sprintId + ' ' + '_data' +
+    client.query('INSERT INTO sprint_history (sprint_name, start_date, currentsprint) VALUES (' + sprintName + ', ' + sprintDate + ', FALSE)',
+                function (err, result) {
+                  done();
+
+                  if (err) {
+                    console.log(err);
+                    res.sendStatus(500);
+                  }
+
+                  res.sendStatus(201);
+                });
+  });
+
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+
+    client.query('CREATE TABLE ' + sprintName + ' ' + '_data' +
                 '(' +
-                'githubUsername varchar(50)' +
+                'github varchar(50),' +
+                'date varchar(12)' +
+                'commits boolean' +
                 ')',
                 function (err, result) {
                   done();
@@ -38,7 +60,7 @@ router.post('/create', function (req, res) {
       res.sendStatus(500);
     }
 
-    client.query('CREATE TABLE ' + sprintId + ' ' + '_teams' +
+    client.query('CREATE TABLE ' + sprintName + ' ' + '_teams' +
                 '(' +
                 'id SERIAL PRIMARY KEY,' +
                 'github varchar(50),' +
@@ -56,8 +78,54 @@ router.post('/create', function (req, res) {
                 });
   });
 });
-// });
 
+router.post('/currentSprint', function(req, res) {
+  pg.connect(connectionString, function(err, client, done) {
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
+
+        client.query("SELECT sprint_name from sprint_history WHERE currentSprint=TRUE",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the current sprint...')
+                    console.log('error: ', err);
+                }
+
+                res.sendStatus(201);
+                return result.rows[0];
+              }
+            );
+      });
+});
+
+router.post('/allSprints', function(req, res) {
+  pg.connect(connectionString, function(err, client, done) {
+        // console.log('Connecting to: ', connectionString);
+        if (err) {
+            res.sendStatus(500);
+            console.log("error");
+        }
+
+        client.query("SELECT * from sprint_history",
+            function(err, result) {
+                done();
+                if (err) {
+                    res.sendStatus(500);
+                    console.log('error grabbing the sprint history...')
+                    console.log('error: ', err);
+                }
+
+                res.sendStatus(201);
+                return result.rows[0];
+              }
+            );
+      });
+});
 
 
 module.exports = router;
