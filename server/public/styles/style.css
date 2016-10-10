@@ -9,8 +9,9 @@
 
 #logoWords{
 font-family: 'crapaud_petit', sans-serif;
-font-size: 300%;
+font-size: 14px;
 color: white;
+font-weight: bold;
 /*font-weight: bold;*/
 position: absolute;
 top: 40px;
@@ -20,10 +21,11 @@ left: 70px;
 }
 
 #logo{
-margin-left: 0;
-margin-bottom: 0;
-width: 75px;
-height: 75px;
+margin-left: 20px;
+/*margin-bottom: 10px;*/
+margin-top: 21px;
+width: 30px;
+height: 30px;
 /*opacity: .5;*/
 }
 
@@ -223,6 +225,14 @@ main * {
     cursor: pointer;
 }
 
+.sprintLaunch{
+    display: block;
+  width: 100%;
+  margin: auto;
+
+
+}
+
 .activeMemberTab {
     width: 45%;
     margin: 2%;
@@ -230,12 +240,19 @@ main * {
     display: inline-block;
     background-color: #07AA9E;
     cursor: pointer;
+    /*color: white;*/
 }
 
 .sprintTab {
   color: black;
   cursor: pointer;
   border-radius: 2.5px;
+  width: 210px !important;
+  margin-top: 10px;
+  height: 25px;
+  padding-top: 2px;
+  /*font-weight: bold;*/
+
 }
 
 .sprintTab:hover {
@@ -255,7 +272,9 @@ main * {
     text-align: center;
     display: inline-block;
     background-color: #07AA9E;
-    opacity: 0.40;
+    border: 1px solid white;
+    /*opacity: 0.40;*/
+    color: white;
 }
 
 .notActiveTab {

@@ -43,8 +43,7 @@
   </div>
 
     <div id="noSprintActive">
-       <div class="confirmButton" ng-click="showSprintMaker = !showSprintMaker"> Team Builder </div>
-       <div class="confirmButton" ng-click="sprintOverview = !sprintOverview; sendDate(date)"> Launch Sprint </div>
+       <!-- <div class="confirmButton" ng-click="showSprintMaker = !showSprintMaker"> Team Builder </div> -->
 
 
  </div>
@@ -60,7 +59,7 @@
 
 
 
-    <div ng-if="showSprintMaker == true">
+    <!-- <div ng-if="showSprintMaker == true"> -->
 
       <!-- Captains Table -->
       <h2 class="tableTitle" width="100%">Captians</h2>
@@ -292,6 +291,8 @@
             </div>
         </div>
         <br/>
+        <div class="confirmButton sprintLaunch" ng-click="sprintOverview = !sprintOverview; sendDate(date)"> Launch Sprint </div>
+
     </div>
     <!-- <i class="fa fa-github" aria-hidden="true"></i> -->
 </div>
