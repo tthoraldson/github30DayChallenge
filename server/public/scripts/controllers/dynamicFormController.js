@@ -73,8 +73,8 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
     $scope.newSurveyQuestion = {
         title: "",
-        description_MultiChoice: "Choose Best Answer:",
-        description_Checkbox: "Choose All That Apply:",
+        description_MultiChoice: "Choose All That Apply:",
+        description_Checkbox: "Choose Best Answer:",
         multipleChoice: [{
             check: false,
             option: ""
