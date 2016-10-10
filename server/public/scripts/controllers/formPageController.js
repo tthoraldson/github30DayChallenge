@@ -22,14 +22,17 @@ myApp.directive('droppable', function() {
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
+    $scope.showEmail = false;
     $scope.tab = 1;
     $scope.userData = [];
+    $scope.sprint2Data = [];
+    $scope.captainArray = [];
     var user = {
         data: []
     }
     $scope.showSprintMaker = false;
-    $scope.creatingSprintButton = function(){
-      $scope.showSprintMaker = true;
+    $scope.creatingSprintButton = function() {
+        $scope.showSprintMaker = true;
     }
     $scope.genName = function(input) {
         // console.log(input);
@@ -49,20 +52,20 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
             // console.log(randomNumber);
         }
     }
-
-    $scope.updateTeamName = function(name) {
-        //eventually we can cute up this confirm box, see details in updatePerson()
-        if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart the whole process.\n\n\n")) {
-            $http.put('/userData/teamname', {
-                    oldData: name,
-                    newData: this.$data
-                })
-                // this.$data send to put request, make sure it updates the correct person
-        } else {
-            // we don't want this to refresh bc it will reset the whole random name pull
-            // $route.reload();
-        }
-    }
+    // we aren't updating team names... there is no database for this
+    // $scope.updateTeamName = function(name) {
+    //     //eventually we can cute up this confirm box, see details in updatePerson()
+    //     if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart restore previous settings.\n\n\n")) {
+    //         $http.put('/userData/teamname', {
+    //                 oldData: name,
+    //                 newData: this.$data
+    //             })
+    //             // this.$data send to put request, make sure it updates the correct person
+    //     } else {
+    //         // we don't want this to refresh bc it will reset the whole random name pull
+    //         // $route.reload();
+    //     }
+    // }
 
     $scope.updatePerson = function(user) {
         console.log('UPDATING NAME TO: ', this.$data);
@@ -84,8 +87,8 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         // };
 
         if (confirm("Are you Sure you want to Change this Info?\n\n\n")) {
-            $http.put('/userData/username', {
-                    oldData: user,
+            $http.put('/userData/teamname', {
+                    oldData: user.id,
                     newData: this.$data
                 })
                 // this.$data send to put request, make sure it updates the correct person
@@ -147,11 +150,6 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     var getData = UserFactory.getData();
 
-    getData('users').then(function(data) {
-        // console.log(data);
-        $scope.userData = data;
-    });
-
     $scope.email = EmailFactory.sendEmail();
 
 
@@ -160,6 +158,17 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         $scope.userData = data;
         // $scope.userData.push(data);
         console.log("$scope.userData in getUsers(): ", $scope.userData);
+    });
+
+    getData('sprint2').then(function(data) {
+        // console.log(data);
+        $scope.sprint2Data = data;
+        for (i = 0; i < $scope.sprint2Data.length; i++) {
+            if ($scope.sprint2Data[i].member_score == 100) {
+                $scope.captainArray.push($scope.sprint2Data[i]);
+            }
+        }
+        // console.log("Captains: ", $scope.captainArray);
     });
 
 
@@ -215,21 +224,46 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                                 $scope.userData.splice(i, 1);
                             }
                         })
+                        $scope.sprint2Data.forEach(function(user, i) {
+
+                            if (user.member_name == dataText) {
+                                $scope.sprint2Data.splice(i, 1);
+                            }
+
+                    })
                     }
                 }
             })
         });
     };
 
+    // $scope.deleteCaptain = function(object) {
+    //     getData('users').then(function(userz) {
+    //         var tempUserz = userz;
+    //         // console.log(userz);
+    //         tempUserz.forEach(function(theUser) {
+    //             // console.log(theUser, object.captain);
+    //
+    //             if (theUser.display_name == object.captain) {
+    //                 $scope.userData.push(theUser);
+    //             }
+    //         })
+    //         $scope.showNames.forEach(function(planet, i) {
+    //             if (object.planet == planet.planet) {
+    //                 $scope.showNames[i].captain = 'no captain';
+    //             }
+    //         })
+    //     })
+    // }
     $scope.deleteCaptain = function(object) {
-        getData('users').then(function(userz) {
+        getData('sprint2').then(function(userz) {
             var tempUserz = userz;
             // console.log(userz);
             tempUserz.forEach(function(theUser) {
                 // console.log(theUser, object.captain);
 
-                if (theUser.display_name == object.captain) {
-                    $scope.userData.push(theUser);
+                if (theUser.member_name == object.captain) {
+                    $scope.sprint2Data.push(theUser);
                 }
             })
             $scope.showNames.forEach(function(planet, i) {

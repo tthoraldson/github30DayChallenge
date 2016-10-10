@@ -1,4 +1,4 @@
-myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', function($scope, $http, $location, AuthFactory, UserFactory) {
+myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'AuthFactory', 'UserFactory', 'FormFactory', function($scope, $http, $location, AuthFactory, UserFactory, FormFactory) {
     // console.log("DynamicFormController works");
     $scope.formHistory = [];
     $scope.activeSurvey;
@@ -34,17 +34,27 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
                     $scope.activeSurvey = tempArray;
                     }
               })
-
-
-
-
           })
-
-
 
       });
     }
     findActive();
+
+
+    var formData = FormFactory.allFormData();
+    formData.then(function(data){
+      console.log('HEYEYEYEYYEYE', data);
+    })
+
+    var formResults = FormFactory.updateFormResults();
+    formResults([2,4]).then(function(data){
+      var responses = FormFactory.formResponses();
+      console.log('this is the shit:', responses);
+    })
+
+
+
+
 
     $scope.newForm = {
         formDBref: 0,
@@ -53,14 +63,14 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         questions: []
     }
 
-    //
+
     $scope.surveyTitle = {
         formDBref: 0,
         title: "",
         description: ""
     };
 
-    //
+
     $scope.newSurveyQuestion = {
         title: "",
         description_MultiChoice: "Choose Best Answer:",
@@ -76,12 +86,16 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         shortAnswer: ""
     };
 
-    //
+
     $scope.shortAnswer_selected = false;
     $scope.multipleChoice_selected = false;
     $scope.checkBox_selected = false;
 
-
+    $scope.activeSurveyResponses = [{
+        question: "titletest",
+        options: [],
+        answers: [],
+    }]
     // resets displayed form on button push
     function resetForm() {
         $scope.shortAnswer_selected = false;

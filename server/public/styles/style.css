@@ -26,11 +26,19 @@ main * {
     background-color: #DAE5E3;
     margin: auto;
     height: 100%;
+    padding: 20px;
     /*overflow-y: scroll;*/
 }
 
 .editable-buttons button {
-  display: none;
+    display: none;
+}
+
+.currentSprint {
+    margin-left: 30px;
+    margin-top: 30px;
+    display: inline-block;
+    width: 90%;
 }
 
 
@@ -39,10 +47,28 @@ main * {
 .teamNameForm {
     margin: 0 auto;
     padding: .5%;
-    border: medium solid teal;
+    /*border: medium solid teal;*/
+    background-color: hsla(176, 26%, 70%, .5)
     padding-bottom: 2%;
     padding-top: 2%;
     /*display: inline-block;*/
+}
+.membertabSprint{
+  width: 45%;
+  margin: 2%;
+  text-align: center;
+
+  display: inline-block;
+  background-color: #07AA9E;
+  opacity: 0.40;
+}
+.activeMemberTab{
+  width: 45%;
+  margin: 2%;
+  text-align: center;
+
+  display: inline-block;
+  background-color: #07AA9E;
 }
 
 .teamNameForm label {
@@ -51,17 +77,21 @@ main * {
     margin: 0 auto;
     /*display: inline;*/
 }
-.teamNameForm span {
-  display: block;
-}
 
+.teamNameForm span {
+    display: block;
+}
+.memRow{
+  height: 50px;
+  padding-top: 15px;
+}
 .teamHeader {
-  padding: 0;
-  border-bottom: thin dotted teal;
+    padding: 0;
+    border-bottom: thin dotted teal;
 }
 
 #teamNameBox {
-  border: thin dotted teal;
+    border: thin dotted teal;
 }
 
 .editable {
@@ -79,7 +109,7 @@ main * {
 }
 
 .genTeamNameButton {
-  display: inline;
+    display: inline;
 }
 
 
@@ -311,65 +341,67 @@ h1 {
     color: black;
 }
 
+
 /*===========FIRST LOG IN QUESTIONS============*/
 
 .popOut {
-  z-index: 900;
-  position: fixed;
-  top: 0;
-  left: -1px;
-  background: rgba(0,0,0,0.7);
-  width: 100%;
-  height: 100%;
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: -1px;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
 }
 
 .exitFullscreen {
-  font: 200 20px/145px Helvetica;
-  text-align: center;
-  text-transform: uppercase;
-  color: white;
-  position: fixed;
-  margin: 0 auto;
-  padding: 0 auto;
-  top: 10%;
-  left: 10%;
-  z-index: 1000;
-  -webkit-transform: translate(-50%, -50%);
-  outline: none;
-  cursor: pointer;
+    font: 200 20px/145px Helvetica;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    position: fixed;
+    margin: 0 auto;
+    padding: 0 auto;
+    top: 10%;
+    left: 10%;
+    z-index: 1000;
+    -webkit-transform: translate(-50%, -50%);
+    outline: none;
+    cursor: pointer;
 }
 
 .questionsBox {
-  border: 1px solid white;
-  background-color: #fff;
-  text-align: center;
-  width: 50%;
-  /*height: 50%;*/
-  z-index: 999;
-  margin: 0 auto;
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  /*margin-left: 325px;*/
-  /*top: -50px;*/
+    border: 1px solid white;
+    background-color: #fff;
+    text-align: center;
+    width: 50%;
+    /*height: 50%;*/
+    z-index: 999;
+    margin: 0 auto;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    /*margin-left: 325px;*/
+    /*top: -50px;*/
 }
 
 .firstLogTitle {
-  /*position: absolute;*/
-  display: block;
-  text-align: center;
-  /*margin: 0 auto;*/
+    /*position: absolute;*/
+    display: block;
+    text-align: center;
+    /*margin: 0 auto;*/
 }
 
 .firstLogQuestion {
-  /*position: absolute;*/
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  /*top: 50%;
+    /*position: absolute;*/
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /*top: 50%;
   left: 35%;*/
 }
+
 
 /*==========ICONS========*/
 
@@ -400,7 +432,7 @@ h1 {
 }
 
 path {
-    stroke: #39787D;
+    /*stroke: #39787D;*/
     stroke-width: 2;
     fill: none;
 }
@@ -411,20 +443,6 @@ path {
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
-
-
-/*div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 60px;
-    height: 28px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-}*/
-
 
 /*data tabs trial*/
 

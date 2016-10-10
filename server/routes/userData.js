@@ -13,13 +13,13 @@ var tempSprintDates;
 
 router.get('/', function(req, res) {
 
-    console.log("The database name: ", req.query);
+    //console.log("The database name: ", req.query);
 
     pg.connect(connectionString, function(err, client, done) {
-        console.log('Start!');
+        //console.log('Start!');
         if (err) {
             res.sendStatus(500);
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
         }
 
         var thequery =
@@ -31,12 +31,12 @@ router.get('/', function(req, res) {
                 done(); //closes connection, I only can have ten :
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
                     return;
                 }
-                // console.log('result: ', result.rows);
+                // //console.log('result: ', result.rows);
 
-                console.log('GET REQ: grabbing ' + req.query.db + ' table from db')
+                //console.log('GET REQ: grabbing ' + req.query.db + ' table from db')
                 res.send(result.rows)
             })
     });
@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
 
 // POST USER URL AND OTHER FIREBAUSE AUTH INFORMATION ON FIRST TIME LOGGIN
 router.post('/', function(req, res) {
-    // console.log();
+    // //console.log();
 
     var swagArray = [];
     var sitepage = null;
@@ -63,7 +63,7 @@ router.post('/', function(req, res) {
             return page.open('https://api.github.com/user/' + usernumber);
         })
         .then(status => {
-            // console.log(status);
+            // //console.log(status);
 
             return sitepage.property('content');
         })
@@ -71,13 +71,13 @@ router.post('/', function(req, res) {
             swagArray = content.split('\n');
 
             var tempArray = [];
-            // console.log(swagArray[6].substring(15, swagArray[6].length - 2));
+            // //console.log(swagArray[6].substring(15, swagArray[6].length - 2));
 
             pg.connect(connectionString, function(err, client, done) {
-                console.log('Start!');
+                //console.log('Start!');
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
                 }
 
                 var user = req.body;
@@ -90,12 +90,12 @@ router.post('/', function(req, res) {
                         done(); //closes connection, I only can have ten :
                         if (err) {
                             res.sendStatus(500);
-                            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
+                            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
                             return;
                         }
-                        // console.log('result: ', result.rows);
+                        // //console.log('result: ', result.rows);
 
-                        console.log('GET REQ: insert to users complete]')
+                        //console.log('GET REQ: insert to users complete]')
                         res.send(result.rows)
                     })
 
@@ -107,25 +107,25 @@ router.post('/', function(req, res) {
             });
         })
         .then(content => {
-            // console.log(swagArray[1]);
+            // //console.log(swagArray[1]);
             sitepage.close();
             phInstance.exit();
         })
         .catch(error => {
-            console.log(error);
+            //console.log(error);
             phInstance.exit()
         })
 });
 
 router.post('/', function(req, res) {
     // INSERT INTO QUESTIONS TABLE
-    console.log('THIS IS THE DATA', req.body);
+    //console.log('THIS IS THE DATA', req.body);
 
     pg.connect(connectionString, function(err, client, done) {
-        console.log('Start!');
+        //console.log('Start!');
         if (err) {
             res.sendStatus(500);
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, pg.connect", err, "\n \n \n \n");
         }
 
         var thequery =
@@ -137,12 +137,12 @@ router.post('/', function(req, res) {
                 done(); //closes connection, I only can have ten :
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in POST, client.query: ", err, "\n \n \n \n");
                     return;
                 }
-                // console.log('result: ', result.rows);
+                // //console.log('result: ', result.rows);
 
-                console.log('POST COMPLETE: INSERTED QUESTIONS TO DB')
+                //console.log('POST COMPLETE: INSERTED QUESTIONS TO DB')
             })
     });
 });
@@ -152,10 +152,10 @@ router.post('/', function(req, res) {
 // GET ALL GITHUB USERNAMES FROM DB
 router.get('/usernames', function(req, res) {
     pg.connect(connectionString, function(err, client, done) {
-        console.log('Start!');
+        //console.log('Start!');
         if (err) {
             res.sendStatus(500);
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
         }
 
         client.query('SELECT github_url FROM users',
@@ -163,7 +163,7 @@ router.get('/usernames', function(req, res) {
                 done();
                 if (err) {
                     res.sendStatus(500);
-                    console.log('error: ', err);
+                    //console.log('error: ', err);
                     return;
                 }
                 res.send(result.rows)
@@ -204,10 +204,10 @@ router.post('/today', function(req, res) {
 
   // DELETES ALL ROWS
   pg.connect(connectionString, function(err, client, done) {
-          //console.log('Connecting to: ', connectionString);
+          ////console.log('Connecting to: ', connectionString);
           if (err) {
               res.sendStatus(500);
-              console.log("error");
+              //console.log("error");
           }
 
           // DELETE ALL COLUMNS WHERE THE DATE == TODAY'S DATE
@@ -216,16 +216,16 @@ router.post('/today', function(req, res) {
                   done();
                   if (err) {
                       res.sendStatus(500);
-                      console.log('error deleting rows with today\'s date in the database')
-                      console.log('error: ', err);
+                      //console.log('error deleting rows with today\'s date in the database')
+                      //console.log('error: ', err);
                   }
                   // resets the loop going through each user in the database!
                   i = 0;
                   pg.connect(connectionString, function(err, client, done) {
-                          console.log('Connecting to: ', connectionString);
+                          //console.log('Connecting to: ', connectionString);
                           if (err) {
                               res.sendStatus(500);
-                              console.log("error");
+                              //console.log("error");
                           }
 
                           client.query("SELECT github FROM " + sprint + "_teams",
@@ -233,10 +233,10 @@ router.post('/today', function(req, res) {
                                   done();
                                   if (err) {
                                       res.sendStatus(500);
-                                      console.log('error grabbing usernames from teams table...')
-                                      console.log('error: ', err);
+                                      //console.log('error grabbing usernames from teams table...')
+                                      //console.log('error: ', err);
                                   }
-                                  //console.log(result.rows);
+                                  ////console.log(result.rows);
                                   results = result.rows;
                                   timer = setInterval(scrapeUserToday, 5000);
 
@@ -276,7 +276,21 @@ router.post('/yesterday', function(req, res, next) {
 });
 
 
+<<<<<<< HEAD
 router.post('/yesterday', function(req, res) {
+=======
+    phantom.create()
+        .then(instance => {
+            phInstance = instance;
+            return instance.createPage();
+        })
+        .then(page => {
+            sitepage = page;
+            return page.open('https://github.com/users/' + githubUname + '/contributions');
+        })
+        .then(status => {
+            //console.log(status);
+>>>>>>> 0c6fe2d2223c538a434a414bf581fe8b3980c233
 
   // DELETES ALL ROWS
   pg.connect(connectionString, function(err, client, done) {
@@ -322,6 +336,7 @@ router.post('/yesterday', function(req, res) {
           });
 });
 
+<<<<<<< HEAD
 // UPDATE TODAY'S COMMIT STATUS
 router.post('/sprint', function(req, res, next) {
   pg.connect(connectionString, function(err, client, done) {
@@ -338,6 +353,13 @@ router.post('/sprint', function(req, res, next) {
                     res.sendStatus(500);
                     console.log('error grabbing the current sprint...')
                     console.log('error: ', err);
+=======
+            pg.connect(connectionString, function(err, client, done) {
+                //console.log('Connecting to: ', connectionString);
+                if (err) {
+                    res.sendStatus(500);
+                    //console.log("error");
+>>>>>>> 0c6fe2d2223c538a434a414bf581fe8b3980c233
                 }
                 //console.log(result.rows);
                 sprint = result.rows[0].sprint_name
@@ -352,6 +374,7 @@ router.post('/sprint', function(req, res, next) {
 });
 
 
+<<<<<<< HEAD
 router.post('/sprint', function(req, res) {
   tempSprintDates = getSprintDates('2016-08-23');
 
@@ -427,6 +450,29 @@ router.post('/sprint', function(req, res) {
                           });
                   });
           });
+=======
+                client.query("INSERT INTO sprint3 (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, foundObject.data],
+                    function(err, result) {
+                        done();
+                        if (err) {
+                            res.sendStatus(500);
+                            //console.log('error: ', err);
+                        }
+
+                        //console.log('');
+                        res.send(result.rows)
+                    })
+            })
+        })
+        .then(content => {
+            sitepage.close();
+            phInstance.exit();
+        })
+        .catch(error => {
+            //console.log(error);
+            phInstance.exit()
+        })
+>>>>>>> 0c6fe2d2223c538a434a414bf581fe8b3980c233
 });
 
 // GET ENTIRE SPRINT COMMITS!
@@ -513,7 +559,7 @@ router.post('/sprint', function(req, res) {
 
 // GET ENTIRE LAWN COMMITS!
 router.put('/lawn/update', function(req, res) {
-    console.log('THE REQ BOY', req.body);
+    //console.log('THE REQ BOY', req.body);
     var uname = req.body.github_url;
     var githubUname = uname.substring(19);
     var swagArray = [];
@@ -530,7 +576,7 @@ router.put('/lawn/update', function(req, res) {
             return page.open('https://github.com/users/' + githubUname + '/contributions');
         })
         .then(status => {
-            console.log(status);
+            //console.log(status);
 
             return sitepage.property('content');
         })
@@ -566,34 +612,34 @@ router.put('/lawn/update', function(req, res) {
             //
 
             pg.connect(connectionString, function(err, client, done) {
-                console.log('ITS HEREConnecting to: ', connectionString);
+                //console.log('ITS HEREConnecting to: ', connectionString);
                 if (err) {
                     res.sendStatus(500);
-                    console.log("error");
+                    //console.log("error");
                 }
 
                 // var user = req.body;
 
 
-                console.log('LINE 428!!!!')
+                //console.log('LINE 428!!!!')
                 client.query("DELETE FROM user_lawns WHERE github = " + "'" + githubUname + "'",
                     function(err, result) {
                         done();
                         if (err) {
                             res.sendStatus(500);
-                            console.log('error: ', err);
+                            //console.log('error: ', err);
                         }
 
-                        console.log('DELETED USER LAWN DATA');
+                        //console.log('DELETED USER LAWN DATA');
                         tempArray.forEach(function(commitObject) {
 
 
 
                             pg.connect(connectionString, function(err, client, done) {
-                                console.log('ADDING UPDATED USER LAWN DATA');
+                                //console.log('ADDING UPDATED USER LAWN DATA');
                                 if (err) {
                                     res.sendStatus(500);
-                                    console.log("error");
+                                    //console.log("error");
                                 }
 
                                 var user = req.body;
@@ -606,10 +652,10 @@ router.put('/lawn/update', function(req, res) {
                                         done();
                                         if (err) {
                                             res.sendStatus(500);
-                                            console.log('error: ', err);
+                                            //console.log('error: ', err);
                                         }
 
-                                        console.log('');
+                                        //console.log('');
                                         // res.send(result.rows)
                                     })
                             })
@@ -626,29 +672,30 @@ router.put('/lawn/update', function(req, res) {
             phInstance.exit();
         })
         .catch(error => {
-            console.log(error);
+            //console.log(error);
             phInstance.exit()
         })
 });
 
 router.put('/teamname', function(req, res) {
-    console.log("req sent for username update ", req.body);
+    //console.log("req sent for username update ", req.body);
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
             res.sendStatus(500);
         }
 
-        var queryString = 'UPDATE users SET display_name = $1 WHERE display_name = $2';
-        var refrenceValues = [req.body.oldData.display_name, req.body.newData ];
+        var queryString = 'UPDATE users SET display_name = $1 WHERE id = $2';
+        var refrenceValues = [req.body.newData, req.body.oldData];
         console.log("VAULE", refrenceValues);
+        // res.send(201);
         client.query(queryString, refrenceValues,
 
             function(err, result) {
                 done();
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
                     return;
                 }
                 res.sendStatus(200);
@@ -660,10 +707,10 @@ router.put('/teamname', function(req, res) {
 
 
 router.put('/username', function(req, res) {
-    console.log("req sent for teamname update ", req.body);
+    //console.log("req sent for teamname update ", req.body);
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
             res.sendStatus(500);
         }
 
@@ -676,7 +723,7 @@ router.put('/username', function(req, res) {
                 done();
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
                     return;
                 }
                 res.sendStatus(200);
@@ -687,14 +734,14 @@ router.put('/username', function(req, res) {
 
 
 router.put('/', function(req, res) {
-    console.log('this is the req:', req.body);
+    //console.log('this is the req:', req.body);
     var newEmail = req.body.email;
     var newName = req.body.name;
     var oldEmail = req.body.oldEmail;
 
     pg.connect(connectionString, function(err, client, done) {
         if (err) {
-            console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
+            //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, pg.connect", err, "\n \n \n \n");
             res.sendStatus(500);
         }
 
@@ -707,7 +754,7 @@ router.put('/', function(req, res) {
                 done();
                 if (err) {
                     res.sendStatus(500);
-                    console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
+                    //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in PUT, client.query: ", err, "\n \n \n \n");
                     return;
                 }
                 res.sendStatus(200);
@@ -743,7 +790,7 @@ function scrapeUserToday(){
             return page.open('https://github.com/users/' + githubUname + '/contributions');
         })
         .then(status => {
-            //console.log(status);
+            ////console.log(status);
             return sitepage.property('content');
         })
         .then(content => {
@@ -777,11 +824,11 @@ function scrapeUserToday(){
 
           // if there is an error with phantom.js (error with the username)
           if (foundObject == undefined){
-            console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
+            //console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
           }
           // posts information into server!!
           else {
-            console.log(githubUname + ': ' + foundObject.data);
+            //console.log(githubUname + ': ' + foundObject.data);
 
             // finds out how many commits the user made, saves as a boolean (true / false)
             var tempBoolean;
@@ -793,10 +840,10 @@ function scrapeUserToday(){
 
             // post commit status for found user into sprint_data table
             pg.connect(connectionString, function(err, client, done) {
-                //console.log('Connecting to: ', connectionString);
+                ////console.log('Connecting to: ', connectionString);
                 if (err) {
                     res.sendStatus(500);
-                    console.log("error" + err);
+                    //console.log("error" + err);
                 }
 
                 client.query("INSERT INTO " + sprint + "_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
@@ -804,10 +851,10 @@ function scrapeUserToday(){
                         done();
                         if (err) {
                             res.sendStatus(500);
-                            console.log('error: ', err);
+                            //console.log('error: ', err);
                         }
 
-                        console.log('sucussful post into table.');
+                        //console.log('sucussful post into table.');
                     })
             })
           }
@@ -818,7 +865,7 @@ function scrapeUserToday(){
               phInstance.exit();
           }) // console logs error if found and closes phantom session
           .catch(error => {
-              console.log(error);
+              //console.log(error);
               phInstance.exit()
           })
   // Increases i by one, continues to the next username
@@ -827,7 +874,7 @@ function scrapeUserToday(){
   // Clears interval if gone through all the results (usernames)
   if (i == results.length){
     clearInterval(timer);
-    console.log('GET TODAY complete.')
+    //console.log('GET TODAY complete.')
   }
 }
 
@@ -850,7 +897,7 @@ function scrapeUserYesterday(){
             return page.open('https://github.com/users/' + githubUname + '/contributions');
         })
         .then(status => {
-            //console.log(status);
+            ////console.log(status);
             return sitepage.property('content');
         })
         .then(content => {
@@ -884,11 +931,15 @@ function scrapeUserYesterday(){
 
           // if there is an error with phantom.js (error with the username)
           if (foundObject == undefined){
-            console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
+            //console.log('ERROR: the user ' + githubUname + ' has either changed their username, or deleted their account.')
           }
           // posts information into server!!
           else {
+<<<<<<< HEAD
             console.log(githubUname + ': ' + foundObject.data + ' ' + foundObject.date);
+=======
+            //console.log(githubUname + ': ' + foundObject.data);
+>>>>>>> 0c6fe2d2223c538a434a414bf581fe8b3980c233
 
             // finds out how many commits the user made, saves as a boolean (true / false)
             var tempBoolean;
@@ -900,10 +951,10 @@ function scrapeUserYesterday(){
 
             // post commit status for found user into sprint_data table
             pg.connect(connectionString, function(err, client, done) {
-                //console.log('Connecting to: ', connectionString);
+                ////console.log('Connecting to: ', connectionString);
                 if (err) {
                     res.sendStatus(500);
-                    console.log("error" + err);
+                    //console.log("error" + err);
                 }
 
                 client.query("INSERT INTO " + sprint + "_data (github, date, commits) VALUES ($1, $2, $3)", [githubUname, foundObject.date, tempBoolean],
@@ -911,10 +962,10 @@ function scrapeUserYesterday(){
                         done();
                         if (err) {
                             res.sendStatus(500);
-                            console.log('error: ', err);
+                            //console.log('error: ', err);
                         }
 
-                        console.log('sucussful post into table.');
+                        //console.log('sucussful post into table.');
                     })
             })
           }
@@ -925,7 +976,7 @@ function scrapeUserYesterday(){
               phInstance.exit();
           }) // console logs error if found and closes phantom session
           .catch(error => {
-              console.log(error);
+              //console.log(error);
               phInstance.exit()
           })
   // Increases i by one, continues to the next username
@@ -934,6 +985,7 @@ function scrapeUserYesterday(){
   // Clears interval if gone through all the results (usernames)
   if (i == results.length){
     clearInterval(timer);
+<<<<<<< HEAD
     console.log('GET YESTERDAY complete.')
   }
 }
@@ -1086,6 +1138,9 @@ function scrapeUserSprint(){
   if (i == results.length){
     clearInterval(timer);
     console.log('GET ENTIRE SPRINT complete.')
+=======
+    //console.log('GET TODAY complete.')
+>>>>>>> 0c6fe2d2223c538a434a414bf581fe8b3980c233
   }
 }
 
