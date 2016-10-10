@@ -46,15 +46,18 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     }
 
     $scope.captainArray = [{
-      member_name: 'Drew'
+      member_name: 'Drew',
+      study: "C"
 
     },
     {
-      member_name: 'Joe'
+      member_name: 'Joe',
+      study: "Python"
 
     },
     {
-      member_name: 'Adam'
+      member_name: 'Adam',
+      study: "Java"
 
     }
 
