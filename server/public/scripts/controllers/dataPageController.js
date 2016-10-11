@@ -16,7 +16,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$route", "$location"
     $scope.dataIsShowingNo = false;
 
 
-
+    $scope.colorArray = ["black", "black", "black", "black", "black", "black", "black", "black", "black", "black"];
     $scope.newButton2 = function(){
       $http.get('/newRoute/sprint2_data').then(function(data){
         console.log('data from sprint2', data);
@@ -29,7 +29,7 @@ myApp.controller("DataPageController", ["$scope", "$http", "$route", "$location"
 
 
 //5 players
-var deimos = {size: 5, team: "deimos", id: 1, array: [
+var deimos = {size: 5, team: "deimos", id: 1, isShowing: false, array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 4},
@@ -63,7 +63,7 @@ var deimos = {size: 5, team: "deimos", id: 1, array: [
       ]}
 
 //15 players
-var linus = {size: 15, team:"linus", id: 2, array: [
+var linus = {size: 15, team:"linus", id: 2, isShowing: false,  array: [
          {'day': 1, 'commit': 15},
          {'day': 2, 'commit': 15},
          {'day': 3, 'commit': 15},
@@ -98,7 +98,7 @@ var linus = {size: 15, team:"linus", id: 2, array: [
 
 
 //5 players
-var io = {size: 5, team: "io", id: 3, array: [
+var io = {size: 5, team: "io", id: 3, isShowing: false,  array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 5},
@@ -132,7 +132,7 @@ var io = {size: 5, team: "io", id: 3, array: [
       ]}
 
 //6 players
-var ida = {size: 6, team: "ida", id: 4, array: [
+var ida = {size: 6, team: "ida", id: 4, isShowing: false,  array: [
          {'day': 1, 'commit': 6},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 5},
@@ -166,7 +166,7 @@ var ida = {size: 6, team: "ida", id: 4, array: [
        ]}
 
  //5 players
- var gaspra = {size: 5, team: "gaspra", id: 5, array: [
+ var gaspra = {size: 5, team: "gaspra",  isShowing: false, id: 5, array: [
           {'day': 1, 'commit': 5},
           {'day': 2, 'commit': 5},
           {'day': 3, 'commit': 5},
@@ -201,7 +201,7 @@ var ida = {size: 6, team: "ida", id: 4, array: [
 
 
 //5 players
-var europa = {size: 5, team: "europa", id: 6, array: [
+var europa = {size: 5, team: "europa", id: 6,  isShowing: false,  array: [
          {'day': 1, 'commit': 5},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 4},
@@ -235,7 +235,7 @@ var europa = {size: 5, team: "europa", id: 6, array: [
        ]}
 
 //5 players
-var dactyl = {size: 5, team: "dactyl", id: 7, array: [
+var dactyl = {size: 5, team: "dactyl",  isShowing: false, id: 7, array: [
         {'day': 1, 'commit': 5},
         {'day': 2, 'commit': 5},
         {'day': 3, 'commit': 5},
@@ -269,7 +269,7 @@ var dactyl = {size: 5, team: "dactyl", id: 7, array: [
       ]}
 
 //5 players
-var eros = {size: 5, team: "eros", id: 8, array: [
+var eros = {size: 5, team: "eros",  isShowing: false, id: 8, array: [
          {'day': 1, 'commit': 4},
          {'day': 2, 'commit': 5},
          {'day': 3, 'commit': 5},
@@ -304,7 +304,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
  //25 players
- var noTeam = {size: 25, team: "noTeam", id: 9, array: [
+ var noTeam = {size: 25, team: "noTeam", isShowing: false,  id: 9, array: [
           {'day': 1, 'commit': 22},
           {'day': 2, 'commit': 21},
           {'day': 3, 'commit': 22},
@@ -342,7 +342,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
         //25 players
-        var sprint1Team = {size: 25, array: [
+        var sprint1Team = {size: 25, isShowing: false,  array: [
                  {'day': 1, 'commit': 42},
                  {'day': 2, 'commit': 48},
                  {'day': 3, 'commit': 48},
@@ -375,6 +375,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
                  {'day': 30, 'commit': 32}
                ]}
 
+
               //  function toggleButtonTxt(){
               //    if ($scope.dataIsShowing == false){
               //      $scope.dataIsShowing = true;
@@ -384,7 +385,7 @@ var eros = {size: 5, team: "eros", id: 8, array: [
               //  }
 
 
-
+$scope.dataArray = (deimos, linus, io, ida, gaspra, europa, dactyl, eros)
 // Awful Toggle Button Code - so not DRY
 var colorArray =
 ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
@@ -404,9 +405,14 @@ var colorArray =
               function toggleButtonLinus(){
                 if ($scope.dataIsShowingLinus == false){
                   $scope.dataIsShowingLinus = true;
+                  linus.isShowing = true
+                  $scope.dataArray = (deimos, linus, io, ida, gaspra, europa, dactyl, eros)
+
                 } else if ($scope.dataIsShowingLinus == true) {
                    $scope.dataIsShowingLinus = false;
                 }
+                linus.isShowing = false;
+                $scope.dataArray = (deimos, linus, io, ida, gaspra, europa, dactyl, eros)
               }
               function toggleButtonIo(){
                 if ($scope.dataIsShowingIo == false){
@@ -754,8 +760,10 @@ var colorArray =
                                tempArray.forEach(function(data, index) {
                                  console.log("data in d3 append function line 635:", data.id);
                                    // var lineColor = '#492058'
+                                   colorI = data.id
                                    var lineColor = colorArray[colorI];
-                                   colorI++;
+                                   $scope.colorArray[data.id] = lineColor;
+
                                    if (colorI == colorArray.length) {
                                        colorI = 0;
                                    }
