@@ -386,11 +386,11 @@ var eros = {size: 5, team: "eros", id: 8, array: [
 
 
 // Awful Toggle Button Code - so not DRY
-var colorArray =
-['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
-'#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
-'#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#1f655c',
-'#0bc1bc', '#bcbd22', '#dbdb8d','#17becf', '#9edae5'];
+// var colorArray =
+// ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
+// '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
+// '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#1f655c',
+// '#0bc1bc', '#bcbd22', '#dbdb8d','#17becf', '#9edae5'];
 
 
               function toggleButtonAll(){
@@ -680,7 +680,9 @@ var colorArray =
                                })
                                .y(function(d) {
                                    return y(d.commit);
-                               });
+                               })
+
+
 
                            // Adds the svg canvas
                            var svg = d3.select("#chart")
@@ -692,17 +694,20 @@ var colorArray =
                                    "translate(" + margin.left + "," + margin.top + ")");
 
 
+
+
+
                                    var dataArray = [];
 
 
-               function buildLines(tempArray, color){
+               function buildLines(tempArray){
                  var tempDataArray = [];
                  tempArray.forEach(function(team){
                    tempTeam = [];
                    console.log("team line 693:", team);
                    team.array.forEach(function(data){
                      var newData = (data.commit / team.size) * 100;
-                     tempTeam.push({day: data.day, commit: newData});
+                     tempTeam.push({day: data.day, commit: newData, team: data.team});
                      tempTeam.id = team.id;
                    });
                    tempDataArray.push(tempTeam);
@@ -759,12 +764,19 @@ var colorArray =
                                    if (colorI == colorArray.length) {
                                        colorI = 0;
                                    }
-
+                                   console.log("data in forEach", data);
                                    svg.append("path")
                                        .attr("class", "line")
                                        .style('stroke-width', 5)
                                        .attr("d", valueline(data))
+                                      //  .attr("data-legend", function(data){
+                                      //    console.log(data[index])
+                                      //     return data[index].team})
                                        .style("stroke", lineColor)
+
+
+
+
 
                                    // draw the scatterplot
                                    svg.selectAll("dot")
@@ -789,10 +801,18 @@ var colorArray =
                                .attr("transform", "translate(0," + height + ")")
                                .call(xAxis);
 
+
+
                            // Add the Y Axis
                            svg.append("g")
                                .attr("class", "y axis")
                                .call(yAxis);
+
+                            //  svg.append("g")
+                            //    .attr("class", "legend")
+                            //    .attr('transform', 'translate(50,30)')
+                            //    .style("font-size", "12px")
+                            //    .call(d3.legend);
 
                        }
 
