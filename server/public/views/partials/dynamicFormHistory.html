@@ -1,4 +1,4 @@
-<div ng-controller="DynamicFormController">
+<div>
     <div>
 
         <h3>Sprint 3 Registration</h3>
@@ -13,16 +13,16 @@
                 <div class="confirmButton" ng-click="results17 = !results17" style="display:inline;">View Results</div>
                 <div ng-show="results17">
                     <h6>1. Java // 35%</h6>
-                    <h6>2. iOS // 47%</h6>
-                    <h6>3. PHP // 1234%</h6>
-                    <h6>4. Python // 1234%</h6>
-                    <h6>5. .NET // 1234%</h6>
-                    <h6>6. REACT // 1234%</h6>
-                    <h6>7. JavaScript // 1234%</h6>
-                    <h6>8. C# // 1234%</h6>
-                    <h6>9. Lua // 1234%</h6>
-                    <h6>10. Ruby // 1234%</h6>
-                    <h6>11. Other // 1234%</h6>
+                    <h6>2. iOS // 20%</h6>
+                    <h6>3. PHP // 12%</h6>
+                    <h6>4. Python // 9%</h6>
+                    <h6>5. .NET // 12%</h6>
+                    <h6>6. REACT // 4%</h6>
+                    <h6>7. JavaScript // 14%</h6>
+                    <h6>8. C# // 7%</h6>
+                    <h6>9. Lua // 0%</h6>
+                    <h6>10. Ruby // 5%</h6>
+                    <h6>11. Other // 10%</h6>
                 </div>
             </div>
             <div>
@@ -135,6 +135,13 @@
             </br>
             </br>
         </div>
+    </div>
+
+    <div>
+      <h3>{{newForm.title}} </h3>
+      <p>{{newForm.description}}</p>
+      <div ng-if="newForm.title != ''" class="confirmButton" ng-click="setActive(survey)">SET AS ACTIVE SURVEY</div>
+      <div ng-if="newForm.title != ''" class="confirmButton" ng-click="responses2 = !responses2">VIEW RESPONSES</div>
     </div>
 
 

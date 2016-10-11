@@ -104,7 +104,7 @@ router.post('/', function(req, res) {
 
 router.put('/', function(req, res) {
 
-    //console.log("UPDATING activeSurvey to survey.id: ", req.body);
+    console.log("UPDATING activeSurvey to survey.id: ", req.body);
 
 
 
