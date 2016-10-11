@@ -17,34 +17,34 @@
   </div>
   <div ng-show="sprint2">
     <div class="teamListItem">
-    <div class="dataButton" ng-click="dataIsShowingAll ? reload('location') : showData('2All')">{{dataIsShowingAll ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >All Teams - 82 players - 75%</p>
+    <div class="dataButton dataButton0" ng-click="dataIsShowingAll ? reload('location') : showData('2All')">{{dataIsShowingAll ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >All Teams - 82 players - 75%</p>
   </div>
   <div class="teamListItem oddMemList">
-    <div class="dataButton" ng-click="dataIsShowingDeimos ? showData('2Deimos') : showData('2Deimos')">{{dataIsShowingDeimos ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Deimos - 5 players - 72%</p>
+    <div class="dataButton {{dataIsShowingDeimos ? 'dataButton1' : ''}}" ng-click="dataIsShowingDeimos ? showData('2Deimos') : showData('2Deimos')">{{dataIsShowingDeimos ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Deimos - 5 players - 72%</p>
   </div>
   <div class="teamListItem">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Linus') : showData('2Linus')">{{dataIsShowingLinus ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Linus - 15 players - 89% </p>
+    <div class="dataButton {{dataIsShowingLinus ? 'dataButton2' : ''}}" ng-click="dataIsShowing ? showData('2Linus') : showData('2Linus')">{{dataIsShowingLinus ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Linus - 15 players - 89% </p>
   </div>
   <div class="teamListItem oddMemList">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Io') : showData('2Io')">{{dataIsShowingIo ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Io - 5 players - 73%</p>
+    <div class="dataButton {{dataIsShowingIo ? 'dataButton3' : ''}}" ng-click="dataIsShowing ? showData('2Io') : showData('2Io')">{{dataIsShowingIo ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Io - 5 players - 73%</p>
   </div>
   <div class="teamListItem">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Ida') : showData('2Ida')">{{dataIsShowingIda ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Ida - 6 players - 72%</p>
+    <div class="dataButton {{dataIsShowingIda ? 'dataButton4' : ''}}" ng-click="dataIsShowing ? showData('2Ida') : showData('2Ida')">{{dataIsShowingIda ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Ida - 6 players - 72%</p>
   </div>
   <div class="teamListItem oddMemList">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Gaspra') : showData('2Gaspra')">{{dataIsShowingGaspra ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Gaspra - 5 players - 99%</p>
+    <div class="dataButton {{dataIsShowingGaspra ? 'dataButton5' : ''}}" ng-click="dataIsShowing ? showData('2Gaspra') : showData('2Gaspra')">{{dataIsShowingGaspra ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Gaspra - 5 players - 99%</p>
   </div>
   <div class="teamListItem">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Europa') : showData('2Europa')">{{dataIsShowingEuropa ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName">Europa - 5 players - 71%</p>
+    <div class="dataButton {{dataIsShowingEuropa ? 'dataButton6' : ''}}" ng-click="dataIsShowing ? showData('2Europa') : showData('2Europa')">{{dataIsShowingEuropa ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName">Europa - 5 players - 71%</p>
   </div>
   <div class="teamListItem oddMemList">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Dactyl') : showData('2Dactyl')">{{dataIsShowingDactyl ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Dactyl - 5 players - 84%</p>
+    <div class="dataButton {{dataIsShowingDactyl ? 'dataButton7' : ''}}" ng-click="dataIsShowing ? showData('2Dactyl') : showData('2Dactyl')">{{dataIsShowingDactyl ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Dactyl - 5 players - 84%</p>
   </div>
   <div class="teamListItem">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2Eros') : showData('2Eros')">{{dataIsShowingEros ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Eros - 5 players - 65%</p>
+    <div class="dataButton {{dataIsShowingEros ? 'dataButton8' : ''}}" ng-click="dataIsShowing ? showData('2Eros') : showData('2Eros')">{{dataIsShowingEros ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >Eros - 5 players - 65%</p>
   </div>
   <div class="teamListItem oddMemList">
-    <div class="dataButton" ng-click="dataIsShowing ? showData('2No') : showData('2No')">{{dataIsShowingNo ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >No Team - 25 players - 65%</p>
+    <div class="dataButton {{dataIsShowingNo ? 'dataButton9' : ''}}" ng-click="dataIsShowing ? showData('2No') : showData('2No')">{{dataIsShowingNo ? 'Hide Data' : 'Show Data'}}</div> <p class="teamName" >No Team - 25 players - 65%</p>
   </div>
 
   </div>
@@ -80,6 +80,15 @@
 
 
     </div>
+
+    <style ng-repeat='color in colorArray track by $index'>
+
+      .dataButton{{$index}}{ background-color: {{color}}; }
+
+    </style>
+
+
+
     <!-- <div ng-repeat="sprint in sprintHistory track by $index" ng-click="clickedSprint(sprint.title)" class="sprint_option">
 
         <div ng-if="currentSprintOpen == sprint.title">
