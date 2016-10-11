@@ -98,7 +98,9 @@
 .popupWindow {
     position: fixed;
     width: 80%;
-    height: 74%;
+    height: 56%;
+    padding: 40px;
+    border: 2px solid black;
     background-color: white;
     z-index: 1000;
     opacity: 1.0;
@@ -230,6 +232,7 @@ main * {
     display: block;
   width: 100%;
   margin: auto;
+  font-size: 14px !important;
 
 
 }
