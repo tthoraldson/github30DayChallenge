@@ -34,7 +34,7 @@
     <div class="activeSurvey">
         <h2><em>Active Survey: </em>{{activeSurvey.form_title}}</h2>
         <!-- <p>Sprint #4 Registeration </p> -->
-        <p style="display:inline;">81/112 submited</p>
+        <!-- <p style="display:inline;">81/112 submited</p> -->
         <div class="confirmButton" ng-click="results = !results">View Results</div>
         <br/>
         <br/>
@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <div class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">FORM HISTORY</div>
+    <div class="createNewSurvey" ng-click="dynamicForm_history=!dynamicForm_history">SURVEY HISTORY</div>
     <div ng-show="dynamicForm_history" class="dynamicForm_history" ng-include="'/views/partials/dynamicFormHistory.html'"></div>
 
     <div class="createNewSurvey" ng-click="dynamicForm_container=!dynamicForm_container">CREATE NEW SURVEY</div>

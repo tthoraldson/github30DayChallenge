@@ -1,4 +1,4 @@
-<div ng-controller="DynamicFormController">
+<div>
     <div>
 
         <h3>Sprint 3 Registration</h3>
@@ -137,7 +137,12 @@
         </div>
     </div>
 
-    <div>HEY THIS IS WHERE NEW FORM GETS SUBBED TO!</div>
+    <div>
+      <h3>{{newForm.title}} </h3>
+      <p>{{newForm.description}}</p>
+      <div ng-if="newForm.title != ''" class="confirmButton" ng-click="setActive(survey)">SET AS ACTIVE SURVEY</div>
+      <div ng-if="newForm.title != ''" class="confirmButton" ng-click="responses2 = !responses2">VIEW RESPONSES</div>
+    </div>
 
 
 </div>

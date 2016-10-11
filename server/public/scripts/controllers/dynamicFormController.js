@@ -173,16 +173,66 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
             // console.log('current form', $scope.newForm);
         }
 
-
         $scope.submitForm = function(form) {
-          $http.put('/formData', {id: 24})
+
+          $http.put('/formData', {id: 25})
               .then(function() {
                   findActive();
 
                   console.log('running? .put');
               });
-              console.log('turning activeSurvey into: ', form);
-              $scope.activeSurvey = form;
+              // console.log('turning activeSurvey into: ', form);
+
+
+            $http.post('/formData', form)
+                console.log('running? .post')
+                .then(function() {
+
+
+                    $scope.newForm = {
+                        formDBref: 0,
+                        title: "Untitled Survey",
+                        description: "",
+                        questions: []
+                    }
+
+                    //
+                    $scope.surveyTitle = {
+                        formDBref: 0,
+                        title: "Untitled Survey",
+                        description: ""
+                    };
+
+                    $scope.newSurveyQuestion = {
+                        title: "untitled question",
+                        description_MultiChoice: "Choose Best Answer:",
+                        description_Checkbox: "Choose All That Apply:",
+                        multipleChoice: [{
+                            check: false,
+                            option: "untitled option"
+                        }],
+                        checkbox: [{
+                            check: false,
+                            option: "untitled option"
+                        }],
+                        shortAnswer: ""
+                    };
+
+
+                    console.log('post complete')
+
+                })
+        };
+        $scope.submitFormMakeActive = function(form) {
+          $scope.dynamicForm_container = false;
+          $http.put('/formData', {id: 30})
+              .then(function() {
+                  findActive();
+
+                  console.log('running? .put');
+              });
+              // console.log('turning activeSurvey into: ', form);
+
 
             $http.post('/formData', form)
                 console.log('running? .post')

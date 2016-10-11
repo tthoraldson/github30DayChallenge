@@ -1,5 +1,5 @@
 
-<div class="dynamicForm_container" ng-controller="DynamicFormController">
+<div class="dynamicForm_container">
     <h3>Create Form</h3>
     <form ng-model="newSurveyQuestion">
         <input class="surveyTitle" placeholder="Survey Title" type="text" ng-model="newForm.title" style="font-weight:bold;" />
@@ -57,8 +57,8 @@
     </form>
 
 
-    CURRENT FORM:
-    <div class="currentForm">
+
+    <div ng-if="newForm.title != ''" class="currentForm">
         <h1 class="formCurrentTitle">{{newForm.title}}</h1>
         <h4 class="formDescTitle">{{newForm.description}}</h4>
         <div class="{{($index % 2) === 0 ? 'currentForm_title' : 'currentForm_title2'}}" ng-repeat="question in newForm.questions track by $index">
@@ -85,7 +85,11 @@
                 <input type="text" class="formInput_shortAnswer" />
             </div>
         </div>
-        <div class="confirmButton" ng-click="submitForm(newForm)">Submit Form</div>
+
+        <div ng-if="newForm.questions.length != 0" class="confirmButton" ng-click="submitForm(newForm)">Save Form</div>
+        <div ng-if="newForm.questions.length != 0" class="confirmButton" ng-click="submitFormMakeActive(newForm)">Save Form and Set As Active Survey</div>
+
+
     </div>
 
 
