@@ -8,25 +8,25 @@
 }
 
 #logoWords{
-font-family: 'crapaud_petit', sans-serif;
-font-size: 14px;
-color: white;
-font-weight: bold;
-/*font-weight: bold;*/
-position: absolute;
-top: 40px;
-left: 70px;
--webkit-transform: translate(0%, -50%);
-/*border: 1px solid black;*/
+  font-family: 'crapaud_petit', sans-serif;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  /* font-weight: bold; */
+  position: absolute;
+  top: 36px;
+  left: 49px;
+  -webkit-transform: translate(0%, -50%);
+  /* border: 1px solid black; */
 }
 
 #logo{
-margin-left: 20px;
-/*margin-bottom: 10px;*/
-margin-top: 21px;
-width: 30px;
-height: 30px;
-/*opacity: .5;*/
+  margin-left: 5px;
+  /* margin-bottom: 10px; */
+  margin-top: 14px;
+  width: 40px;
+  height: 40px;
+  /* opacity: .5; */
 }
 
 .formInput_option{
@@ -298,7 +298,7 @@ main * {
 }
 
 .memRow {
-    /*height: 50px;*/
+    height: 45px;
     padding-top: 5px;
     padding-bottom: 8px;
 }

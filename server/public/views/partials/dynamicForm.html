@@ -1,7 +1,8 @@
+
 <div class="dynamicForm_container" ng-controller="DynamicFormController">
     <h3>Create Form</h3>
     <form ng-model="newSurveyQuestion">
-        <input class="surveyTitle" placeholder="Survey Title" type="text" ng-model="newForm.title" style="font-weight:bold;"/>
+        <input class="surveyTitle" placeholder="Survey Title" type="text" ng-model="newForm.title" style="font-weight:bold;" />
         <input class="surveyDescription" type="text" placeholder="description" ng-model="newForm.description" />
         <!-- <h5>TODO: add form options ie: 'start sprint/general survey && email '</h5> -->
         <br />
@@ -11,7 +12,7 @@
             <div class="confirmButton" ng-click="selectedDataType('checkBox')">Check-Box</div>
             <div class="confirmButton" ng-click="selectedDataType('multipleChoice')">Multiple Choice</div>
             <div class="confirmButton" ng-click="selectedDataType('shortAnswer')">Short Answer</div>
-              <input class="questionTitle" type="text" placeholder="new question" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
+            <input class="questionTitle" type="text" placeholder="new question" ng-model="newSurveyQuestion.title" value="newSurveyQuestion.title" />
         </div>
         <br />
         <!-- shortanswer -->
@@ -25,7 +26,8 @@
             <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_MultiChoice" value="newSurveyQuestion.description_MultiChoice" />
 
             <div ng-repeat="option in newSurveyQuestion.multipleChoice track by $index">
-                <p class="indexCounter">{{$index + 1}}.<input class="inputButtonThing" type="radio"></input></p>
+                <p class="indexCounter">{{$index + 1}}.<input class="inputButtonThing" type="radio"></input>
+                </p>
 
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.multipleChoice[$index].option" value="newSurveyQuestion.multipleChoice[$index].option" />
 
@@ -39,7 +41,8 @@
             <input class="choiceDescription" type="text" ng-model="newSurveyQuestion.description_Checkbox" value="newSurveyQuestion.description_Checkbox" />
 
             <div ng-repeat="option in newSurveyQuestion.checkbox track by $index">
-                <p class="indexCounter"> {{$index + 1}}.<input class="inputButtonThing"  type="checkbox"></input></p>
+                <p class="indexCounter"> {{$index + 1}}.<input class="inputButtonThing" type="checkbox"></input>
+                </p>
 
                 <input class="formInput_option" placeholder="new option" ng-model="newSurveyQuestion.checkbox[$index].option" value="newSurveyQuestion.checkbox[$index].option" />
 
@@ -79,11 +82,13 @@
 
 
             <div ng-if="question.type == 'shortAnswer'">
-                <input type = "text" class="formInput_shortAnswer" />
+                <input type="text" class="formInput_shortAnswer" />
             </div>
         </div>
         <div class="confirmButton" ng-click="submitForm(newForm)">Submit Form</div>
     </div>
+
+
 
 
 </div>

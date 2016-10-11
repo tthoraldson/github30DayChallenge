@@ -1,8 +1,36 @@
 <div class="main_container" ng-if="tab == 3" ng-controller="DynamicFormController">
 
-    <!--- THESE BUTTON AND SHOW AND HIDE IS JUST TO EASE MY HEADACHE, PLEASE SOMEONE FIX THIS lol :) -->
-    <!-- <button ng-click="showEmail=!showEmail">SEND NEW EMAIL</button>
-    <div ng-show="showEmail" ng-include="'/views/partials/invite.html'"></div> <br /> -->
+  <div ng-if="submitSurveyWindow" class="popupWindow">
+      <h1 class="formCurrentTitle">{{newForm.title}}</h1>
+      <h4 class="formDescTitle">{{newForm.description}}</h4>
+      <div class="{{($index % 2) === 0 ? 'currentForm_title' : 'currentForm_title2'}}" ng-repeat="question in newForm.questions track by $index">
+          {{question.title}}
+          <div ng-if="question.type == 'checkbox'">
+              <div class="question_desc">{{question.desc}} </div>
+
+              <div ng-repeat="option in question.options">
+                  <input type="checkbox" />{{option.option}}
+              </div>
+          </div>
+
+
+          <div ng-if="question.type == 'multipleChoice'">
+              <div class="question_desc">{{question.desc}} </div>
+
+              <div ng-repeat="option in question.options">
+                  <input type="radio" />{{option.option}}
+              </div>
+          </div>
+
+
+          <div ng-if="question.type == 'shortAnswer'">
+              <input type="text" class="formInput_shortAnswer" />
+          </div>
+      </div>
+  </div>
+  <div ng-if="submitSurveyWindow" class="popupBackground"></div>
+
+
     <div class="activeSurvey">
         <h2><em>Active Survey: </em>{{activeSurvey.form_title}}</h2>
         <!-- <p>Sprint #4 Registeration </p> -->
