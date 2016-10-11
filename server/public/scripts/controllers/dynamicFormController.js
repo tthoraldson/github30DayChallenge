@@ -225,7 +225,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         };
         $scope.submitFormMakeActive = function(form) {
           $scope.dynamicForm_container = false;
-          $http.put('/formData', {id: 30})
+          $http.put('/formData', {id: 12})
               .then(function() {
                   findActive();
 
