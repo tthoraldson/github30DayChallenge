@@ -33,13 +33,13 @@ myApp.controller("SurveyController", ["$scope", "$http", "$location", "AuthFacto
       $http.post('/formData/entry', {uname: user, survey: survey}).then(function(){
         console.log('new data posted to', survey.form_title);
         $scope.thankYou = true;
-        var timer = setTimeout(showChanger, 3000);
+        // var timer = setTimeout(showChanger, 3000);
 
-        function showChanger(){
-          $scope.$apply(function() {
-              $scope.thankYou = false;
-          });
-        }
+        // function showChanger(){
+        //   $scope.$apply(function() {
+        //       $scope.thankYou = false;
+        //   });
+        // }
 
       });
     }

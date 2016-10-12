@@ -7,6 +7,11 @@
   src: url('../styles/fonts/crapaud_petit.otf');
 }
 
+@font-face{
+  font-family: Interstate-Light;
+  src: url('../styles/fonts/InterState/Interstate-Light.otf');
+}
+
 #logoWords{
   font-family: 'crapaud_petit', sans-serif;
   font-size: 14px;
@@ -171,7 +176,7 @@ a {
 }
 
 main * {
-    font-family: 'Helvetica';
+        font-family: 'Interstate-Light', sans-serif;
     font-weight: 300;
 }
 
@@ -359,14 +364,17 @@ main * {
 
 .dataButton:hover {
     color: white;
-    background-color: #45AA9E;
+    /*background-color: #45AA9E;*/
 }
 
 .dataButton:active {
     color: white;
-    background-color: #45AA9E;
+    /*background-color: #45AA9E;*/
 }
 
+.currentSurvey_title {
+  color: black;
+}
 .editable {
     font-size: 1.2em;
     /*color: black;*/
@@ -724,7 +732,7 @@ h1 {
     height: 40px;
     background-color: #07AA9E;
     padding-top: 2px;
-    font-family: helvetica;
+    font-family: 'Interstate-Light', sans-serif;
     text-align: center;
     font-size: 1.8em;
     font-weight: normal;
@@ -759,7 +767,9 @@ h1 {
 }
 
 .exitFullscreen {
-    font: 200 20px/145px Helvetica;
+    font: 200 20px/145px;
+    font-family: 'Interstate-Light', sans-serif;
+
     text-align: center;
     text-transform: uppercase;
     color: white;

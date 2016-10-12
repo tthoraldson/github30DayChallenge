@@ -54,11 +54,11 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
     })
 
     var formResults = FormFactory.updateFormResults();
-    formResults([2, 4])
-        .then(function(data) {
-            var responses = FormFactory.formResponses();
-            console.log('this is the shit:', responses);
-        })
+    // formResults([2, 4])
+    //     .then(function(data) {
+    //         var responses = FormFactory.formResponses();
+    //         console.log('this is the shit:', responses);
+    //     })
 
 
 
@@ -175,7 +175,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
         $scope.submitForm = function(form) {
 
-          $http.put('/formData', {id: 25})
+          $http.put('/formData', {id: 6})
               .then(function() {
                   findActive();
 
@@ -225,7 +225,7 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
         };
         $scope.submitFormMakeActive = function(form) {
           $scope.dynamicForm_container = false;
-          $http.put('/formData', {id: 12})
+          $http.put('/formData', {id: 12}) //HERE
               .then(function() {
                   findActive();
 
@@ -255,8 +255,8 @@ myApp.controller("DynamicFormController", ["$scope", "$http", "$location", 'Auth
 
                     $scope.newSurveyQuestion = {
                         title: "untitled question",
-                        description_MultiChoice: "Choose Best Answer:",
-                        description_Checkbox: "Choose All That Apply:",
+                        description_MultiChoice: "Choose All That Apply:",
+                        description_Checkbox: "Choose Best Answer:",
                         multipleChoice: [{
                             check: false,
                             option: "untitled option"
